@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMMS MAT: संख्या/अक्षर मालिका प्रश्नमंजुषा - स्पष्टीकरण</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Styling for NMMS MAT */
+        body { font-family: 'Arial', sans-serif; background-color: #f0f4f8; }
+        .quiz-container { max-width: 800px; margin: 30px auto; padding: 20px; background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
+        .header { background-color: #4f46e5; color: white; padding: 15px; border-radius: 8px 8px 0 0; text-align: center; font-size: 1.5rem; font-weight: bold; }
+        .question-card { margin-top: 20px; padding: 20px; border: 2px solid #e5e7eb; border-radius: 8px; background-color: #fff; }
+        .series-display { font-size: 1.8rem; font-weight: bold; text-align: center; margin: 20px 0; padding: 10px; background-color: #eef2ff; border-radius: 6px; color: #4f46e5; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .option-button { background-color: #e0f2f1; color: #0d9488; border: 2px solid #2dd4bf; padding: 12px; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-size: 1rem; text-align: center; font-weight: 500;}
+        .submit-btn { display: block; width: 100%; padding: 15px; margin-top: 30px; background-color: #10b981; color: white; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-weight: bold; }
+        .result-message { text-align: center; margin-top: 20px; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: bold; background-color: #d1fae5; border: 2px solid #10b981; color: #065f46; }
+        
+        /* Selection and Feedback Styles */
+        .selected { background-color: #c7d2fe !important; border-color: #4f46e5 !important; color: #1e3a8a !important; font-weight: 700; }
+        .correct { background-color: #d1fae5 !important; border-color: #10b981 !important; color: #065f46 !important; font-weight: 700; }
+        .incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+
+        /* Explanation Box Style */
+        .explanation { 
+            margin-top: 15px; 
+            padding: 10px; 
+            background-color: #fef9e7; /* Light Yellow/Orange */
+            border: 1px solid #f97316; /* Orange Border */
+            border-radius: 6px; 
+            font-size: 0.95rem; 
+            color: #1e40af; /* Dark Blue Text */
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
+            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+                <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        
+        <div class="header">
+            NMMS MAT: संख्या/अक्षर मालिका प्रश्नमंजुषा (१० प्रश्न) 🧠
+        </div>
+
+        <form id="mat-quiz-form">
+            <div class="question-card" id="question1">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १:</strong> खालील संख्या मालिकेत रिकाम्या जागी येणारी संख्या कोणती?</p>
+                <div class="series-display">2, 5, 10, 17, **?**, 37</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="1" data-opt="1" onclick="selectAnswer(1, 1)">A) 24</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="2" onclick="selectAnswer(1, 2)">B) 26</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="3" onclick="selectAnswer(1, 3)">C) 28</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="4" onclick="selectAnswer(1, 4)">D) 30</button>
+                </div>
+                <div class="explanation" id="explanation1"></div>
+            </div>
+
+            <div class="question-card" id="question2">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २:</strong> खालील अक्षर मालिकेत रिकाम्या जागी येणारे अक्षर समूह (Letter Cluster) कोणता?</p>
+                <div class="series-display">AZ, BY, CX, **?**, EV</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="2" data-opt="1" onclick="selectAnswer(2, 1)">A) DU</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="2" onclick="selectAnswer(2, 2)">B) DW</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="3" onclick="selectAnswer(2, 3)">C) ET</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="4" onclick="selectAnswer(2, 4)">D) DS</button>
+                </div>
+                <div class="explanation" id="explanation2"></div>
+            </div>
+            
+            <div class="question-card" id="question3">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३:</strong> पुढील मालिकेत येणारी संख्या कोणती?</p>
+                <div class="series-display">0, 3, 8, 15, 24, **?**</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="3" data-opt="1" onclick="selectAnswer(3, 1)">A) 33</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="2" onclick="selectAnswer(3, 2)">B) 35</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="3" onclick="selectAnswer(3, 3)">C) 48</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="4" onclick="selectAnswer(3, 4)">D) 39</button>
+                </div>
+                <div class="explanation" id="explanation3"></div>
+            </div>
+            
+            <div class="question-card" id="question4">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४:</strong> दिलेल्या मालिकेत रिकाम्या जागी काय येईल?</p>
+                <div class="series-display">A, C, E, G, **?**, K</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="4" data-opt="1" onclick="selectAnswer(4, 1)">A) H</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="2" onclick="selectAnswer(4, 2)">B) I</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="3" onclick="selectAnswer(4, 3)">C) J</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="4" onclick="selectAnswer(4, 4)">D) L</button>
+                </div>
+                <div class="explanation" id="explanation4"></div>
+            </div>
+
+            <div class="question-card" id="question5">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ५:</strong> चुकीचे पद ओळखा. (जी संख्या मालिकेतील नियमांना धरून नाही)</p>
+                <div class="series-display">10, 12, 11, 14, 12, 16, **14**, 18</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="5" data-opt="1" onclick="selectAnswer(5, 1)">A) 12</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="2" onclick="selectAnswer(5, 2)">B) 14</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="3" onclick="selectAnswer(5, 3)">C) 16</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="4" onclick="selectAnswer(5, 4)">D) 18</button>
+                </div>
+                <div class="explanation" id="explanation5"></div>
+            </div>
+            
+            <div class="question-card" id="question6">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ६:</strong> पुढील मालिकेत येणारी संख्या कोणती?</p>
+                <div class="series-display">3, 7, 15, 31, **?**</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="6" data-opt="1" onclick="selectAnswer(6, 1)">A) 55</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="2" onclick="selectAnswer(6, 2)">B) 63</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="3" onclick="selectAnswer(6, 3)">C) 61</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="4" onclick="selectAnswer(6, 4)">D) 72</button>
+                </div>
+                <div class="explanation" id="explanation6"></div>
+            </div>
+
+            <div class="question-card" id="question7">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ७:</strong> पुढील मालिकेतील योग्य पद ओळखा.</p>
+                <div class="series-display">D, G, J, M, **?**</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="7" data-opt="1" onclick="selectAnswer(7, 1)">A) P</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="2" onclick="selectAnswer(7, 2)">B) O</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="3" onclick="selectAnswer(7, 3)">C) N</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="4" onclick="selectAnswer(7, 4)">D) Q</button>
+                </div>
+                <div class="explanation" id="explanation7"></div>
+            </div>
+
+            <div class="question-card" id="question8">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ८:</strong> मालिकेतील प्रश्नचिन्हाच्या जागी कोणती संख्या येईल?</p>
+                <div class="series-display">2, 9, 28, 65, **?**</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="8" data-opt="1" onclick="selectAnswer(8, 1)">A) 126</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="2" onclick="selectAnswer(8, 2)">B) 128</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="3" onclick="selectAnswer(8, 3)">C) 124</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="4" onclick="selectAnswer(8, 4)">D) 130</button>
+                </div>
+                <div class="explanation" id="explanation8"></div>
+            </div>
+            
+            <div class="question-card" id="question9">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ९:</strong> खालील मालिकेत प्रश्नचिन्हाच्या जागी काय येईल?</p>
+                <div class="series-display">B, D, G, K, **?**</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="9" data-opt="1" onclick="selectAnswer(9, 1)">A) M</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="2" onclick="selectAnswer(9, 2)">B) N</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="3" onclick="selectAnswer(9, 3)">C) P</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="4" onclick="selectAnswer(9, 4)">D) O</button>
+                </div>
+                <div class="explanation" id="explanation9"></div>
+            </div>
+
+            <div class="question-card" id="question10">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १०:</strong> पुढील मालिकेतील पुढची संख्या ओळखा.</p>
+                <div class="series-display">1, 1, 2, 3, 5, 8, **?**</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="10" data-opt="1" onclick="selectAnswer(10, 1)">A) 11</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="2" onclick="selectAnswer(10, 2)">B) 12</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="3" onclick="selectAnswer(10, 3)">C) 13</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="4" onclick="selectAnswer(10, 4)">D) 14</button>
+                </div>
+                <div class="explanation" id="explanation10"></div>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submit-button">प्रश्नमंजुषा सबमिट करा आणि निकाल पहा</button>
+        </form>
+        
+        <div class="result-message hidden" id="quiz-result">
+            </div>
+
+    </div>
+    
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 T.T. Patil Pishavikar. NMMS मार्गदर्शन.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Key: Question Number, Value: Correct Option Number (1, 2, 3, or 4)
+        const correctAnswers = { 
+            1: 2, // 26
+            2: 2, // DW
+            3: 2, // 35 (n^2 - 1)
+            4: 2, // I (+2 jump)
+            5: 2, // 14 is the wrong term, should be 13 (alternate series)
+            6: 2, // 63 (*2 + 1)
+            7: 1, // P (+3 jump)
+            8: 1, // 126 (n^3 + 1)
+            9: 3, // P (+2, +3, +4, +5 jump)
+            10: 3 // 13 (Fibonacci: 5+8)
+        };
+        // Key: Question Number, Value: Explanation Text
+        const explanations = {
+            1: "योग्य उत्तर <strong>26</strong> आहे. कारण, ही मालिका विषम संख्यांच्या फरकाने (+3, +5, +7, +9) वाढत आहे. 17 + 9 = 26.",
+            2: "योग्य उत्तर <strong>DW</strong> आहे. ही मालिका विरुद्ध अक्षरांच्या जोड्यांवर आधारित आहे. (A-Z, B-Y, C-X, D-W, E-V).",
+            3: "योग्य उत्तर <strong>35</strong> आहे. ही मालिका n² - 1 या नियमावर आधारित आहे. (6² - 1 = 35).",
+            4: "योग्य उत्तर <strong>I</strong> आहे. ही मालिका +2 अक्षरांच्या फरकाने पुढे जात आहे. (G + 2 = I).",
+            5: "योग्य उत्तर <strong>14</strong> आहे. ही दोन मालिकांचे मिश्रण आहे: पहिली (10, 11, 12, **13**) आणि दुसरी (12, 14, 16, 18). 14 ऐवजी 13 असायला हवे होते.",
+            6: "योग्य उत्तर <strong>63</strong> आहे. ही मालिका *2 + 1 या नियमावर आधारित आहे. (31 * 2 + 1 = 63).",
+            7: "योग्य उत्तर <strong>P</strong> आहे. प्रत्येक अक्षरात +3 चा फरक आहे. (M + 3 = P).",
+            8: "योग्य उत्तर <strong>126</strong> आहे. ही मालिका n³ + 1 या नियमावर आधारित आहे. (5³ + 1 = 126).",
+            9: "योग्य उत्तर <strong>P</strong> आहे. ही मालिकेतील फरकाची मालिका आहे: +2, +3, +4, नंतर +5. (K + 5 = P).",
+            10: "योग्य उत्तर <strong>13</strong> आहे. ही फिबोनाची मालिका आहे, जिथे पुढील संख्या मागील दोन संख्यांची बेरीज असते. (5 + 8 = 13)."
+        };
+
+
+        let userAnswers = {};
+        const totalQuestions = Object.keys(correctAnswers).length;
+        
+        function selectAnswer(questionNum, optionNum) {
+            userAnswers[questionNum] = optionNum;
+            
+            const options = document.querySelectorAll(`#question${questionNum} .option-button`);
+            options.forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+            });
+
+            const selectedButton = document.querySelector(`#question${questionNum} .option-button[data-opt="${optionNum}"]`);
+            selectedButton.classList.add('selected');
+        }
+
+        document.getElementById('mat-quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            showResults();
+        });
+
+        function showResults() {
+            let score = 0;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const qNum = i;
+                const correctAnswer = correctAnswers[qNum];
+                const userAnswer = userAnswers[qNum];
+                const qBlock = document.getElementById(`question${qNum}`);
+                const options = qBlock.querySelectorAll('.option-button');
+                const explanationDiv = document.getElementById(`explanation${qNum}`);
+                
+                // 1. Show Feedback (Correct/Incorrect highlighting)
+                options.forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.remove('selected');
+                    const optNum = parseInt(btn.getAttribute('data-opt'));
+                    
+                    if (optNum === correctAnswer) {
+                        btn.classList.add('correct');
+                    } else if (optNum === userAnswer && userAnswer !== correctAnswer) {
+                        btn.classList.add('incorrect');
+                    } else {
+                         btn.style.backgroundColor = '#f3f4f6';
+                         btn.style.color = '#1f2937';
+                         btn.style.borderColor = '#d1d5db';
+                    }
+                });
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+                
+                // 2. Display Explanation
+                const correctText = qBlock.querySelector(`.option-button[data-opt="${correctAnswer}"]`).textContent.trim();
+                
+                explanationDiv.innerHTML = `
+                    <strong>✅ योग्य उत्तर:</strong> ${correctText}
+                    <br>
+                    <strong>💡 स्पष्टीकरण:</strong> ${explanations[qNum]}
+                `;
+                explanationDiv.style.display = 'block';
+            }
+
+            // 3. Display Final Score
+            const resultElement = document.getElementById('quiz-result');
+            resultElement.classList.remove('hidden');
+            resultElement.innerHTML = `
+                🎉 तुमचा निकाल: <strong>${totalQuestions}</strong> पैकी <strong>${score}</strong> प्रश्न बरोबर!
+                <div style="margin-top: 10px; font-size: 1rem; font-weight: 500; color: #059669;">प्रत्येक प्रश्नाचे स्पष्टीकरण खाली दिलेले आहे.</div>
+            `;
+            
+            // Disable Submit Button
+            document.getElementById('submit-button').disabled = true;
+            document.getElementById('submit-button').textContent = 'निकाल दर्शविला आहे';
+            document.getElementById('submit-button').classList.add('bg-gray-400');
+            
+            window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

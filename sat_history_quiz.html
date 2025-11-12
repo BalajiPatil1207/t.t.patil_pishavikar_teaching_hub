@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMMS SAT: इतिहास व नागरिकशास्त्र प्रश्नमंजुषा - T.T. Patil Pishavikar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Styling for NMMS SAT - Brown/Red Theme (History) */
+        body { font-family: 'Arial', sans-serif; background-color: #fefcfb; }
+        .quiz-container { max-width: 800px; margin: 30px auto; padding: 20px; background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
+        .header { background-color: #991b1b; /* Maroon/Dark Red */ color: white; padding: 15px; border-radius: 8px 8px 0 0; text-align: center; font-size: 1.5rem; font-weight: bold; }
+        .question-card { margin-top: 20px; padding: 20px; border: 2px solid #fee2e2; border-radius: 8px; background-color: #fff; }
+        .series-display { font-size: 1.2rem; font-weight: bold; text-align: center; margin: 20px 0; padding: 10px; background-color: #fff7ed; border-radius: 6px; color: #92400e; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .option-button { background-color: #fffbeb; color: #78350f; border: 2px solid #fcd34d; padding: 12px; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-size: 1rem; text-align: center; font-weight: 500;}
+        
+        /* Buttons */
+        .submit-btn { display: block; width: 100%; padding: 15px; margin-top: 30px; background-color: #991b1b; color: white; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-weight: bold; }
+        .reset-btn { display: block; width: 100%; padding: 15px; margin-top: 15px; background-color: #3b82f6; /* Blue */ color: white; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-weight: bold; }
+        .reset-btn:hover { background-color: #2563eb; }
+
+        .result-message { text-align: center; margin-top: 20px; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: bold; background-color: #fef2f2; border: 2px solid #991b1b; color: #7f1d1d; }
+        
+        /* Selection and Feedback Styles */
+        .selected { background-color: #fef3c7 !important; border-color: #f59e0b !important; color: #92400e !important; font-weight: 700; }
+        .correct { background-color: #d1fae5 !important; border-color: #059669 !important; color: #065f46 !important; font-weight: 700; }
+        .incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+
+        /* Explanation Box Style */
+        .explanation { 
+            margin-top: 15px; 
+            padding: 10px; 
+            background-color: #ebf5ff; /* Light Blue */
+            border: 1px solid #3b82f6; /* Blue Border */
+            border-radius: 6px; 
+            font-size: 0.95rem; 
+            color: #1e40af; /* Dark Blue Text */
+            display: none; 
+        }
+        @media (max-width: 600px) {
+            .options-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
+            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+                <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        
+        <div class="header">
+            NMMS SAT: इतिहास व नागरिकशास्त्र प्रश्नमंजुषा (१० प्रश्न) 🏛️
+        </div>
+
+        <!-- Custom Reset Prompt Modal/Overlay (Hidden by default) -->
+        <div id="reset-prompt" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50">
+            <div class="bg-white p-6 rounded-xl shadow-2xl w-80 text-center transform transition-all scale-100 duration-300">
+                <p class="text-xl font-bold text-red-700 mb-4">तुम्हाला खात्री आहे?</p>
+                <p class="text-gray-700 mb-6">सर्व निवडलेली उत्तरे **मिटवून** प्रश्नमंजुषा **पुन्हा सुरू** करायची आहे का? हा डेटा परत मिळणार नाही.</p>
+                <div class="flex justify-center space-x-4">
+                    <button id="confirm-reset" class="px-4 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition">होय, मिटवा</button>
+                    <button id="cancel-reset" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg font-semibold hover:bg-gray-400 transition">नाही</button>
+                </div>
+            </div>
+        </div>
+
+        <form id="sat-quiz-form">
+            <div class="question-card" id="question1">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १: (इतिहास)</strong> छत्रपती शिवाजी महाराजांचा राज्याभिषेक कोणत्या किल्ल्यावर झाला?</p>
+                <div class="series-display">रायगड, शिवनेरी, तोरणा, पन्हाळा</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="1" data-opt="1" onclick="selectAnswer(1, 1)">A) शिवनेरी</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="2" onclick="selectAnswer(1, 2)">B) रायगड</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="3" onclick="selectAnswer(1, 3)">C) पन्हाळा</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="4" onclick="selectAnswer(1, 4)">D) तोरणा</button>
+                </div>
+                <div class="explanation" id="explanation1"></div>
+            </div>
+
+            <div class="question-card" id="question2">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २: (नागरिकशास्त्र)</strong> भारतीय संविधानाचे शिल्पकार म्हणून कोणाला ओळखले जाते?</p>
+                <div class="series-display">डॉ. राजेंद्र प्रसाद, पं. जवाहरलाल नेहरू, सरदार वल्लभभाई पटेल, डॉ. बाबासाहेब आंबेडकर</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="2" data-opt="1" onclick="selectAnswer(2, 1)">A) डॉ. राजेंद्र प्रसाद</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="2" onclick="selectAnswer(2, 2)">B) पं. जवाहरलाल नेहरू</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="3" onclick="selectAnswer(2, 3)">C) डॉ. बाबासाहेब आंबेडकर</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="4" onclick="selectAnswer(2, 4)">D) सरदार वल्लभभाई पटेल</button>
+                </div>
+                <div class="explanation" id="explanation2"></div>
+            </div>
+            
+            <div class="question-card" id="question3">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३: (इतिहास)</strong> जालियनवाला बाग हत्याकांड कधी झाले?</p>
+                <div class="series-display">१९१९, १९२१, १९३०, १९४२</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="3" data-opt="1" onclick="selectAnswer(3, 1)">A) १९३०</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="2" onclick="selectAnswer(3, 2)">B) १९४२</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="3" onclick="selectAnswer(3, 3)">C) १९१९</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="4" onclick="selectAnswer(3, 4)">D) १९२१</button>
+                </div>
+                <div class="explanation" id="explanation3"></div>
+            </div>
+            
+            <div class="question-card" id="question4">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४: (नागरिकशास्त्र)</strong> भारतीय संसदेचे कनिष्ठ सभागृह (Lower House) कोणते आहे?</p>
+                <div class="series-display">राज्यसभा, लोकसभा, विधानसभा, विधानपरिषद</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="4" data-opt="1" onclick="selectAnswer(4, 1)">A) राज्यसभा</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="2" onclick="selectAnswer(4, 2)">B) लोकसभा</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="3" onclick="selectAnswer(4, 3)">C) विधानसभा</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="4" onclick="selectAnswer(4, 4)">D) विधानपरिषद</button>
+                </div>
+                <div class="explanation" id="explanation4"></div>
+            </div>
+
+            <div class="question-card" id="question5">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ५: (इतिहास)</strong> 'सत्यशोधक समाज' ची स्थापना कोणी केली?</p>
+                <div class="series-display">महात्मा फुले, महर्षी कर्वे, डॉ. बाबासाहेब आंबेडकर, राजाराम मोहन रॉय</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="5" data-opt="1" onclick="selectAnswer(5, 1)">A) महर्षी कर्वे</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="2" onclick="selectAnswer(5, 2)">B) राजाराम मोहन रॉय</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="3" onclick="selectAnswer(5, 3)">C) डॉ. बाबासाहेब आंबेडकर</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="4" onclick="selectAnswer(5, 4)">D) महात्मा फुले</button>
+                </div>
+                <div class="explanation" id="explanation5"></div>
+            </div>
+            
+            <div class="question-card" id="question6">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ६: (नागरिकशास्त्र)</strong> भारतीय नागरिकांना एकूण किती मूलभूत हक्क (Fundamental Rights) प्राप्त आहेत?</p>
+                <div class="series-display">५, ६, ७, ८</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="6" data-opt="1" onclick="selectAnswer(6, 1)">A) ५</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="2" onclick="selectAnswer(6, 2)">B) ७</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="3" onclick="selectAnswer(6, 3)">C) ६</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="4" onclick="selectAnswer(6, 4)">D) ८</button>
+                </div>
+                <div class="explanation" id="explanation6"></div>
+            </div>
+
+            <div class="question-card" id="question7">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ७: (इतिहास)</strong> 'स्वराज्य माझा जन्मसिद्ध हक्क आहे आणि तो मी मिळवणारच!' हे कोणाचे उद्गार आहेत?</p>
+                <div class="series-display">पं. जवाहरलाल नेहरू, महात्मा गांधी, लोकमान्य टिळक, सुभाषचंद्र बोस</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="7" data-opt="1" onclick="selectAnswer(7, 1)">A) महात्मा गांधी</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="2" onclick="selectAnswer(7, 2)">B) लोकमान्य टिळक</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="3" onclick="selectAnswer(7, 3)">C) सुभाषचंद्र बोस</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="4" onclick="selectAnswer(7, 4)">D) पं. जवाहरलाल नेहरू</button>
+                </div>
+                <div class="explanation" id="explanation7"></div>
+            </div>
+
+            <div class="question-card" id="question8">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ८: (नागरिकशास्त्र)</strong> महाराष्ट्रातील ग्रामीण भागातील स्थानिक स्वराज्य संस्थांमधील सर्वात लहान घटक कोणता?</p>
+                <div class="series-display">जिल्हा परिषद, पंचायत समिती, महानगरपालिका, ग्रामपंचायत</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="8" data-opt="1" onclick="selectAnswer(8, 1)">A) जिल्हा परिषद</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="2" onclick="selectAnswer(8, 2)">B) महानगरपालिका</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="3" onclick="selectAnswer(8, 3)">C) पंचायत समिती</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="4" onclick="selectAnswer(8, 4)">D) ग्रामपंचायत</button>
+                </div>
+                <div class="explanation" id="explanation8"></div>
+            </div>
+            
+            <div class="question-card" id="question9">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ९: (इतिहास)</strong> 'हडप्पा संस्कृती' हे ठिकाण सध्या कोणत्या देशात आहे?</p>
+                <div class="series-display">भारत, पाकिस्तान, नेपाळ, बांगलादेश</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="9" data-opt="1" onclick="selectAnswer(9, 1)">A) भारत</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="2" onclick="selectAnswer(9, 2)">B) नेपाळ</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="3" onclick="selectAnswer(9, 3)">C) पाकिस्तान</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="4" onclick="selectAnswer(9, 4)">D) बांगलादेश</button>
+                </div>
+                <div class="explanation" id="explanation9"></div>
+            </div>
+
+            <div class="question-card" id="question10">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १०: (नागरिकशास्त्र)</strong> मतदान करण्यासाठी भारतीय नागरिकाचे किमान वय किती असावे लागते?</p>
+                <div class="series-display">१८ वर्षे, २० वर्षे, २१ वर्षे, २५ वर्षे</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="10" data-opt="1" onclick="selectAnswer(10, 1)">A) २५ वर्षे</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="2" onclick="selectAnswer(10, 2)">B) २१ वर्षे</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="3" onclick="selectAnswer(10, 3)">C) १८ वर्षे</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="4" onclick="selectAnswer(10, 4)">D) २० वर्षे</button>
+                </div>
+                <div class="explanation" id="explanation10"></div>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submit-button">प्रश्नमंजुषा सबमिट करा आणि निकाल पहा</button>
+            <button type="button" class="reset-btn" onclick="showCustomResetPrompt()">पुन्हा सुरू करा / उत्तरे मिटवा</button>
+        </form>
+        
+        <div class="result-message hidden" id="quiz-result">
+        </div>
+
+    </div>
+    
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 T.T. Patil Pishavikar. NMMS मार्गदर्शन.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Local Storage Key
+        const NMMS_QUIZ_ANSWERS_KEY = 'NMMS_HistoryCivics_Answers';
+
+        // Key: Question Number, Value: Correct Option Number (1, 2, 3, or 4)
+        const correctAnswers = { 
+            1: 2, // रायगड
+            2: 3, // डॉ. बाबासाहेब आंबेडकर
+            3: 3, // १९१९
+            4: 2, // लोकसभा
+            5: 4, // महात्मा फुले
+            6: 3, // ६
+            7: 2, // लोकमान्य टिळक
+            8: 4, // ग्रामपंचायत
+            9: 3, // पाकिस्तान
+            10: 3 // १८ वर्षे
+        };
+        
+        // Key: Question Number, Value: Explanation Text
+        const explanations = {
+            1: "योग्य उत्तर <strong>रायगड</strong> आहे. १६७४ मध्ये छत्रपती शिवाजी महाराजांचा राज्याभिषेक रायगड किल्ल्यावर झाला.",
+            2: "योग्य उत्तर <strong>डॉ. बाबासाहेब आंबेडकर</strong> आहे. ते भारतीय संविधानाच्या मसुदा समितीचे (Drafting Committee) अध्यक्ष होते.",
+            3: "योग्य उत्तर <strong>१९१९</strong> आहे. जालियनवाला बाग हत्याकांड १३ एप्रिल १९१९ रोजी झाले.",
+            4: "योग्य उत्तर <strong>लोकसभा</strong> आहे. लोकसभा हे संसदेचे कनिष्ठ सभागृह (Lower House) आणि राज्यसभा हे वरिष्ठ सभागृह (Upper House) आहे.",
+            5: "योग्य उत्तर <strong>महात्मा फुले</strong> आहे. त्यांनी १८७३ मध्ये पुणे येथे 'सत्यशोधक समाजा'ची स्थापना केली.",
+            6: "योग्य उत्तर <strong>६</strong> आहे. सध्या भारतीय नागरिकांना ६ मूलभूत हक्क प्राप्त आहेत. (सुरुवातीला ७ होते, परंतु संपत्तीचा हक्क वगळला गेला).",
+            7: "योग्य उत्तर <strong>लोकमान्य टिळक</strong> आहे. हे त्यांचे प्रसिद्ध वाक्य आहे.",
+            8: "योग्य उत्तर <strong>ग्रामपंचायत</strong> आहे. ग्रामीण भागातील स्थानिक स्वराज्य संस्थेचा सर्वात लहान घटक ग्रामपंचायत (गावासाठी) असतो.",
+            9: "योग्य उत्तर <strong>पाकिस्तान</strong> आहे. हडप्पा (सध्याच्या साहिवाल जिल्ह्यात) हे ठिकाण सध्या पाकिस्तानमध्ये आहे.",
+            10: "योग्य उत्तर <strong>१८ वर्षे</strong> आहे. १९८९ मध्ये ६१ व्या घटनादुरुस्तीद्वारे मतदानाचे वय २१ वरून १८ करण्यात आले."
+        };
+
+        let userAnswers = {};
+        const totalQuestions = Object.keys(correctAnswers).length;
+        
+        /**
+         * Saves the current state of userAnswers to Local Storage.
+         */
+        function saveProgress() {
+            try {
+                localStorage.setItem(NMMS_QUIZ_ANSWERS_KEY, JSON.stringify(userAnswers));
+            } catch (e) {
+                console.error("Local Storage Save Error:", e);
+            }
+        }
+
+        /**
+         * Loads saved answers from Local Storage and updates the UI.
+         */
+        function loadProgress() {
+            try {
+                const savedAnswers = localStorage.getItem(NMMS_QUIZ_ANSWERS_KEY);
+                if (savedAnswers) {
+                    userAnswers = JSON.parse(savedAnswers);
+                    
+                    // Re-apply selections to the UI
+                    for (const [qNum, optNum] of Object.entries(userAnswers)) {
+                        const selectedButton = document.querySelector(`#question${qNum} .option-button[data-opt="${optNum}"]`);
+                        if (selectedButton) {
+                            selectedButton.classList.add('selected');
+                        }
+                    }
+                    console.log("Quiz progress loaded:", userAnswers);
+                }
+            } catch (e) {
+                console.error("Local Storage Load Error:", e);
+            }
+        }
+
+        /**
+         * Handles the click event for selecting an answer.
+         */
+        function selectAnswer(questionNum, optionNum) {
+            // Check if results are already displayed (buttons are disabled)
+            if (document.querySelector(`#question${questionNum} .option-button`).disabled) {
+                console.log("Cannot change answer after submission.");
+                return;
+            }
+
+            userAnswers[questionNum] = optionNum;
+            
+            // UI Update: Remove selection from all options in this question
+            const options = document.querySelectorAll(`#question${questionNum} .option-button`);
+            options.forEach(btn => {
+                btn.classList.remove('selected');
+            });
+
+            // UI Update: Add selection to the clicked button
+            const selectedButton = document.querySelector(`#question${questionNum} .option-button[data-opt="${optionNum}"]`);
+            selectedButton.classList.add('selected');
+
+            // Save the progress immediately
+            saveProgress();
+        }
+
+        // --- Custom Reset Prompt Implementation ---
+
+        /**
+         * Displays the custom reset confirmation prompt (replaces confirm()).
+         */
+        function showCustomResetPrompt() {
+            const promptDiv = document.getElementById('reset-prompt');
+            promptDiv.style.display = 'flex';
+            
+            // Ensure listeners are only attached once if the element is reused (though we only attach here)
+            document.getElementById('confirm-reset').onclick = () => {
+                performReset();
+                promptDiv.style.display = 'none';
+            };
+
+            document.getElementById('cancel-reset').onclick = () => {
+                promptDiv.style.display = 'none';
+            };
+        }
+
+        /**
+         * Performs the actual reset logic after user confirmation.
+         */
+        function performReset() {
+            // Clear variables and storage
+            userAnswers = {};
+            try {
+                localStorage.removeItem(NMMS_QUIZ_ANSWERS_KEY);
+            } catch (e) {
+                 console.error("Error clearing Local Storage:", e);
+            }
+
+            // Reset UI for all questions
+            const allOptions = document.querySelectorAll('.option-button');
+            allOptions.forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+                btn.disabled = false;
+                // Restore default styles (needed if results were shown)
+                btn.removeAttribute('style'); 
+            });
+
+            document.querySelectorAll('.explanation').forEach(div => div.style.display = 'none');
+            document.getElementById('quiz-result').classList.add('hidden');
+            
+            // Restore submit button
+            const submitBtn = document.getElementById('submit-button');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'प्रश्नमंजुषा सबमिट करा आणि निकाल पहा';
+            submitBtn.classList.remove('bg-gray-400');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            console.log("Quiz has been reset and local storage cleared.");
+        }
+        // --- End Reset Prompt Implementation ---
+
+
+        document.getElementById('sat-quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            showResults();
+        });
+
+        function showResults() {
+            let score = 0;
+            
+            // Check if any question is unanswered
+            const answeredCount = Object.keys(userAnswers).length;
+            if (answeredCount < totalQuestions) {
+                // Show a warning message if not all questions are answered
+                const resultElement = document.getElementById('quiz-result');
+                resultElement.classList.remove('hidden', 'bg-red-100', 'border-red-300', 'text-red-700');
+                resultElement.classList.add('bg-orange-100', 'border-orange-300', 'text-orange-700');
+                resultElement.innerHTML = `⚠️ तुम्ही अजून <strong>${totalQuestions - answeredCount}</strong> प्रश्नांची उत्तरे दिली नाहीत. कृपया सर्व प्रश्नांची उत्तरे द्या.`;
+                window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
+                return;
+            }
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const qNum = i;
+                const correctAnswer = correctAnswers[qNum];
+                const userAnswer = userAnswers[qNum];
+                const qBlock = document.getElementById(`question${qNum}`);
+                const options = qBlock.querySelectorAll('.option-button');
+                const explanationDiv = document.getElementById(`explanation${qNum}`);
+                
+                // 1. Show Feedback (Correct/Incorrect highlighting)
+                options.forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.remove('selected');
+                    const optNum = parseInt(btn.getAttribute('data-opt'));
+                    
+                    if (optNum === correctAnswer) {
+                        btn.classList.add('correct');
+                    } else if (optNum === userAnswer && userAnswer !== correctAnswer) {
+                        btn.classList.add('incorrect');
+                    } else {
+                         // Dim non-selected/non-correct options
+                         btn.style.backgroundColor = '#f3f4f6';
+                         btn.style.color = '#1f2937';
+                         btn.style.borderColor = '#d1d5db';
+                    }
+                });
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+                
+                // 2. Display Explanation
+                const correctText = qBlock.querySelector(`.option-button[data-opt="${correctAnswer}"]`).textContent.trim();
+                
+                explanationDiv.innerHTML = `
+                    <strong>✅ योग्य उत्तर:</strong> ${correctText}
+                    <br>
+                    <strong>💡 स्पष्टीकरण:</strong> ${explanations[qNum]}
+                `;
+                explanationDiv.style.display = 'block';
+            }
+
+            // 3. Display Final Score
+            const resultElement = document.getElementById('quiz-result');
+            resultElement.classList.remove('hidden', 'bg-orange-100', 'border-orange-300', 'text-orange-700');
+            resultElement.classList.add('bg-red-100', 'border-red-300', 'text-red-700');
+            resultElement.innerHTML = `
+                🎉 तुमचा निकाल: <strong>${totalQuestions}</strong> पैकी <strong>${score}</strong> प्रश्न बरोबर!
+                <div style="margin-top: 10px; font-size: 1rem; font-weight: 500; color: #7f1d1d;">इतिहास आणि नागरिकशास्त्राच्या तयारीसाठी उपयुक्त.</div>
+            `;
+            
+            // Disable Submit Button
+            document.getElementById('submit-button').disabled = true;
+            document.getElementById('submit-button').textContent = 'निकाल दर्शविला आहे';
+            document.getElementById('submit-button').classList.add('bg-gray-400');
+            
+            window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
+        }
+        
+        // Load saved progress when the page starts
+        window.onload = loadProgress;
+    </script>
+</body>
+</html>

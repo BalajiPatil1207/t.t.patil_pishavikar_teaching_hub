@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दहावी भूगोल चाचणी ९ - T.T.Patil Pishavikar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* [Standard Quiz Styles Remain Here] */
+        .option-label { transition: background-color 0.15s, border-color- 0.15s; }
+        .option-label:hover { background-color: #f0f4ff; }
+        .option-input:checked + .option-label { background-color: #dbeafe; border-color: #3b82f6; font-weight: 600; }
+        .correct-answer { background-color: #d1fae5; border-color: #10b981; font-weight: 700; }
+        .incorrect-answer { background-color: #fee2e2; border-color: #ef4444; }
+        .correct-indicator { color: #10b981; font-weight: 700; }
+        .incorrect-indicator { color: #ef4444; font-weight: 700; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-orange-700">T.T.Patil Pishavikar</h1>
+            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+                <a href="index.html" class="text-gray-600 hover:text-orange-600">Home</a>
+                <a href="geography_quiz_10.html" class="text-blue-600 hover:text-blue-800">Quiz List</a> 
+                <a href="geography_class10.html" class="text-gray-600 hover:text-orange-600">10th Videos</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bg-indigo-700 text-white py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold mb-2">दहावी भूगोल: चाचणी ९ (10 प्रश्न)</h2>
+            <p class="text-xl font-light">विषय: लोकसंख्या (Population)</p>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div id="quiz-results" class="hidden bg-yellow-100 p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-yellow-500 text-center">
+                <h3 class="text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
+                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">10</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
+                <button onclick="window.location.href='geography_quiz_10.html';" class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition mr-4">
+                    इतर चाचण्या पहा
+                </button>
+                <button onclick="window.location.reload();" class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
+                    पुन्हा प्रयत्न करा (Try Again)
+                </button>
+            </div>
+
+            <form id="geography-quiz">
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">1. लोकसंख्येच्या घनतेच्या (Density) बाबतीत कोणता देश भारतापेक्षा जास्त दाट आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label for="q1a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) एकही नाही (भारत अधिक दाट आहे)</label></div>
+                        <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label for="q1b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) ब्राझील</label></div>
+                        <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label for="q1c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) चीन</label></div>
+                        <div><input type="radio" id="q1d" name="q1" value="D" class="option-input hidden"><label for="q1d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) अमेरिका</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">2. आयुर्मान (Life Expectancy) या मानवी विकास निर्देशांकात कोणता देश भारतापेक्षा पुढे आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label for="q2a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) भारत</label></div>
+                        <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label for="q2b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) ब्राझील</label></div>
+                        <div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) दोन्ही समान आहेत</label></div>
+                        <div><input type="radio" id="q2d" name="q2" value="D" class="option-input hidden"><label for="q2d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) दोन्ही देशात आयुर्मान खूप कमी आहे</label></div>
+                    </div>
+                </div>
+                
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">3. ब्राझीलची बहुतांश लोकसंख्या कोणत्या भागात केंद्रित आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q3a" name="q3" value="A" class="option-input hidden"><label for="q3a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) ॲमेझॉन खोरे</label></div>
+                        <div><input type="radio" id="q3b" name="q3" value="B" class="option-input hidden"><label for="q3b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) पॅन्टानाल</label></div>
+                        <div><input type="radio" id="q3c" name="q3" value="C" class="option-input hidden"><label for="q3c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) पूर्व किनारी प्रदेश</label></div>
+                        <div><input type="radio" id="q3d" name="q3" value="D" class="option-input hidden"><label for="q3d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) ब्राझीलियन उच्चभूमीचा पश्चिम भाग</label></div>
+                    </div>
+                </div>
+                
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">4. ब्राझीलचा लोकसंख्या मनोरा (Population Pyramid) कोणत्या प्रकारचा आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q4a" name="q4" value="A" class="option-input hidden"><label for="q4a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) तळ अरुंद व वरचा भाग फुगीर (वार्धक्याकडे झुकणारा)</label></div>
+                        <div><input type="radio" id="q4b" name="q4" value="B" class="option-input hidden"><label for="q4b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) तळ रुंद व वरचा भाग अरुंद (वाढणारा)</label></div>
+                        <div><input type="radio" id="q4c" name="q4" value="C" class="option-input hidden"><label for="q4c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) सर्व वयोगट समान</label></div>
+                        <div><input type="radio" id="q4d" name="q4" value="D" class="option-input hidden"><label for="q4d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) अनियमित आकार</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">5. भारतातील सर्वात कमी लोकसंख्येची घनता (Lowest Density) कोणत्या भागात आढळते?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q5a" name="q5" value="A" class="option-input hidden"><label for="q5a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) उत्तर भारतीय मैदानी प्रदेश</label></div>
+                        <div><input type="radio" id="q5b" name="q5" value="B" class="option-input hidden"><label for="q5b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) किनारी मैदानी प्रदेश</label></div>
+                        <div><input type="radio" id="q5c" name="q5" value="C" class="option-input hidden"><label for="q5c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) पर्वतीय व दुर्गम प्रदेश (उदा. हिमालय)</label></div>
+                        <div><input type="radio" id="q5d" name="q5" value="D" class="option-input hidden"><label for="q5d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) दख्खनचे पठार</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">6. ब्राझीलमध्ये साक्षरतेचे (Literacy) प्रमाण व लिंग गुणोत्तर (Sex Ratio) हे दोन्ही निर्देशांक कसे आहेत?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q6a" name="q6" value="A" class="option-input hidden"><label for="q6a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) दोन्ही कमी आहेत</label></div>
+                        <div><input type="radio" id="q6b" name="q6" value="B" class="option-input hidden"><label for="q6b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) साक्षरता जास्त, लिंग गुणोत्तर अनुकूल (हजार पुरुषांमागे स्त्रिया जास्त)</label></div>
+                        <div><input type="radio" id="q6c" name="q6" value="C" class="option-input hidden"><label for="q6c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) साक्षरता कमी, लिंग गुणोत्तर अनुकूल</label></div>
+                        <div><input type="radio" id="q6d" name="q6" value="D" class="option-input hidden"><label for="q6d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) दोन्ही खूप जास्त आहेत</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="D">
+                    <p class="text-xl font-bold text-gray-800 mb-4">7. लोकसंख्या वाढीचा दर (Growth Rate) कोणत्या देशात सर्वात कमी आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q7a" name="q7" value="A" class="option-input hidden"><label for="q7a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) भारत</label></div>
+                        <div><input type="radio" id="q7b" name="q7" value="B" class="option-input hidden"><label for="q7b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) चीन</label></div>
+                        <div><input type="radio" id="q7c" name="q7" value="C" class="option-input hidden"><label for="q7c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) बांगलादेश</label></div>
+                        <div><input type="radio" id="q7d" name="q7" value="D" class="option-input hidden"><label for="q7d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) ब्राझील</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">8. भारतातील कोणती प्राकृतिक विभाग लोकसंख्येच्या दृष्टीने सर्वाधिक महत्त्वाचा आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q8a" name="q8" value="A" class="option-input hidden"><label for="q8a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) उत्तर भारतीय मैदानी प्रदेश</label></div>
+                        <div><input type="radio" id="q8b" name="q8" value="B" class="option-input hidden"><label for="q8b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) किनारी मैदानी प्रदेश</label></div>
+                        <div><input type="radio" id="q8c" name="q8" value="C" class="option-input hidden"><label for="q8c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) हिमालयाची पर्वतरांग</label></div>
+                        <div><input type="radio" id="q8d" name="q8" value="D" class="option-input hidden"><label for="q8d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) भारतीय वाळवंट</label></div>
+                    </div>
+                </div>
+                
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">9. मानवी विकास निर्देशांक (HDI) मध्ये ब्राझीलचा क्रमांक भारतापेक्षा कसा आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q9a" name="q9" value="A" class="option-input hidden"><label for="q9a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) भारतापेक्षा खाली</label></div>
+                        <div><input type="radio" id="q9b" name="q9" value="B" class="option-input hidden"><label for="q9b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) भारतापेक्षा वर (ब्राझीलचा क्रमांक चांगला)</label></div>
+                        <div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label for="q9c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) दोन्हीचा क्रमांक समान</label></div>
+                        <div><input type="radio" id="q9d" name="q9" value="D" class="option-input hidden"><label for="q9d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) दोन्ही 'अतिउच्च' गटात आहेत</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">10. भारतातील सर्वाधिक लोकसंख्या घनता असलेले राज्य (State) कोणते आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label for="q10a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) उत्तर प्रदेश</label></div>
+                        <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label for="q10b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) महाराष्ट्र</label></div>
+                        <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label for="q10c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) बिहार</label></div>
+                        <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label for="q10d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) पश्चिम बंगाल</label></div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <button type="submit" id="submit-quiz" class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
+                        निकाल तपासा (Check Result)
+                    </button>
+                    <p class="mt-4 text-sm text-gray-500">
+                        **टीप (Note):** हा प्रश्न संच *दहावी भूगोल* पुस्तकावर आधारित आहे.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 T.T.Patil Pishavikar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('geography-quiz').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const questions = document.querySelectorAll('.question-block');
+            let score = 0;
+            const resultsDiv = document.getElementById('quiz-results');
+            const submitButton = document.getElementById('submit-quiz');
+
+            questions.forEach((qBlock, index) => {
+                const correctAnswer = qBlock.getAttribute('data-correct-answer');
+                const questionName = `q${index + 1}`;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                
+                qBlock.querySelectorAll('.option-label').forEach(label => {
+                    label.classList.remove('correct-answer', 'incorrect-answer');
+                });
+                qBlock.querySelector('.result-feedback')?.remove();
+
+
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    const selectedLabel = document.querySelector(`label[for="${selectedOption.id}"]`);
+                    
+                    if (selectedValue === correctAnswer) {
+                        score++;
+                        selectedLabel.classList.add('correct-answer');
+                    } else {
+                        selectedLabel.classList.add('incorrect-answer');
+                        
+                        const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                        const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+                        if (correctLabel) {
+                            correctLabel.classList.add('correct-answer');
+                        }
+                        
+                        const feedback = document.createElement('p');
+                        feedback.className = 'result-feedback mt-2 text-sm incorrect-indicator';
+                        feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`; 
+                        qBlock.appendChild(feedback);
+                    }
+                } else {
+                    const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                    const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+                    
+                    if (correctLabel) {
+                        correctLabel.classList.add('correct-answer');
+                        
+                        const feedback = document.createElement('p');
+                        feedback.className = 'result-feedback mt-2 text-sm correct-indicator';
+                        feedback.textContent = `उत्तर दिले नाही. बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
+                        qBlock.appendChild(feedback);
+                    }
+                }
+
+                qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    radio.disabled = true;
+                });
+            });
+
+            document.getElementById('score-display').textContent = score;
+            document.getElementById('total-questions-display').textContent = questions.length;
+            resultsDiv.classList.remove('hidden');
+            
+            window.scrollTo({
+                top: resultsDiv.offsetTop - 80,
+                behavior: 'smooth'
+            });
+
+            submitButton.textContent = "निकाल दर्शविला आहे";
+            submitButton.disabled = true;
+            submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+            submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+        });
+    </script>
+    </body>
+</html>

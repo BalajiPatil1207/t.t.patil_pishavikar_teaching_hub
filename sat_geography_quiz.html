@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMMS SAT: भूगोल प्रश्नमंजुषा (Geography Quiz - 50 MCQs) - T.T. Patil Pishavikar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Styling for NMMS SAT - Orange/Geography Theme */
+        body { font-family: 'Arial', sans-serif; background-color: #fff7ed; }
+        .quiz-container { max-width: 800px; margin: 30px auto; padding: 20px; background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
+        .header { background-color: #f97316; /* Orange */ color: white; padding: 15px; border-radius: 8px 8px 0 0; text-align: center; font-size: 1.5rem; font-weight: bold; }
+        .question-card { margin-top: 20px; padding: 20px; border: 2px solid #ffedd5; border-radius: 8px; background-color: #fff; }
+        .series-display { font-size: 1.2rem; font-weight: bold; text-align: center; margin: 20px 0; padding: 10px; background-color: #fff7ed; border-radius: 6px; color: #c2410c; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .option-button { background-color: #fff7ed; color: #d97706; border: 2px solid #fb923c; padding: 12px; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-size: 1rem; text-align: center; font-weight: 500;}
+        .submit-btn { display: block; width: 100%; padding: 15px; margin-top: 30px; background-color: #f97316; color: white; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-weight: bold; }
+        .result-message { text-align: center; margin-top: 20px; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: bold; background-color: #fef3c7; border: 2px solid #f97316; color: #9a3412; }
+        
+        /* Selection and Feedback Styles */
+        .selected { background-color: #fed7aa !important; border-color: #c2410c !important; color: #f97316 !important; font-weight: 700; }
+        .correct { background-color: #d1fae5 !important; border-color: #10b981 !important; color: #065f46 !important; font-weight: 700; }
+        .incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+
+        /* Explanation Box Style */
+        .explanation { 
+            margin-top: 15px; 
+            padding: 10px; 
+            background-color: #f0f9ff; 
+            border: 1px solid #3b82f6; 
+            border-radius: 6px; 
+            font-size: 0.95rem; 
+            color: #1e40af; 
+            display: none; 
+        }
+        @media (max-width: 600px) {
+            .options-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
+            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+                <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        
+        <div class="header">
+            NMMS SAT: भूगोल प्रश्नमंजुषा (Geography Quiz) 🌍 (५० प्रश्न)
+        </div>
+
+        <form id="sat-quiz-form">
+            <div class="question-card" id="question1">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १:</strong> पृथ्वीच्या स्वतःभोवती फिरण्याला (Rotation) लागणाऱ्या वेळेस काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="1" data-opt="1" onclick="selectAnswer(1, 1)">A) परिवलन (Rotation)</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="2" onclick="selectAnswer(1, 2)">B) परिभ्रमण (Revolution)</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="3" onclick="selectAnswer(1, 3)">C) सूर्यग्रहण (Solar Eclipse)</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="4" onclick="selectAnswer(1, 4)">D) विषुववृत्त (Equator)</button>
+                </div>
+                <div class="explanation" id="explanation1"></div>
+            </div>
+
+            <div class="question-card" id="question2">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २:</strong> कोणत्या वातावरणीय थरात (Atmospheric Layer) सर्व हवामानाशी संबंधित घटना घडतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="2" data-opt="1" onclick="selectAnswer(2, 1)">A) स्थितांबर (Stratosphere)</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="2" onclick="selectAnswer(2, 2)">B) दलांबर (Mesosphere)</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="3" onclick="selectAnswer(2, 3)">C) आयनांबर (Ionosphere)</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="4" onclick="selectAnswer(2, 4)">D) तपांबर (Troposphere)</button>
+                </div>
+                <div class="explanation" id="explanation2"></div>
+            </div>
+
+            <div class="question-card" id="question3">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३:</strong> ज्वालामुखीच्या उद्रेकातून बाहेर पडलेल्या लाव्हापासून तयार होणारे खडक कोणते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="3" data-opt="1" onclick="selectAnswer(3, 1)">A) रूपांतरित खडक (Metamorphic Rocks)</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="2" onclick="selectAnswer(3, 2)">B) गाळाचे खडक (Sedimentary Rocks)</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="3" onclick="selectAnswer(3, 3)">C) अग्निज खडक (Igneous Rocks)</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="4" onclick="selectAnswer(3, 4)">D) वालुकाश्म (Sandstone)</button>
+                </div>
+                <div class="explanation" id="explanation3"></div>
+            </div>
+            
+            <div class="question-card" id="question4">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४:</strong> नदी तिच्या प्रौढ अवस्थेत (Middle Course) कोणता भूरूप (Landform) तयार करते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="4" data-opt="1" onclick="selectAnswer(4, 1)">A) 'V' आकाराची दरी (V-shaped valley)</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="2" onclick="selectAnswer(4, 2)">B) पूरमैदान (Floodplain)</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="3" onclick="selectAnswer(4, 3)">C) त्रिभुज प्रदेश (Delta)</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="4" onclick="selectAnswer(4, 4)">D) धबधबा (Waterfall)</button>
+                </div>
+                <div class="explanation" id="explanation4"></div>
+            </div>
+
+            <div class="question-card" id="question5">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ५:</strong> जगातील सर्वात लांब नदी कोणती आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="5" data-opt="1" onclick="selectAnswer(5, 1)">A) ॲमेझॉन (Amazon)</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="2" onclick="selectAnswer(5, 2)">B) गंगा (Ganga)</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="3" onclick="selectAnswer(5, 3)">C) नाईल (Nile)</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="4" onclick="selectAnswer(5, 4)">D) यांगत्से (Yangtze)</button>
+                </div>
+                <div class="explanation" id="explanation5"></div>
+            </div>
+            
+            <div class="question-card" id="question6">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ६:</strong> भारतात कोणत्या प्रकारच्या वनांमध्ये साग आणि शिसव ही प्रमुख झाडे आढळतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="6" data-opt="1" onclick="selectAnswer(6, 1)">A) सदाहरित वने (Evergreen Forests)</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="2" onclick="selectAnswer(6, 2)">B) काटेरी वने (Thorn Forests)</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="3" onclick="selectAnswer(6, 3)">C) पानझडी वने (Deciduous Forests)</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="4" onclick="selectAnswer(6, 4)">D) खारफुटी वने (Mangrove Forests)</button>
+                </div>
+                <div class="explanation" id="explanation6"></div>
+            </div>
+
+            <div class="question-card" id="question7">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ७:</strong> 'रब्बी' हंगाम कोणत्या कालावधीत असतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="7" data-opt="1" onclick="selectAnswer(7, 1)">A) जून ते ऑक्टोबर</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="2" onclick="selectAnswer(7, 2)">B) नोव्हेंबर ते एप्रिल</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="3" onclick="selectAnswer(7, 3)">C) मार्च ते जून</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="4" onclick="selectAnswer(7, 4)">D) एप्रिल ते जून</button>
+                </div>
+                <div class="explanation" id="explanation7"></div>
+            </div>
+
+            <div class="question-card" id="question8">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ८:</strong> दर १००० पुरुषांमागे स्त्रियांची संख्या मोजण्यासाठी कोणत्या संकल्पनेचा वापर करतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="8" data-opt="1" onclick="selectAnswer(8, 1)">A) लोकसंख्येची घनता (Density of Population)</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="2" onclick="selectAnswer(8, 2)">B) साक्षरता दर (Literacy Rate)</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="3" onclick="selectAnswer(8, 3)">C) लिंग गुणोत्तर (Sex Ratio)</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="4" onclick="selectAnswer(8, 4)">D) जन्म दर (Birth Rate)</button>
+                </div>
+                <div class="explanation" id="explanation8"></div>
+            </div>
+            
+            <div class="question-card" id="question9">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ९:</strong> नकाशावर उंची दर्शवण्यासाठी कोणत्या रेषा वापरल्या जातात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="9" data-opt="1" onclick="selectAnswer(9, 1)">A) समताप रेषा (Isotherms)</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="2" onclick="selectAnswer(9, 2)">B) समोच्च रेषा (Contour Lines)</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="3" onclick="selectAnswer(9, 3)">C) समदाब रेषा (Isobars)</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="4" onclick="selectAnswer(9, 4)">D) अक्षवृत्त (Latitudes)</button>
+                </div>
+                <div class="explanation" id="explanation9"></div>
+            </div>
+
+            <div class="question-card" id="question10">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १०:</strong> सूर्यमालेतील सर्वात लहान ग्रह कोणता?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="10" data-opt="1" onclick="selectAnswer(10, 1)">A) मंगळ (Mars)</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="2" onclick="selectAnswer(10, 2)">B) शुक्र (Venus)</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="3" onclick="selectAnswer(10, 3)">C) प्लूटो (Pluto)</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="4" onclick="selectAnswer(10, 4)">D) बुध (Mercury)</button>
+                </div>
+                <div class="explanation" id="explanation10"></div>
+            </div>
+
+            <div class="question-card" id="question11">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ११:</strong> 'दक्षिण भारताची गंगा' म्हणून कोणत्या नदीला ओळखले जाते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="11" data-opt="1" onclick="selectAnswer(11, 1)">A) कृष्णा (Krishna)</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="2" onclick="selectAnswer(11, 2)">B) गोदावरी (Godavari)</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="3" onclick="selectAnswer(11, 3)">C) कावेरी (Kaveri)</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="4" onclick="selectAnswer(11, 4)">D) महानदी (Mahanadi)</button>
+                </div>
+                <div class="explanation" id="explanation11"></div>
+            </div>
+
+            <div class="question-card" id="question12">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १२:</strong> पृथ्वीच्या सर्वात आतील थराला (Innermost Layer) काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="12" data-opt="1" onclick="selectAnswer(12, 1)">A) भूकवच (Crust)</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="2" onclick="selectAnswer(12, 2)">B) प्रावरण (Mantle)</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="3" onclick="selectAnswer(12, 3)">C) गाभा (Core)</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="4" onclick="selectAnswer(12, 4)">D) शिलावरण (Lithosphere)</button>
+                </div>
+                <div class="explanation" id="explanation12"></div>
+            </div>
+            
+            <div class="question-card" id="question13">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १३:</strong> समुद्राकडील भागातील हवामान ________ असते.</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="13" data-opt="1" onclick="selectAnswer(13, 1)">A) विषम (Extreme)</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="2" onclick="selectAnswer(13, 2)">B) सम (Equable)</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="3" onclick="selectAnswer(13, 3)">C) थंड (Cold)</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="4" onclick="selectAnswer(13, 4)">D) गरम (Hot)</button>
+                </div>
+                <div class="explanation" id="explanation13"></div>
+            </div>
+
+            <div class="question-card" id="question14">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १४:</strong> वाळवंटी प्रदेशात वाऱ्याच्या संचयनामुळे (Deposition) तयार होणाऱ्या टेकड्यांना काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="14" data-opt="1" onclick="selectAnswer(14, 1)">A) यर्डांग (Yardang)</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="2" onclick="selectAnswer(14, 2)">B) मशरूम खडक (Mushroom Rock)</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="3" onclick="selectAnswer(14, 3)">C) बारखान (Barchan)</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="4" onclick="selectAnswer(14, 4)">D) हिमनदी (Glacier)</button>
+                </div>
+                <div class="explanation" id="explanation14"></div>
+            </div>
+
+            <div class="question-card" id="question15">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १५:</strong> खालीलपैकी कोणते अपारंपरिक ऊर्जा साधन (Non-Conventional Energy Source) आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="15" data-opt="1" onclick="selectAnswer(15, 1)">A) कोळसा (Coal)</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="2" onclick="selectAnswer(15, 2)">B) नैसर्गिक वायू (Natural Gas)</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="3" onclick="selectAnswer(15, 3)">C) सौर ऊर्जा (Solar Energy)</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="4" onclick="selectAnswer(15, 4)">D) पेट्रोलियम (Petroleum)</button>
+                </div>
+                <div class="explanation" id="explanation15"></div>
+            </div>
+
+            <div class="question-card" id="question16">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १६:</strong> भारताचे प्रमाणवेळ (IST) कोणत्या रेखावृत्तावरून निश्चित केले जाते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="16" data-opt="1" onclick="selectAnswer(16, 1)">A) $80^\circ 30' \text{E}$</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="2" onclick="selectAnswer(16, 2)">B) $82^\circ 30' \text{E}$</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="3" onclick="selectAnswer(16, 3)">C) $90^\circ 30' \text{E}$</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="4" onclick="selectAnswer(16, 4)">D) $0^\circ \text{ (Prime Meridian)}$</button>
+                </div>
+                <div class="explanation" id="explanation16"></div>
+            </div>
+
+            <div class="question-card" id="question17">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १७:</strong> पॅसिफिक महासागराच्या किनारी भागाला भूकंपाचे क्षेत्र असल्याने काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="17" data-opt="1" onclick="selectAnswer(17, 1)">A) रिंग ऑफ फायर (Ring of Fire)</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="2" onclick="selectAnswer(17, 2)">B) उष्ण कटिबंध (Torrid Zone)</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="3" onclick="selectAnswer(17, 3)">C) भूमध्यसागर (Mediterranean Sea)</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="4" onclick="selectAnswer(17, 4)">D) ग्रेट बॅरियर रीफ (Great Barrier Reef)</button>
+                </div>
+                <div class="explanation" id="explanation17"></div>
+            </div>
+
+            <div class="question-card" id="question18">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १८:</strong> 'जपानचे मँचेस्टर' (Manchester of Japan) म्हणून कोणते शहर ओळखले जाते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="18" data-opt="1" onclick="selectAnswer(18, 1)">A) टोकियो (Tokyo)</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="2" onclick="selectAnswer(18, 2)">B) ओसाका (Osaka)</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="3" onclick="selectAnswer(18, 3)">C) नागोया (Nagoya)</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="4" onclick="selectAnswer(18, 4)">D) हिरोशिमा (Hiroshima)</button>
+                </div>
+                <div class="explanation" id="explanation18"></div>
+            </div>
+
+            <div class="question-card" id="question19">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १९:</strong> जगातील सर्वात जास्त लोहखनिज (Iron Ore) उत्पादन करणारा खंड कोणता?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="19" data-opt="1" onclick="selectAnswer(19, 1)">A) उत्तर अमेरिका (North America)</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="2" onclick="selectAnswer(19, 2)">B) आशिया (Asia)</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="3" onclick="selectAnswer(19, 3)">C) युरोप (Europe)</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="4" onclick="selectAnswer(19, 4)">D) ऑस्ट्रेलिया (Australia)</button>
+                </div>
+                <div class="explanation" id="explanation19"></div>
+            </div>
+
+            <div class="question-card" id="question20">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २०:</strong> कापूस पिकासाठी (Cotton) सर्वात उपयुक्त मृदा (Soil) कोणती?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="20" data-opt="1" onclick="selectAnswer(20, 1)">A) जांभी मृदा (Laterite Soil)</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="2" onclick="selectAnswer(20, 2)">B) गाळाची मृदा (Alluvial Soil)</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="3" onclick="selectAnswer(20, 3)">C) काळी मृदा (Black Soil - Regur)</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="4" onclick="selectAnswer(20, 4)">D) वालुकामय मृदा (Desert Soil)</button>
+                </div>
+                <div class="explanation" id="explanation20"></div>
+            </div>
+            
+            <div class="question-card" id="question21">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २१:</strong> जगातील सर्वात मोठे वाळवंट (Desert) कोणते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="21" data-opt="1" onclick="selectAnswer(21, 1)">A) थर (Thar)</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="2" onclick="selectAnswer(21, 2)">B) गोबी (Gobi)</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="3" onclick="selectAnswer(21, 3)">C) सहारा (Sahara)</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="4" onclick="selectAnswer(21, 4)">D) कालाहारी (Kalahari)</button>
+                </div>
+                <div class="explanation" id="explanation21"></div>
+            </div>
+
+            <div class="question-card" id="question22">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २२:</strong> जलवाहतुकीसाठी (Water Transport) बांधलेला 'सुएझ कालवा' (Suez Canal) कोणत्या दोन सागरांना जोडतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="22" data-opt="1" onclick="selectAnswer(22, 1)">A) अटलांटिक आणि पॅसिफिक</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="2" onclick="selectAnswer(22, 2)">B) भूमध्य आणि तांबडा समुद्र</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="3" onclick="selectAnswer(22, 3)">C) हिंदी आणि पॅसिफिक</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="4" onclick="selectAnswer(22, 4)">D) तांबडा आणि काळा समुद्र</button>
+                </div>
+                <div class="explanation" id="explanation22"></div>
+            </div>
+            
+            <div class="question-card" id="question23">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २३:</strong> वातावरणातील ओझोन वायू (Ozone Gas) कशापासून आपले संरक्षण करतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="23" data-opt="1" onclick="selectAnswer(23, 1)">A) इन्फ्रारेड किरण (Infrared Rays)</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="2" onclick="selectAnswer(23, 2)">B) अतिनील किरण (Ultraviolet Rays)</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="3" onclick="selectAnswer(23, 3)">C) क्ष-किरण (X-Rays)</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="4" onclick="selectAnswer(23, 4)">D) रेडिओ लहरी (Radio Waves)</button>
+                </div>
+                <div class="explanation" id="explanation23"></div>
+            </div>
+
+            <div class="question-card" id="question24">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २४:</strong> नदीच्या मुखाशी (Mouth) तयार होणारा, त्रिकोणी आकाराचा सखल प्रदेश कोणता?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="24" data-opt="1" onclick="selectAnswer(24, 1)">A) त्रिभुज प्रदेश (Delta)</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="2" onclick="selectAnswer(24, 2)">B) पूरमैदान (Floodplain)</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="3" onclick="selectAnswer(24, 3)">C) खिंड (Gorge)</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="4" onclick="selectAnswer(24, 4)">D) खाडी (Estuary)</button>
+                </div>
+                <div class="explanation" id="explanation24"></div>
+            </div>
+
+            <div class="question-card" id="question25">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २५:</strong> जगातील सर्वात मोठे अक्षवृत्त (Latitude) कोणते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="25" data-opt="1" onclick="selectAnswer(25, 1)">A) कर्कवृत्त ($23.5^\circ \text{N}$)</button>
+                    <button type="button" class="option-button" data-q="25" data-opt="2" onclick="selectAnswer(25, 2)">B) मकरवृत्त ($23.5^\circ \text{S}$)</button>
+                    <button type="button" class="option-button" data-q="25" data-opt="3" onclick="selectAnswer(25, 3)">C) विषुववृत्त ($0^\circ$)</button>
+                    <button type="button" class="option-button" data-q="25" data-opt="4" onclick="selectAnswer(25, 4)">D) आर्क्टिक वृत्त ($66.5^\circ \text{N}$)</button>
+                </div>
+                <div class="explanation" id="explanation25"></div>
+            </div>
+            
+            <div class="question-card" id="question26">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २६:</strong> चहाच्या उत्पादनासाठी (Tea Cultivation) कोणता प्रदेश प्रसिद्ध आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="26" data-opt="1" onclick="selectAnswer(26, 1)">A) पंजाब (Punjab)</button>
+                    <button type="button" class="option-button" data-q="26" data-opt="2" onclick="selectAnswer(26, 2)">B) गुजरात (Gujarat)</button>
+                    <button type="button" class="option-button" data-q="26" data-opt="3" onclick="selectAnswer(26, 3)">C) आसाम (Assam)</button>
+                    <button type="button" class="option-button" data-q="26" data-opt="4" onclick="selectAnswer(26, 4)">D) राजस्थान (Rajasthan)</button>
+                </div>
+                <div class="explanation" id="explanation26"></div>
+            </div>
+
+            <div class="question-card" id="question27">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २७:</strong> जगातील सर्वात खोल महासागर कोणता?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="27" data-opt="1" onclick="selectAnswer(27, 1)">A) हिंदी महासागर (Indian Ocean)</button>
+                    <button type="button" class="option-button" data-q="27" data-opt="2" onclick="selectAnswer(27, 2)">B) अटलांटिक महासागर (Atlantic Ocean)</button>
+                    <button type="button" class="option-button" data-q="27" data-opt="3" onclick="selectAnswer(27, 3)">C) पॅसिफिक महासागर (Pacific Ocean)</button>
+                    <button type="button" class="option-button" data-q="27" data-opt="4" onclick="selectAnswer(27, 4)">D) आर्क्टिक महासागर (Arctic Ocean)</button>
+                </div>
+                <div class="explanation" id="explanation27"></div>
+            </div>
+
+            <div class="question-card" id="question28">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २८:</strong> जगातील सर्वात लांब पर्वतरांग (Mountain Range) कोणती?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="28" data-opt="1" onclick="selectAnswer(28, 1)">A) हिमालय (Himalayas)</button>
+                    <button type="button" class="option-button" data-q="28" data-opt="2" onclick="selectAnswer(28, 2)">B) रॉकीज (Rockies)</button>
+                    <button type="button" class="option-button" data-q="28" data-opt="3" onclick="selectAnswer(28, 3)">C) अँडीज (Andes)</button>
+                    <button type="button" class="option-button" data-q="28" data-opt="4" onclick="selectAnswer(28, 4)">D) आल्प्स (Alps)</button>
+                </div>
+                <div class="explanation" id="explanation28"></div>
+            </div>
+
+            <div class="question-card" id="question29">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २९:</strong> नदीच्या गाळामुळे मैदानी प्रदेशात तयार होणारी सर्वात सुपीक मृदा कोणती?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="29" data-opt="1" onclick="selectAnswer(29, 1)">A) तांबडी मृदा (Red Soil)</button>
+                    <button type="button" class="option-button" data-q="29" data-opt="2" onclick="selectAnswer(29, 2)">B) गाळाची मृदा (Alluvial Soil)</button>
+                    <button type="button" class="option-button" data-q="29" data-opt="3" onclick="selectAnswer(29, 3)">C) पर्वतीय मृदा (Mountain Soil)</button>
+                    <button type="button" class="option-button" data-q="29" data-opt="4" onclick="selectAnswer(29, 4)">D) जांभी मृदा (Laterite Soil)</button>
+                </div>
+                <div class="explanation" id="explanation29"></div>
+            </div>
+
+            <div class="question-card" id="question30">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३०:</strong> भारतातील सर्वात प्राचीन पर्वतरांग कोणती?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="30" data-opt="1" onclick="selectAnswer(30, 1)">A) विंध्य (Vindhya)</button>
+                    <button type="button" class="option-button" data-q="30" data-opt="2" onclick="selectAnswer(30, 2)">B) सातपुडा (Satpura)</button>
+                    <button type="button" class="option-button" data-q="30" data-opt="3" onclick="selectAnswer(30, 3)">C) हिमालय (Himalayas)</button>
+                    <button type="button" class="option-button" data-q="30" data-opt="4" onclick="selectAnswer(30, 4)">D) अरवली (Aravalli)</button>
+                </div>
+                <div class="explanation" id="explanation30"></div>
+            </div>
+            
+            <div class="question-card" id="question31">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३१:</strong> ग्रामीण वस्त्यांमध्ये (Rural Settlements) लोकांचा मुख्य व्यवसाय कोणता असतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="31" data-opt="1" onclick="selectAnswer(31, 1)">A) वाहतूक (Transport)</button>
+                    <button type="button" class="option-button" data-q="31" data-opt="2" onclick="selectAnswer(31, 2)">B) व्यापार (Trade)</button>
+                    <button type="button" class="option-button" data-q="31" data-opt="3" onclick="selectAnswer(31, 3)">C) प्राथमिक व्यवसाय (Primary Occupations - Agriculture, Fishing)</button>
+                    <button type="button" class="option-button" data-q="31" data-opt="4" onclick="selectAnswer(31, 4)">D) उद्योग (Industry)</button>
+                </div>
+                <div class="explanation" id="explanation31"></div>
+            </div>
+
+            <div class="question-card" id="question32">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३२:</strong> पृथ्वीवर उष्णता आणि थंडीचे प्रमाण दर्शवणारे काल्पनिक वृत्त कोणते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="32" data-opt="1" onclick="selectAnswer(32, 1)">A) रेखावृत्त (Longitude)</button>
+                    <button type="button" class="option-button" data-q="32" data-opt="2" onclick="selectAnswer(32, 2)">B) अक्षवृत्त (Latitude)</button>
+                    <button type="button" class="option-button" data-q="32" data-opt="3" onclick="selectAnswer(32, 3)">C) आंतरराष्ट्रीय वार रेषा (IDL)</button>
+                    <button type="button" class="option-button" data-q="32" data-opt="4" onclick="selectAnswer(32, 4)">D) मूळ रेखावृत्त (Prime Meridian)</button>
+                </div>
+                <div class="explanation" id="explanation32"></div>
+            </div>
+            
+            <div class="question-card" id="question33">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३३:</strong> 'मान्सून' हा शब्द कोणत्या भाषेतील आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="33" data-opt="1" onclick="selectAnswer(33, 1)">A) इंग्रजी (English)</button>
+                    <button type="button" class="option-button" data-q="33" data-opt="2" onclick="selectAnswer(33, 2)">B) अरबी (Arabic)</button>
+                    <button type="button" class="option-button" data-q="33" data-opt="3" onclick="selectAnswer(33, 3)">C) संस्कृत (Sanskrit)</button>
+                    <button type="button" class="option-button" data-q="33" data-opt="4" onclick="selectAnswer(33, 4)">D) ग्रीक (Greek)</button>
+                </div>
+                <div class="explanation" id="explanation33"></div>
+            </div>
+
+            <div class="question-card" id="question34">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३४:</strong> भारताची राजधानी कोणती आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="34" data-opt="1" onclick="selectAnswer(34, 1)">A) मुंबई (Mumbai)</button>
+                    <button type="button" class="option-button" data-q="34" data-opt="2" onclick="selectAnswer(34, 2)">B) कोलकाता (Kolkata)</button>
+                    <button type="button" class="option-button" data-q="34" data-opt="3" onclick="selectAnswer(34, 3)">C) नवी दिल्ली (New Delhi)</button>
+                    <button type="button" class="option-button" data-q="34" data-opt="4" onclick="selectAnswer(34, 4)">D) चेन्नई (Chennai)</button>
+                </div>
+                <div class="explanation" id="explanation34"></div>
+            </div>
+
+            <div class="question-card" id="question35">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३५:</strong> अमेरिकेतील (USA) सर्वात मोठे औद्योगिक प्रदेश कोणता?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="35" data-opt="1" onclick="selectAnswer(35, 1)">A) सिलिकॉन व्हॅली (Silicon Valley)</button>
+                    <button type="button" class="option-button" data-q="35" data-opt="2" onclick="selectAnswer(35, 2)">B) पिट्सबर्ग (Pittsburgh)</button>
+                    <button type="button" class="option-button" data-q="35" data-opt="3" onclick="selectAnswer(35, 3)">C) अप्लेशियन प्रदेश (Appalachian Region)</button>
+                    <button type="button" class="option-button" data-q="35" data-opt="4" onclick="selectAnswer(35, 4)">D) डेट्रॉईट (Detroit)</button>
+                </div>
+                <div class="explanation" id="explanation35"></div>
+            </div>
+            
+            <div class="question-card" id="question36">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३६:</strong> शेतीचा असा प्रकार, ज्यात संपूर्ण उत्पादनाचा वापर केवळ कुटुंबाच्या गरजा पूर्ण करण्यासाठी होतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="36" data-opt="1" onclick="selectAnswer(36, 1)">A) व्यापारी शेती (Commercial Farming)</button>
+                    <button type="button" class="option-button" data-q="36" data-opt="2" onclick="selectAnswer(36, 2)">B) स्थलांतरित शेती (Shifting Cultivation)</button>
+                    <button type="button" class="option-button" data-q="36" data-opt="3" onclick="selectAnswer(36, 3)">C) निर्वाह शेती (Subsistence Farming)</button>
+                    <button type="button" class="option-button" data-q="36" data-opt="4" onclick="selectAnswer(36, 4)">D) सघन शेती (Intensive Farming)</button>
+                </div>
+                <div class="explanation" id="explanation36"></div>
+            </div>
+
+            <div class="question-card" id="question37">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३७:</strong> नैसर्गिक वायूचा (Natural Gas) मुख्य घटक कोणता आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="37" data-opt="1" onclick="selectAnswer(37, 1)">A) इथेन (Ethane)</button>
+                    <button type="button" class="option-button" data-q="37" data-opt="2" onclick="selectAnswer(37, 2)">B) मिथेन (Methane)</button>
+                    <button type="button" class="option-button" data-q="37" data-opt="3" onclick="selectAnswer(37, 3)">C) कार्बन डायऑक्साइड (Carbon Dioxide)</button>
+                    <button type="button" class="option-button" data-q="37" data-opt="4" onclick="selectAnswer(37, 4)">D) नायट्रोजन (Nitrogen)</button>
+                </div>
+                <div class="explanation" id="explanation37"></div>
+            </div>
+
+            <div class="question-card" id="question38">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३८:</strong> भारतातील सर्वात मोठे नैसर्गिक बंदर (Natural Port) कोणते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="38" data-opt="1" onclick="selectAnswer(38, 1)">A) चेन्नई (Chennai)</button>
+                    <button type="button" class="option-button" data-q="38" data-opt="2" onclick="selectAnswer(38, 2)">B) मुंबई (Mumbai)</button>
+                    <button type="button" class="option-button" data-q="38" data-opt="3" onclick="selectAnswer(38, 3)">C) कोलकाता (Kolkata)</button>
+                    <button type="button" class="option-button" data-q="38" data-opt="4" onclick="selectAnswer(38, 4)">D) विशाखापट्टणम (Visakhapatnam)</button>
+                </div>
+                <div class="explanation" id="explanation38"></div>
+            </div>
+
+            <div class="question-card" id="question39">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३९:</strong> विषुववृत्ताच्या दोन्ही बाजूंच्या $23.5^\circ$ अक्षवृत्तांपर्यंतच्या क्षेत्राला काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="39" data-opt="1" onclick="selectAnswer(39, 1)">A) समशीतोष्ण कटिबंध (Temperate Zone)</button>
+                    <button type="button" class="option-button" data-q="39" data-opt="2" onclick="selectAnswer(39, 2)">B) उष्ण कटिबंध (Torrid Zone)</button>
+                    <button type="button" class="option-button" data-q="39" data-opt="3" onclick="selectAnswer(39, 3)">C) शीत कटिबंध (Frigid Zone)</button>
+                    <button type="button" class="option-button" data-q="39" data-opt="4" onclick="selectAnswer(39, 4)">D) ध्रुवीय प्रदेश (Polar Region)</button>
+                </div>
+                <div class="explanation" id="explanation39"></div>
+            </div>
+
+            <div class="question-card" id="question40">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४०:</strong> जगातील गोड्या पाण्याचा (Freshwater) सर्वात मोठा साठा कशाच्या स्वरूपात आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="40" data-opt="1" onclick="selectAnswer(40, 1)">A) नद्या आणि तलाव (Rivers & Lakes)</button>
+                    <button type="button" class="option-button" data-q="40" data-opt="2" onclick="selectAnswer(40, 2)">B) भूजल (Groundwater)</button>
+                    <button type="button" class="option-button" data-q="40" data-opt="3" onclick="selectAnswer(40, 3)">C) हिम टोपी आणि हिमनद्या (Ice Caps & Glaciers)</button>
+                    <button type="button" class="option-button" data-q="40" data-opt="4" onclick="selectAnswer(40, 4)">D) वातावरणातील वाफ (Atmospheric Vapor)</button>
+                </div>
+                <div class="explanation" id="explanation40"></div>
+            </div>
+
+            <div class="question-card" id="question41">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४१:</strong> 'सुवर्ण चतुर्भुज योजना' (Golden Quadrilateral) कोणत्या शहरांना जोडते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="41" data-opt="1" onclick="selectAnswer(41, 1)">A) दिल्ली, मुंबई, हैदराबाद, कोलकाता</button>
+                    <button type="button" class="option-button" data-q="41" data-opt="2" onclick="selectAnswer(41, 2)">B) मुंबई, चेन्नई, बेंगळुरू, पुणे</button>
+                    <button type="button" class="option-button" data-q="41" data-opt="3" onclick="selectAnswer(41, 3)">C) दिल्ली, मुंबई, चेन्नई, कोलकाता</button>
+                    <button type="button" class="option-button" data-q="41" data-opt="4" onclick="selectAnswer(41, 4)">D) कोलकाता, चेन्नई, बेंगळुरू, दिल्ली</button>
+                </div>
+                <div class="explanation" id="explanation41"></div>
+            </div>
+
+            <div class="question-card" id="question42">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४२:</strong> महाराष्ट्रातील कोणते ठिकाण 'पक्ष्यांसाठी' प्रसिद्ध आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="42" data-opt="1" onclick="selectAnswer(42, 1)">A) ताडोबा (Tadoba)</button>
+                    <button type="button" class="option-button" data-q="42" data-opt="2" onclick="selectAnswer(42, 2)">B) कोयना (Koyna)</button>
+                    <button type="button" class="option-button" data-q="42" data-opt="3" onclick="selectAnswer(42, 3)">C) भीमाशंकर (Bhimashankar)</button>
+                    <button type="button" class="option-button" data-q="42" data-opt="4" onclick="selectAnswer(42, 4)">D) नांदूर मध्यमेश्वर (Nandur Madhmeshwar)</button>
+                </div>
+                <div class="explanation" id="explanation42"></div>
+            </div>
+
+            <div class="question-card" id="question43">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४३:</strong> बॉक्साईट (Bauxite) हे कोणत्या धातूचे प्रमुख धातुक (Ore) आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="43" data-opt="1" onclick="selectAnswer(43, 1)">A) लोखंड (Iron)</button>
+                    <button type="button" class="option-button" data-q="43" data-opt="2" onclick="selectAnswer(43, 2)">B) तांबे (Copper)</button>
+                    <button type="button" class="option-button" data-q="43" data-opt="3" onclick="selectAnswer(43, 3)">C) सोने (Gold)</button>
+                    <button type="button" class="option-button" data-q="43" data-opt="4" onclick="selectAnswer(43, 4)">D) ॲल्युमिनियम (Aluminium)</button>
+                </div>
+                <div class="explanation" id="explanation43"></div>
+            </div>
+
+            <div class="question-card" id="question44">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४४:</strong> समुद्राच्या तळाशी झालेल्या भूकंपांमुळे निर्माण होणाऱ्या प्रचंड लाटांना काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="44" data-opt="1" onclick="selectAnswer(44, 1)">A) भरती-ओहोटी (Tides)</button>
+                    <button type="button" class="option-button" data-q="44" data-opt="2" onclick="selectAnswer(44, 2)">B) त्सुनामी (Tsunami)</button>
+                    <button type="button" class="option-button" data-q="44" data-opt="3" onclick="selectAnswer(44, 3)">C) सागरी प्रवाह (Ocean Currents)</button>
+                    <button type="button" class="option-button" data-q="44" data-opt="4" onclick="selectAnswer(44, 4)">D) चक्रीवादळ (Cyclone)</button>
+                </div>
+                <div class="explanation" id="explanation44"></div>
+            </div>
+
+            <div class="question-card" id="question45">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४५:</strong> ज्या क्षेत्रात सूर्यकिरणे नेहमी तिरपी पडतात आणि हवामान खूप थंड असते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="45" data-opt="1" onclick="selectAnswer(45, 1)">A) उष्ण कटिबंध (Torrid Zone)</button>
+                    <button type="button" class="option-button" data-q="45" data-opt="2" onclick="selectAnswer(45, 2)">B) समशीतोष्ण कटिबंध (Temperate Zone)</button>
+                    <button type="button" class="option-button" data-q="45" data-opt="3" onclick="selectAnswer(45, 3)">C) शीत कटिबंध (Frigid Zone)</button>
+                    <button type="button" class="option-button" data-q="45" data-opt="4" onclick="selectAnswer(45, 4)">D) ध्रुवीय प्रदेश (Polar Region)</button>
+                </div>
+                <div class="explanation" id="explanation45"></div>
+            </div>
+
+            <div class="question-card" id="question46">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४६:</strong> गहू (Wheat) हे कोणत्या प्रकारचे पीक आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="46" data-opt="1" onclick="selectAnswer(46, 1)">A) खरीप पीक (Kharif Crop)</button>
+                    <button type="button" class="option-button" data-q="46" data-opt="2" onclick="selectAnswer(46, 2)">B) रब्बी पीक (Rabi Crop)</button>
+                    <button type="button" class="option-button" data-q="46" data-opt="3" onclick="selectAnswer(46, 3)">C) झैद पीक (Zaid Crop)</button>
+                    <button type="button" class="option-button" data-q="46" data-opt="4" onclick="selectAnswer(46, 4)">D) व्यापारी पीक (Cash Crop)</button>
+                </div>
+                <div class="explanation" id="explanation46"></div>
+            </div>
+
+            <div class="question-card" id="question47">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४७:</strong> 'सुंदरी' ही झाडे कोणत्या प्रकारच्या वनांमध्ये प्रामुख्याने आढळतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="47" data-opt="1" onclick="selectAnswer(47, 1)">A) पर्वतीय वने (Mountain Forests)</button>
+                    <button type="button" class="option-button" data-q="47" data-opt="2" onclick="selectAnswer(47, 2)">B) खारफुटी वने (Mangrove Forests)</button>
+                    <button type="button" class="option-button" data-q="47" data-opt="3" onclick="selectAnswer(47, 3)">C) उष्णकटिबंधीय सदाहरित वने (Tropical Evergreen Forests)</button>
+                    <button type="button" class="option-button" data-q="47" data-opt="4" onclick="selectAnswer(47, 4)">D) गवताळ प्रदेश (Grasslands)</button>
+                </div>
+                <div class="explanation" id="explanation47"></div>
+            </div>
+
+            <div class="question-card" id="question48">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४८:</strong> ज्या भागात लोकसंख्या अत्यंत कमी असते, त्याला काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="48" data-opt="1" onclick="selectAnswer(48, 1)">A) सघन लोकसंख्या (Dense Population)</button>
+                    <button type="button" class="option-button" data-q="48" data-opt="2" onclick="selectAnswer(48, 2)">B) विरळ लोकसंख्या (Sparse Population)</button>
+                    <button type="button" class="option-button" data-q="48" data-opt="3" onclick="selectAnswer(48, 3)">C) मध्यम लोकसंख्या (Moderate Population)</button>
+                    <button type="button" class="option-button" data-q="48" data-opt="4" onclick="selectAnswer(48, 4)">D) स्थलांतर (Migration)</button>
+                </div>
+                <div class="explanation" id="explanation48"></div>
+            </div>
+
+            <div class="question-card" id="question49">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४९:</strong> पृथ्वी सूर्याभोवती फिरते, या गतीला काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="49" data-opt="1" onclick="selectAnswer(49, 1)">A) परिवलन (Rotation)</button>
+                    <button type="button" class="option-button" data-q="49" data-opt="2" onclick="selectAnswer(49, 2)">B) परिभ्रमण (Revolution)</button>
+                    <button type="button" class="option-button" data-q="49" data-opt="3" onclick="selectAnswer(49, 3)">C) अक्षीय झुकाव (Axial Tilt)</button>
+                    <button type="button" class="option-button" data-q="49" data-opt="4" onclick="selectAnswer(49, 4)">D) चंद्राची गती (Lunar Motion)</button>
+                </div>
+                <div class="explanation" id="explanation49"></div>
+            </div>
+
+            <div class="question-card" id="question50">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ५०:</strong> ज्या ज्वालामुखीचा उद्रेक होण्याची शक्यता नाही किंवा हजारो वर्षांपासून झालेला नाही, त्याला काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="50" data-opt="1" onclick="selectAnswer(50, 1)">A) जागृत ज्वालामुखी (Active Volcano)</button>
+                    <button type="button" class="option-button" data-q="50" data-opt="2" onclick="selectAnswer(50, 2)">B) सुप्त ज्वालामुखी (Dormant Volcano)</button>
+                    <button type="button" class="option-button" data-q="50" data-opt="3" onclick="selectAnswer(50, 3)">C) मृत ज्वालामुखी (Extinct Volcano)</button>
+                    <button type="button" class="option-button" data-q="50" data-opt="4" onclick="selectAnswer(50, 4)">D) शंकू ज्वालामुखी (Cinder Cone)</button>
+                </div>
+                <div class="explanation" id="explanation50"></div>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submit-button">प्रश्नमंजुषा सबमिट करा आणि निकाल पहा</button>
+        </form>
+        
+        <div class="result-message hidden" id="quiz-result">
+            </div>
+
+    </div>
+    
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 T.T. Patil Pishavikar. NMMS मार्गदर्शन.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Key: Question Number, Value: Correct Option Number (1, 2, 3, or 4)
+        const correctAnswers = { 
+            1: 1, 2: 4, 3: 3, 4: 2, 5: 3, 6: 3, 7: 2, 8: 3, 9: 2, 10: 4,
+            11: 2, 12: 3, 13: 2, 14: 3, 15: 3, 16: 2, 17: 1, 18: 2, 19: 4, 20: 3,
+            21: 3, 22: 2, 23: 2, 24: 1, 25: 3, 26: 3, 27: 3, 28: 3, 29: 2, 30: 4,
+            31: 3, 32: 2, 33: 2, 34: 3, 35: 2, 36: 3, 37: 2, 38: 2, 39: 2, 40: 3,
+            41: 3, 42: 4, 43: 4, 44: 2, 45: 3, 46: 2, 47: 2, 48: 2, 49: 2, 50: 3
+        };
+        
+        // Key: Question Number, Value: Explanation Text
+        const explanations = {
+            1: "योग्य उत्तर **परिवलन** आहे. पृथ्वीच्या स्वतःभोवती फिरण्याला परिवलन म्हणतात, ज्यामुळे दिवस व रात्र होते.",
+            2: "योग्य उत्तर **तपांबर** आहे. वातावरणातील सर्वात खालचा थर तपांबर असून, येथेच पाऊस, ढग निर्मिती, वादळे यांसारख्या हवामान क्रिया घडतात.",
+            3: "योग्य उत्तर **अग्निज खडक** आहे. (Igneous Rocks) हे मॅग्मा किंवा लाव्हा थंड होऊन स्फटिकीकरण झाल्यावर तयार होतात.",
+            4: "योग्य उत्तर **पूरमैदान** आहे. नदी तिच्या प्रौढ किंवा मध्य अवस्थेत वाहत असताना ती नागमोडी वळणे (Meanders) घेऊन पूरमैदान तयार करते.",
+            5: "योग्य उत्तर **नाईल** आहे. आफ्रिका खंडातून वाहणारी नाईल नदी (६,६५० किमी) ही जगातील सर्वात लांब नदी आहे.",
+            6: "योग्य उत्तर **पानझडी वने** आहे. (Deciduous Forests) यांना मान्सून वने देखील म्हणतात. या वनांतील झाडे उन्हाळ्यात पाने गाळतात.",
+            7: "योग्य उत्तर **नोव्हेंबर ते एप्रिल** आहे. रब्बी पिके हिवाळ्यातील (ऑक्टोबर/नोव्हेंबरमध्ये पेरणी आणि मार्च/एप्रिलमध्ये काढणी) पिके आहेत, उदा. गहू, हरभरा.",
+            8: "योग्य उत्तर **लिंग गुणोत्तर** आहे. (Sex Ratio) हे दर १००० पुरुषांमागे स्त्रियांची संख्या मोजते.",
+            9: "योग्य उत्तर **समोच्च रेषा** आहे. (Contour Lines) नकाशावर समान उंचीवरील ठिकाणे जोडणाऱ्या रेषांना समोच्च रेषा म्हणतात.",
+            10: "योग्य उत्तर **बुध** आहे. सूर्यमालेतील बुध हा सर्वात लहान ग्रह आहे.",
+            11: "योग्य उत्तर **गोदावरी** आहे. गोदावरी नदीला दक्षिण भारतातील सर्वात मोठी नदी असल्याने 'दक्षिण गंगा' किंवा 'वृद्ध गंगा' म्हणतात.",
+            12: "योग्य उत्तर **गाभा** आहे. पृथ्वीच्या सर्वात आतील थराला गाभा (Core) म्हणतात, जो प्रामुख्याने निकेल (Ni) आणि लोह (Fe) यांपासून बनलेला आहे.",
+            13: "योग्य उत्तर **सम (Equable)** आहे. समुद्रकिनाऱ्याजवळील हवामान सम (न जास्त गरम, न जास्त थंड) असते.",
+            14: "योग्य उत्तर **बारखान** आहे. वाळवंटात वाऱ्यामुळे अर्धचंद्राकृती वाळूच्या टेकड्या (Sand Dunes) तयार होतात, ज्यांना बारखान म्हणतात.",
+            15: "योग्य उत्तर **सौर ऊर्जा** आहे. सौर ऊर्जा, पवन ऊर्जा ही अपारंपरिक (नूतनीकरणक्षम) ऊर्जा साधने आहेत.",
+            16: "योग्य उत्तर **$82^\circ 30' \text{E}$** आहे. हे रेखावृत्त अलाहाबादजवळून जाते आणि भारताची प्रमाणवेळ निश्चित करते.",
+            17: "योग्य उत्तर **रिंग ऑफ फायर** आहे. पॅसिफिक महासागराच्या किनारी भागाला भूकंपाचे आणि ज्वालामुखीचे क्षेत्र असल्याने 'रिंग ऑफ फायर' म्हणतात.",
+            18: "योग्य उत्तर **ओसाका** आहे. ओसाका हे कापड उद्योगासाठी प्रसिद्ध असल्याने 'जपानचे मँचेस्टर' म्हणून ओळखले जाते.",
+            19: "योग्य उत्तर **ऑस्ट्रेलिया** आहे. ऑस्ट्रेलिया लोहखनिज उत्पादनात जगात अग्रेसर आहे.",
+            20: "योग्य उत्तर **काळी मृदा** आहे. काळ्या मृदेला 'रेगूर मृदा' (Regur Soil) देखील म्हणतात आणि ती कापूस पिकासाठी उत्कृष्ट मानली जाते.",
+            21: "योग्य उत्तर **सहारा** आहे. सहारा वाळवंट (आफ्रिका) हे उष्ण आणि जगातील सर्वात मोठे वाळवंट आहे.",
+            22: "योग्य उत्तर **भूमध्य आणि तांबडा समुद्र** आहे. सुएझ कालवा आफ्रिका आणि आशिया यांना जोडतो.",
+            23: "योग्य उत्तर **अतिनील किरण** आहे. ओझोनचा थर (Stratosphere मध्ये) सूर्याच्या अतिनील (UV) किरणांपासून पृथ्वीवरील सजीवांचे संरक्षण करतो.",
+            24: "योग्य उत्तर **त्रिभुज प्रदेश** आहे. (Delta) नदी तिच्या मुखाशी (समुद्राला मिळण्यापूर्वी) गाळ साठवून त्रिकोणी आकार तयार करते.",
+            25: "योग्य उत्तर **विषुववृत्त** आहे. (Equator - $0^\circ$) हे पृथ्वीचे सर्वात मोठे अक्षवृत्त आहे.",
+            26: "योग्य उत्तर **आसाम** आहे. आसाम चहा उत्पादनासाठी (Tea Cultivation) भारतात अग्रेसर आहे.",
+            27: "योग्य उत्तर **पॅसिफिक महासागर** आहे. पॅसिफिक महासागरात 'मरियाना गर्ता' (Mariana Trench) आहे, जो जगातील सर्वात खोल भाग आहे.",
+            28: "योग्य उत्तर **अँडीज** आहे. दक्षिण अमेरिकेतील अँडीज पर्वतरांग (७,००० किमी) ही जगातील सर्वात लांब पर्वतरांग आहे.",
+            29: "योग्य उत्तर **गाळाची मृदा** आहे. (Alluvial Soil) ही नदीच्या गाळामुळे तयार होते आणि शेतीसाठी अत्यंत सुपीक असते.",
+            30: "योग्य उत्तर **अरवली** आहे. अरवली पर्वतरांग (राजस्थान) ही भारतातील सर्वात प्राचीन वली (Fold) पर्वतरांग आहे.",
+            31: "योग्य उत्तर **प्राथमिक व्यवसाय** आहे. ग्रामीण भागातील लोकांचे मुख्य व्यवसाय शेती, मासेमारी, पशुपालन इ. असतात.",
+            32: "योग्य उत्तर **अक्षवृत्त** आहे. अक्षवृत्ते (Latitudes) पृथ्वीवर उष्णता क्षेत्रांचे विभाजन करतात.",
+            33: "योग्य उत्तर **अरबी** आहे. 'मान्सून' हा शब्द अरबी भाषेतील 'मौसिम' (Mausim) या शब्दापासून आला आहे, ज्याचा अर्थ 'ऋतू' आहे.",
+            34: "योग्य उत्तर **नवी दिल्ली** आहे. नवी दिल्ली ही भारताची राजधानी आहे.",
+            35: "योग्य उत्तर **पिट्सबर्ग** आहे. पिट्सबर्ग हे स्टील उद्योगासाठी प्रसिद्ध असल्याने 'जगाची स्टील कॅपिटल' म्हणून ओळखले जात होते.",
+            36: "योग्य उत्तर **निर्वाह शेती** आहे. (Subsistence Farming) यात शेतकरी केवळ कुटुंबाच्या गरजा पूर्ण करण्यासाठी शेती करतो.",
+            37: "योग्य उत्तर **मिथेन** आहे. (Methane - $CH_4$) हा नैसर्गिक वायूचा मुख्य घटक आहे.",
+            38: "योग्य उत्तर **मुंबई** आहे. मुंबई हे भारतातील सर्वात मोठे आणि नैसर्गिक बंदर आहे.",
+            39: "योग्य उत्तर **उष्ण कटिबंध** आहे. (Torrid Zone) हा $23.5^\circ \text{N}$ (कर्क) ते $23.5^\circ \text{S}$ (मकर) अक्षवृत्तांदरम्यान असतो.",
+            40: "योग्य उत्तर **हिम टोपी आणि हिमनद्या** आहे. जगातील बहुतेक गोडे पाणी ध्रुवीय बर्फाच्या टोपीत आणि हिमनद्यांमध्ये गोठलेले आहे.",
+            41: "योग्य उत्तर **दिल्ली, मुंबई, चेन्नई, कोलकाता** आहे. ही योजना भारताच्या चार प्रमुख महानगरांना जोडते.",
+            42: "योग्य उत्तर **नांदूर मध्यमेश्वर** आहे. हे नाशिकजवळील नांदूर मध्यमेश्वर वन्यजीव अभयारण्य 'महाराष्ट्राचे भरतपूर' म्हणून ओळखले जाते, जे पक्ष्यांसाठी प्रसिद्ध आहे.",
+            43: "योग्य उत्तर **ॲल्युमिनियम** आहे. बॉक्साईट हे ॲल्युमिनियमचे प्रमुख धातुक आहे.",
+            44: "योग्य उत्तर **त्सुनामी** आहे. समुद्राच्या तळाशी भूकंप, ज्वालामुखी किंवा भूस्खलन झाल्यास त्सुनामी लाटा निर्माण होतात.",
+            45: "योग्य उत्तर **शीत कटिबंध** आहे. (Frigid Zone) हे ध्रुवीय वृत्तांपासून ध्रुवांपर्यंतचे क्षेत्र आहे, जेथे सूर्यकिरणे नेहमी तिरपी पडतात आणि हवामान खूप थंड असते.",
+            46: "योग्य उत्तर **रब्बी पीक** आहे. गहू हे हिवाळ्यात घेतले जाणारे रब्बी पीक आहे.",
+            47: "योग्य उत्तर **खारफुटी वने** आहे. (Mangrove Forests) या वनांमध्ये 'सुंदरी' ही झाडे प्रामुख्याने आढळतात, उदा. सुंदरबन.",
+            48: "योग्य उत्तर **विरळ लोकसंख्या** आहे. (Sparse Population) जेथे नैसर्गिक किंवा मानवी कारणांमुळे लोकांची संख्या खूप कमी असते.",
+            49: "योग्य उत्तर **परिभ्रमण** आहे. पृथ्वी सूर्याभोवती लंबवर्तुळाकार कक्षेत फिरते, या गतीला परिभ्रमण म्हणतात, ज्यामुळे ऋतू बदलतात.",
+            50: "योग्य उत्तर **मृत ज्वालामुखी** आहे. (Extinct Volcano) ज्या ज्वालामुखीचा उद्रेक होण्याची शक्यता नाही, त्याला मृत ज्वालामुखी म्हणतात."
+        };
+
+        let userAnswers = {};
+        const totalQuestions = Object.keys(correctAnswers).length;
+        
+        function selectAnswer(questionNum, optionNum) {
+            userAnswers[questionNum] = optionNum;
+            
+            const options = document.querySelectorAll(`#question${questionNum} .option-button`);
+            options.forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+            });
+
+            const selectedButton = document.querySelector(`#question${questionNum} .option-button[data-opt="${optionNum}"]`);
+            selectedButton.classList.add('selected');
+        }
+
+        document.getElementById('sat-quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            showResults();
+        });
+
+        function showResults() {
+            let score = 0;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const qNum = i;
+                const correctAnswer = correctAnswers[qNum];
+                const userAnswer = userAnswers[qNum];
+                const qBlock = document.getElementById(`question${qNum}`);
+                const options = qBlock.querySelectorAll('.option-button');
+                const explanationDiv = document.getElementById(`explanation${qNum}`);
+                
+                // 1. Show Feedback (Correct/Incorrect highlighting)
+                options.forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.remove('selected');
+                    const optNum = parseInt(btn.getAttribute('data-opt'));
+                    
+                    if (optNum === correctAnswer) {
+                        btn.classList.add('correct');
+                    } else if (optNum === userAnswer && userAnswer !== correctAnswer) {
+                        btn.classList.add('incorrect');
+                    } else {
+                         btn.style.backgroundColor = '#f3f4f6';
+                         btn.style.color = '#1f2937';
+                         btn.style.borderColor = '#d1d5db';
+                    }
+                });
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+                
+                // 2. Display Explanation
+                const correctText = qBlock.querySelector(`.option-button[data-opt="${correctAnswer}"]`).textContent.trim();
+                
+                explanationDiv.innerHTML = `
+                    <strong>✅ योग्य उत्तर:</strong> ${correctText}
+                    <br>
+                    <strong>💡 स्पष्टीकरण:</strong> ${explanations[qNum]}
+                `;
+                explanationDiv.style.display = 'block';
+            }
+
+            // 3. Display Final Score
+            const resultElement = document.getElementById('quiz-result');
+            resultElement.classList.remove('hidden');
+            resultElement.innerHTML = `
+                🎉 तुमचा निकाल: <strong>${totalQuestions}</strong> पैकी <strong>${score}</strong> प्रश्न बरोबर!
+                <div style="margin-top: 10px; font-size: 1rem; font-weight: 500; color: #f97316;">भूगोलाच्या पुढील सरावासाठी सज्ज व्हा.</div>
+            `;
+            
+            // Disable Submit Button
+            document.getElementById('submit-button').disabled = true;
+            document.getElementById('submit-button').textContent = 'निकाल दर्शविला आहे';
+            document.getElementById('submit-button').classList.add('bg-gray-400');
+            
+            window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

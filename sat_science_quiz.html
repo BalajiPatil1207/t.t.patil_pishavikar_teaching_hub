@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMMS SAT: विज्ञान प्रश्नमंजुषा (Science Quiz) - T.T. Patil Pishavikar</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Styling for NMMS SAT - Teal/Science Theme */
+        body { font-family: 'Inter', sans-serif; background-color: #f0fdf4; }
+        .quiz-container { max-width: 800px; margin: 30px auto; padding: 20px; background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
+        .header { background-color: #0d9488; /* Teal/Science Green */ color: white; padding: 15px; border-radius: 8px 8px 0 0; text-align: center; font-size: 1.5rem; font-weight: bold; }
+        .question-card { margin-top: 20px; padding: 20px; border: 2px solid #ccfbf1; border-radius: 8px; background-color: #fff; }
+        .series-display { font-size: 1.2rem; font-weight: bold; text-align: center; margin: 20px 0; padding: 10px; background-color: #f0fdf4; border-radius: 6px; color: #065f46; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .option-button { background-color: #f0fdf4; color: #0f766e; border: 2px solid #2dd4bf; padding: 12px; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-size: 1rem; text-align: center; font-weight: 500;}
+        
+        /* Selection and Feedback Styles */
+        .selected { background-color: #a7f3d0 !important; border-color: #065f46 !important; color: #0d9488 !important; font-weight: 700; }
+        .correct { background-color: #d1fae5 !important; border-color: #059669 !important; color: #065f46 !important; font-weight: 700; }
+        .incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+
+        /* Explanation Box Style */
+        .explanation { 
+            margin-top: 15px; 
+            padding: 10px; 
+            background-color: #f0f9ff; /* Light Blue */
+            border: 1px solid #38bdf8; /* Blue Border */
+            border-radius: 6px; 
+            font-size: 0.95rem; 
+            color: #1e40af; /* Dark Blue Text */
+            display: none; 
+        }
+        
+        /* Submit Button Styling */
+        .submit-btn { 
+            display: block; 
+            width: 100%; 
+            padding: 15px; 
+            background-color: #0d9488; 
+            color: white; 
+            font-size: 1.1rem; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: background-color 0.2s; 
+            font-weight: bold; 
+        }
+        .submit-btn:hover { background-color: #065f46; }
+        .submit-btn:disabled { background-color: #9ca3af; cursor: not-allowed; }
+        
+        /* Reset Button Styling */
+        .reset-btn {
+            display: block; 
+            width: 100%; 
+            padding: 15px; 
+            background-color: #fee2e2; /* Light Red */
+            color: #991b1b; 
+            font-size: 1.1rem; 
+            border: 2px solid #ef4444;
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: background-color 0.2s; 
+            font-weight: bold; 
+            margin-top: 15px;
+        }
+        .reset-btn:hover {
+            background-color: #f87171; /* Darker Red */
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
+            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+                <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        
+        <div class="header">
+            NMMS SAT: विज्ञान प्रश्नमंजुषा (१० प्रश्न) 🔬
+        </div>
+
+        <!-- Result message will also be used for reset confirmation -->
+        <div class="result-message hidden" id="quiz-result"></div>
+
+        <form id="sat-quiz-form">
+            <div class="question-card" id="question1">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १: (भौतिकशास्त्र)</strong> पदार्थाच्या वस्तुमानाचे (Mass) SI एकक कोणते आहे?</p>
+                <div class="series-display">ग्रॅम, किलोग्रॅम, मीटर, न्यूटन</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="1" data-opt="1" onclick="selectAnswer(1, 1)">A) ग्रॅम (g)</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="2" onclick="selectAnswer(1, 2)">B) किलोग्रॅम (kg)</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="3" onclick="selectAnswer(1, 3)">C) मीटर (m)</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="4" onclick="selectAnswer(1, 4)">D) न्यूटन (N)</button>
+                </div>
+                <div class="explanation" id="explanation1"></div>
+            </div>
+
+            <div class="question-card" id="question2">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २: (जीवशास्त्र)</strong> प्रकाशसंश्लेषण (Photosynthesis) प्रक्रियेत वनस्पती वातावरणातून कोणता वायू शोषून घेतात?</p>
+                <div class="series-display">ऑक्सिजन, कार्बन डायऑक्साइड, नायट्रोजन, हायड्रोजन</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="2" data-opt="1" onclick="selectAnswer(2, 1)">A) ऑक्सिजन</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="2" onclick="selectAnswer(2, 2)">B) नायट्रोजन</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="3" onclick="selectAnswer(2, 3)">C) कार्बन डायऑक्साइड</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="4" onclick="selectAnswer(2, 4)">D) पाण्याची वाफ</button>
+                </div>
+                <div class="explanation" id="explanation2"></div>
+            </div>
+            
+            <div class="question-card" id="question3">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३: (रसायनशास्त्र)</strong> सामान्य तापमानाला द्रव अवस्थेत असलेला अधातू (Non-metal) कोणता?</p>
+                <div class="series-display">पारा (Mercury), ब्रोमिन (Bromine), सोडियम (Sodium), कार्बन (Carbon)</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="3" data-opt="1" onclick="selectAnswer(3, 1)">A) पारा</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="2" onclick="selectAnswer(3, 2)">B) ब्रोमिन</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="3" onclick="selectAnswer(3, 3)">C) सोडियम</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="4" onclick="selectAnswer(3, 4)">D) क्लोरीन</button>
+                </div>
+                <div class="explanation" id="explanation3"></div>
+            </div>
+            
+            <div class="question-card" id="question4">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४: (भौतिकशास्त्र)</strong> उष्णता एका ठिकाणाहून दुसऱ्या ठिकाणी उष्णतेचे वहन (Conduction) कोणत्या पदार्थांतून होते?</p>
+                <div class="series-display">द्रव, वायू, घन पदार्थ, निर्वात</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="4" data-opt="1" onclick="selectAnswer(4, 1)">A) फक्त वायू</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="2" onclick="selectAnswer(4, 2)">B) फक्त द्रव</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="3" onclick="selectAnswer(4, 3)">C) प्रामुख्याने घन पदार्थ</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="4" onclick="selectAnswer(4, 4)">D) निर्वात पोकळीतून</button>
+                </div>
+                <div class="explanation" id="explanation4"></div>
+            </div>
+
+            <div class="question-card" id="question5">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ५: (जीवशास्त्र)</strong> मानवी शरीरातील सर्वात मोठी ग्रंथी (Gland) कोणती?</p>
+                <div class="series-display">यकृत, मूत्रपिंड, स्वादुपिंड, थायरॉईड</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="5" data-opt="1" onclick="selectAnswer(5, 1)">A) स्वादुपिंड (Pancreas)</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="2" onclick="selectAnswer(5, 2)">B) मूत्रपिंड (Kidney)</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="3" onclick="selectAnswer(5, 3)">C) यकृत (Liver)</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="4" onclick="selectAnswer(5, 4)">D) थायरॉईड (Thyroid)</button>
+                </div>
+                <div class="explanation" id="explanation5"></div>
+            </div>
+            
+            <div class="question-card" id="question6">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ६: (रसायनशास्त्र)</strong> कोणत्या आम्लामुळे (Acid) 'लिंबू' किंवा 'संत्रे' यांना आंबट चव येते?</p>
+                <div class="series-display">लॅक्टिक आम्ल, सायट्रिक आम्ल, ॲसिटिक आम्ल, हायड्रोक्लोरिक आम्ल</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="6" data-opt="1" onclick="selectAnswer(6, 1)">A) लॅक्टिक आम्ल</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="2" onclick="selectAnswer(6, 2)">B) ॲसिटिक आम्ल</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="3" onclick="selectAnswer(6, 3)">C) सायट्रिक आम्ल</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="4" onclick="selectAnswer(6, 4)">D) हायड्रोक्लोरिक आम्ल</button>
+                </div>
+                <div class="explanation" id="explanation6"></div>
+            </div>
+
+            <div class="question-card" id="question7">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ७: (भौतिकशास्त्र)</strong> प्रकाशाचा वेग (Speed of Light) प्रति सेकंद सुमारे किती असतो?</p>
+                <div class="series-display">३ लाख किमी/से, ३० हजार किमी/से, ३ लाख मी/से, ३० लाख किमी/से</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="7" data-opt="1" onclick="selectAnswer(7, 1)">A) $3 \times 10^5$ किमी/से</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="2" onclick="selectAnswer(7, 2)">B) $3 \times 10^7$ किमी/से</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="3" onclick="selectAnswer(7, 3)">C) $3 \times 10^8$ मी/से</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="4" onclick="selectAnswer(7, 4)">D) $3 \times 10^6$ मी/से</button>
+                </div>
+                <div class="explanation" id="explanation7"></div>
+            </div>
+
+            <div class="question-card" id="question8">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ८: (जीवशास्त्र)</strong> 'क्षय रोग' (Tuberculosis - TB) कशामुळे होतो?</p>
+                <div class="series-display">विषाणू, जिवाणू, आदिजीव, बुरशी</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="8" data-opt="1" onclick="selectAnswer(8, 1)">A) विषाणू (Virus)</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="2" onclick="selectAnswer(8, 2)">B) आदिजीव (Protozoa)</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="3" onclick="selectAnswer(8, 3)">C) जिवाणू (Bacteria)</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="4" onclick="selectAnswer(8, 4)">D) बुरशी (Fungus)</button>
+                </div>
+                <div class="explanation" id="explanation8"></div>
+            </div>
+            
+            <div class="question-card" id="question9">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ९: (रसायनशास्त्र)</strong> पाण्याचे रासायनिक सूत्र (Chemical Formula) कोणते आहे?</p>
+                <div class="series-display">H2O, O2, CO2, NaCl</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="9" data-opt="1" onclick="selectAnswer(9, 1)">A) $O_2$</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="2" onclick="selectAnswer(9, 2)">B) $CO_2$</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="3" onclick="selectAnswer(9, 3)">C) $H_2O$</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="4" onclick="selectAnswer(9, 4)">D) $NaCl$</button>
+                </div>
+                <div class="explanation" id="explanation9"></div>
+            </div>
+
+            <div class="question-card" id="question10">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १०: (भौतिकशास्त्र)</strong> वातावरणाचा दाब (Atmospheric Pressure) मोजण्यासाठी कोणते उपकरण वापरले जाते?</p>
+                <div class="series-display">थर्मामीटर, ॲमीटर, बॅरोमीटर, लॅक्टोमीटर</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="10" data-opt="1" onclick="selectAnswer(10, 1)">A) थर्मामीटर</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="2" onclick="selectAnswer(10, 2)">B) ॲमीटर</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="3" onclick="selectAnswer(10, 3)">C) बॅरोमीटर</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="4" onclick="selectAnswer(10, 4)">D) लॅक्टोमीटर</button>
+                </div>
+                <div class="explanation" id="explanation10"></div>
+            </div>
+            
+            <div id="action-buttons" style="margin-top: 30px;">
+                <button type="submit" class="submit-btn" id="submit-button">प्रश्नमंजुषा सबमिट करा आणि निकाल पहा</button>
+                <button type="button" class="reset-btn" onclick="resetQuiz()">प्रगती रीसेट करा (Reset Progress)</button>
+            </div>
+        </form>
+    </div>
+    
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 T.T. Patil Pishavikar. NMMS मार्गदर्शन.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Core Quiz Data ---
+        const correctAnswers = { 
+            1: 2, 2: 3, 3: 2, 4: 3, 5: 3, 
+            6: 3, 7: 3, 8: 3, 9: 3, 10: 3 
+        };
+        
+        const explanations = {
+            1: "योग्य उत्तर **किलोग्रॅम (kg)** आहे. वस्तुमानाचे SI (International System of Units) एकक किलोग्रॅम आहे.",
+            2: "योग्य उत्तर **कार्बन डायऑक्साइड** आहे. प्रकाशसंश्लेषणात वनस्पती CO₂ शोषून घेतात आणि ऑक्सिजन बाहेर टाकतात.",
+            3: "योग्य उत्तर **ब्रोमिन** आहे. पारा (Mercury) हा द्रव धातू आहे, तर ब्रोमिन (Bromine) हा द्रव अधातू आहे.",
+            4: "योग्य उत्तर **प्रामुख्याने घन पदार्थ** आहे. उष्णतेचे वहन (Conduction) हे मुख्यतः घन पदार्थांमध्ये होते.",
+            5: "योग्य उत्तर **यकृत (Liver)** आहे. यकृत (Liver) ही मानवी शरीरातील सर्वात मोठी ग्रंथी आहे.",
+            6: "योग्य उत्तर **सायट्रिक आम्ल** आहे. लिंबू आणि संत्री यांसारख्या लिंबूवर्गीय फळांना सायट्रिक आम्लामुळे आंबट चव येते.",
+            7: "योग्य उत्तर **$3 \\times 10^8$ मी/से** आहे. निर्वात पोकळीत प्रकाशाचा वेग $3 \\times 10^8$ मी/सेकंद किंवा ३ लाख किमी/सेकंद असतो.",
+            8: "योग्य उत्तर **जिवाणू (Bacteria)** आहे. क्षय रोग (TB) हा 'मायकोबॅक्टेरियम ट्युबरक्युलोसिस' नावाच्या जिवाणूमुळे होतो.",
+            9: "योग्य उत्तर **$H_2O$** आहे. पाण्याचे रासायनिक सूत्र $H_2O$ आहे, ज्यात हायड्रोजनचे दोन आणि ऑक्सिजनचा एक अणू असतो.",
+            10: "योग्य उत्तर **बॅरोमीटर (Barometer)** आहे. बॅरोमीटरचा उपयोग वातावरणाचा दाब मोजण्यासाठी केला जातो."
+        };
+
+        // Key: Question Number, Value: User Selected Option Number
+        let userAnswers = {};
+        const totalQuestions = Object.keys(correctAnswers).length;
+        
+        // --- LOCAL STORAGE LOGIC (The code you requested) ---
+        const NMMS_QUIZ_ANSWERS_KEY = 'NMMS_Science_Answers';
+
+        /**
+         * Saves the current state of userAnswers to Local Storage.
+         */
+        function saveProgress() {
+            try {
+                localStorage.setItem(NMMS_QUIZ_ANSWERS_KEY, JSON.stringify(userAnswers));
+                // console.log("Progress saved:", userAnswers);
+            } catch (e) {
+                console.error("Local Storage Save Error:", e);
+            }
+        }
+
+        /**
+         * Loads saved answers from Local Storage and updates the UI.
+         */
+        function loadProgress() {
+            try {
+                const savedAnswers = localStorage.getItem(NMMS_QUIZ_ANSWERS_KEY);
+                if (savedAnswers) {
+                    userAnswers = JSON.parse(savedAnswers);
+                    
+                    // Re-apply selections to the UI
+                    for (const [qNumStr, optNum] of Object.entries(userAnswers)) {
+                        const qNum = parseInt(qNumStr);
+                        const selectedButton = document.querySelector(`#question${qNum} .option-button[data-opt="${optNum}"]`);
+                        if (selectedButton) {
+                            selectedButton.classList.add('selected');
+                        }
+                    }
+                    console.log("Quiz progress loaded:", userAnswers);
+                }
+            } catch (e) {
+                console.error("Local Storage Load Error:", e);
+            }
+        }
+        
+        /**
+         * Clears progress and resets the quiz UI.
+         */
+        function resetQuiz() {
+            // 1. Clear Answers
+            userAnswers = {};
+            
+            // 2. Clear Local Storage
+            try {
+                localStorage.removeItem(NMMS_QUIZ_ANSWERS_KEY);
+            } catch (e) {
+                console.error("Error clearing Local Storage:", e);
+            }
+
+            // 3. Reset UI state
+            document.querySelectorAll('.option-button').forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+                btn.disabled = false;
+                // Clear inline styles that were applied after submission
+                btn.style.backgroundColor = ''; 
+                btn.style.color = ''; 
+                btn.style.borderColor = ''; 
+            });
+
+            document.querySelectorAll('.explanation').forEach(div => {
+                div.style.display = 'none';
+                div.innerHTML = '';
+            });
+
+            // Display success message in the result box
+            const resultElement = document.getElementById('quiz-result');
+            resultElement.classList.remove('hidden');
+            resultElement.style.backgroundColor = '#d1fae5'; 
+            resultElement.style.borderColor = '#0d9488';
+            resultElement.style.color = '#065f46';
+            resultElement.innerHTML = `<strong>✅ प्रगती यशस्वीरित्या रीसेट केली आहे! नवीन प्रश्नमंजुषा सुरू करा.</strong>`;
+            
+            // Hide the message after a delay
+            setTimeout(() => { resultElement.classList.add('hidden'); }, 4000); 
+
+            const submitBtn = document.getElementById('submit-button');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'प्रश्नमंजुषा सबमिट करा आणि निकाल पहा';
+            submitBtn.classList.remove('bg-gray-400', 'bg-red-600');
+            submitBtn.classList.add('bg-teal-600'); 
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- Core Quiz Functions Updated for Persistence ---
+
+        function selectAnswer(questionNum, optionNum) {
+            userAnswers[questionNum] = optionNum;
+            
+            const options = document.querySelectorAll(`#question${questionNum} .option-button`);
+            options.forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+            });
+
+            const selectedButton = document.querySelector(`#question${questionNum} .option-button[data-opt="${optionNum}"]`);
+            selectedButton.classList.add('selected');
+            
+            // 💡 Persistence: Save state every time an answer is selected
+            saveProgress();
+        }
+
+        document.getElementById('sat-quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            showResults();
+        });
+
+        function showResults() {
+            let score = 0;
+            const isCompleted = Object.keys(userAnswers).length === totalQuestions;
+
+            // Check if all questions are answered before showing final score
+            if (!isCompleted) {
+                 const resultElement = document.getElementById('quiz-result');
+                 resultElement.classList.remove('hidden');
+                 resultElement.style.backgroundColor = '#fee2e2'; 
+                 resultElement.style.borderColor = '#ef4444'; 
+                 resultElement.style.color = '#991b1b';
+                 resultElement.innerHTML = `<strong>⚠️ कृपया सर्व ${totalQuestions} प्रश्नांची उत्तरे द्या.</strong>`;
+                 window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
+                 return;
+            }
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const qNum = i;
+                const correctAnswer = correctAnswers[qNum];
+                const userAnswer = userAnswers[qNum];
+                const qBlock = document.getElementById(`question${qNum}`);
+                const options = qBlock.querySelectorAll('.option-button');
+                const explanationDiv = document.getElementById(`explanation${qNum}`);
+                
+                // 1. Show Feedback (Correct/Incorrect highlighting)
+                options.forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.remove('selected');
+                    const optNum = parseInt(btn.getAttribute('data-opt'));
+                    
+                    if (optNum === correctAnswer) {
+                        btn.classList.add('correct');
+                    } else if (optNum === userAnswer && userAnswer !== correctAnswer) {
+                        btn.classList.add('incorrect');
+                    } else {
+                        // Dim unselected, incorrect options
+                        btn.style.backgroundColor = '#f3f4f6';
+                        btn.style.color = '#1f2937';
+                        btn.style.borderColor = '#d1d5db';
+                    }
+                });
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+                
+                // 2. Display Explanation
+                const correctText = qBlock.querySelector(`.option-button[data-opt="${correctAnswer}"]`).textContent.trim();
+                
+                explanationDiv.innerHTML = `
+                    <strong>✅ योग्य उत्तर:</strong> ${correctText}
+                    <br>
+                    <strong>💡 स्पष्टीकरण:</strong> ${explanations[qNum]}
+                `;
+                explanationDiv.style.display = 'block';
+            }
+
+            // 3. Display Final Score
+            const resultElement = document.getElementById('quiz-result');
+            resultElement.classList.remove('hidden');
+            resultElement.style.backgroundColor = '#d1fae5'; // Reset style from warning if needed
+            resultElement.style.borderColor = '#0d9488';
+            resultElement.style.color = '#065f46';
+
+            resultElement.innerHTML = `
+                🎉 तुमचा निकाल: <strong>${totalQuestions}</strong> पैकी <strong>${score}</strong> प्रश्न बरोबर!
+                <div style="margin-top: 10px; font-size: 1rem; font-weight: 500; color: #0d9488;">विज्ञानाच्या पुढील सरावासाठी सज्ज व्हा.</div>
+            `;
+            
+            // Disable Submit Button and remove stored answers (quiz finished)
+            document.getElementById('submit-button').disabled = true;
+            document.getElementById('submit-button').textContent = 'निकाल दर्शविला आहे';
+            document.getElementById('submit-button').classList.add('bg-gray-400');
+            
+            // Clear storage after completion so the user must click reset to restart
+            try {
+                localStorage.removeItem(NMMS_QUIZ_ANSWERS_KEY);
+            } catch (e) {
+                 console.error("Error clearing Local Storage after submission:", e);
+            }
+            userAnswers = {}; // Also clear in memory
+
+            window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
+        }
+        
+        // --- Initialization ---
+        // 💡 Persistence: Load saved progress when the page starts
+        window.onload = loadProgress;
+
+    </script>
+</body>
+</html>

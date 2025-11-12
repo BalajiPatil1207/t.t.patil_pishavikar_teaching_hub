@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NMMS SAT: जीवशास्त्र प्रश्नमंजुषा (Biology Quiz) - T.T. Patil Pishavikar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Styling for NMMS SAT - Green/Biology Theme */
+        body { font-family: 'Arial', sans-serif; background-color: #f0fdf4; }
+        .quiz-container { max-width: 800px; margin: 30px auto; padding: 20px; background-color: #ffffff; border-radius: 12px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
+        .header { background-color: #059669; /* Emerald Green */ color: white; padding: 15px; border-radius: 8px 8px 0 0; text-align: center; font-size: 1.5rem; font-weight: bold; }
+        .question-card { margin-top: 20px; padding: 20px; border: 2px solid #ccfbf1; border-radius: 8px; background-color: #fff; }
+        .series-display { font-size: 1.2rem; font-weight: bold; text-align: center; margin: 20px 0; padding: 10px; background-color: #ecfdf5; border-radius: 6px; color: #065f46; }
+        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .option-button { background-color: #f0fdf4; color: #0f766e; border: 2px solid #34d399; padding: 12px; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-size: 1rem; text-align: center; font-weight: 500;}
+        .submit-btn { display: block; width: 100%; padding: 15px; margin-top: 30px; background-color: #059669; color: white; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-weight: bold; }
+        .result-message { text-align: center; margin-top: 20px; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: bold; background-color: #d1fae5; border: 2px solid #059669; color: #065f46; }
+        
+        /* Selection and Feedback Styles */
+        .selected { background-color: #a7f3d0 !important; border-color: #065f46 !important; color: #059669 !important; font-weight: 700; }
+        .correct { background-color: #d1fae5 !important; border-color: #059669 !important; color: #065f46 !important; font-weight: 700; }
+        .incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+
+        /* Explanation Box Style */
+        .explanation { 
+            margin-top: 15px; 
+            padding: 10px; 
+            background-color: #f0f9ff;
+            border: 1px solid #3b82f6; 
+            border-radius: 6px; 
+            font-size: 0.95rem; 
+            color: #1e40af; 
+            display: none; 
+        }
+        @media (max-width: 600px) {
+            .options-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
+            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+                <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="quiz-container">
+        
+        <div class="header">
+            NMMS SAT: जीवशास्त्र प्रश्नमंजुषा (Biology Quiz) 🦠
+        </div>
+
+        <form id="sat-quiz-form">
+            <div class="question-card" id="question1">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १:</strong> वनस्पती त्यांच्या अन्न निर्मितीसाठी सूर्यप्रकाशाचा उपयोग करतात, या प्रक्रियेला काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="1" data-opt="1" onclick="selectAnswer(1, 1)">A) श्वसन (Respiration)</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="2" onclick="selectAnswer(1, 2)">B) उत्सर्जन (Excretion)</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="3" onclick="selectAnswer(1, 3)">C) प्रकाशसंश्लेषण (Photosynthesis)</button>
+                    <button type="button" class="option-button" data-q="1" data-opt="4" onclick="selectAnswer(1, 4)">D) वहन (Translocation)</button>
+                </div>
+                <div class="explanation" id="explanation1"></div>
+            </div>
+
+            <div class="question-card" id="question2">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २:</strong> पचन झालेल्या अन्नाचे शोषण (Absorption) मानवी शरीराच्या कोणत्या भागात प्रामुख्याने होते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="2" data-opt="1" onclick="selectAnswer(2, 1)">A) जठर (Stomach)</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="2" onclick="selectAnswer(2, 2)">B) लहान आतडे (Small Intestine)</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="3" onclick="selectAnswer(2, 3)">C) मोठे आतडे (Large Intestine)</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="4" onclick="selectAnswer(2, 4)">D) यकृत (Liver)</button>
+                </div>
+                <div class="explanation" id="explanation2"></div>
+            </div>
+            
+            <div class="question-card" id="question3">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३:</strong> पेशीचा 'ऊर्जा निर्मितीचा कारखाना' (Powerhouse) म्हणून कोणत्या भागाला ओळखले जाते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="3" data-opt="1" onclick="selectAnswer(3, 1)">A) केंद्रक (Nucleus)</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="2" onclick="selectAnswer(3, 2)">B) तंतुकणिका (Mitochondria)</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="3" onclick="selectAnswer(3, 3)">C) पेशीभित्ती (Cell Wall)</button>
+                    <button type="button" class="option-button" data-q="3" data-opt="4" onclick="selectAnswer(3, 4)">D) रिक्तिका (Vacuole)</button>
+                </div>
+                <div class="explanation" id="explanation3"></div>
+            </div>
+            
+            <div class="question-card" id="question4">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४:</strong> फुलांमध्ये परागकण तयार करणारे अवयव कोणते आहे?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="4" data-opt="1" onclick="selectAnswer(4, 1)">A) स्त्रीकेसर (Pistil)</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="2" onclick="selectAnswer(4, 2)">B) दलपुंज (Corolla)</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="3" onclick="selectAnswer(4, 3)">C) पुंकेसर (Stamen)</button>
+                    <button type="button" class="option-button" data-q="4" data-opt="4" onclick="selectAnswer(4, 4)">D) निदलपुंज (Calyx)</button>
+                </div>
+                <div class="explanation" id="explanation4"></div>
+            </div>
+
+            <div class="question-card" id="question5">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ५:</strong> टायफॉइड (Typhoid) हा रोग प्रामुख्याने कशामुळे होतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="5" data-opt="1" onclick="selectAnswer(5, 1)">A) विषाणू (Virus)</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="2" onclick="selectAnswer(5, 2)">B) आदिजीव (Protozoa)</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="3" onclick="selectAnswer(5, 3)">C) जिवाणू (Bacteria)</button>
+                    <button type="button" class="option-button" data-q="5" data-opt="4" onclick="selectAnswer(5, 4)">D) बुरशी (Fungus)</button>
+                </div>
+                <div class="explanation" id="explanation5"></div>
+            </div>
+            
+            <div class="question-card" id="question6">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ६:</strong> रक्तामध्ये ऑक्सिजन वाहून नेण्याचे मुख्य कार्य कोणता घटक करतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="6" data-opt="1" onclick="selectAnswer(6, 1)">A) पांढऱ्या रक्तपेशी (WBC)</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="2" onclick="selectAnswer(6, 2)">B) रक्तबिंबिका (Platelets)</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="3" onclick="selectAnswer(6, 3)">C) तांबड्या रक्तपेशी (RBC)</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="4" onclick="selectAnswer(6, 4)">D) रक्तद्रव (Plasma)</button>
+                </div>
+                <div class="explanation" id="explanation6"></div>
+            </div>
+
+            <div class="question-card" id="question7">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ७:</strong> अन्नसाखळीत (Food Chain) प्रथम पोषण पातळीवर (First Trophic Level) कोण असतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="7" data-opt="1" onclick="selectAnswer(7, 1)">A) मांसाहारी (Carnivores)</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="2" onclick="selectAnswer(7, 2)">B) शाकाहारी (Herbivores)</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="3" onclick="selectAnswer(7, 3)">C) विघटक (Decomposers)</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="4" onclick="selectAnswer(7, 4)">D) उत्पादक (Producers - Plants)</button>
+                </div>
+                <div class="explanation" id="explanation7"></div>
+            </div>
+
+            <div class="question-card" id="question8">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ८:</strong> वनस्पतींमध्ये पाणी आणि खनिजे शोषून घेण्याचे मुख्य कार्य कोणता भाग करतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="8" data-opt="1" onclick="selectAnswer(8, 1)">A) पान (Leaf)</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="2" onclick="selectAnswer(8, 2)">B) फूल (Flower)</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="3" onclick="selectAnswer(8, 3)">C) मूळ (Root)</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="4" onclick="selectAnswer(8, 4)">D) खोड (Stem)</button>
+                </div>
+                <div class="explanation" id="explanation8"></div>
+            </div>
+            
+            <div class="question-card" id="question9">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ९:</strong> कोणत्या जीवनसत्त्वाच्या (Vitamin) कमतरतेमुळे 'रातांधळेपणा' (Night Blindness) होतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="9" data-opt="1" onclick="selectAnswer(9, 1)">A) जीवनसत्त्व क (Vitamin C)</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="2" onclick="selectAnswer(9, 2)">B) जीवनसत्त्व अ (Vitamin A)</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="3" onclick="selectAnswer(9, 3)">C) जीवनसत्त्व ड (Vitamin D)</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="4" onclick="selectAnswer(9, 4)">D) जीवनसत्त्व ब (Vitamin B)</button>
+                </div>
+                <div class="explanation" id="explanation9"></div>
+            </div>
+
+            <div class="question-card" id="question10">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १०:</strong> मानवी शरीरातील कोणती ग्रंथी (Gland) इन्सुलिन (Insulin) हे संप्रेरक (Hormone) तयार करते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="10" data-opt="1" onclick="selectAnswer(10, 1)">A) थायरॉईड</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="2" onclick="selectAnswer(10, 2)">B) पियुषिका (Pituitary)</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="3" onclick="selectAnswer(10, 3)">C) स्वादुपिंड (Pancreas)</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="4" onclick="selectAnswer(10, 4)">D) अधिवृक्क (Adrenal)</button>
+                </div>
+                <div class="explanation" id="explanation10"></div>
+            </div>
+
+            <div class="question-card" id="question11">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ११:</strong> जलचक्रात (Water Cycle) पाण्याचे बाष्पात (Vapor) रूपांतर होण्याच्या क्रियेला काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="11" data-opt="1" onclick="selectAnswer(11, 1)">A) संघनन (Condensation)</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="2" onclick="selectAnswer(11, 2)">B) बाष्पीभवन (Evaporation)</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="3" onclick="selectAnswer(11, 3)">C) पर्जन्यवृष्टी (Precipitation)</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="4" onclick="selectAnswer(11, 4)">D) उपद्रव (Sublimation)</button>
+                </div>
+                <div class="explanation" id="explanation11"></div>
+            </div>
+
+            <div class="question-card" id="question12">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १२:</strong> मलेरिया (Malaria) या रोगाचा प्रसार कोणत्या मादी डासामुळे (Female Mosquito) होतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="12" data-opt="1" onclick="selectAnswer(12, 1)">A) क्युलेक्स (Culex)</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="2" onclick="selectAnswer(12, 2)">B) एनाफिलीस (Anopheles)</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="3" onclick="selectAnswer(12, 3)">C) एडिस (Aedes)</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="4" onclick="selectAnswer(12, 4)">D) टायगर (Tiger)</button>
+                </div>
+                <div class="explanation" id="explanation12"></div>
+            </div>
+            
+            <div class="question-card" id="question13">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १३:</strong> वनस्पती पेशीमध्ये आढळणारा आणि प्राणी पेशीमध्ये (Animal Cell) नसलेला घटक कोणता?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="13" data-opt="1" onclick="selectAnswer(13, 1)">A) केंद्रक (Nucleus)</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="2" onclick="selectAnswer(13, 2)">B) पेशीभित्ती (Cell Wall)</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="3" onclick="selectAnswer(13, 3)">C) पेशीपटल (Cell Membrane)</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="4" onclick="selectAnswer(13, 4)">D) पेशीद्रव्य (Cytoplasm)</button>
+                </div>
+                <div class="explanation" id="explanation13"></div>
+            </div>
+
+            <div class="question-card" id="question14">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १४:</strong> पृथ्वीवरील सजीवांचे जीवन टिकवून ठेवणारा नैसर्गिक वायू (Gas) कोणता?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="14" data-opt="1" onclick="selectAnswer(14, 1)">A) नायट्रोजन</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="2" onclick="selectAnswer(14, 2)">B) कार्बन डायऑक्साइड</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="3" onclick="selectAnswer(14, 3)">C) ऑक्सिजन</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="4" onclick="selectAnswer(14, 4)">D) मिथेन</button>
+                </div>
+                <div class="explanation" id="explanation14"></div>
+            </div>
+
+            <div class="question-card" id="question15">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १५:</strong> खरीप पिके (Kharif Crops) कोणत्या महिन्यांदरम्यान प्रामुख्याने घेतली जातात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="15" data-opt="1" onclick="selectAnswer(15, 1)">A) नोव्हेंबर ते एप्रिल</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="2" onclick="selectAnswer(15, 2)">B) जून ते ऑक्टोबर</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="3" onclick="selectAnswer(15, 3)">C) मार्च ते जून</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="4" onclick="selectAnswer(15, 4)">D) सप्टेंबर ते डिसेंबर</button>
+                </div>
+                <div class="explanation" id="explanation15"></div>
+            </div>
+            
+            <div class="question-card" id="question16">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १६:</strong> आनुवंशिकतेचा (Heredity) मूलभूत एकक (Basic Unit) कोणता आहे, जो गुणधर्म एका पिढीकडून दुसऱ्या पिढीकडे नेतो?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="16" data-opt="1" onclick="selectAnswer(16, 1)">A) प्रथिने (Protein)</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="2" onclick="selectAnswer(16, 2)">B) जनुके (Gene)</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="3" onclick="selectAnswer(16, 3)">C) पेशीपटल (Cell Membrane)</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="4" onclick="selectAnswer(16, 4)">D) कर्बोदके (Carbohydrate)</button>
+                </div>
+                <div class="explanation" id="explanation16"></div>
+            </div>
+
+            <div class="question-card" id="question17">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १७:</strong> रोगप्रतिकारशक्ती (Immunity) वाढवण्यासाठी शरीराला मदत करणारे रक्तातील घटक कोणते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="17" data-opt="1" onclick="selectAnswer(17, 1)">A) तांबड्या रक्तपेशी (RBC)</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="2" onclick="selectAnswer(17, 2)">B) पांढऱ्या रक्तपेशी (WBC)</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="3" onclick="selectAnswer(17, 3)">C) रक्तबिंबिका (Platelets)</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="4" onclick="selectAnswer(17, 4)">D) प्लाझ्मा (Plasma)</button>
+                </div>
+                <div class="explanation" id="explanation17"></div>
+            </div>
+
+            <div class="question-card" id="question18">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १८:</strong> शेतातील पिकांसोबत वाढणाऱ्या अनावश्यक वनस्पतींना काय म्हणतात?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="18" data-opt="1" onclick="selectAnswer(18, 1)">A) खत (Manure)</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="2" onclick="selectAnswer(18, 2)">B) तण (Weeds)</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="3" onclick="selectAnswer(18, 3)">C) बियाणे (Seeds)</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="4" onclick="selectAnswer(18, 4)">D) कीटक (Pests)</button>
+                </div>
+                <div class="explanation" id="explanation18"></div>
+            </div>
+
+            <div class="question-card" id="question19">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १९:</strong> वातावरणातील नायट्रोजनचे (Nitrogen) स्थिरीकरण (Fixation) करण्यासाठी मदत करणारा जिवाणू (Bacteria) कोणता?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="19" data-opt="1" onclick="selectAnswer(19, 1)">A) लॅक्टोबॅसिलस (Lactobacillus)</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="2" onclick="selectAnswer(19, 2)">B) साल्मोनेला (Salmonella)</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="3" onclick="selectAnswer(19, 3)">C) रायझोबियम (Rhizobium)</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="4" onclick="selectAnswer(19, 4)">D) क्लोस्ट्रीडियम (Clostridium)</button>
+                </div>
+                <div class="explanation" id="explanation19"></div>
+            </div>
+
+            <div class="question-card" id="question20">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २०:</strong> मानवी शरीरातील 'कानाचे' (Ear) मुख्य कार्य कोणते?</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="20" data-opt="1" onclick="selectAnswer(20, 1)">A) वास ओळखणे (Smell)</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="2" onclick="selectAnswer(20, 2)">B) चव घेणे (Taste)</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="3" onclick="selectAnswer(20, 3)">C) ऐकणे आणि शरीराचा समतोल राखणे (Hearing & Balance)</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="4" onclick="selectAnswer(20, 4)">D) स्पर्श ओळखणे (Touch)</button>
+                </div>
+                <div class="explanation" id="explanation20"></div>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submit-button">प्रश्नमंजुषा सबमिट करा आणि निकाल पहा</button>
+        </form>
+        
+        <div class="result-message hidden" id="quiz-result">
+            </div>
+
+    </div>
+    
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 T.T. Patil Pishavikar. NMMS मार्गदर्शन.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Key: Question Number, Value: Correct Option Number (1, 2, 3, or 4)
+        const correctAnswers = { 
+            1: 3, 
+            2: 2, 
+            3: 2, 
+            4: 3, 
+            5: 3, 
+            6: 3, 
+            7: 4, 
+            8: 3, 
+            9: 2,
+            10: 3,
+            11: 2,
+            12: 2,
+            13: 2,
+            14: 3,
+            15: 2,
+            16: 2,
+            17: 2,
+            18: 2,
+            19: 3,
+            20: 3
+        };
+        
+        // Key: Question Number, Value: Explanation Text
+        const explanations = {
+            1: "योग्य उत्तर **प्रकाशसंश्लेषण** आहे. या प्रक्रियेत हरितद्रव्य (Chlorophyll) सूर्यप्रकाशाच्या मदतीने अन्न तयार करते.",
+            2: "योग्य उत्तर **लहान आतडे** आहे. लहान आतड्याच्या भिंतींमध्ये असलेल्या 'व्हिली' (Villi) मुळे पचन झालेल्या अन्नाचे शोषण प्रभावीपणे होते.",
+            3: "योग्य उत्तर **तंतुकणिका** आहे. तंतुकणिकेत (Mitochondria) श्वसन प्रक्रिया होते आणि ऊर्जा (ATP) तयार होते, म्हणून याला ऊर्जा निर्मितीचा कारखाना म्हणतात.",
+            4: "योग्य उत्तर **पुंकेसर** आहे. पुंकेसराच्या परागकोषात (Anther) परागकण (Pollen Grains) तयार होतात.",
+            5: "योग्य उत्तर **जिवाणू** आहे. टायफॉइड हा 'साल्मोनेला टायफी' (Salmonella typhi) नावाच्या जिवाणूमुळे होतो.",
+            6: "योग्य उत्तर **तांबड्या रक्तपेशी** आहे. तांबड्या रक्तपेशींमध्ये (RBC) असलेल्या हिमोग्लोबिनमुळे (Hemoglobin) ऑक्सिजन फुफ्फुसातून शरीराच्या इतर भागांत पोहोचतो.",
+            7: "योग्य उत्तर **उत्पादक (Producers - Plants)** आहे. उत्पादक स्वतःचे अन्न स्वतः तयार करतात आणि अन्नसाखळीतील पहिली पोषण पातळी बनवतात.",
+            8: "योग्य उत्तर **मूळ (Root)** आहे. मुळे मातीतून पाणी आणि आवश्यक खनिजे शोषून घेतात.",
+            9: "योग्य उत्तर **जीवनसत्त्व अ (Vitamin A)** आहे. या जीवनसत्त्वाच्या कमतरतेमुळे डोळ्यांचे आजार, विशेषतः रातांधळेपणा, होतो.",
+            10: "योग्य उत्तर **स्वादुपिंड** आहे. स्वादुपिंडातून (Pancreas) इन्सुलिन हे संप्रेरक तयार होते, जे रक्तातील साखर नियंत्रित करते.",
+            11: "योग्य उत्तर **बाष्पीभवन** आहे. सूर्यप्रकाशाच्या उष्णतेमुळे पाणी बाष्पात रूपांतरित होते, या क्रियेला बाष्पीभवन म्हणतात.",
+            12: "योग्य उत्तर **एनाफिलीस** आहे. मादी एनाफिलीस (Anopheles) डास प्लाझमोडियम (Plasmodium) या आदिजीवामुळे होणाऱ्या मलेरियाचा प्रसार करते.",
+            13: "योग्य उत्तर **पेशीभित्ती (Cell Wall)** आहे. पेशीभित्ती वनस्पती पेशींना विशिष्ट आकार आणि आधार देते, जी प्राणी पेशींमध्ये नसते.",
+            14: "योग्य उत्तर **ऑक्सिजन** आहे. ऑक्सिजन हा सजीवांना श्वसनासाठी आवश्यक असलेला वायू आहे.",
+            15: "योग्य उत्तर **जून ते ऑक्टोबर** आहे. खरीप पिके पावसाळ्यात (जून ते ऑक्टोबर) पेरली जातात, उदा. भात, मका, सोयाबीन.",
+            16: "योग्य उत्तर **जनुके (Gene)** आहे. जनुके (Genes) हे गुणसूत्र (Chromosome) वर स्थित असतात आणि आनुवंशिक गुणधर्मांचे वहन करतात.",
+            17: "योग्य उत्तर **पांढऱ्या रक्तपेशी (WBC)** आहे. पांढऱ्या रक्तपेशी शरीराचे रोग आणि संसर्गापासून संरक्षण करतात.",
+            18: "योग्य उत्तर **तण (Weeds)** आहे. तण हे मुख्य पिकांशी स्पर्धा करतात, ज्यामुळे पिकांचे उत्पादन कमी होते.",
+            19: "योग्य उत्तर **रायझोबियम** आहे. रायझोबियम (Rhizobium) जिवाणू शेंगावर्गीय वनस्पतींच्या मुळांवर राहून नायट्रोजन स्थिरीकरण करतात.",
+            20: "योग्य उत्तर **ऐकणे आणि शरीराचा समतोल राखणे** आहे. कान हे ऐकण्याचे इंद्रिय आहेच, शिवाय ते शरीराचा समतोल (Balance) राखण्यातही मदत करते."
+        };
+
+        let userAnswers = {};
+        const totalQuestions = Object.keys(correctAnswers).length;
+        
+        function selectAnswer(questionNum, optionNum) {
+            userAnswers[questionNum] = optionNum;
+            
+            const options = document.querySelectorAll(`#question${questionNum} .option-button`);
+            options.forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+            });
+
+            const selectedButton = document.querySelector(`#question${questionNum} .option-button[data-opt="${optionNum}"]`);
+            selectedButton.classList.add('selected');
+        }
+
+        document.getElementById('sat-quiz-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            showResults();
+        });
+
+        function showResults() {
+            let score = 0;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const qNum = i;
+                const correctAnswer = correctAnswers[qNum];
+                const userAnswer = userAnswers[qNum];
+                const qBlock = document.getElementById(`question${qNum}`);
+                const options = qBlock.querySelectorAll('.option-button');
+                const explanationDiv = document.getElementById(`explanation${qNum}`);
+                
+                // 1. Show Feedback (Correct/Incorrect highlighting)
+                options.forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.remove('selected');
+                    const optNum = parseInt(btn.getAttribute('data-opt'));
+                    
+                    if (optNum === correctAnswer) {
+                        btn.classList.add('correct');
+                    } else if (optNum === userAnswer && userAnswer !== correctAnswer) {
+                        btn.classList.add('incorrect');
+                    } else {
+                         btn.style.backgroundColor = '#f3f4f6';
+                         btn.style.color = '#1f2937';
+                         btn.style.borderColor = '#d1d5db';
+                    }
+                });
+
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+                
+                // 2. Display Explanation
+                const correctText = qBlock.querySelector(`.option-button[data-opt="${correctAnswer}"]`).textContent.trim();
+                
+                explanationDiv.innerHTML = `
+                    <strong>✅ योग्य उत्तर:</strong> ${correctText}
+                    <br>
+                    <strong>💡 स्पष्टीकरण:</strong> ${explanations[qNum]}
+                `;
+                explanationDiv.style.display = 'block';
+            }
+
+            // 3. Display Final Score
+            const resultElement = document.getElementById('quiz-result');
+            resultElement.classList.remove('hidden');
+            resultElement.innerHTML = `
+                🎉 तुमचा निकाल: <strong>${totalQuestions}</strong> पैकी <strong>${score}</strong> प्रश्न बरोबर!
+                <div style="margin-top: 10px; font-size: 1rem; font-weight: 500; color: #059669;">जीवशास्त्राच्या पुढील सरावासाठी सज्ज व्हा.</div>
+            `;
+            
+            // Disable Submit Button
+            document.getElementById('submit-button').disabled = true;
+            document.getElementById('submit-button').textContent = 'निकाल दर्शविला आहे';
+            document.getElementById('submit-button').classList.add('bg-gray-400');
+            
+            window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
