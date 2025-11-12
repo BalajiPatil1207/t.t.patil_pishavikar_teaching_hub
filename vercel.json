@@ -1,5 +1,5 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/marathi.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
