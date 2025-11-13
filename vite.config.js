@@ -27,7 +27,7 @@ export default defineConfig({
         geoqz7:"quiz_test7.html",
         geoqz8:"quiz_test8.html",
         geoqz9:"quiz_test9.html",
-        geoqz10:"quiz_test10.html",
+        geoqz10:"quiz_test10.html"
       },
     },
   },
