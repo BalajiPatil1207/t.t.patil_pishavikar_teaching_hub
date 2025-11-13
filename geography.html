@@ -285,6 +285,20 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+        var mobileMenu = document.getElementById('mobile-menu');
+        var hamburgerIcon = document.getElementById('hamburger-icon');
+        var closeIcon = document.getElementById('close-icon');
+
+        // 1. Toggle the visibility of the mobile menu
+        mobileMenu.classList.toggle('hidden');
+
+        // 2. Toggle the visibility of the icons (Hamburger <-> X)
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+    });
+  </script>
 </body>
 
 </html>

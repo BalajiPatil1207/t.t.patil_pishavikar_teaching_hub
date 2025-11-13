@@ -188,45 +188,44 @@
   <header class="sticky top-0 z-50 bg-white shadow-md">
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
 
-        <h1 class="text-2xl sm:text-3xl font-bold text-orange-700">
-            T.T.Patil Pishavikar
-        </h1>
+      <h1 class="text-2xl sm:text-3xl font-bold text-orange-700">
+        T.T.Patil Pishavikar
+      </h1>
 
-        <button id="menu-btn" class="md:hidden text-orange-700 focus:outline-none">
-            <svg id="hamburger-icon" class="w-8 h-8 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <svg id="close-icon" class="w-8 h-8 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
+      <button id="menu-btn" class="md:hidden text-orange-700 focus:outline-none">
+        <svg id="hamburger-icon" class="w-8 h-8 block" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-8 h-8 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
 
-        <div id="menu" class="hidden md:flex space-x-4 md:space-x-8 text-lg font-medium">
-            <a href="/index.html" class="text-orange-600 hover:text-orange-800">Home</a>
-            <a href="/marathi.html" class="text-gray-600 hover:text-orange-600">Marathi</a>
-            <a href="/geography.html" class="text-gray-600 hover:text-orange-600">Geography</a>
-            <a href="/nmms.html" class="text-gray-600 hover:text-orange-600">NMMS</a>
-            <a href="/contact.html" class="text-gray-600 hover:text-orange-600">Contact</a>
-            <a href="/login.html"
-                class="text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition">
-                Login
-            </a>
-        </div>
+      <div id="menu" class="hidden md:flex space-x-4 md:space-x-8 text-lg font-medium">
+        <a href="/index.html" class="text-orange-600 hover:text-orange-800">Home</a>
+        <a href="/marathi.html" class="text-gray-600 hover:text-orange-600">Marathi</a>
+        <a href="/geography.html" class="text-gray-600 hover:text-orange-600">Geography</a>
+        <a href="/nmms.html" class="text-gray-600 hover:text-orange-600">NMMS</a>
+        <a href="/contact.html" class="text-gray-600 hover:text-orange-600">Contact</a>
+        <a href="/login.html" class="text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition">
+          Login
+        </a>
+      </div>
     </nav>
     <div id="mobile-menu" class="hidden flex-col md:hidden space-y-4 text-center py-4 bg-white shadow-md">
-        <a href="index.html" class="block text-orange-600 hover:text-orange-800">Home</a>
-        <a href="marathi.html" class="block text-gray-600 hover:text-orange-600">Marathi</a>
-        <a href="geography.html" class="block text-gray-600 hover:text-orange-600">Geography</a>
-        <a href="nmms.html" class="block text-gray-600 hover:text-orange-600">NMMS</a>
-        <a href="contact.html" class="block text-gray-600 hover:text-orange-600">Contact</a>
-        <a href="login.html"
-            class="inline-block text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition">
-            Login
-        </a>
+      <a href="index.html" class="block text-orange-600 hover:text-orange-800">Home</a>
+      <a href="marathi.html" class="block text-gray-600 hover:text-orange-600">Marathi</a>
+      <a href="geography.html" class="block text-gray-600 hover:text-orange-600">Geography</a>
+      <a href="nmms.html" class="block text-gray-600 hover:text-orange-600">NMMS</a>
+      <a href="contact.html" class="block text-gray-600 hover:text-orange-600">Contact</a>
+      <a href="login.html"
+        class="inline-block text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition">
+        Login
+      </a>
     </div>
-</header>
+  </header>
 
   <section class="bg-orange-50 py-16 sm:py-20 text-center border-b-4 border-orange-200">
     <div class="max-w-4xl mx-auto px-4">
@@ -856,12 +855,23 @@
     </footer>
 
 
-    
+
     <!-- ✅ JavaScript Section -->
     <script>
       // 🌐 Mobile Menu Toggle
 
-  
+      document.getElementById('menu-btn').addEventListener('click', function () {
+        var mobileMenu = document.getElementById('mobile-menu');
+        var hamburgerIcon = document.getElementById('hamburger-icon');
+        var closeIcon = document.getElementById('close-icon');
+
+        // 1. Toggle the visibility of the mobile menu
+        mobileMenu.classList.toggle('hidden');
+
+        // 2. Toggle the visibility of the icons (Hamburger <-> X)
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
 
       // 👇 Slider Navigation Logic for “Guides” Section
       const prevBtn = document.getElementById("prev-btn");
