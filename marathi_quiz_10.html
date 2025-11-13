@@ -5,19 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>इयत्ता १० वी मराठी प्रश्नमंजुषा - T.T. Patil Pishavikar</title>
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-50 font-sans">
 
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            
             <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+            
+            <button id="menu-btn" class="md:hidden text-gray-600 hover:text-red-600 focus:outline-none">
+                <svg id="hamburger-icon" class="w-7 h-7 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" class="w-7 h-7 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            
+            <div id="desktop-menu" class="hidden md:flex space-x-4 md:space-x-8 text-lg font-medium">
                 <a href="index.html" class="text-gray-600 hover:text-red-600">Home</a>
-                <a href="#" class="text-blue-600 hover:text-blue-800">Quiz List</a>
+                <a href="marathi_class10.html" class="text-blue-600 hover:text-blue-800">Quiz List</a>
                 <a href="marathi_class10.html" class="text-gray-600 hover:text-red-600">10th Videos</a>
             </div>
         </nav>
+        
+        <div id="mobile-menu" class="hidden md:hidden flex-col space-y-2 py-3 bg-gray-100 shadow-inner">
+            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Home</a>
+            <a href="marathi_class10.html" class="block px-4 py-2 text-blue-700 hover:bg-gray-200">Quiz List</a>
+            <a href="marathi_class10.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">10th Videos</a>
+        </div>
     </header>
 
     <section class="bg-red-700 text-white py-12">
@@ -84,6 +103,35 @@
             <p>&copy; 2025 T.T. Patil Pishavikar. All rights reserved.</p>
         </div>
     </footer>
-<script src="script.js"></script>
+    
+    <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            menuButton.addEventListener('click', function() {
+                // Toggle the visibility of the mobile menu
+                mobileMenu.classList.toggle('hidden');
+
+                // Toggle the Hamburger and Close icons
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+            
+            // Optional: Close menu when a link is clicked (for better UX on mobile)
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    hamburgerIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
