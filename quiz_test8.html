@@ -1,34 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>दहावी भूगोल चाचणी ८ - T.T.Patil Pishavikar</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/Teaching T.T. Patil Logo Design.png" type="image/x-icon">
     <style>
         /* [Standard Quiz Styles Remain Here] */
-        .option-label { transition: background-color 0.15s, border-color- 0.15s; }
-        .option-label:hover { background-color: #f0f4ff; }
-        .option-input:checked + .option-label { background-color: #dbeafe; border-color: #3b82f6; font-weight: 600; }
-        .correct-answer { background-color: #d1fae5; border-color: #10b981; font-weight: 700; }
-        .incorrect-answer { background-color: #fee2e2; border-color: #ef4444; }
-        .correct-indicator { color: #10b981; font-weight: 700; }
-        .incorrect-indicator { color: #ef4444; font-weight: 700; }
+        .option-label {
+            transition: background-color 0.15s, border-color- 0.15s;
+        }
+
+        .option-label:hover {
+            background-color: #f0f4ff;
+        }
+
+        .option-input:checked+.option-label {
+            background-color: #dbeafe;
+            border-color: #3b82f6;
+            font-weight: 600;
+        }
+
+        .correct-answer {
+            background-color: #d1fae5;
+            border-color: #10b981;
+            font-weight: 700;
+        }
+
+        .incorrect-answer {
+            background-color: #fee2e2;
+            border-color: #ef4444;
+        }
+
+        .correct-indicator {
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        .incorrect-indicator {
+            color: #ef4444;
+            font-weight: 700;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50">
 
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-orange-700">T.T.Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
-                <a href="index.html" class="text-gray-600 hover:text-orange-600">Home</a>
-                <a href="geography_quiz_10.html" class="text-blue-600 hover:text-blue-800">Quiz List</a> 
-                <a href="geography_class10.html" class="text-gray-600 hover:text-orange-600">10th Videos</a>
-            </div>
-        </nav>
-    </header>
+   <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-4 flex justify-between items-center">
+                <h1 class="text-2xl sm:text-3xl font-bold text-orange-700">T.T. Patil Pishavikar</h1>
+                
+                <nav class="hidden md:flex space-x-4 md:space-x-8 text-lg font-medium">
+                    <a href="index.html" class="text-gray-600 hover:text-orange-600 transition">Home</a>
+                    <a href="geography_quiz_10.html" class="text-blue-600 hover:text-blue-800 transition">Quiz List</a> 
+                    <a href="geography_class10.html" class="text-gray-600 hover:text-orange-600 transition">10th Videos</a>
+                </nav>
 
+                <button id="menu-button" class="md:hidden text-gray-600 hover:text-orange-600 focus:outline-none p-2 rounded-md">
+                    <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 px-2 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">Home</a>
+                <a href="geography_quiz_10.html" class="block py-2 px-2 text-base font-medium text-blue-600 hover:bg-gray-100 rounded-md">Quiz List</a>
+                <a href="geography_class10.html" class="block py-2 px-2 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">10th Videos</a>
+            </div>
+        </div>
+    </header>
     <section class="bg-green-700 text-white py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl font-extrabold mb-2">दहावी भूगोल: चाचणी ८ (10 प्रश्न)</h2>
@@ -38,126 +81,78 @@
 
     <section class="py-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div id="quiz-results" class="hidden bg-yellow-100 p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-yellow-500 text-center">
+
+            <div id="quiz-results"
+                class="hidden bg-yellow-100 p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-yellow-500 text-center">
                 <h3 class="text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
-                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">10</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
-                <button onclick="window.location.href='geography_quiz_10.html';" class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition mr-4">
+                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display"
+                        class="font-bold text-lg">10</span> पैकी <span id="score-display"
+                        class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
+                <button onclick="window.location.href='geography_quiz_10.html';"
+                    class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition mr-4">
                     इतर चाचण्या पहा
                 </button>
-                <button onclick="window.location.reload();" class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
-                    पुन्हा प्रयत्न करा (Try Again)
+                <button onclick="window.location.reload();"
+                    class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
+                    पुन्हा प्रयत्न करा
                 </button>
             </div>
 
             <form id="geography-quiz">
 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
-                    <p class="text-xl font-bold text-gray-800 mb-4">1. भारतात सदाहरित वने (Evergreen Forests) प्रामुख्याने कोणत्या भागात आढळतात?</p>
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500"
+                    data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">1. भारतात सदाहरित वने (Evergreen Forests)
+                        प्रामुख्याने कोणत्या भागात आढळतात?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label for="q1a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) राजस्थानचा वाळवंटी प्रदेश</label></div>
-                        <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label for="q1b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) दख्खनचे पठार</label></div>
-                        <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label for="q1c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) पश्चिम घाट व ईशान्य भारत</label></div>
-                        <div><input type="radio" id="q1d" name="q1" value="D" class="option-input hidden"><label for="q1d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) हिमालयाचा अतिउंच भाग</label></div>
+                        <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label
+                                for="q1a"
+                                class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
+                                राजस्थानचा वाळवंटी प्रदेश</label></div>
+                        <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label
+                                for="q1b"
+                                class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
+                                दख्खनचे पठार</label></div>
+                        <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label
+                                for="q1c"
+                                class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
+                                पश्चिम घाट व ईशान्य भारत</label></div>
+                        <div><input type="radio" id="q1d" name="q1" value="D" class="option-input hidden"><label
+                                for="q1d"
+                                class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
+                                हिमालयाचा अतिउंच भाग</label></div>
                     </div>
                 </div>
-
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
-                    <p class="text-xl font-bold text-gray-800 mb-4">2. भारतातील मान्सून (पानझडी) वनांमध्ये कोणते झाड प्रामुख्याने आढळते?</p>
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500"
+                    data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">10. नैसर्गिक वनस्पती कमी होण्याचे (Deforestation)
+                        प्रमुख कारण कोणते आहे?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label for="q2a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) साग (Teak)</label></div>
-                        <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label for="q2b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) पाइन (Pine)</label></div>
-                        <div><div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) महोगनी (Mahogany)</label></div>
-                        <div><input type="radio" id="q2d" name="q2" value="D" class="option-input hidden"><label for="q2d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) रबर (Rubber)</label></div>
+                        <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label
+                                for="q10a"
+                                class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
+                                शेतीसाठी जमीन आणि मानवी वस्तीचा विस्तार</label></div>
+                        <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label
+                                for="q10b"
+                                class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
+                                नदीचे पाणी वाढणे</label></div>
+                        <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label
+                                for="q10c"
+                                class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
+                                वन्य प्राणी वाढणे</label></div>
+                        <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label
+                                for="q10d"
+                                class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
+                                हवामान स्थिर राहणे</label></div>
                     </div>
                 </div>
-                
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
-                    <p class="text-xl font-bold text-gray-800 mb-4">3. ब्राझीलमधील ॲनाकोंडा (Anaconda) साप आणि कॅपीबारा (Capybara) हा प्राणी कोणत्या प्रदेशात प्रामुख्याने आढळतो?</p>
-                    <div class="space-y-3">
-                        <div><input type="radio" id="q3a" name="q3" value="A" class="option-input hidden"><label for="q3a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) ब्राझीलियन उच्चभूमी</label></div>
-                        <div><input type="radio" id="q3b" name="q3" value="B" class="option-input hidden"><label for="q3b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) पॅन्टानाल (Pantanal)</label></div>
-                        <div><input type="radio" id="q3c" name="q3" value="C" class="option-input hidden"><label for="q3c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) कॅटिन्गा (Caatinga)</label></div>
-                        <div><input type="radio" id="q3d" name="q3" value="D" class="option-input hidden"><label for="q3d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) किनारी प्रदेश</label></div>
-                    </div>
-                </div>
-                
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
-                    <p class="text-xl font-bold text-gray-800 mb-4">4. ब्राझीलच्या ईशान्येकडील दुष्काळ चतुर्भुज (Drought Quadrilateral) भागात कोणत्या प्रकारची वनस्पती आढळते?</p>
-                    <div class="space-y-3">
-                        <div><input type="radio" id="q4a" name="q4" value="A" class="option-input hidden"><label for="q4a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) सदाहरित वने</label></div>
-                        <div><input type="radio" id="q4b" name="q4" value="B" class="option-input hidden"><label for="q4b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) समशीतोष्ण गवताळ प्रदेश</label></div>
-                        <div><input type="radio" id="q4c" name="q4" value="C" class="option-input hidden"><label for="q4c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) काटेरी झुडपे (Caatinga)</label></div>
-                        <div><input type="radio" id="q4d" name="q4" value="D" class="option-input hidden"><label for="q4d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) खारफुटीची वने</label></div>
-                    </div>
-                </div>
-
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
-                    <p class="text-xl font-bold text-gray-800 mb-4">5. खालीलपैकी कोणता प्राणी ब्राझीलमध्ये आढळतो, जो भारतात आढळत नाही?</p>
-                    <div class="space-y-3">
-                        <div><input type="radio" id="q5a" name="q5" value="A" class="option-input hidden"><label for="q5a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) सोनेरी तामारिन (Golden Lion Tamarin)</label></div>
-                        <div><input type="radio" id="q5b" name="q5" value="B" class="option-input hidden"><label for="q5b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) वाघ (Tiger)</label></div>
-                        <div><input type="radio" id="q5c" name="q5" value="C" class="option-input hidden"><label for="q5c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) एकशिंगी गेंडा (One-horned Rhinoceros)</label></div>
-                        <div><input type="radio" id="q5d" name="q5" value="D" class="option-input hidden"><label for="q5d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) हिम बिबट्या (Snow Leopard)</label></div>
-                    </div>
-                </div>
-
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
-                    <p class="text-xl font-bold text-gray-800 mb-4">6. भारताच्या ईशान्येकडील दलदलीच्या प्रदेशात आढळणारा आणि धोक्यात असलेला प्राणी कोणता?</p>
-                    <div class="space-y-3">
-                        <div><input type="radio" id="q6a" name="q6" value="A" class="option-input hidden"><label for="q6a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) प्युमा</label></div>
-                        <div><input type="radio" id="q6b" name="q6" value="B" class="option-input hidden"><label for="q6b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) चिंकारा</label></div>
-                        <div><input type="radio" id="q6c" name="q6" value="C" class="option-input hidden"><label for="q6c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) एकशिंगी गेंडा (One-horned Rhinoceros)</label></div>
-                        <div><input type="radio" id="q6d" name="q6" value="D" class="option-input hidden"><label for="q6d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) डॉल्फिन</label></div>
-                    </div>
-                </div>
-
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
-                    <p class="text-xl font-bold text-gray-800 mb-4">7. विषुववृत्ताजवळ असलेल्या ब्राझीलच्या भागात कोणत्या प्रकारचे वन आढळते?</p>
-                    <div class="space-y-3">
-                        <div><input type="radio" id="q7a" name="q7" value="A" class="option-input hidden"><label for="q7a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) उष्णकटिबंधीय सदाहरित वने (Tropical Evergreen Forests)</label></div>
-                        <div><input type="radio" id="q7b" name="q7" value="B" class="option-input hidden"><label for="q7b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) सूचीपर्णी वने (Coniferous Forests)</label></div>
-                        <div><input type="radio" id="q7c" name="q7" value="C" class="option-input hidden"><label for="q7c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) भूमध्य सागरी वने</label></div>
-                        <div><input type="radio" id="q7d" name="q7" value="D" class="option-input hidden"><label for="q7d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) काटेरी वने</label></div>
-                    </div>
-                </div>
-
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
-                    <p class="text-xl font-bold text-gray-800 mb-4">8. भारतामध्ये खारफुटीची (Mangrove) वने कोणत्या भागात मोठ्या प्रमाणात आढळतात?</p>
-                    <div class="space-y-3">
-                        <div><input type="radio" id="q8a" name="q8" value="A" class="option-input hidden"><label for="q8a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) पंजाब आणि हरियाणा</label></div>
-                        <div><input type="radio" id="q8b" name="q8" value="B" class="option-input hidden"><label for="q8b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) गंगा-ब्रह्मपुत्रा नदीचा त्रिभुज प्रदेश (सुंदरबन)</label></div>
-                        <div><input type="radio" id="q8c" name="q8" value="C" class="option-input hidden"><label for="q8c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) गुजरातचा वाळवंटी किनारा</label></div>
-                        <div><input type="radio" id="q8d" name="q8" value="D" class="option-input hidden"><label for="q8d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) हिमालय पर्वतरांगा</label></div>
-                    </div>
-                </div>
-                
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
-                    <p class="text-xl font-bold text-gray-800 mb-4">9. ब्राझीलचा राष्ट्रीय पक्षी (National Bird) कोणता आहे?</p>
-                    <div class="space-y-3">
-                        <div><input type="radio" id="q9a" name="q9" value="A" class="option-input hidden"><label for="q9a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) पिसाळलेला गरुड (Harpy Eagle)</label></div>
-                        <div><input type="radio" id="q9b" name="q9" value="B" class="option-input hidden"><label for="q9b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) मोर (Peacock)</label></div>
-                        <div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label for="q9c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) रुफस बेलिड थ्रश (Rufous-bellied Thrush)</label></div>
-                        <div><input type="radio" id="q9d" name="q9" value="D" class="option-input hidden"><label for="q9d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) स्कारलेट मकाऊ (Scarlet Macaw)</label></div>
-                    </div>
-                </div>
-
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
-                    <p class="text-xl font-bold text-gray-800 mb-4">10. नैसर्गिक वनस्पती कमी होण्याचे (Deforestation) प्रमुख कारण कोणते आहे?</p>
-                    <div class="space-y-3">
-                        <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label for="q10a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) शेतीसाठी जमीन आणि मानवी वस्तीचा विस्तार</label></div>
-                        <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label for="q10b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) नदीचे पाणी वाढणे</label></div>
-                        <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label for="q10c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) वन्य प्राणी वाढणे</label></div>
-                        <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label for="q10d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) हवामान स्थिर राहणे</label></div>
-                    </div>
-                </div>
-
                 <div class="text-center mt-12">
-                    <button type="submit" id="submit-quiz" class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
-                        निकाल तपासा (Check Result)
+                    <button type="submit" id="submit-quiz"
+                        class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
+                        निकाल तपासा
                     </button>
                     <p class="mt-4 text-sm text-gray-500">
-                        **टीप (Note):** हा प्रश्न संच *दहावी भूगोल* पुस्तकावर आधारित आहे.
+                        टीप (Note): हा प्रश्न संच दहावी भूगोल पुस्तकावर आधारित आहे.
                     </p>
                 </div>
             </form>
@@ -171,79 +166,128 @@
     </footer>
 
     <script>
-        document.getElementById('geography-quiz').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-            
-            const questions = document.querySelectorAll('.question-block');
-            let score = 0;
-            const resultsDiv = document.getElementById('quiz-results');
-            const submitButton = document.getElementById('submit-quiz');
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. JS-आधारित नेव्हिगेशन (Navigation via JavaScript)
+            // Anchor tags मध्ये 'href="#"' आणि 'data-path' वापरले आहेत, जेणेकरून पेज रिलोड न होता नेव्हिगेशन होईल.
+            const navLinks = document.querySelectorAll('.nav-link');
 
-            questions.forEach((qBlock, index) => {
-                const correctAnswer = qBlock.getAttribute('data-correct-answer');
-                const questionName = `q${index + 1}`;
-                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
-                
-                qBlock.querySelectorAll('.option-label').forEach(label => {
-                    label.classList.remove('correct-answer', 'incorrect-answer');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const targetPath = this.getAttribute('data-path');
+                    if (targetPath) {
+                        // या लाइनमुळे JavaScript द्वारे नवीन URL वर पुनर्निर्देशित (redirect) केले जाईल.
+                        window.location.href = targetPath;
+                    }
                 });
-                qBlock.querySelector('.result-feedback')?.remove();
+            });
 
 
-                if (selectedOption) {
-                    const selectedValue = selectedOption.value;
-                    const selectedLabel = document.querySelector(`label[for="${selectedOption.id}"]`);
-                    
-                    if (selectedValue === correctAnswer) {
-                        score++;
-                        selectedLabel.classList.add('correct-answer');
+            // 2. क्विझ सबमिशन लॉजिक (Quiz Submission Logic)
+            const quizForm = document.getElementById('geography-quiz');
+
+            quizForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const questions = document.querySelectorAll('.question-block');
+                let score = 0;
+                const resultsDiv = document.getElementById('quiz-results');
+                const submitButton = document.getElementById('submit-quiz');
+
+                questions.forEach((qBlock, index) => {
+                    const correctAnswer = qBlock.getAttribute('data-correct-answer');
+                    const questionName = `q${index + 1}`;
+                    const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+
+                    // मागील परिणाम वर्ग आणि फीडबॅक साफ करणे (Clear previous results)
+                    qBlock.querySelectorAll('.option-label').forEach(label => {
+                        label.classList.remove('correct-answer', 'incorrect-answer');
+                    });
+                    qBlock.querySelector('.result-feedback')?.remove(); // optional chaining
+
+                    // उत्तर तपासणी (Check Answer)
+                    if (selectedOption) {
+                        const selectedValue = selectedOption.value;
+                        const selectedLabel = document.querySelector(`label[for="${selectedOption.id}"]`);
+
+                        if (selectedValue === correctAnswer) {
+                            score++;
+                            selectedLabel.classList.add('correct-answer');
+                        } else {
+                            selectedLabel.classList.add('incorrect-answer');
+
+                            // बरोबर उत्तर दर्शवा (Show the correct answer)
+                            const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                            const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+
+                            if (correctLabel) {
+                                correctLabel.classList.add('correct-answer');
+                            }
+
+                            // फीडबॅक संदेश (Feedback Message)
+                            const feedback = document.createElement('p');
+                            feedback.className = 'result-feedback mt-2 text-sm incorrect-indicator';
+                            feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
+                            qBlock.appendChild(feedback);
+                        }
                     } else {
-                        selectedLabel.classList.add('incorrect-answer');
-                        
+                        // उत्तर न दिल्यास बरोबर उत्तर दर्शवा (Show correct answer if not answered)
                         const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
                         const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+
                         if (correctLabel) {
                             correctLabel.classList.add('correct-answer');
+
+                            const feedback = document.createElement('p');
+                            feedback.className = 'result-feedback mt-2 text-sm correct-indicator';
+                            feedback.textContent = `उत्तर दिले नाही. बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
+                            qBlock.appendChild(feedback);
                         }
-                        
-                        const feedback = document.createElement('p');
-                        feedback.className = 'result-feedback mt-2 text-sm incorrect-indicator';
-                        feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`; 
-                        qBlock.appendChild(feedback);
                     }
-                } else {
-                    const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
-                    const correctLabel = document.querySelector(`label[for="${correctId}"]`);
-                    
-                    if (correctLabel) {
-                        correctLabel.classList.add('correct-answer');
-                        
-                        const feedback = document.createElement('p');
-                        feedback.className = 'result-feedback mt-2 text-sm correct-indicator';
-                        feedback.textContent = `उत्तर दिले नाही. बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
-                        qBlock.appendChild(feedback);
-                    }
-                }
 
-                qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
-                    radio.disabled = true;
+                    // एकदा सबमिट केल्यानंतर पर्याय अक्षम करा (Disable options after submission)
+                    qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
+                        radio.disabled = true;
+                    });
                 });
-            });
 
-            document.getElementById('score-display').textContent = score;
-            document.getElementById('total-questions-display').textContent = questions.length;
-            resultsDiv.classList.remove('hidden');
-            
-            window.scrollTo({
-                top: resultsDiv.offsetTop - 80,
-                behavior: 'smooth'
-            });
+                // निकाल दर्शवा (Display Results)
+                document.getElementById('score-display').textContent = score;
+                document.getElementById('total-questions-display').textContent = questions.length;
+                resultsDiv.classList.remove('hidden');
 
-            submitButton.textContent = "निकाल दर्शविला आहे";
-            submitButton.disabled = true;
-            submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
-            submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+                // निकालाच्या भागाकडे स्क्रोल करा (Smooth scroll to results)
+                window.scrollTo({
+                    top: resultsDiv.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+
+                // सबमिट बटण अक्षम करा (Disable Submit Button)
+                submitButton.textContent = "निकाल दर्शविला आहे";
+                submitButton.disabled = true;
+                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+                submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+            });
+        });
+
+        // Responsive Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                
+                // Toggle icons
+                menuIconOpen.classList.toggle('hidden');
+                menuIconClose.classList.toggle('hidden');
+            });
         });
     </script>
-    </body>
+    <script src="script.js"></script>
+
+</body>
+
 </html>
