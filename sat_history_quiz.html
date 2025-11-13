@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NMMS SAT: इतिहास व नागरिकशास्त्र प्रश्नमंजुषा - T.T. Patil Pishavikar</title>
+    <title>NMMS SAT: इतिहास व नागरिकशास्त्र प्रश्नमंजुषा - T.T. Patil Pishavikar (30 प्रश्न)</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/Teaching T.T. Patil Logo Design.png" type="image/x-icon">
     <style>
         /* Custom Styling for NMMS SAT - Brown/Red Theme (History) */
         body { font-family: 'Arial', sans-serif; background-color: #fefcfb; }
@@ -38,32 +39,92 @@
             color: #1e40af; /* Dark Blue Text */
             display: none; 
         }
-        @media (max-width: 600px) {
+        
+        /* --- Responsive Navigation Styles --- */
+        .nav-menu {
+            display: flex;
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+
+        /* Default: Show menu items for large screens */
+        .desktop-menu-items { display: flex; }
+        .mobile-menu-button, .mobile-menu-items { display: none; } 
+
+        @media (max-width: 768px) {
             .options-grid { grid-template-columns: 1fr; }
+            /* Mobile: Hide desktop menu and show hamburger */
+            .desktop-menu-items { display: none; }
+            .mobile-menu-button { display: block; }
+            
+            /* Mobile Menu Items - hidden by default, shown by JS */
+            .mobile-menu-items {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                /* Initially hidden state for the JS toggle */
+                max-height: 0; 
+                padding: 0;
+            }
+            .mobile-menu-items a {
+                display: block;
+                padding: 10px 0;
+                border-top: 1px solid #e5e7eb;
+                margin-top: 0;
+            }
+            /* JS will add 'is-open' class to reveal the menu */
+            .mobile-menu-items.is-open {
+                max-height: 500px; /* Sufficient height to show content */
+                padding: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
     <header class="bg-white shadow-md">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
-                <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
-            </div>
-        </nav>
-    </header>
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+    <!-- Logo / Title -->
+    <h1 class="text-2xl md:text-3xl font-bold text-red-700">
+      T.T. Patil Pishavikar
+    </h1>
+
+    <!-- Desktop Menu -->
+    <div id="menu" class="hidden md:flex space-x-4 md:space-x-8 text-lg font-medium">
+      <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">
+        NMMS प्रश्नमंजुषा
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-red-700 focus:outline-none">
+      <!-- Hamburger Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <a href="nmms_quiz_list.html"
+      class="block px-4 py-3 text-lg text-indigo-600 hover:text-indigo-800 hover:bg-gray-50">
+      NMMS प्रश्नमंजुषा
+    </a>
+  </div>
+</header>
 
     <div class="quiz-container">
         
         <div class="header">
-            NMMS SAT: इतिहास व नागरिकशास्त्र प्रश्नमंजुषा (१० प्रश्न) 🏛️
+            NMMS SAT: इतिहास व नागरिकशास्त्र प्रश्नमंजुषा (३० प्रश्न) 🏛️
         </div>
 
-        <!-- Custom Reset Prompt Modal/Overlay (Hidden by default) -->
         <div id="reset-prompt" class="hidden fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50">
             <div class="bg-white p-6 rounded-xl shadow-2xl w-80 text-center transform transition-all scale-100 duration-300">
                 <p class="text-xl font-bold text-red-700 mb-4">तुम्हाला खात्री आहे?</p>
-                <p class="text-gray-700 mb-6">सर्व निवडलेली उत्तरे **मिटवून** प्रश्नमंजुषा **पुन्हा सुरू** करायची आहे का? हा डेटा परत मिळणार नाही.</p>
+                <p class="text-gray-700 mb-6">सर्व निवडलेली उत्तरे मिटवून प्रश्नमंजुषा पुन्हा सुरू करायची आहे का? हा डेटा परत मिळणार नाही.</p>
                 <div class="flex justify-center space-x-4">
                     <button id="confirm-reset" class="px-4 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition">होय, मिटवा</button>
                     <button id="cancel-reset" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg font-semibold hover:bg-gray-400 transition">नाही</button>
@@ -202,6 +263,266 @@
                 <div class="explanation" id="explanation10"></div>
             </div>
             
+            <div class="question-card" id="question11">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ११: (इतिहास)</strong> १८५७ च्या स्वातंत्र्य संग्रामातील कानपूरचे नेतृत्व कोणी केले?</p>
+                <div class="series-display">झाशीची राणी, तात्या टोपे, नानासाहेब पेशवे, कुंवर सिंह</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="11" data-opt="1" onclick="selectAnswer(11, 1)">A) झाशीची राणी</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="2" onclick="selectAnswer(11, 2)">B) तात्या टोपे</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="3" onclick="selectAnswer(11, 3)">C) नानासाहेब पेशवे</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="4" onclick="selectAnswer(11, 4)">D) कुंवर सिंह</button>
+                </div>
+                <div class="explanation" id="explanation11"></div>
+            </div>
+
+            <div class="question-card" id="question12">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १२: (नागरिकशास्त्र)</strong> राष्ट्रपतींचा कार्यकाल किती वर्षांचा असतो?</p>
+                <div class="series-display">४, ५, ६, अनिश्चित</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="12" data-opt="1" onclick="selectAnswer(12, 1)">A) ४ वर्षे</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="2" onclick="selectAnswer(12, 2)">B) ५ वर्षे</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="3" onclick="selectAnswer(12, 3)">C) ६ वर्षे</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="4" onclick="selectAnswer(12, 4)">D) अनिश्चित</button>
+                </div>
+                <div class="explanation" id="explanation12"></div>
+            </div>
+            
+            <div class="question-card" id="question13">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १३: (इतिहास)</strong> महात्मा गांधी यांनी 'चले जाव' (Quit India) चळवळ कधी सुरू केली?</p>
+                <div class="series-display">१९३०, १९४०, १९४२, १९४५</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="13" data-opt="1" onclick="selectAnswer(13, 1)">A) १९३०</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="2" onclick="selectAnswer(13, 2)">B) १९४०</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="3" onclick="selectAnswer(13, 3)">C) १९४२</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="4" onclick="selectAnswer(13, 4)">D) १९४५</button>
+                </div>
+                <div class="explanation" id="explanation13"></div>
+            </div>
+
+            <div class="question-card" id="question14">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १४: (नागरिकशास्त्र)</strong> राज्य सरकारचा प्रमुख कोण असतो?</p>
+                <div class="series-display">पंतप्रधान, मुख्यमंत्री, राज्यपाल, राष्ट्रपती</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="14" data-opt="1" onclick="selectAnswer(14, 1)">A) पंतप्रधान</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="2" onclick="selectAnswer(14, 2)">B) मुख्यमंत्री</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="3" onclick="selectAnswer(14, 3)">C) राज्यपाल</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="4" onclick="selectAnswer(14, 4)">D) राष्ट्रपती</button>
+                </div>
+                <div class="explanation" id="explanation14"></div>
+            </div>
+
+            <div class="question-card" id="question15">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १५: (इतिहास)</strong> 'प्लासीची लढाई' (Battle of Plassey) कोणत्या वर्षी झाली?</p>
+                <div class="series-display">१७५७, १८५७, १९४७, १६००</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="15" data-opt="1" onclick="selectAnswer(15, 1)">A) १७५७</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="2" onclick="selectAnswer(15, 2)">B) १८५७</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="3" onclick="selectAnswer(15, 3)">C) १९४७</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="4" onclick="selectAnswer(15, 4)">D) १६००</button>
+                </div>
+                <div class="explanation" id="explanation15"></div>
+            </div>
+
+            <div class="question-card" id="question16">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १६: (नागरिकशास्त्र)</strong> जिल्हाधिकाऱ्यांची नेमणूक कोण करते?</p>
+                <div class="series-display">मुख्यमंत्री, राज्यपाल, राष्ट्रपती, केंद्र सरकार</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="16" data-opt="1" onclick="selectAnswer(16, 1)">A) मुख्यमंत्री</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="2" onclick="selectAnswer(16, 2)">B) राज्यपाल</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="3" onclick="selectAnswer(16, 3)">C) राष्ट्रपती</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="4" onclick="selectAnswer(16, 4)">D) केंद्र सरकार</button>
+                </div>
+                <div class="explanation" id="explanation16"></div>
+            </div>
+            
+            <div class="question-card" id="question17">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १७: (इतिहास)</strong> 'दिल्ली चलो' चा नारा कोणी दिला?</p>
+                <div class="series-display">महात्मा गांधी, सुभाषचंद्र बोस, भगत सिंह, लोकमान्य टिळक</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="17" data-opt="1" onclick="selectAnswer(17, 1)">A) महात्मा गांधी</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="2" onclick="selectAnswer(17, 2)">B) सुभाषचंद्र बोस</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="3" onclick="selectAnswer(17, 3)">C) भगत सिंह</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="4" onclick="selectAnswer(17, 4)">D) लोकमान्य टिळक</button>
+                </div>
+                <div class="explanation" id="explanation17"></div>
+            </div>
+            
+            <div class="question-card" id="question18">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १८: (नागरिकशास्त्र)</strong> भारतीय संविधानाच्या कोणत्या भागात मूलभूत हक्कांचा समावेश आहे?</p>
+                <div class="series-display">भाग १, भाग २, भाग ३, भाग ४</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="18" data-opt="1" onclick="selectAnswer(18, 1)">A) भाग १</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="2" onclick="selectAnswer(18, 2)">B) भाग २</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="3" onclick="selectAnswer(18, 3)">C) भाग ३</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="4" onclick="selectAnswer(18, 4)">D) भाग ४</button>
+                </div>
+                <div class="explanation" id="explanation18"></div>
+            </div>
+            
+            <div class="question-card" id="question19">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १९: (इतिहास)</strong> मराठी सत्तेचे दुसरे संस्थापक कोणाला म्हटले जाते?</p>
+                <div class="series-display">छत्रपती शिवाजी महाराज, बाळाजी विश्वनाथ, पेशवा बाजीराव १, शाहू महाराज</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="19" data-opt="1" onclick="selectAnswer(19, 1)">A) छत्रपती शिवाजी महाराज</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="2" onclick="selectAnswer(19, 2)">B) बाळाजी विश्वनाथ</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="3" onclick="selectAnswer(19, 3)">C) पेशवा बाजीराव १</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="4" onclick="selectAnswer(19, 4)">D) शाहू महाराज</button>
+                </div>
+                <div class="explanation" id="explanation19"></div>
+            </div>
+
+            <div class="question-card" id="question20">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २०: (नागरिकशास्त्र)</strong> भारताच्या तिन्ही सेना दलांचे (Army, Navy, Air Force) सरसेनापती (Supreme Commander) कोण असतात?</p>
+                <div class="series-display">पंतप्रधान, संरक्षण मंत्री, राष्ट्रपती, लष्कर प्रमुख</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="20" data-opt="1" onclick="selectAnswer(20, 1)">A) पंतप्रधान</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="2" onclick="selectAnswer(20, 2)">B) संरक्षण मंत्री</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="3" onclick="selectAnswer(20, 3)">C) राष्ट्रपती</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="4" onclick="selectAnswer(20, 4)">D) लष्कर प्रमुख</button>
+                </div>
+                <div class="explanation" id="explanation20"></div>
+            </div>
+            
+            <div class="question-card" id="question21">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २१: (इतिहास)</strong> 'अभिज्ञानशाकुंतल' हे नाटक कोणी लिहिले?</p>
+                <div class="series-display">व्यास, वाल्मिकी, कालिदास, तुलसीदास</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="21" data-opt="1" onclick="selectAnswer(21, 1)">A) व्यास</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="2" onclick="selectAnswer(21, 2)">B) वाल्मिकी</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="3" onclick="selectAnswer(21, 3)">C) कालिदास</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="4" onclick="selectAnswer(21, 4)">D) तुलसीदास</button>
+                </div>
+                <div class="explanation" id="explanation21"></div>
+            </div>
+
+            <div class="question-card" id="question22">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २२: (नागरिकशास्त्र)</strong> भारताचे सर्वोच्च न्यायालय (Supreme Court) कोठे आहे?</p>
+                <div class="series-display">मुंबई, कोलकाता, दिल्ली, चेन्नई</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="22" data-opt="1" onclick="selectAnswer(22, 1)">A) मुंबई</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="2" onclick="selectAnswer(22, 2)">B) कोलकाता</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="3" onclick="selectAnswer(22, 3)">C) दिल्ली</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="4" onclick="selectAnswer(22, 4)">D) चेन्नई</button>
+                </div>
+                <div class="explanation" id="explanation22"></div>
+            </div>
+            
+            <div class="question-card" id="question23">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २३: (इतिहास)</strong> ब्रिटिश ईस्ट इंडिया कंपनीची स्थापना कधी झाली?</p>
+                <div class="series-display">१५००, १६००, १७००, १७५७</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="23" data-opt="1" onclick="selectAnswer(23, 1)">A) १५००</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="2" onclick="selectAnswer(23, 2)">B) १६००</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="3" onclick="selectAnswer(23, 3)">C) १७००</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="4" onclick="selectAnswer(23, 4)">D) १७५७</button>
+                </div>
+                <div class="explanation" id="explanation23"></div>
+            </div>
+
+            <div class="question-card" id="question24">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २४: (नागरिकशास्त्र)</strong> भारतीय संविधानाचे 'उद्देश पत्रिका' (Preamble) कोणी तयार केली?</p>
+                <div class="series-display">डॉ. बाबासाहेब आंबेडकर, सरदार वल्लभभाई पटेल, पं. जवाहरलाल नेहरू, डॉ. राजेंद्र प्रसाद</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="24" data-opt="1" onclick="selectAnswer(24, 1)">A) डॉ. बाबासाहेब आंबेडकर</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="2" onclick="selectAnswer(24, 2)">B) सरदार वल्लभभाई पटेल</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="3" onclick="selectAnswer(24, 3)">C) पं. जवाहरलाल नेहरू</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="4" onclick="selectAnswer(24, 4)">D) डॉ. राजेंद्र प्रसाद</button>
+                </div>
+                <div class="explanation" id="explanation24"></div>
+            </div>
+
+            <div class="question-card" id="question25">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २५: (इतिहास)</strong> महात्मा गांधींच्या राजकीय गुरुचे नाव काय होते?</p>
+                <div class="series-display">पं. नेहरू, लोकमान्य टिळक, गोपाल कृष्ण गोखले, लाला लजपत राय</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="25" data-opt="1" onclick="selectAnswer(25, 1)">A) पं. नेहरू</button>
+                    <button type="button" class="option-button" data-q="25" data-opt="2" onclick="selectAnswer(25, 2)">B) लोकमान्य टिळक</button>
+                    <button type="button" class="option-button" data-q="25" data-opt="3" onclick="selectAnswer(25, 3)">C) गोपाल कृष्ण गोखले</button>
+                    <button type="button" class="option-button" data-q="25" data-opt="4" onclick="selectAnswer(25, 4)">D) लाला लजपत राय</button>
+                </div>
+                <div class="explanation" id="explanation25"></div>
+            </div>
+
+            <div class="question-card" id="question26">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २६: (नागरिकशास्त्र)</strong> उच्च न्यायालयाच्या न्यायाधीशांना शपथ कोण देतो?</p>
+                <div class="series-display">राष्ट्रपती, राज्यपाल, सर्वोच्च न्यायालयाचे मुख्य न्यायाधीश, मुख्यमंत्री</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="26" data-opt="1" onclick="selectAnswer(26, 1)">A) राष्ट्रपती</button>
+                    <button type="button" class="option-button" data-q="26" data-opt="2" onclick="selectAnswer(26, 2)">B) राज्यपाल</button>
+                    <button type="button" class="option-button" data-q="26" data-opt="3" onclick="selectAnswer(26, 3)">C) सर्वोच्च न्यायालयाचे मुख्य न्यायाधीश</button>
+                    <button type="button" class="option-button" data-q="26" data-opt="4" onclick="selectAnswer(26, 4)">D) मुख्यमंत्री</button>
+                </div>
+                <div class="explanation" id="explanation26"></div>
+            </div>
+
+            <div class="question-card" id="question27">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २७: (इतिहास)</strong> 'तुकारामाचे अभंग' कोणत्या भाषेत आहेत?</p>
+                <div class="series-display">संस्कृत, हिंदी, मराठी, प्राकृत</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="27" data-opt="1" onclick="selectAnswer(27, 1)">A) संस्कृत</button>
+                    <button type="button" class="option-button" data-q="27" data-opt="2" onclick="selectAnswer(27, 2)">B) हिंदी</button>
+                    <button type="button" class="option-button" data-q="27" data-opt="3" onclick="selectAnswer(27, 3)">C) मराठी</button>
+                    <button type="button" class="option-button" data-q="27" data-opt="4" onclick="selectAnswer(27, 4)">D) प्राकृत</button>
+                </div>
+                <div class="explanation" id="explanation27"></div>
+            </div>
+
+            <div class="question-card" id="question28">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २८: (नागरिकशास्त्र)</strong> कायद्यापुढे सर्व समान आहेत, हे भारतीय संविधानातील कोणते तत्व आहे?</p>
+                <div class="series-display">स्वातंत्र्याचा हक्क, समानतेचा हक्क, धर्म स्वातंत्र्याचा हक्क, संपत्तीचा हक्क</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="28" data-opt="1" onclick="selectAnswer(28, 1)">A) स्वातंत्र्याचा हक्क</button>
+                    <button type="button" class="option-button" data-q="28" data-opt="2" onclick="selectAnswer(28, 2)">B) समानतेचा हक्क</button>
+                    <button type="button" class="option-button" data-q="28" data-opt="3" onclick="selectAnswer(28, 3)">C) धर्म स्वातंत्र्याचा हक्क</button>
+                    <button type="button" class="option-button" data-q="28" data-opt="4" onclick="selectAnswer(28, 4)">D) संपत्तीचा हक्क</button>
+                </div>
+                <div class="explanation" id="explanation28"></div>
+            </div>
+
+            <div class="question-card" id="question29">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २९: (इतिहास)</strong> १९०५ मध्ये बंगालची फाळणी (Partition of Bengal) कोणत्या व्हाईसरॉयच्या काळात झाली?</p>
+                <div class="series-display">लॉर्ड माउंटबॅटन, लॉर्ड कर्झन, लॉर्ड डलहौसी, लॉर्ड कॅनिंग</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="29" data-opt="1" onclick="selectAnswer(29, 1)">A) लॉर्ड माउंटबॅटन</button>
+                    <button type="button" class="option-button" data-q="29" data-opt="2" onclick="selectAnswer(29, 2)">B) लॉर्ड कर्झन</button>
+                    <button type="button" class="option-button" data-q="29" data-opt="3" onclick="selectAnswer(29, 3)">C) लॉर्ड डलहौसी</button>
+                    <button type="button" class="option-button" data-q="29" data-opt="4" onclick="selectAnswer(29, 4)">D) लॉर्ड कॅनिंग</button>
+                </div>
+                <div class="explanation" id="explanation29"></div>
+            </div>
+
+            <div class="question-card" id="question30">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३०: (नागरिकशास्त्र)</strong> भारतीय संविधानाने भारताला कोणते राष्ट्र म्हणून घोषित केले आहे?</p>
+                <div class="series-display">धर्मसत्ताक (Theocratic), साम्यवादी (Communist), लोकशाही प्रजासत्ताक (Democratic Republic), राजसत्ताक (Monarchy)</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="30" data-opt="1" onclick="selectAnswer(30, 1)">A) धर्मसत्ताक</button>
+                    <button type="button" class="option-button" data-q="30" data-opt="2" onclick="selectAnswer(30, 2)">B) साम्यवादी</button>
+                    <button type="button" class="option-button" data-q="30" data-opt="3" onclick="selectAnswer(30, 3)">C) लोकशाही प्रजासत्ताक</button>
+                    <button type="button" class="option-button" data-q="30" data-opt="4" onclick="selectAnswer(30, 4)">D) राजसत्ताक</button>
+                </div>
+                <div class="explanation" id="explanation30"></div>
+            </div>
+            
             <button type="submit" class="submit-btn" id="submit-button">प्रश्नमंजुषा सबमिट करा आणि निकाल पहा</button>
             <button type="button" class="reset-btn" onclick="showCustomResetPrompt()">पुन्हा सुरू करा / उत्तरे मिटवा</button>
         </form>
@@ -219,20 +540,32 @@
 
     <script>
         // Local Storage Key
-        const NMMS_QUIZ_ANSWERS_KEY = 'NMMS_HistoryCivics_Answers';
+        const NMMS_QUIZ_ANSWERS_KEY = 'NMMS_HistoryCivics_Answers_30Q';
 
         // Key: Question Number, Value: Correct Option Number (1, 2, 3, or 4)
         const correctAnswers = { 
-            1: 2, // रायगड
-            2: 3, // डॉ. बाबासाहेब आंबेडकर
-            3: 3, // १९१९
-            4: 2, // लोकसभा
-            5: 4, // महात्मा फुले
-            6: 3, // ६
-            7: 2, // लोकमान्य टिळक
-            8: 4, // ग्रामपंचायत
-            9: 3, // पाकिस्तान
-            10: 3 // १८ वर्षे
+            1: 2, 2: 3, 3: 3, 4: 2, 5: 4, 6: 3, 7: 2, 8: 4, 9: 3, 10: 3,
+            // New 20 Questions
+            11: 3, // नानासाहेब पेशवे
+            12: 2, // ५ वर्षे
+            13: 3, // १९४२
+            14: 2, // मुख्यमंत्री (वास्तविक प्रमुख/Executive Head)
+            15: 1, // १७५७
+            16: 4, // केंद्र सरकार (IAS अधिकारी)
+            17: 2, // सुभाषचंद्र बोस
+            18: 3, // भाग ३
+            19: 2, // बाळाजी विश्वनाथ (पेशवा)
+            20: 3, // राष्ट्रपती
+            21: 3, // कालिदास
+            22: 3, // दिल्ली
+            23: 2, // १६००
+            24: 3, // पं. जवाहरलाल नेहरू (उद्देशांचा ठराव मांडला)
+            25: 3, // गोपाल कृष्ण गोखले
+            26: 2, // राज्यपाल (उच्च न्यायालयाचे न्यायाधीश)
+            27: 3, // मराठी
+            28: 2, // समानतेचा हक्क (Article 14)
+            29: 2, // लॉर्ड कर्झन
+            30: 3  // लोकशाही प्रजासत्ताक
         };
         
         // Key: Question Number, Value: Explanation Text
@@ -246,12 +579,43 @@
             7: "योग्य उत्तर <strong>लोकमान्य टिळक</strong> आहे. हे त्यांचे प्रसिद्ध वाक्य आहे.",
             8: "योग्य उत्तर <strong>ग्रामपंचायत</strong> आहे. ग्रामीण भागातील स्थानिक स्वराज्य संस्थेचा सर्वात लहान घटक ग्रामपंचायत (गावासाठी) असतो.",
             9: "योग्य उत्तर <strong>पाकिस्तान</strong> आहे. हडप्पा (सध्याच्या साहिवाल जिल्ह्यात) हे ठिकाण सध्या पाकिस्तानमध्ये आहे.",
-            10: "योग्य उत्तर <strong>१८ वर्षे</strong> आहे. १९८९ मध्ये ६१ व्या घटनादुरुस्तीद्वारे मतदानाचे वय २१ वरून १८ करण्यात आले."
+            10: "योग्य उत्तर <strong>१८ वर्षे</strong> आहे. १९८९ मध्ये ६१ व्या घटनादुरुस्तीद्वारे मतदानाचे वय २१ वरून १८ करण्यात आले.",
+            
+            // New Explanations
+            11: "योग्य उत्तर <strong>नानासाहेब पेशवे</strong> आहे. त्यांनी कानपूर येथे १८५७ च्या स्वातंत्र्य संग्रामाचे नेतृत्व केले.",
+            12: "योग्य उत्तर <strong>५ वर्षे</strong> आहे. भारतीय राष्ट्रपतींचा कार्यकाल ५ वर्षांचा असतो.",
+            13: "योग्य उत्तर <strong>१९४२</strong> आहे. महात्मा गांधींनी ८ ऑगस्ट १९४२ रोजी 'चले जाव' आंदोलनाची घोषणा केली.",
+            14: "योग्य उत्तर <strong>मुख्यमंत्री</strong> आहे. मुख्यमंत्री हे राज्य सरकारचे 'वास्तविक प्रमुख' (De Facto Executive Head) असतात, तर राज्यपाल 'घटनात्मक प्रमुख' (Constitutional Head) असतात.",
+            15: "योग्य उत्तर <strong>१७५७</strong> आहे. प्लासीची लढाई २३ जून १७५७ रोजी झाली.",
+            16: "योग्य उत्तर <strong>केंद्र सरकार</strong> आहे. जिल्हाधिकारी (Collector/DM) हे भारतीय प्रशासकीय सेवेचे (IAS) अधिकारी असतात आणि त्यांची नेमणूक केंद्र सरकार (Personnel Ministry) द्वारे केली जाते.",
+            17: "योग्य उत्तर <strong>सुभाषचंद्र बोस</strong> आहे. 'दिल्ली चलो' हा नारा त्यांनी आझाद हिंद सेनेला (INA) उद्देशून दिला होता.",
+            18: "योग्य उत्तर <strong>भाग ३</strong> आहे. भारतीय संविधानाच्या भाग ३ मध्ये कलम १२ ते ३५ मध्ये मूलभूत हक्कांचा समावेश आहे.",
+            19: "योग्य उत्तर <strong>बाळाजी विश्वनाथ</strong> आहे. त्यांना पेशवाईचा संस्थापक आणि मराठी सत्तेचे दुसरे संस्थापक मानले जाते.",
+            20: "योग्य उत्तर <strong>राष्ट्रपती</strong> आहे. भारतीय राष्ट्रपती हे तिन्ही सेना दलांचे सरसेनापती (Supreme Commander) असतात.",
+            21: "योग्य उत्तर <strong>कालिदास</strong> आहे. 'अभिज्ञानशाकुंतल' हे संस्कृतमधील त्यांचे सर्वात प्रसिद्ध नाटक आहे.",
+            22: "योग्य उत्तर <strong>दिल्ली</strong> आहे. भारताचे सर्वोच्च न्यायालय नवी दिल्ली येथे स्थित आहे.",
+            23: "योग्य उत्तर <strong>१६००</strong> आहे. ब्रिटिश ईस्ट इंडिया कंपनीची स्थापना १६०० मध्ये झाली.",
+            24: "योग्य उत्तर <strong>पं. जवाहरलाल नेहरू</strong> आहे. त्यांनी १३ डिसेंबर १९४६ रोजी संविधान सभेत 'उद्देशांचा ठराव' (Objective Resolution) मांडला, जो नंतर उद्देश पत्रिका (Preamble) बनला.",
+            25: "योग्य उत्तर <strong>गोपाल कृष्ण गोखले</strong> आहे. ते महात्मा गांधींचे राजकीय गुरू होते.",
+            26: "योग्य उत्तर <strong>राज्यपाल</strong> आहे. उच्च न्यायालयाच्या न्यायाधीशांना (Chief Justice वगळता इतरांना) राज्यपाल शपथ देतात.",
+            27: "योग्य उत्तर <strong>मराठी</strong> आहे. संत तुकारामांनी त्यांचे अभंग मराठी भाषेत लिहिले आहेत.",
+            28: "योग्य उत्तर <strong>समानतेचा हक्क</strong> आहे. संविधानातील कलम १४ नुसार 'कायद्यापुढे समानता' हे तत्व समाविष्ट आहे.",
+            29: "योग्य उत्तर <strong>लॉर्ड कर्झन</strong> आहे. १९०५ मध्ये बंगालच्या फाळणीच्या वेळी लॉर्ड कर्झन हा व्हाईसरॉय होता.",
+            30: "योग्य उत्तर <strong>लोकशाही प्रजासत्ताक</strong> आहे. संविधानाच्या उद्देश पत्रिकेत (Preamble) भारताला सार्वभौम, समाजवादी, धर्मनिरपेक्ष, लोकशाही प्रजासत्ताक घोषित केले आहे."
         };
 
         let userAnswers = {};
         const totalQuestions = Object.keys(correctAnswers).length;
         
+        /**
+         * Responsive Navigation: Toggles the mobile menu visibility.
+         */
+        const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
         /**
          * Saves the current state of userAnswers to Local Storage.
          */
@@ -321,7 +685,7 @@
             const promptDiv = document.getElementById('reset-prompt');
             promptDiv.style.display = 'flex';
             
-            // Ensure listeners are only attached once if the element is reused (though we only attach here)
+            // Re-attaching listeners for safety/clarity
             document.getElementById('confirm-reset').onclick = () => {
                 performReset();
                 promptDiv.style.display = 'none';
@@ -341,7 +705,7 @@
             try {
                 localStorage.removeItem(NMMS_QUIZ_ANSWERS_KEY);
             } catch (e) {
-                 console.error("Error clearing Local Storage:", e);
+                console.error("Error clearing Local Storage:", e);
             }
 
             // Reset UI for all questions
@@ -349,7 +713,7 @@
             allOptions.forEach(btn => {
                 btn.classList.remove('selected', 'correct', 'incorrect');
                 btn.disabled = false;
-                // Restore default styles (needed if results were shown)
+                // Restore default styles
                 btn.removeAttribute('style'); 
             });
 
@@ -419,8 +783,9 @@
                 }
                 
                 // 2. Display Explanation
-                const correctText = qBlock.querySelector(`.option-button[data-opt="${correctAnswer}"]`).textContent.trim();
-                
+                const correctOptionButton = qBlock.querySelector(`.option-button[data-opt="${correctAnswer}"]`);
+                const correctText = correctOptionButton ? correctOptionButton.textContent.trim() : 'उत्तर अनुपलब्ध';
+
                 explanationDiv.innerHTML = `
                     <strong>✅ योग्य उत्तर:</strong> ${correctText}
                     <br>
@@ -448,6 +813,8 @@
         
         // Load saved progress when the page starts
         window.onload = loadProgress;
+
+        
     </script>
 </body>
 </html>

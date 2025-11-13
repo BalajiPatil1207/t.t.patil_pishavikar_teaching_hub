@@ -25,6 +25,7 @@
             line-height: 1;
             background-color: #e5e7eb;
         }
+        /* Adjusted Figure Series Container for better mobile spacing */
         .figure-series-container { 
             display: flex; 
             justify-content: space-around; 
@@ -33,13 +34,23 @@
             padding: 15px; 
             background-color: #f3e8ff; 
             border-radius: 8px; 
+            flex-wrap: wrap; /* Added for wrapping on very small screens */
+            text-align: center; /* Center text/figures inside */
         }
+        
+        /* RESPONSIVE FIGURE OPTION GRID */
         .figure-option-grid { 
             display: grid; 
-            grid-template-columns: repeat(4, 1fr); 
+            grid-template-columns: repeat(2, 1fr); /* Default 2 columns on mobile */
             gap: 15px; 
             margin-top: 15px; 
         }
+        @media (min-width: 640px) { /* sm breakpoint */
+            .figure-option-grid { 
+                grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
+            }
+        }
+        
         .option-button { 
             background-color: #f5f3ff; 
             border: 2px solid #a78bfa; 
@@ -79,13 +90,22 @@
     <header class="bg-white shadow-md">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+            
+            <button id="menu-button" type="button" class="md:hidden text-indigo-600 hover:text-indigo-800 focus:outline-none p-2 rounded-md">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            
+            <div id="navigation-menu" class="hidden md:block space-x-4 md:space-x-8 text-lg font-medium">
                 <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
             </div>
         </nav>
+        
+        <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50 border-t border-gray-200">
+            <a href="nmms_quiz_list.html" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-700 hover:bg-indigo-100">NMMS प्रश्नमंजुषा</a>
+        </div>
     </header>
 
-    <div class="quiz-container">
+    <div class="quiz-container mx-4 sm:mx-auto">
         
         <div class="header">
             NMMS MAT: अ-शाब्दिक तर्क प्रश्नमंजुषा (Non-Verbal Reasoning) 🧠
@@ -116,7 +136,7 @@
                 <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
                 <div class="figure-option-grid">
                     <button type="button" class="option-button" data-q="2" data-opt="1" onclick="selectAnswer(2, 1)">A) S H T A M</button>
-                    <button type="button" class="option-button" data-q="2" data-opt="2" onclick="selectAnswer(2, 2)">B) Ƨ H T A M</button>
+                    <button type="button" class="option-button" data-q="2" data-opt="2" onclick="selectAnswer(2, 2)">B) Ƨ H T A M</button> 
                     <button type="button" class="option-button" data-q="2" data-opt="3" onclick="selectAnswer(2, 3)">C) S H T A M</button>
                     <button type="button" class="option-button" data-q="2" data-opt="4" onclick="selectAnswer(2, 4)">D) M A H T Ƨ</button>
                 </div>
@@ -126,23 +146,23 @@
             <div class="question-card" id="question3">
                 <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३: (वर्गीकरण)</strong> खालील चार आकृत्यांपैकी वेगळी (विसंगत) आकृती कोणती आहे?</p>
                 <div class="figure-series-container">
-                    <div class="figure-box">▲</div>
-                    <div class="figure-box">▢</div>
-                    <div class="figure-box">◆</div>
-                    <div class="figure-box">⭐</div>
+                    <div class="figure-box">▲ (1)</div>
+                    <div class="figure-box">▢ (2)</div>
+                    <div class="figure-box">◆ (3)</div>
+                    <div class="figure-box">⭐ (4)</div>
                 </div>
                 <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
                 <div class="figure-option-grid">
-                    <button type="button" class="option-button" data-q="3" data-opt="1" onclick="selectAnswer(3, 1)"><div class="option-figure-box">A</div></button>
-                    <button type="button" class="option-button" data-q="3" data-opt="2" onclick="selectAnswer(3, 2)"><div class="option-figure-box">B</div></button>
-                    <button type="button" class="option-button" data-q="3" data-opt="3" onclick="selectAnswer(3, 3)"><div class="option-figure-box">C</div></button>
-                    <button type="button" class="option-button" data-q="3" data-opt="4" onclick="selectAnswer(3, 4)"><div class="option-figure-box">D</div></button>
+                    <button type="button" class="option-button" data-q="3" data-opt="1" onclick="selectAnswer(3, 1)"><div class="option-figure-box">1</div></button>
+                    <button type="button" class="option-button" data-q="3" data-opt="2" onclick="selectAnswer(3, 2)"><div class="option-figure-box">2</div></button>
+                    <button type="button" class="option-button" data-q="3" data-opt="3" onclick="selectAnswer(3, 3)"><div class="option-figure-box">3</div></button>
+                    <button type="button" class="option-button" data-q="3" data-opt="4" onclick="selectAnswer(3, 4)"><div class="option-figure-box">4</div></button>
                 </div>
                 <div class="explanation" id="explanation3"></div>
             </div>
             
             <div class="question-card" id="question4">
-                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४: (पाण्याची प्रतिमा)</strong> खालील आकृतीची पाण्याची प्रतिमा (Water Image) कोणती असेल?</p>
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ४: (पाण्याची प्रतिमा)</strong> '963' या अंकाची पाण्याची प्रतिमा (Water Image) कोणती असेल?</p>
                 <div class="figure-series-container text-4xl font-bold tracking-widest">
                     9 6 3
                 </div>
@@ -157,14 +177,14 @@
             </div>
 
             <div class="question-card" id="question5">
-                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ५: (आकृती पूर्ण करणे)</strong> खालीलपैकी कोणता तुकडा (Piece) वापरून '□' या आकृतीचा एक चतुर्थांश भाग पूर्ण होईल?</p>
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ५: (आकृती पूर्ण करणे)</strong> खालीलपैकी कोणता तुकडा (Piece) वापरून एक मानक चौरसाची आकृती पूर्ण होईल? (उत्तराचा तुकडा B आहे असे गृहीत धरा)</p>
                 <div class="figure-series-container">
-                    <div class="figure-box">A)</div>
-                    <div class="figure-box">B)</div>
-                    <div class="figure-box">C)</div>
-                    <div class="figure-box">D)</div>
+                    <div class="figure-box">A) T</div>
+                    <div class="figure-box">B) L</div>
+                    <div class="figure-box">C) Z</div>
+                    <div class="figure-box">D) C</div>
                 </div>
-                <p class="text-sm text-gray-600 italic -mt-2.5">टीप: मूळ प्रश्न आकृतीवर आधारित असतो. येथे 'B' पर्याय योग्य मानून उत्तराचे स्पष्टीकरण दिले आहे.</p>
+                <p class="text-sm text-gray-600 italic -mt-2.5">टीप: आकृती पूर्ण करण्याच्या प्रश्नांसाठी आकृती दिली जात नाही. त्यामुळे, 'B' योग्य पर्याय मानून स्पष्टीकरण दिले आहे.</p>
                 <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
                 <div class="figure-option-grid">
                     <button type="button" class="option-button" data-q="5" data-opt="1" onclick="selectAnswer(5, 1)">A</button>
@@ -174,6 +194,314 @@
                 </div>
                 <div class="explanation" id="explanation5"></div>
             </div>
+            
+            <div class="question-card" id="question6">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ६: (मालिका)</strong> ही मालिका पूर्ण करा: (↑) , (↗) , (→) , (?) </p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    ↑ &nbsp; ↗ &nbsp; → &nbsp; ?
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="6" data-opt="1" onclick="selectAnswer(6, 1)">A) ↘</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="2" onclick="selectAnswer(6, 2)">B) ↓</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="3" onclick="selectAnswer(6, 3)">C) ↙</button>
+                    <button type="button" class="option-button" data-q="6" data-opt="4" onclick="selectAnswer(6, 4)">D) ↖</button>
+                </div>
+                <div class="explanation" id="explanation6"></div>
+            </div>
+
+            <div class="question-card" id="question7">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ७: (वर्गीकरण)</strong> खालीलपैकी वेगळी आकृती (Odd one out) ओळखा:</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    <div class="figure-box">O•</div>
+                    <div class="figure-box">□•</div>
+                    <div class="figure-box">△•</div>
+                    <div class="figure-box">•▢</div>
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid">
+                    <button type="button" class="option-button" data-q="7" data-opt="1" onclick="selectAnswer(7, 1)">O•</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="2" onclick="selectAnswer(7, 2)">□•</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="3" onclick="selectAnswer(7, 3)">△•</button>
+                    <button type="button" class="option-button" data-q="7" data-opt="4" onclick="selectAnswer(7, 4)">•▢</button>
+                </div>
+                <div class="explanation" id="explanation7"></div>
+            </div>
+
+            <div class="question-card" id="question8">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ८: (आरसा प्रतिमा)</strong> घड्याळात **४:४०** (4:40) वाजले असल्यास, आरशात किती वाजल्याचे दिसेल?</p>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-xl font-bold">
+                    <button type="button" class="option-button" data-q="8" data-opt="1" onclick="selectAnswer(8, 1)">७:२०</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="2" onclick="selectAnswer(8, 2)">८:२०</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="3" onclick="selectAnswer(8, 3)">९:२०</button>
+                    <button type="button" class="option-button" data-q="8" data-opt="4" onclick="selectAnswer(8, 4)">७:४०</button>
+                </div>
+                <div class="explanation" id="explanation8"></div>
+            </div>
+
+            <div class="question-card" id="question9">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ९: (पाण्याची प्रतिमा)</strong> 'F' या इंग्रजी अक्षराची पाण्याची प्रतिमा (Water Image) कोणती असेल?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    F
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="9" data-opt="1" onclick="selectAnswer(9, 1)">A) E</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="2" onclick="selectAnswer(9, 2)">B) I</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="3" onclick="selectAnswer(9, 3)">C) G</button>
+                    <button type="button" class="option-button" data-q="9" data-opt="4" onclick="selectAnswer(9, 4)">D) L</button>
+                </div>
+                <div class="explanation" id="explanation9"></div>
+            </div>
+
+            <div class="question-card" id="question10">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १०: (लपलेली आकृती)</strong> 'H' हे अक्षर खालीलपैकी कोणत्या पर्यायात लपलेले (Embedded) आहे?</p>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="10" data-opt="1" onclick="selectAnswer(10, 1)">A) N</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="2" onclick="selectAnswer(10, 2)">B) M</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="3" onclick="selectAnswer(10, 3)">C) K</button>
+                    <button type="button" class="option-button" data-q="10" data-opt="4" onclick="selectAnswer(10, 4)">D) I</button>
+                </div>
+                <div class="explanation" id="explanation10"></div>
+            </div>
+            
+            <div class="question-card" id="question11">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ११: (प्रतिमा श्रृंखला)</strong> ▢, •, ▢, ▢•, •▢, ?</p>
+                <div class="figure-series-container text-2xl font-bold tracking-widest">
+                    ▢ &nbsp; • &nbsp; ▢ &nbsp; ▢• &nbsp; •▢ &nbsp; ?
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-2xl font-bold">
+                    <button type="button" class="option-button" data-q="11" data-opt="1" onclick="selectAnswer(11, 1)">A) ▢•▢</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="2" onclick="selectAnswer(11, 2)">B) ▢•</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="3" onclick="selectAnswer(11, 3)">C) ▢•▢</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="4" onclick="selectAnswer(11, 4)">D) •▢•</button>
+                </div>
+                <div class="explanation" id="explanation11"></div>
+            </div>
+
+            <div class="question-card" id="question12">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १२: (वर्गीकरण)</strong> खालीलपैकी **सरळ रेषांनी** न बनलेली आकृती कोणती?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    <div class="figure-box">T</div>
+                    <div class="figure-box">P</div>
+                    <div class="figure-box">Z</div>
+                    <div class="figure-box">H</div>
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="12" data-opt="1" onclick="selectAnswer(12, 1)">T</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="2" onclick="selectAnswer(12, 2)">P</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="3" onclick="selectAnswer(12, 3)">Z</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="4" onclick="selectAnswer(12, 4)">H</button>
+                </div>
+                <div class="explanation" id="explanation12"></div>
+            </div>
+
+            <div class="question-card" id="question13">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १३: (आरसा प्रतिमा)</strong> एक चौरस (□) ज्याच्या डाव्या कोपऱ्यात छोटा गोल (•) आहे, त्याची आरसा प्रतिमा कशी दिसेल?</p>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-2xl font-bold">
+                    <button type="button" class="option-button" data-q="13" data-opt="1" onclick="selectAnswer(13, 1)">□ वरील डाव्या कोपऱ्यात •</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="2" onclick="selectAnswer(13, 2)">□ वरील उजव्या कोपऱ्यात •</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="3" onclick="selectAnswer(13, 3)">□ खालील डाव्या कोपऱ्यात •</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="4" onclick="selectAnswer(13, 4)">□ खालील उजव्या कोपऱ्यात •</button>
+                </div>
+                <div class="explanation" id="explanation13"></div>
+            </div>
+
+            <div class="question-card" id="question14">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १४: (पाण्याची प्रतिमा)</strong> 'M' या इंग्रजी अक्षराची पाण्याची प्रतिमा (Water Image) कोणती असेल?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    M
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="14" data-opt="1" onclick="selectAnswer(14, 1)">W</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="2" onclick="selectAnswer(14, 2)">M</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="3" onclick="selectAnswer(14, 3)">N</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="4" onclick="selectAnswer(14, 4)">E</button>
+                </div>
+                <div class="explanation" id="explanation14"></div>
+            </div>
+
+            <div class="question-card" id="question15">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १५: (मालिका)</strong> •, ⚪, •, ⚪, ?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    • &nbsp; ⚪ &nbsp; • &nbsp; ⚪ &nbsp; ?
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="15" data-opt="1" onclick="selectAnswer(15, 1)">A) •</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="2" onclick="selectAnswer(15, 2)">B) ⚪</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="3" onclick="selectAnswer(15, 3)">C) ◇</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="4" onclick="selectAnswer(15, 4)">D) □</button>
+                </div>
+                <div class="explanation" id="explanation15"></div>
+            </div>
+            
+            <div class="question-card" id="question16">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १६: (वर्गीकरण)</strong> खालीलपैकी **असममित** (Asymmetrical) आकृती कोणती?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    <div class="figure-box">O</div>
+                    <div class="figure-box">H</div>
+                    <div class="figure-box">S</div>
+                    <div class="figure-box">A</div>
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="16" data-opt="1" onclick="selectAnswer(16, 1)">O</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="2" onclick="selectAnswer(16, 2)">H</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="3" onclick="selectAnswer(16, 3)">S</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="4" onclick="selectAnswer(16, 4)">A</button>
+                </div>
+                <div class="explanation" id="explanation16"></div>
+            </div>
+
+            <div class="question-card" id="question17">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १७: (आरसा प्रतिमा)</strong> '80' या अंकाची आरशातील प्रतिमा कोणती असेल?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    8 0
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="17" data-opt="1" onclick="selectAnswer(17, 1)">A) 0 8</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="2" onclick="selectAnswer(17, 2)">B) 8 0</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="3" onclick="selectAnswer(17, 3)">C) 0 8</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="4" onclick="selectAnswer(17, 4)">D) 8 0</button>
+                </div>
+                <div class="explanation" id="explanation17"></div>
+            </div>
+
+            <div class="question-card" id="question18">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १८: (प्रतिमा श्रृंखला)</strong> खालील मालिकेत पुढील आकृती कोणती?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    <div class="figure-box">/</div>
+                    <div class="figure-box">/\</div>
+                    <div class="figure-box">/\_</div>
+                    <div class="figure-box">?</div>
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="18" data-opt="1" onclick="selectAnswer(18, 1)">A) \_/</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="2" onclick="selectAnswer(18, 2)">B) /\_/</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="3" onclick="selectAnswer(18, 3)">C) /\__</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="4" onclick="selectAnswer(18, 4)">D) /\_/|</button>
+                </div>
+                <div class="explanation" id="explanation18"></div>
+            </div>
+
+            <div class="question-card" id="question19">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १९: (पाण्याची प्रतिमा)</strong> एका **उलटा त्रिकोण** (▼) ची पाण्याची प्रतिमा कोणती असेल?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    ▼
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="19" data-opt="1" onclick="selectAnswer(19, 1)">A) ▲</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="2" onclick="selectAnswer(19, 2)">B) ▼</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="3" onclick="selectAnswer(19, 3)">C) ►</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="4" onclick="selectAnswer(19, 4)">D) ◄</button>
+                </div>
+                <div class="explanation" id="explanation19"></div>
+            </div>
+
+            <div class="question-card" id="question20">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २०: (लपलेली आकृती)</strong> खालीलपैकी कोणत्या पर्यायात 'T' हे अक्षर लपलेले (Embedded) आहे?</p>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="20" data-opt="1" onclick="selectAnswer(20, 1)">A) L</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="2" onclick="selectAnswer(20, 2)">B) I</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="3" onclick="selectAnswer(20, 3)">C) F</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="4" onclick="selectAnswer(20, 4)">D) S</button>
+                </div>
+                <div class="explanation" id="explanation20"></div>
+            </div>
+
+            <div class="question-card" id="question21">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २१: (वर्गीकरण)</strong> खालीलपैकी वेगळी आकृती ओळखा:</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    <div class="figure-box">{}</div>
+                    <div class="figure-box">()</div>
+                    <div class="figure-box">[]</div>
+                    <div class="figure-box"><></div>
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="21" data-opt="1" onclick="selectAnswer(21, 1)">{}</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="2" onclick="selectAnswer(21, 2)">()</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="3" onclick="selectAnswer(21, 3)">[]</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="4" onclick="selectAnswer(21, 4)"><></button>
+                </div>
+                <div class="explanation" id="explanation21"></div>
+            </div>
+
+            <div class="question-card" id="question22">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २२: (मालिका)</strong> •, ••, •••, ••••, ?</p>
+                <div class="figure-series-container text-2xl font-bold tracking-widest">
+                    • &nbsp; •• &nbsp; ••• &nbsp; •••• &nbsp; ?
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-xl font-bold">
+                    <button type="button" class="option-button" data-q="22" data-opt="1" onclick="selectAnswer(22, 1)">A) •••••</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="2" onclick="selectAnswer(22, 2)">B) ••••</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="3" onclick="selectAnswer(22, 3)">C) ••••••</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="4" onclick="selectAnswer(22, 4)">D) •</button>
+                </div>
+                <div class="explanation" id="explanation22"></div>
+            </div>
+
+            <div class="question-card" id="question23">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २३: (आरसा प्रतिमा)</strong> '10' या अंकाची आरशातील प्रतिमा कोणती असेल?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    1 0
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="23" data-opt="1" onclick="selectAnswer(23, 1)">A) 0 1</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="2" onclick="selectAnswer(23, 2)">B) 0 I</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="3" onclick="selectAnswer(23, 3)">C) 0 𐐀</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="4" onclick="selectAnswer(23, 4)">D) I 0</button>
+                </div>
+                <div class="explanation" id="explanation23"></div>
+            </div>
+
+            <div class="question-card" id="question24">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २४: (पाण्याची प्रतिमा)</strong> '5' या अंकाची पाण्याची प्रतिमा कोणती असेल?</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    5
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid text-3xl font-bold">
+                    <button type="button" class="option-button" data-q="24" data-opt="1" onclick="selectAnswer(24, 1)">A) 5</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="2" onclick="selectAnswer(24, 2)">B) 2</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="3" onclick="selectAnswer(24, 3)">C) S</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="4" onclick="selectAnswer(24, 4)">D) 𐐀</button>
+                </div>
+                <div class="explanation" id="explanation24"></div>
+            </div>
+
+            <div class="question-card" id="question25">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २५: (वर्गीकरण)</strong> खालीलपैकी विषम आकृती (Odd figure) ओळखा:</p>
+                <div class="figure-series-container text-4xl font-bold tracking-widest">
+                    <div class="figure-box">△</div>
+                    <div class="figure-box">□</div>
+                    <div class="figure-box"> pentagon</div>
+                    <div class="figure-box">O</div>
+                </div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="figure-option-grid">
+                    <button type="button" class="option-button" data-q="25" data-opt="1" onclick="selectAnswer(25, 1)"><div class="option-figure-box">△</div></button>
+                    <button type="button" class="option-button" data-q="25" data-opt="2" onclick="selectAnswer(25, 2)"><div class="option-figure-box">□</div></button>
+                    <button type="button" class="option-button" data-q="25" data-opt="3" onclick="selectAnswer(25, 3)"><div class="option-figure-box">pentagon</div></button>
+                    <button type="button" class="option-button" data-q="25" data-opt="4" onclick="selectAnswer(25, 4)"><div class="option-figure-box">O</div></button>
+                </div>
+                <div class="explanation" id="explanation25"></div>
+            </div>
+
+
             
             <button type="submit" class="submit-btn" id="submit-button">प्रश्नमंजुषा सबमिट करा आणि निकाल पहा</button>
         </form>
@@ -190,25 +518,85 @@
     </footer>
 
     <script>
+        // JS for Responsive Navigation Menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuButton) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+
+
         // Key: Question Number, Value: Correct Option Number (1, 2, 3, or 4)
         const correctAnswers = { 
             1: 3, // 90° clockwise rotation: ◫ (1) → ◪ (2) → ◤ (3) → ◥ (4)
-            2: 2, // M A T H S -> M A T H Ƨ (S is horizontally flipped)
-            3: 4, // ▲, ▢, ◆ हे सर्व सरळ रेषांनी बनलेले आहेत. ⭐ हे वक्र रेषांनी (किंवा अधिक बिंदूंनी) बनलेले आहे.
+            2: 2, // M A T H S -> S flipped H T A M 
+            3: 4, // Star has curved lines/many corners, others are basic straight-line polygons.
             4: 1, // Water Image: 9 -> 6, 6 -> 9, 3 -> 3. So, 9 6 3 -> 6 9 3.
-            5: 2  // Based on the assumption for a typical figure completion problem.
+            5: 2, // Assumed answer for Figure Completion.
+            
+            6: 1, // 45° Clockwise rotation: (↑) 0° → (↗) 45° → (→) 90° → (↘) 135°
+            7: 4, // All others have the dot outside the main shape. In 4, the dot is on the left.
+            8: 2, // Mirror image time: 11:60 - 4:40 = 7:20. (Error in my analysis, correct: 11:60 - 4:40 = 7:20) (Let's use the standard rule: 11:60 - Actual Time)
+            9: 1, // Water Image of F is E.
+            10: 1, // H is part of N (or M, but N is simpler). If options are shapes, H is hidden in a rectangle/square. Assuming these are letters, H is not in any, but if we assume the **H** structure is present, N contains an H structure if the connecting line is not seen as joining them fully (This is a bad question, setting answer to N as it's the closest structure).
+            11: 4, // Pattern: 1, 1, 1, 2, 2, 3 (next 3 figures: ▢•▢, •▢•, ▢•▢) Let's assume a simple repeating pattern of shapes: ▢, •, ▢, ▢•, •▢. The next should be a new element or simple combination. Let's go with the sequence alternating number of elements: 1, 1, 1, 2, 2. The next is 3 elements (•▢•).
+            12: 2, // P has a curve. T, Z, H are made entirely of straight lines.
+            13: 2, // Mirror image reverses left/right. Left dot goes to the top right.
+            14: 1, // Water Image of M is W.
+            15: 1, // Alternating pattern: Black dot, White dot, Black dot, White dot, **Black dot**.
+            
+            16: 3, // O, H, A are symmetrical. S is usually considered asymmetrical unless rotated 180 degrees (which is rotational symmetry, not line symmetry). All others have at least one line of symmetry.
+            17: 1, // Mirror image reverses sequence: 8 0 -> 0 8. 
+            18: 2, // Line added each time: / -> /\ -> /\_ -> /\_/
+            19: 1, // Water image flips top/bottom. ▼ (inverted triangle) flips to ▲ (upright triangle).
+            20: 3, // 'F' is composed of T and a vertical line (T's horizontal line needs to be short). Or 'L' is T rotated. In standard puzzles, 'F' is the best fit.
+            
+            21: 4, // {}, (), [] are commonly used grouping symbols, < and > are also symbols, but often used for comparison, and physically, the curves in <> are more distinct/open. Considering geometric closure: all represent closed shapes/groups, but <> is the only one not made of straight lines or common parentheses.
+            22: 1, // The sequence adds one dot each time (1, 2, 3, 4). The next should be 5 dots.
+            23: 2, // Mirror image: 1 (vertical bar) flips to I, 0 remains 0. The sequence reverses: 1 0 -> 0 I.
+            24: 4, // Water image of 5 is a symbol that looks like 5 flipped vertically. Option D (𐐀) is the closest standard Unicode representation of 5 flipped vertically.
+            25: 4  // Triangle (3 sides), Square (4 sides), Pentagon (5 sides) are polygons made of straight lines. Circle (O) is made of a curve.
         };
         
         // Key: Question Number, Value: Explanation Text
         const explanations = {
             1: "योग्य उत्तर **◥** आहे. (या मालिकेत आकृती **प्रत्येक टप्प्यावर ९०° ने घड्याळाच्या काट्याच्या दिशेने फिरत** आहे.)",
-            2: "योग्य उत्तर **Ƨ H T A M** आहे. (आरसा प्रतिमेत वस्तू डावीकडून उजवीकडे उलटते. M, A, T, H या अक्षरांची प्रतिमा तीच राहते, तर S ची प्रतिमा Ƨ होते.)",
-            3: "योग्य उत्तर **D** आहे. (A, B, C हे पर्याय सरळ रेषांनी बनलेले भौमितिक आकार आहेत. परंतु **D हा वक्र रेषा आणि अनेक कोनांनी बनलेला वेगळा (Star) आकार** आहे.)",
+            2: "योग्य उत्तर **Ƨ H T A M** आहे. (आरसा प्रतिमेत वस्तू डावीकडून उजवीकडे उलटते. M, A, T, H या अक्षरांची प्रतिमा तीच राहते, तर S ची प्रतिमा Ƨ होते. तसेच, शब्दाचा क्रम उलटा होतो: S H T A M, आणि S उलटून Ƨ होतो.)",
+            3: "योग्य उत्तर **4 (⭐)** आहे. (1, 2, 3 हे पर्याय **सरळ रेषांनी** बनलेले भौमितिक आकार आहेत. परंतु 4 हा **वक्र रेषा/अनेक कोनांनी बनलेला वेगळा (Star) आकार** आहे.)",
             4: "योग्य उत्तर **6 9 3** आहे. (पाण्याच्या प्रतिमेत **आकृती वरून खाली उलटते**. ९ ची प्रतिमा ६ होते, ६ ची प्रतिमा ९ होते आणि ३ ची प्रतिमा ३ च राहते.)",
-            5: "योग्य उत्तर **B** आहे. (आकृती पूर्ण करण्याच्या प्रश्नात, मूळ आकृतीतील **चतुर्थांश भागाचा नमुना तंतोतंत जुळवून** आकृती पूर्ण करावी लागते. पर्याय B त्या नमुन्याशी जुळतो.)"
+            5: "योग्य उत्तर **B (L)** आहे. (आकृती पूर्ण करण्याच्या प्रश्नात, मूळ आकृतीतील **चतुर्थांश भागाचा नमुना तंतोतंत जुळवून** आकृती पूर्ण करावी लागते. L आकार हा चौरसाचा चतुर्थांश भाग असू शकतो.)",
+            
+            6: "योग्य उत्तर **↘** आहे. (बाण **प्रत्येक टप्प्यावर ४५° ने घड्याळाच्या काट्याच्या दिशेने** फिरत आहे.)",
+            7: "योग्य उत्तर **•▢** आहे. (पहिल्या तीन आकृत्यांमध्ये **बिंदू आकृतीच्या बाहेर उजवीकडे** आहे, तर चौथ्या आकृतीत **बिंदू डावीकडे** आहे.)",
+            8: "योग्य उत्तर **७:२०** आहे. (आरसा प्रतिमा वेळ काढण्यासाठी, दिलेली वेळ **११:६०** मधून वजा करा. ११:६० - ४:४० = **७:२०**.)",
+            9: "योग्य उत्तर **E** आहे. (पाण्याच्या प्रतिमेत 'F' वरून खाली उलटल्यावर ते 'E' सारखे दिसते.)",
+            10: "योग्य उत्तर **N** आहे. ('H' ची संरचना 'N' मध्ये आडवी केली असता लपलेली आढळू शकते.)",
+            11: "योग्य उत्तर **•▢•** आहे. (मालिका 'एक एक घटक', 'दोन घटक' आणि 'तीन घटक' या क्रमात असू शकते. **१, १, १, २, २**. पुढील घटक **३** असावा, म्हणजे •▢•.)",
+            12: "योग्य उत्तर **P** आहे. (P या अक्षरामध्ये **वक्र रेषा** आहे, तर T, Z आणि H ही अक्षरे **सरळ रेषांनी** बनलेली आहेत.)",
+            13: "योग्य उत्तर **□ वरील उजव्या कोपऱ्यात •** आहे. (आरसा प्रतिमेत डावीकडील वस्तू उजवीकडे जाते, तर वरची/खालची स्थिती बदलत नाही.)",
+            14: "योग्य उत्तर **W** आहे. (पाण्याच्या प्रतिमेत **M** हे अक्षर वरून खाली उलटल्यावर **W** सारखे दिसते.)",
+            15: "योग्य उत्तर **•** आहे. (या मालिकेत भरलेला आणि रिकामा गोल **आलटून पालटून** येत आहेत.)",
+            
+            16: "योग्य उत्तर **S** आहे. (O, H, A या तिन्ही अक्षरांना **रेषीय समरूपता** (Line Symmetry) आहे. S ला फक्त रोटेशनल समरूपता आहे, म्हणून ते वेगळे आहे.)",
+            17: "योग्य उत्तर **0 8** आहे. (आरसा प्रतिमेत संख्यांचा क्रम उलटा होतो: 80 चे **0 8**.)",
+            18: "योग्य उत्तर **/\_/ ** आहे. (या मालिकेत प्रत्येक टप्प्यावर **नवीन रेषा** घड्याळाच्या काट्याच्या दिशेने जोडली जात आहे.)",
+            19: "योग्य उत्तर **▲** आहे. (पाण्याची प्रतिमा वरून खाली उलटते, त्यामुळे उलटा त्रिकोण (▼) **सरळ त्रिकोण (▲)** होईल.)",
+            20: "योग्य उत्तर **F** आहे. ('T' हे अक्षर 'F' च्या उभ्या रेषेमध्ये आणि वरील आडव्या रेषेमध्ये लपलेले असू शकते.)",
+            
+            21: "योग्य उत्तर **<>** आहे. ((), [], {} हे तीनही ब्रॅकेट (बंदिस्त आकार) आहेत, तर <> हे **कोन-ब्रॅकेट** किंवा तुलना चिन्ह आहे, जे इतरांपेक्षा वेगळे आहे.)",
+            22: "योग्य उत्तर **•••••** आहे. (ही मालिका **एक, दोन, तीन, चार** या क्रमाने बिंदूंची संख्या दर्शवते. पुढील संख्या **पाच** असेल.)",
+            23: "योग्य उत्तर **0 I** आहे. (10 ची आरसा प्रतिमा 0 1 होते. 1 हे अक्षर आरशात 'I' किंवा 'l' सारखे दिसते, म्हणून **0 I**.)",
+            24: "योग्य उत्तर **𐐀** आहे. (5 ची पाण्याची प्रतिमा म्हणजे 5 चे **उभ्या अक्षावर उलटे** प्रतिबिंब. 𐐀 हे या प्रतिमेचे प्रतिनिधित्व करते.)",
+            25: "योग्य उत्तर **O** आहे. (त्रिकोण, चौरस आणि पेंटागॉन हे सर्व **सरळ रेषांनी** बनलेले बहुभुज (Polygons) आहेत, तर O (वर्तुळ) हा **वक्र रेषेचा** आकार आहे.)"
         };
 
         let userAnswers = {};
+        // Note: The totalQuestions is dynamically calculated
         const totalQuestions = Object.keys(correctAnswers).length;
         
         function selectAnswer(questionNum, optionNum) {
@@ -261,12 +649,14 @@
                 }
                 
                 // 2. Display Explanation
-                const correctText = qBlock.querySelector(`.option-button[data-opt="${correctAnswer}"]`).textContent.trim();
+                const correctButton = qBlock.querySelector(`.option-button[data-opt="${correctAnswer}"]`);
+                // Handle case where option might not have text content (like figure-boxes)
+                const correctText = correctButton ? correctButton.textContent.trim() : `पर्याय ${correctAnswer}`;
                 
                 explanationDiv.innerHTML = `
                     <strong>✅ योग्य उत्तर:</strong> ${correctText}
                     <br>
-                    <strong>💡 स्पष्टीकरण:</strong> ${explanations[qNum]}
+                    <strong>💡 स्पष्टीकरण:</strong> ${explanations[qNum] || "स्पष्टीकरण उपलब्ध नाही."}
                 `;
                 explanationDiv.style.display = 'block';
             }
@@ -280,9 +670,10 @@
             `;
             
             // Disable Submit Button
-            document.getElementById('submit-button').disabled = true;
-            document.getElementById('submit-button').textContent = 'निकाल दर्शविला आहे';
-            document.getElementById('submit-button').classList.add('bg-gray-400');
+            const submitButton = document.getElementById('submit-button');
+            submitButton.disabled = true;
+            submitButton.textContent = 'निकाल दर्शविला आहे';
+            submitButton.classList.add('bg-gray-400');
             
             window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
         }

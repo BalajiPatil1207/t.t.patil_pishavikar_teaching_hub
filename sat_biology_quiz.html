@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NMMS SAT: जीवशास्त्र प्रश्नमंजुषा (Biology Quiz) - T.T. Patil Pishavikar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="./assets/Teaching T.T. Patil Logo Design.png" type="image/x-icon">
     <style>
         /* Custom Styling for NMMS SAT - Green/Biology Theme */
         body { font-family: 'Arial', sans-serif; background-color: #f0fdf4; }
@@ -36,18 +37,44 @@
         @media (max-width: 600px) {
             .options-grid { grid-template-columns: 1fr; }
         }
+        
+        /* --- Responsive Navigation Styles (Added for Mobile Menu) --- */
+        /* Initially hide the mobile menu content and set transition */
+        .mobile-menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        /* Class added by JavaScript to show the menu */
+        .mobile-menu-content.is-open {
+            max-height: 100px; /* Adjust height based on content */
+        }
     </style>
 </head>
 <body>
     <header class="bg-white shadow-md">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
-                <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
-            </div>
-        </nav>
-    </header>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
+                
+                <div class="hidden md:block space-x-8 text-lg font-medium">
+                    <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
+                </div>
 
+                <button id="mobile-menu-button" class="md:hidden text-indigo-600 hover:text-indigo-800 focus:outline-none" onclick="toggleMobileMenu()">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="mobile-menu-content" class="mobile-menu-content md:hidden w-full">
+                <div class="flex flex-col space-y-2 pt-2 pb-3">
+                    <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800 block px-3 py-2 rounded-md text-base font-medium bg-gray-50 text-center">NMMS प्रश्नमंजुषा</a>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="quiz-container">
         
         <div class="header">
@@ -226,7 +253,7 @@
                     <button type="button" class="option-button" data-q="16" data-opt="1" onclick="selectAnswer(16, 1)">A) प्रथिने (Protein)</button>
                     <button type="button" class="option-button" data-q="16" data-opt="2" onclick="selectAnswer(16, 2)">B) जनुके (Gene)</button>
                     <button type="button" class="option-button" data-q="16" data-opt="3" onclick="selectAnswer(16, 3)">C) पेशीपटल (Cell Membrane)</button>
-                    <button type="button" class="option-button" data-q="16" data-opt="4" onclick="selectAnswer(16, 4)">D) कर्बोदके (Carbohydrate)</button>
+                    <button type type="button" class="option-button" data-q="16" data-opt="4" onclick="selectAnswer(16, 4)">D) कर्बोदके (Carbohydrate)</button>
                 </div>
                 <div class="explanation" id="explanation16"></div>
             </div>
@@ -341,6 +368,12 @@
         let userAnswers = {};
         const totalQuestions = Object.keys(correctAnswers).length;
         
+        // 🆕 New JavaScript function for Navigation Toggle 
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu-content');
+            mobileMenu.classList.toggle('is-open');
+        }
+
         function selectAnswer(questionNum, optionNum) {
             userAnswers[questionNum] = optionNum;
             
@@ -380,9 +413,9 @@
                     } else if (optNum === userAnswer && userAnswer !== correctAnswer) {
                         btn.classList.add('incorrect');
                     } else {
-                         btn.style.backgroundColor = '#f3f4f6';
-                         btn.style.color = '#1f2937';
-                         btn.style.borderColor = '#d1d5db';
+                        btn.style.backgroundColor = '#f3f4f6';
+                        btn.style.color = '#1f2937';
+                        btn.style.borderColor = '#d1d5db';
                     }
                 });
 

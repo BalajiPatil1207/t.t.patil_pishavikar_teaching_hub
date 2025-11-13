@@ -13,7 +13,16 @@
         .header { background-color: #4f46e5; color: white; padding: 15px; border-radius: 8px 8px 0 0; text-align: center; font-size: 1.5rem; font-weight: bold; }
         .question-card { margin-top: 20px; padding: 20px; border: 2px solid #e5e7eb; border-radius: 8px; background-color: #fff; }
         .series-display { font-size: 1.8rem; font-weight: bold; text-align: center; margin: 20px 0; padding: 10px; background-color: #eef2ff; border-radius: 6px; color: #4f46e5; }
-        .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        
+        /* Changed options-grid to be responsive on small screens (1 column by default, 2 on sm and above) */
+        .options-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px; }
+        /* Media Query for screens sm and above */
+        @media (min-width: 640px) {
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
         .option-button { background-color: #e0f2f1; color: #0d9488; border: 2px solid #2dd4bf; padding: 12px; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-size: 1rem; text-align: center; font-weight: 500;}
         .submit-btn { display: block; width: 100%; padding: 15px; margin-top: 30px; background-color: #10b981; color: white; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; font-weight: bold; }
         .result-message { text-align: center; margin-top: 20px; padding: 15px; border-radius: 8px; font-size: 1.2rem; font-weight: bold; background-color: #d1fae5; border: 2px solid #10b981; color: #065f46; }
@@ -40,14 +49,22 @@
     <header class="bg-white shadow-md">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+            
+            <button id="menu-button" type="button" class="md:hidden text-indigo-600 hover:text-indigo-800 focus:outline-none p-2 rounded-md">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            
+            <div id="navigation-menu" class="hidden md:block space-x-4 md:space-x-8 text-lg font-medium">
                 <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
             </div>
         </nav>
+        
+        <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50 border-t border-gray-200">
+            <a href="nmms_quiz_list.html" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-700 hover:bg-indigo-100">NMMS प्रश्नमंजुषा</a>
+        </div>
     </header>
 
-    <div class="quiz-container">
-        
+    <div class="quiz-container mx-4 sm:mx-auto"> 
         <div class="header">
             NMMS MAT: संख्या/अक्षर मालिका प्रश्नमंजुषा (१० प्रश्न) 🧠
         </div>
@@ -198,6 +215,17 @@
     </footer>
 
     <script>
+        // JS for Responsive Navigation Menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuButton.addEventListener('click', () => {
+                // Toggle the 'hidden' class to show/hide the mobile menu
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+        
         // Key: Question Number, Value: Correct Option Number (1, 2, 3, or 4)
         const correctAnswers = { 
             1: 2, // 26

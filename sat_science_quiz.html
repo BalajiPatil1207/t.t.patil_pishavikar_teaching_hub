@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NMMS SAT: विज्ञान प्रश्नमंजुषा (Science Quiz) - T.T. Patil Pishavikar</title>
+    <title>NMMS SAT: विज्ञान प्रश्नमंजुषा (Science Quiz) - ३० प्रश्न</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/Teaching T.T. Patil Logo Design.png" type="image/x-icon">
     <style>
         /* Custom Styling for NMMS SAT - Teal/Science Theme */
         body { font-family: 'Inter', sans-serif; background-color: #f0fdf4; }
@@ -69,6 +70,51 @@
             color: white;
         }
 
+        /* Custom Styles for Responsive Navigation */
+        .mobile-menu-container {
+            display: none; /* Hidden by default on mobile */
+            flex-direction: column;
+            width: 100%;
+            padding: 10px 0;
+            border-top: 1px solid #ccfbf1;
+        }
+
+        .mobile-menu-container a {
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #0d9488;
+            transition: background-color 0.2s;
+            text-decoration: none; /* Add this if using plain <a> tags */
+        }
+
+        .mobile-menu-container a:hover {
+            background-color: #f0fdf4;
+        }
+
+        /* Show mobile menu when 'open' class is present */
+        .mobile-menu-container.open {
+            display: flex;
+        }
+
+        /* Hide desktop menu on mobile and show it on md (768px) and up */
+        .desktop-menu {
+            display: none; /* Default to mobile view */
+        }
+        .menu-toggle-btn {
+            display: block; /* Show button on mobile */
+        }
+        @media (min-width: 768px) {
+            .options-grid { grid-template-columns: 1fr 1fr; } /* Apply original grid layout */
+            .desktop-menu {
+                display: block;
+            }
+            .menu-toggle-btn {
+                display: none; /* Hide button on desktop */
+            }
+        }
+
         @media (max-width: 600px) {
             .options-grid { grid-template-columns: 1fr; }
         }
@@ -78,20 +124,31 @@
     <header class="bg-white shadow-md">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+            
+            <div id="desktop-nav-links" class="desktop-menu space-x-4 md:space-x-8 text-lg font-medium">
                 <a href="nmms_quiz_list.html" class="text-indigo-600 hover:text-indigo-800">NMMS प्रश्नमंजुषा</a>
             </div>
+
+            <button id="menu-toggle-btn" class="menu-toggle-btn p-2 text-teal-600 focus:outline-none" aria-label="Toggle navigation" aria-expanded="false">
+                <svg class="w-6 h-6" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
         </nav>
+        
+        <div id="mobile-nav-links" class="mobile-menu-container md:hidden">
+            <a href="nmms_quiz_list.html" class="text-teal-600 hover:bg-teal-50">NMMS प्रश्नमंजुषा</a>
+        </div>
     </header>
 
     <div class="quiz-container">
         
         <div class="header">
-            NMMS SAT: विज्ञान प्रश्नमंजुषा (१० प्रश्न) 🔬
+            NMMS SAT: विज्ञान प्रश्नमंजुषा (३० प्रश्न) 🔬
         </div>
 
-        <!-- Result message will also be used for reset confirmation -->
-        <div class="result-message hidden" id="quiz-result"></div>
+        <div class="result-message hidden" id="quiz-result" style="padding: 15px; margin-top: 20px; border-radius: 8px; border: 2px solid; text-align: center;"></div>
 
         <form id="sat-quiz-form">
             <div class="question-card" id="question1">
@@ -224,6 +281,267 @@
                 <div class="explanation" id="explanation10"></div>
             </div>
             
+            <hr>
+            <div class="question-card" id="question11">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ११: (रसायनशास्त्र)</strong> 'युरिया' हे कोणत्या प्रकारचे खत आहे?</p>
+                <div class="series-display">फॉस्फेट खत, पोटॅश खत, नायट्रोजनयुक्त खत, अमोनियम सल्फेट</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="11" data-opt="1" onclick="selectAnswer(11, 1)">A) फॉस्फेट खत</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="2" onclick="selectAnswer(11, 2)">B) पोटॅश खत</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="3" onclick="selectAnswer(11, 3)">C) नायट्रोजनयुक्त खत</button>
+                    <button type="button" class="option-button" data-q="11" data-opt="4" onclick="selectAnswer(11, 4)">D) अमोनियम सल्फेट</button>
+                </div>
+                <div class="explanation" id="explanation11"></div>
+            </div>
+
+            <div class="question-card" id="question12">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १२: (जीवशास्त्र)</strong> मानवी शरीरात एकूण किती प्रमुख अवयव प्रणाली (Organ Systems) आहेत?</p>
+                <div class="series-display">७, ९, ११, १३</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="12" data-opt="1" onclick="selectAnswer(12, 1)">A) १०</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="2" onclick="selectAnswer(12, 2)">B) ११</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="3" onclick="selectAnswer(12, 3)">C) १२</button>
+                    <button type="button" class="option-button" data-q="12" data-opt="4" onclick="selectAnswer(12, 4)">D) १३</button>
+                </div>
+                <div class="explanation" id="explanation12"></div>
+            </div>
+
+            <div class="question-card" id="question13">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १३: (भौतिकशास्त्र)</strong> सापेक्षता सिद्धांत (Theory of Relativity) कोणी मांडला?</p>
+                <div class="series-display">न्यूटन, आईन्स्टाईन, गॅलिलिओ, एडिसन</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="13" data-opt="1" onclick="selectAnswer(13, 1)">A) आयझॅक न्यूटन</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="2" onclick="selectAnswer(13, 2)">B) अल्बर्ट आईन्स्टाईन</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="3" onclick="selectAnswer(13, 3)">C) गॅलिलिओ गॅलिलि</button>
+                    <button type="button" class="option-button" data-q="13" data-opt="4" onclick="selectAnswer(13, 4)">D) थॉमस एडिसन</button>
+                </div>
+                <div class="explanation" id="explanation13"></div>
+            </div>
+
+            <div class="question-card" id="question14">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १४: (रसायनशास्त्र)</strong> 'व्हिनेगर' (Vinegar) मध्ये प्रामुख्याने कोणते आम्ल असते?</p>
+                <div class="series-display">सायट्रिक आम्ल, लॅक्टिक आम्ल, ॲसिटिक आम्ल, फॉर्मिक आम्ल</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="14" data-opt="1" onclick="selectAnswer(14, 1)">A) सायट्रिक आम्ल</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="2" onclick="selectAnswer(14, 2)">B) लॅक्टिक आम्ल</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="3" onclick="selectAnswer(14, 3)">C) ॲसिटिक आम्ल</button>
+                    <button type="button" class="option-button" data-q="14" data-opt="4" onclick="selectAnswer(14, 4)">D) हायड्रोक्लोरिक आम्ल</button>
+                </div>
+                <div class="explanation" id="explanation14"></div>
+            </div>
+
+            <div class="question-card" id="question15">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १५: (भौतिकशास्त्र)</strong> पदार्थाची चौथी अवस्था (Fourth state of matter) कोणती आहे?</p>
+                <div class="series-display">घन, द्रव, वायू, प्लाझ्मा</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="15" data-opt="1" onclick="selectAnswer(15, 1)">A) प्लाझ्मा</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="2" onclick="selectAnswer(15, 2)">B) बोस-आईन्स्टाईन कंडेन्सेट</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="3" onclick="selectAnswer(15, 3)">C) द्रव</button>
+                    <button type="button" class="option-button" data-q="15" data-opt="4" onclick="selectAnswer(15, 4)">D) वायू</button>
+                </div>
+                <div class="explanation" id="explanation15"></div>
+            </div>
+
+            <div class="question-card" id="question16">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १६: (जीवशास्त्र)</strong> 'स्कर्वी' (Scurvy) हा रोग कोणत्या व्हिटॅमिनच्या कमतरतेमुळे होतो?</p>
+                <div class="series-display">व्हिटॅमिन ए, बी, सी, डी</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="16" data-opt="1" onclick="selectAnswer(16, 1)">A) व्हिटॅमिन ए</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="2" onclick="selectAnswer(16, 2)">B) व्हिटॅमिन बी</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="3" onclick="selectAnswer(16, 3)">C) व्हिटॅमिन डी</button>
+                    <button type="button" class="option-button" data-q="16" data-opt="4" onclick="selectAnswer(16, 4)">D) व्हिटॅमिन सी</button>
+                </div>
+                <div class="explanation" id="explanation16"></div>
+            </div>
+
+            <div class="question-card" id="question17">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १७: (रसायनशास्त्र)</strong> पोटॅशियमचे (Potassium) रासायनिक चिन्ह (Chemical Symbol) काय आहे?</p>
+                <div class="series-display">P, Po, K, Pt</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="17" data-opt="1" onclick="selectAnswer(17, 1)">A) P</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="2" onclick="selectAnswer(17, 2)">B) K</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="3" onclick="selectAnswer(17, 3)">C) Po</button>
+                    <button type="button" class="option-button" data-q="17" data-opt="4" onclick="selectAnswer(17, 4)">D) Pt</button>
+                </div>
+                <div class="explanation" id="explanation17"></div>
+            </div>
+
+            <div class="question-card" id="question18">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १८: (जीवशास्त्र)</strong> पृथ्वीवरील जीवसृष्टीचा अंतिम ऊर्जा स्रोत (Ultimate source of energy) कोणता?</p>
+                <div class="series-display">भूगर्भीय ऊर्जा, पवन ऊर्जा, सौर ऊर्जा, जीवाश्म इंधन</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="18" data-opt="1" onclick="selectAnswer(18, 1)">A) भूगर्भीय ऊर्जा</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="2" onclick="selectAnswer(18, 2)">B) पवन ऊर्जा</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="3" onclick="selectAnswer(18, 3)">C) सौर ऊर्जा</button>
+                    <button type="button" class="option-button" data-q="18" data-opt="4" onclick="selectAnswer(18, 4)">D) जीवाश्म इंधन</button>
+                </div>
+                <div class="explanation" id="explanation18"></div>
+            </div>
+
+            <div class="question-card" id="question19">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न १९: (भौतिकशास्त्र)</strong> स्पष्ट दृष्टीसाठी वस्तू डोळ्यांपासून कमीतकमी किती अंतरावर असावी लागते?</p>
+                <div class="series-display">१० सेमी, २५ सेमी, ५० सेमी, १ मीटर</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="19" data-opt="1" onclick="selectAnswer(19, 1)">A) २५ सेमी</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="2" onclick="selectAnswer(19, 2)">B) ५० सेमी</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="3" onclick="selectAnswer(19, 3)">C) १० सेमी</button>
+                    <button type="button" class="option-button" data-q="19" data-opt="4" onclick="selectAnswer(19, 4)">D) १ मीटर</button>
+                </div>
+                <div class="explanation" id="explanation19"></div>
+            </div>
+
+            <div class="question-card" id="question20">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २०: (रसायनशास्त्र)</strong> खालीलपैकी कोणता धातू हाताच्या उष्णतेने (Hand Warmth) वितळतो?</p>
+                <div class="series-display">पारा, सोडियम, गॅलियम, लिथियम</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="20" data-opt="1" onclick="selectAnswer(20, 1)">A) पारा</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="2" onclick="selectAnswer(20, 2)">B) सोडियम</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="3" onclick="selectAnswer(20, 3)">C) लिथियम</button>
+                    <button type="button" class="option-button" data-q="20" data-opt="4" onclick="selectAnswer(20, 4)">D) गॅलियम</button>
+                </div>
+                <div class="explanation" id="explanation20"></div>
+            </div>
+
+            <div class="question-card" id="question21">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २१: (जीवशास्त्र)</strong> चपलेच्या आकाराचा आदिजीव (Protozoa) कोणता आहे?</p>
+                <div class="series-display">अमीबा, पॅरामीशियम, युग्लेना, प्लाझमोडियम</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="21" data-opt="1" onclick="selectAnswer(21, 1)">A) पॅरामीशियम</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="2" onclick="selectAnswer(21, 2)">B) अमीबा</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="3" onclick="selectAnswer(21, 3)">C) युग्लेना</button>
+                    <button type="button" class="option-button" data-q="21" data-opt="4" onclick="selectAnswer(21, 4)">D) प्लाझमोडियम</button>
+                </div>
+                <div class="explanation" id="explanation21"></div>
+            </div>
+
+            <div class="question-card" id="question22">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २२: (भौतिकशास्त्र)</strong> निर्वात पोकळीतून (Vacuum) उष्णता कोणत्या पद्धतीने प्रवास करते?</p>
+                <div class="series-display">वहन, अभिसरण, विकिरण, संवहन</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="22" data-opt="1" onclick="selectAnswer(22, 1)">A) वहन (Conduction)</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="2" onclick="selectAnswer(22, 2)">B) अभिसरण (Convection)</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="3" onclick="selectAnswer(22, 3)">C) संवहन (Advection)</button>
+                    <button type="button" class="option-button" data-q="22" data-opt="4" onclick="selectAnswer(22, 4)">D) विकिरण (Radiation)</button>
+                </div>
+                <div class="explanation" id="explanation22"></div>
+            </div>
+
+            <div class="question-card" id="question23">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २३: (रसायनशास्त्र)</strong> तांबे (Copper) कोणत्या धातूच्या सल्फेट द्रावणातून धातूला विस्थापित (Displace) करू शकत नाही?</p>
+                <div class="series-display">झिंक सल्फेट, सिल्व्हर सल्फेट, फेरस सल्फेट, मर्क्युरिक सल्फेट</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="23" data-opt="1" onclick="selectAnswer(23, 1)">A) झिंक सल्फेट ($ZnSO_4$)</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="2" onclick="selectAnswer(23, 2)">B) सिल्व्हर सल्फेट ($Ag_2SO_4$)</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="3" onclick="selectAnswer(23, 3)">C) फेरस सल्फेट ($FeSO_4$)</button>
+                    <button type="button" class="option-button" data-q="23" data-opt="4" onclick="selectAnswer(23, 4)">D) मर्क्युरिक सल्फेट ($HgSO_4$)</button>
+                </div>
+                <div class="explanation" id="explanation23"></div>
+            </div>
+
+            <div class="question-card" id="question24">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २४: (जीवशास्त्र)</strong> अन्ननलिका (Esophagus) खालीलपैकी कोणते कार्य करत नाही?</p>
+                <div class="series-display">पचन, अन्न पुढे ढकलणे, अन्न साठवणे, अन्न गिळणे</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="24" data-opt="1" onclick="selectAnswer(24, 1)">A) पचन</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="2" onclick="selectAnswer(24, 2)">B) अन्न पुढे ढकलणे</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="3" onclick="selectAnswer(24, 3)">C) अन्न गिळणे</button>
+                    <button type="button" class="option-button" data-q="24" data-opt="4" onclick="selectAnswer(24, 4)">D) अन्न साठवणे</button>
+                </div>
+                <div class="explanation" id="explanation24"></div>
+            </div>
+
+            <div class="question-card" id="question25">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २५: (भौतिकशास्त्र)</strong> वस्तूचे वजन (Weight) कशावर अवलंबून असते?</p>
+                <div class="series-display">वस्तुमान, गुरुत्वाकर्षण, आकार, घनता</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="25" data-opt="1" onclick="selectAnswer(25, 1)">A) वस्तूचे वस्तुमान</button>
+                    <button type="button" class="option-button" data-q="25" data-opt="2" onclick="selectAnswer(25, 2)">B) पृथ्वीचे गुरुत्वाकर्षण</button>
+                    <button type="button" class="option-button" data-q="25" data-opt="3" onclick="selectAnswer(25, 3)">C) वस्तूचे वजन आणि पृथ्वीचे गुरुत्वाकर्षण</button>
+                    <button type="button" class="option-button" data-q="25" data-opt="4" onclick="selectAnswer(25, 4)">D) घनता</button>
+                </div>
+                <div class="explanation" id="explanation25"></div>
+            </div>
+
+            <div class="question-card" id="question26">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २६: (जीवशास्त्र)</strong> मानवी जठरात (Stomach) पचनासाठी कोणते आम्ल स्रवते?</p>
+                <div class="series-display">सायट्रिक आम्ल, सल्फ्यूरिक आम्ल, हायड्रोक्लोरिक आम्ल, ॲसिटिक आम्ल</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="26" data-opt="1" onclick="selectAnswer(26, 1)">A) सायट्रिक आम्ल</button>
+                    <button type="button" class="option-button" data-q="26" data-opt="2" onclick="selectAnswer(26, 2)">B) सल्फ्यूरिक आम्ल ($H_2SO_4$)</button>
+                    <button type="button" class="option-button" data-q="26" data-opt="3" onclick="selectAnswer(26, 3)">C) हायड्रोक्लोरिक आम्ल ($HCl$)</button>
+                    <button type="button" class="option-button" data-q="26" data-opt="4" onclick="selectAnswer(26, 4)">D) नायट्रिक आम्ल ($HNO_3$)</button>
+                </div>
+                <div class="explanation" id="explanation26"></div>
+            </div>
+
+            <div class="question-card" id="question27">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २७: (रसायनशास्त्र)</strong> ज्वलनास (Burning) मदत करणारा वायू कोणता आहे?</p>
+                <div class="series-display">नायट्रोजन, कार्बन डायऑक्साइड, ऑक्सिजन, आर्गॉन</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="27" data-opt="1" onclick="selectAnswer(27, 1)">A) नायट्रोजन ($N_2$)</button>
+                    <button type="button" class="option-button" data-q="27" data-opt="2" onclick="selectAnswer(27, 2)">B) ऑक्सिजन ($O_2$)</button>
+                    <button type="button" class="option-button" data-q="27" data-opt="3" onclick="selectAnswer(27, 3)">C) कार्बन डायऑक्साइड ($CO_2$)</button>
+                    <button type="button" class="option-button" data-q="27" data-opt="4" onclick="selectAnswer(27, 4)">D) हायड्रोजन ($H_2$)</button>
+                </div>
+                <div class="explanation" id="explanation27"></div>
+            </div>
+
+            <div class="question-card" id="question28">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २८: (जीवशास्त्र)</strong> पानांना हिरवा रंग कशामुळे येतो?</p>
+                <div class="series-display">झेंथोफिल, कॅरोटीन, ॲन्थोसायनिन, क्लोरोफिल</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="28" data-opt="1" onclick="selectAnswer(28, 1)">A) झेंथोफिल</button>
+                    <button type="button" class="option-button" data-q="28" data-opt="2" onclick="selectAnswer(28, 2)">B) कॅरोटीन</button>
+                    <button type="button" class="option-button" data-q="28" data-opt="3" onclick="selectAnswer(28, 3)">C) ॲन्थोसायनिन</button>
+                    <button type="button" class="option-button" data-q="28" data-opt="4" onclick="selectAnswer(28, 4)">D) क्लोरोफिल</button>
+                </div>
+                <div class="explanation" id="explanation28"></div>
+            </div>
+
+            <div class="question-card" id="question29">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न २९: (भौतिकशास्त्र)</strong> 'वेग' (Velocity) हे विस्थापन (Displacement) भागिले काय असते?</p>
+                <div class="series-display">अंतर, वेळ, त्वरण, गती</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="29" data-opt="1" onclick="selectAnswer(29, 1)">A) वेळ (Time)</button>
+                    <button type="button" class="option-button" data-q="29" data-opt="2" onclick="selectAnswer(29, 2)">B) अंतर (Distance)</button>
+                    <button type="button" class="option-button" data-q="29" data-opt="3" onclick="selectAnswer(29, 3)">C) गती (Speed)</button>
+                    <button type="button" class="option-button" data-q="29" data-opt="4" onclick="selectAnswer(29, 4)">D) त्वरण (Acceleration)</button>
+                </div>
+                <div class="explanation" id="explanation29"></div>
+            </div>
+
+            <div class="question-card" id="question30">
+                <p class="text-lg font-semibold mb-4"><strong>प्रश्न ३०: (रसायनशास्त्र)</strong> आम्ल (Acid) आणि आम्लारी (Base) यांच्या अभिक्रियेतून (Reaction) काय तयार होते?</p>
+                <div class="series-display">क्षार, वायू, आम्ल, आम्लारी</div>
+                <p class="mt-6 mb-3 font-medium">योग्य पर्याय निवडा:</p>
+                <div class="options-grid">
+                    <button type="button" class="option-button" data-q="30" data-opt="1" onclick="selectAnswer(30, 1)">A) आम्ल</button>
+                    <button type="button" class="option-button" data-q="30" data-opt="2" onclick="selectAnswer(30, 2)">B) आम्लारी</button>
+                    <button type="button" class="option-button" data-q="30" data-opt="3" onclick="selectAnswer(30, 3)">C) क्षार आणि पाणी (Salt and Water)</button>
+                    <button type="button" class="option-button" data-q="30" data-opt="4" onclick="selectAnswer(30, 4)">D) फक्त पाणी</button>
+                </div>
+                <div class="explanation" id="explanation30"></div>
+            </div>
+            
             <div id="action-buttons" style="margin-top: 30px;">
                 <button type="submit" class="submit-btn" id="submit-button">प्रश्नमंजुषा सबमिट करा आणि निकाल पहा</button>
                 <button type="button" class="reset-btn" onclick="resetQuiz()">प्रगती रीसेट करा (Reset Progress)</button>
@@ -238,10 +556,14 @@
     </footer>
 
     <script>
-        // --- Core Quiz Data ---
+        // --- Core Quiz Data (Updated for 30 Questions) ---
         const correctAnswers = { 
             1: 2, 2: 3, 3: 2, 4: 3, 5: 3, 
-            6: 3, 7: 3, 8: 3, 9: 3, 10: 3 
+            6: 3, 7: 3, 8: 3, 9: 3, 10: 3, 
+            11: 3, 12: 2, 13: 2, 14: 3, 15: 1, 
+            16: 4, 17: 2, 18: 3, 19: 1, 20: 4, 
+            21: 1, 22: 4, 23: 3, 24: 1, 25: 3, 
+            26: 3, 27: 2, 28: 4, 29: 1, 30: 3
         };
         
         const explanations = {
@@ -251,34 +573,47 @@
             4: "योग्य उत्तर **प्रामुख्याने घन पदार्थ** आहे. उष्णतेचे वहन (Conduction) हे मुख्यतः घन पदार्थांमध्ये होते.",
             5: "योग्य उत्तर **यकृत (Liver)** आहे. यकृत (Liver) ही मानवी शरीरातील सर्वात मोठी ग्रंथी आहे.",
             6: "योग्य उत्तर **सायट्रिक आम्ल** आहे. लिंबू आणि संत्री यांसारख्या लिंबूवर्गीय फळांना सायट्रिक आम्लामुळे आंबट चव येते.",
-            7: "योग्य उत्तर **$3 \\times 10^8$ मी/से** आहे. निर्वात पोकळीत प्रकाशाचा वेग $3 \\times 10^8$ मी/सेकंद किंवा ३ लाख किमी/सेकंद असतो.",
+            7: "योग्य उत्तर **$3 \\times 10^8$ मी/से** आहे. निर्वात पोकळीत प्रकाशाचा वेग $3 \\times 10^8$ मी/सेकंद असतो.",
             8: "योग्य उत्तर **जिवाणू (Bacteria)** आहे. क्षय रोग (TB) हा 'मायकोबॅक्टेरियम ट्युबरक्युलोसिस' नावाच्या जिवाणूमुळे होतो.",
             9: "योग्य उत्तर **$H_2O$** आहे. पाण्याचे रासायनिक सूत्र $H_2O$ आहे, ज्यात हायड्रोजनचे दोन आणि ऑक्सिजनचा एक अणू असतो.",
-            10: "योग्य उत्तर **बॅरोमीटर (Barometer)** आहे. बॅरोमीटरचा उपयोग वातावरणाचा दाब मोजण्यासाठी केला जातो."
+            10: "योग्य उत्तर **बॅरोमीटर (Barometer)** आहे. बॅरोमीटरचा उपयोग वातावरणाचा दाब मोजण्यासाठी केला जातो.",
+            11: "योग्य उत्तर **नायट्रोजनयुक्त खत** आहे. युरियामध्ये नायट्रोजनचे प्रमाण जास्त असते, म्हणून ते नायट्रोजनयुक्त खत आहे.",
+            12: "योग्य उत्तर **११** आहे. मानवी शरीरात एकूण $11$ प्रमुख अवयव प्रणाली (Organ Systems) आहेत.",
+            13: "योग्य उत्तर **अल्बर्ट आईन्स्टाईन** आहे. सापेक्षता सिद्धांत (Theory of Relativity) अल्बर्ट आईन्स्टाईन यांनी मांडला.",
+            14: "योग्य उत्तर **ॲसिटिक आम्ल** आहे. व्हिनेगरमध्ये ॲसिटिक आम्ल असते.",
+            15: "योग्य उत्तर **प्लाझ्मा** आहे. पदार्थाची चौथी अवस्था प्लाझ्मा आहे.",
+            16: "योग्य उत्तर **व्हिटॅमिन सी** आहे. 'स्कर्वी' (Scurvy) हा रोग व्हिटॅमिन सीच्या कमतरतेमुळे होतो.",
+            17: "योग्य उत्तर **K** आहे. पोटॅशियमचे रासायनिक चिन्ह K (Kallium) आहे.",
+            18: "योग्य उत्तर **सौर ऊर्जा (Solar Energy)** आहे. पृथ्वीवरील जीवसृष्टीचा अंतिम ऊर्जा स्रोत सूर्य (Solar Energy) आहे.",
+            19: "योग्य उत्तर **२५ सेमी** आहे. स्पष्ट दृष्टीसाठी (Normal Vision) वस्तू डोळ्यांपासून कमीतकमी २५ सेमी अंतरावर असावी लागते.",
+            20: "योग्य उत्तर **गॅलियम** आहे. गॅलियम (Gallium) धातू सामान्य तापमानाला नाही, पण हाताच्या उष्णतेने (approx. $30^\circ C$) वितळतो.",
+            21: "योग्य उत्तर **पॅरामीशियम** आहे. पॅरामीशियम हा चपलेच्या आकाराचा आदिजीव आहे.",
+            22: "योग्य उत्तर **विकिरण (Radiation)** आहे. निर्वात पोकळीतून (Vacuum) उष्णता विकिरण (Radiation) पद्धतीने प्रवास करते.",
+            23: "योग्य उत्तर **फेरस सल्फेट** आहे. तांबे (Cu) Fe पेक्षा कमी क्रियाशील असल्याने (Less Reactive) फेरस सल्फेटच्या द्रावणातून लोहाला विस्थापित करू शकत नाही. (प्रश्नातील पर्यायांनुसार, **फेरस सल्फेट** योग्य आहे.)",
+            24: "योग्य उत्तर **पचन** आहे. अन्ननलिका (Esophagus) फक्त अन्न पोटात पोहोचवते, पचन जठरात सुरू होते.",
+            25: "योग्य उत्तर **वस्तूचे वजन आणि पृथ्वीचे गुरुत्वाकर्षण** आहे. वजन ($W$) = वस्तुमान ($m$) x गुरुत्वीय त्वरण ($g$). (गुरुत्वाकर्षणामुळे वजन बदलते).",
+            26: "योग्य उत्तर **हायड्रोक्लोरिक आम्ल (HCl)** आहे. मानवी जठरात (Stomach) हायड्रोक्लोरिक आम्ल स्रवते, जे पचनास मदत करते.",
+            27: "योग्य उत्तर **ऑक्सिजन ($O_2$)** आहे. ऑक्सिजन वायू ज्वलनास (Burning) मदत करतो.",
+            28: "योग्य उत्तर **क्लोरोफिल** आहे. पानांना हिरवा रंग क्लोरोफिलमुळे येतो.",
+            29: "योग्य उत्तर **वेळ (Time)** आहे. वेग = विस्थापन / वेळ.",
+            30: "योग्य उत्तर **क्षार आणि पाणी (Salt and Water)** आहे. आम्ल (Acid) आणि आम्लारी (Base) यांच्या रासायनिक अभिक्रियेतून क्षार आणि पाणी तयार होते."
         };
 
         // Key: Question Number, Value: User Selected Option Number
         let userAnswers = {};
-        const totalQuestions = Object.keys(correctAnswers).length;
+        const totalQuestions = Object.keys(correctAnswers).length; 
         
-        // --- LOCAL STORAGE LOGIC (The code you requested) ---
+        // --- LOCAL STORAGE LOGIC ---
         const NMMS_QUIZ_ANSWERS_KEY = 'NMMS_Science_Answers';
 
-        /**
-         * Saves the current state of userAnswers to Local Storage.
-         */
         function saveProgress() {
             try {
                 localStorage.setItem(NMMS_QUIZ_ANSWERS_KEY, JSON.stringify(userAnswers));
-                // console.log("Progress saved:", userAnswers);
             } catch (e) {
                 console.error("Local Storage Save Error:", e);
             }
         }
 
-        /**
-         * Loads saved answers from Local Storage and updates the UI.
-         */
         function loadProgress() {
             try {
                 const savedAnswers = localStorage.getItem(NMMS_QUIZ_ANSWERS_KEY);
@@ -293,16 +628,12 @@
                             selectedButton.classList.add('selected');
                         }
                     }
-                    console.log("Quiz progress loaded:", userAnswers);
                 }
             } catch (e) {
                 console.error("Local Storage Load Error:", e);
             }
         }
         
-        /**
-         * Clears progress and resets the quiz UI.
-         */
         function resetQuiz() {
             // 1. Clear Answers
             userAnswers = {};
@@ -318,7 +649,6 @@
             document.querySelectorAll('.option-button').forEach(btn => {
                 btn.classList.remove('selected', 'correct', 'incorrect');
                 btn.disabled = false;
-                // Clear inline styles that were applied after submission
                 btn.style.backgroundColor = ''; 
                 btn.style.color = ''; 
                 btn.style.borderColor = ''; 
@@ -344,7 +674,6 @@
             submitBtn.disabled = false;
             submitBtn.textContent = 'प्रश्नमंजुषा सबमिट करा आणि निकाल पहा';
             submitBtn.classList.remove('bg-gray-400', 'bg-red-600');
-            submitBtn.classList.add('bg-teal-600'); 
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -357,6 +686,9 @@
             const options = document.querySelectorAll(`#question${questionNum} .option-button`);
             options.forEach(btn => {
                 btn.classList.remove('selected', 'correct', 'incorrect');
+                btn.style.backgroundColor = ''; 
+                btn.style.color = ''; 
+                btn.style.borderColor = ''; 
             });
 
             const selectedButton = document.querySelector(`#question${questionNum} .option-button[data-opt="${optionNum}"]`);
@@ -382,7 +714,7 @@
                  resultElement.style.backgroundColor = '#fee2e2'; 
                  resultElement.style.borderColor = '#ef4444'; 
                  resultElement.style.color = '#991b1b';
-                 resultElement.innerHTML = `<strong>⚠️ कृपया सर्व ${totalQuestions} प्रश्नांची उत्तरे द्या.</strong>`;
+                 resultElement.innerHTML = `<strong>⚠️ कृपया सर्व ${totalQuestions} प्रश्नांची उत्तरे द्या.</strong> (तुम्ही ${Object.keys(userAnswers).length} उत्तरे दिली आहेत.)`;
                  window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
                  return;
             }
@@ -431,7 +763,7 @@
             // 3. Display Final Score
             const resultElement = document.getElementById('quiz-result');
             resultElement.classList.remove('hidden');
-            resultElement.style.backgroundColor = '#d1fae5'; // Reset style from warning if needed
+            resultElement.style.backgroundColor = '#d1fae5'; 
             resultElement.style.borderColor = '#0d9488';
             resultElement.style.color = '#065f46';
 
@@ -440,12 +772,11 @@
                 <div style="margin-top: 10px; font-size: 1rem; font-weight: 500; color: #0d9488;">विज्ञानाच्या पुढील सरावासाठी सज्ज व्हा.</div>
             `;
             
-            // Disable Submit Button and remove stored answers (quiz finished)
+            // Disable Submit Button and clear stored answers (quiz finished)
             document.getElementById('submit-button').disabled = true;
             document.getElementById('submit-button').textContent = 'निकाल दर्शविला आहे';
             document.getElementById('submit-button').classList.add('bg-gray-400');
             
-            // Clear storage after completion so the user must click reset to restart
             try {
                 localStorage.removeItem(NMMS_QUIZ_ANSWERS_KEY);
             } catch (e) {
@@ -456,8 +787,32 @@
             window.scrollTo({ top: resultElement.offsetTop - 80, behavior: 'smooth' });
         }
         
+        // =======================================================
+        // 🚀 RESPONSIVE NAVIGATION JAVASCRIPT
+        // =======================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggleBtn = document.getElementById('menu-toggle-btn');
+            const mobileNavLinks = document.getElementById('mobile-nav-links');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+
+            if (menuToggleBtn && mobileNavLinks) {
+                menuToggleBtn.addEventListener('click', () => {
+                    // Toggle the 'open' class for visibility
+                    mobileNavLinks.classList.toggle('open');
+                    
+                    // Toggle the SVG icons for hamburger/close view
+                    menuIconOpen.classList.toggle('hidden');
+                    menuIconClose.classList.toggle('hidden');
+                    
+                    // Update ARIA status
+                    const isExpanded = mobileNavLinks.classList.contains('open');
+                    menuToggleBtn.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+        });
+        
         // --- Initialization ---
-        // 💡 Persistence: Load saved progress when the page starts
         window.onload = loadProgress;
 
     </script>
