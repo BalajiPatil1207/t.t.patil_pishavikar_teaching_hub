@@ -41,6 +41,52 @@
       height: 100%;
     }
 
+    .slider-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      /* For smooth scrolling on iOS */
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .slider-container {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    /* slider-track makes the items display horizontally */
+    .slider-track {
+      display: flex;
+      gap: 1.5rem;
+      /* Equivalent to space-x-6 in Tailwind */
+      padding-bottom: 1rem;
+      /* Space for shadow */
+    }
+
+    /* Custom width for slides (cards) */
+    .testimonial-card {
+      flex-shrink: 0;
+      width: 100%;
+      /* Default 100% on small screen, but constrained by container */
+      max-width: 320px;
+      /* Max width on mobile view */
+    }
+
+    @media (min-width: 640px) {
+
+      /* sm breakpoint */
+      .testimonial-card {
+        max-width: 360px;
+        /* Slightly wider on small tablets/desktop */
+      }
+    }
+
     @keyframes slide-left {
       0% {
         transform: translateX(0);
@@ -270,7 +316,6 @@
 
       <div class="relative">
         <div id="teacherProfiles" class="space-y-10">
-
           <div
             class="teacher-profile-card bg-white rounded-3xl shadow-3xl p-8 md:p-14 border-b-4 border-indigo-700 transition duration-500 transform hover:shadow-indigo-300/50 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 md:space-x-16"
             style="display: flex;">
@@ -345,9 +390,47 @@
             </div>
           </div>
 
+          <div
+            class="teacher-profile-card bg-white rounded-3xl shadow-3xl p-8 md:p-14 border-b-4 border-indigo-700 transition duration-500 transform hover:shadow-indigo-300/50 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 md:space-x-16"
+            style="display: none;">
+
+            <div class="shrink-0 relative">
+              <img class="w-55 h-70 shadow-xl border-4 border-white ring-8 ring-indigo-100/50" src="assets/bbkamble.jpg"
+                alt="B.B.Kamble Sir">
+            </div>
+
+            <div class="text-left grow">
+              <h3 class="text-4xl font-extrabold text-indigo-800 mb-3 border-b-2 border-orange-300 pb-1 inline-block">
+                बी.बी. कांबळे सर
+              </h3>
+
+              <p class="text-xl text-orange-600 font-bold mb-4">पदवी: [ M.A., B.Ed. ]</p>
+
+              <p class="text-gray-700 leading-relaxed text-base md:text-lg">
+                <b>बी.बी. कांबळे</b> हे शिक्षण क्षेत्रात <b>३० वर्षांहून अधिक अनुभव असलेले इंग्रजी</b> विषयाचे तज्ञ
+                (Specialist) आणि अत्यंत अनुभवी मार्गदर्शक आहेत. त्यांनी <b>M.A.</b> आणि <b>B.Ed.</b> अशी पदवी प्राप्त
+                केली असून, त्यांचा मुख्य विषय इंग्रजी हा आहे.
+                <br><br>
+                त्यांच्या ३० वर्षांच्या विस्तृत अनुभवामुळे, विद्यार्थ्यांना इंग्रजी व्याकरण (Grammar) आणि भाषा कौशल्ये
+                (Language Skills) सहज आत्मसात करणे शक्य होते. त्यांची शिकवण्याची पद्धत विद्यार्थ्यांसाठी अत्यंत प्रभावी
+                आणि उपयुक्त ठरते. त्यांचे मार्गदर्शन विद्यार्थ्यांना उत्कृष्ट शैक्षणिक प्रगती करण्यासाठी प्रेरित करते.
+              </p>
+
+
+              <a href="https://www.youtube.com/@tanajipatilpishavikar" target="_blank"
+                class="mt-8 inline-flex items-center space-x-2 bg-red-700 text-white font-bold tracking-wide py-3 px-10 rounded-xl shadow-lg shadow-red-500/50 hover:bg-red-800 transition duration-300 transform hover:scale-[1.03] text-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.228 0-3.497.24-4.852.883-4.852 3.255v11.121c0 2.373 1.355 3.016 4.852 3.255 3.604.246 11.631.245 15.228 0 3.497-.24 4.852-.883 4.852-3.255v-11.121c0-2.372-1.355-3.015-4.852-3.255zM10 15.65v-7.309l5.472 3.654-5.472 3.655z" />
+                </svg>
+                <span>आमचे YouTube चॅनल पहा</span>
+              </a>
+            </div>
+          </div>
+
         </div>
 
-        <div class="flex justify-between mt-10 space-x-4">
+        <div class="flex justify-between lg:ml-50 lg:mr-50 mt-10 space-x-4">
 
           <button id="prevButton"
             class="flex items-center justify-center w-16 h-16 bg-orange-600 text-white rounded-full shadow-lg hover:bg-orange-700 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-110">
@@ -365,6 +448,7 @@
             </svg>
           </button>
         </div>
+
       </div>
     </div>
   </section>
@@ -378,14 +462,15 @@
     </header>
 
     <div class="slider-container">
-      <div class="slider-track p-5">
+      <div class="slider-track">
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-1.jpg"
-              class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Raj.">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Raj.">
+
             <div>
               <p class="font-extrabold text-xl text-gray-900">Raj Kokate, Shittur</p>
               <p class="text-sm text-gray-500 font-medium">95% in 9th class</p>
@@ -402,11 +487,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-2.jpg"
-              class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Pruthviraj">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Pruthviraj">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Pruthviraj Patil, Shittur</p>
               <p class="text-sm text-gray-500 font-medium">92% in 9th class</p>
@@ -422,11 +507,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-7.jpg"
-              class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Pruthviraj">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Tejas">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Tejas Shevade, Mangle</p>
               <p class="text-sm text-gray-500 font-medium">NMMS Exam clear</p>
@@ -442,11 +527,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-3.jpg"
-              class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Akash">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Akash">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Akash Shevade, Bahubali</p>
               <p class="text-sm text-gray-500 font-medium">92% in 10th Board Exam</p>
@@ -461,11 +546,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-6.jpg"
-              class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Akash">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Manoj">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Manoj Chougule, Mangle</p>
               <p class="text-sm text-gray-500 font-medium">80% in 10th Board Exam</p>
@@ -480,11 +565,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-4.jpg"
-              class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Akash S.">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Swarup">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Swarup Patil, Panhala</p>
               <p class="text-sm text-gray-500 font-medium">NNMMS Exam clear</p>
@@ -499,11 +584,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-5.jpg"
-              class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Amey Patil">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Amey Patil">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Amey Patil, Kodoli</p>
               <p class="text-sm text-gray-500 font-medium">NNMMS Exam clear</p>
@@ -516,12 +601,13 @@
             for all students!"
           </blockquote>
         </div>
-        <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+        <div
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-1.jpg"
-              class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Raj.">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Raj.">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Raj Kokate, Shittur</p>
               <p class="text-sm text-gray-500 font-medium">95% in 9th class</p>
@@ -538,11 +624,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-2.jpg"
-              class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Pruthviraj">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Pruthviraj">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Pruthviraj Patil, Shittur</p>
               <p class="text-sm text-gray-500 font-medium">92% in 9th class</p>
@@ -558,11 +644,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-7.jpg"
-              class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Pruthviraj">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Tejas">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Tejas Shevade, Mangle</p>
               <p class="text-sm text-gray-500 font-medium">NMMS Exam clear</p>
@@ -578,11 +664,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-3.jpg"
-              class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Akash">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Akash">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Akash Shevade, Bahubali</p>
               <p class="text-sm text-gray-500 font-medium">92% in 10th Board Exam</p>
@@ -597,11 +683,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-6.jpg"
-              class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Akash">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Manoj">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Manoj Chougule, Mangle</p>
               <p class="text-sm text-gray-500 font-medium">80% in 10th Board Exam</p>
@@ -616,11 +702,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-4.jpg"
-              class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Akash S.">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Swarup">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Swarup Patil, Panhala</p>
               <p class="text-sm text-gray-500 font-medium">NNMMS Exam clear</p>
@@ -635,11 +721,11 @@
         </div>
 
         <div
-          class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
+          class="bg-white testimonial-card p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
 
-          <div class="flex items-center mb-6">
+          <div class="flex flex-col items-center mb-6 text-center">
             <img src="./assets/student-5.jpg"
-              class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover" alt="Image of Amey Patil">
+              class="rounded-full w-40 h-40 mb-4 border-4 border-orange-200 object-cover" alt="Image of Amey Patil">
             <div>
               <p class="font-extrabold text-xl text-gray-900">Amey Patil, Kodoli</p>
               <p class="text-sm text-gray-500 font-medium">NNMMS Exam clear</p>
@@ -652,6 +738,7 @@
             for all students!"
           </blockquote>
         </div>
+
 
       </div>
     </div>
@@ -680,11 +767,11 @@
         <div>
           <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="index.html" class="hover:text-white">Home</a></li>
-            <li><a href="marathi.html" class="hover:text-white">Marathi</a></li>
-            <li><a href="geography.html" class="hover:text-white">Geography</a></li>
-            <li><a href="nmms.html" class="hover:text-white">NMMS</a></li>
-            <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+            <li><a href="/index.html" class="hover:text-white">Home</a></li>
+            <li><a href="/marathi.html" class="hover:text-white">Marathi</a></li>
+            <li><a href="/geography.html" class="hover:text-white">Geography</a></li>
+            <li><a href="/nmms.html" class="hover:text-white">NMMS</a></li>
+            <li><a href="/contact.html" class="hover:text-white">Contact</a></li>
           </ul>
         </div>
 
@@ -698,12 +785,13 @@
                   d="M19.615 3.184c-3.604-.246-11.631-.245-15.228 0-3.497.24-4.852.883-4.852 3.255v11.121c0 2.373 1.355 3.016 4.852 3.255 3.604.246 11.631.245 15.228 0 3.497-.24 4.852-.883 4.852-3.255v-11.121c0-2.372-1.355-3.015-4.852-3.255zM10 15.65v-7.309l5.472 3.654-5.472 3.655z" />
               </svg>
             </a>
-            <a href="#" class="text-blue-400 hover:text-blue-500 transition">
+            <a href="mailto:balajipatil3252@gmail.com" class="text-blue-400 hover:text-blue-500 transition">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
                 <path
-                  d="M22.46 6c-.77.35-1.6.58-2.46.69a4.26 4.26 0 001.88-2.37 8.28 8.28 0 01-2.67 1.02A4.13 4.13 0 0015.5 4c-2.27 0-4.1 1.84-4.1 4.11 0 .32.03.63.1.93-3.4-.17-6.42-1.8-8.45-4.28a4.04 4.04 0 00-.55 2.07c0 1.43.72 2.69 1.81 3.43a4.03 4.03 0 01-1.85-.5v.05c0 2 1.42 3.68 3.29 4.06a4.21 4.21 0 01-1.84.07 4.13 4.13 0 003.85 2.86A8.31 8.31 0 012 19.54 11.73 11.73 0 008.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18-.01-.36-.02-.54A8.18 8.18 0 0022.46 6z" />
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4a2 2 0 01-2-2V6c0-1.1.9-2 2-2zm0 2v.01L12 13l8-6.99V6H4zm0 12h16V8l-8 6-8-6v10z" />
               </svg>
             </a>
+
           </div>
         </div>
       </div>
@@ -754,37 +842,37 @@
      * @param {number} index - The index of the profile to show.
      */
     function showProfile(index) {
-        profiles.forEach((profile, i) => {
-            profile.style.display = i === index ? 'flex' : 'none';
-        });
-        currentProfileIndex = index;
-        updateButtons();
+      profiles.forEach((profile, i) => {
+        profile.style.display = i === index ? 'flex' : 'none';
+      });
+      currentProfileIndex = index;
+      updateButtons();
     }
 
     /**
      * Updates the disabled state of the navigation buttons.
      */
     function updateButtons() {
-        prevButton.disabled = currentProfileIndex === 0;
-        nextButton.disabled = currentProfileIndex === profiles.length - 1;
+      prevButton.disabled = currentProfileIndex === 0;
+      nextButton.disabled = currentProfileIndex === profiles.length - 1;
     }
 
     // Event Listeners for buttons
     nextButton.addEventListener('click', () => {
-        if (currentProfileIndex < profiles.length - 1) {
-            showProfile(currentProfileIndex + 1);
-        }
+      if (currentProfileIndex < profiles.length - 1) {
+        showProfile(currentProfileIndex + 1);
+      }
     });
 
     prevButton.addEventListener('click', () => {
-        if (currentProfileIndex > 0) {
-            showProfile(currentProfileIndex - 1);
-        }
+      if (currentProfileIndex > 0) {
+        showProfile(currentProfileIndex - 1);
+      }
     });
 
     // Initialize: Show the first profile and set button states
     document.addEventListener('DOMContentLoaded', () => {
-        showProfile(0); // Ensure only the first profile is visible on load
+      showProfile(0); // Ensure only the first profile is visible on load
     });
 
 
