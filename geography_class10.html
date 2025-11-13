@@ -34,18 +34,29 @@
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <h1 class="text-3xl font-bold text-orange-700">T.T.Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
-                <a href="index.html" class="text-gray-600 hover:text-orange-600">Home</a>
-                <a href="marathi.html" class="text-gray-600 hover:text-orange-600">Marathi</a>
-                <a href="geography.html" class="text-orange-600 hover:text-orange-800">Geography</a>
-                <a href="nmms.html" class="text-gray-600 hover:text-orange-600">NMMS</a>
-                <a href="contact.html" class="text-gray-600 hover:text-orange-600">Contact</a>
-                <a href="login.html" class="text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition">Login</a>
+
+            <button id="menu-button" class="md:hidden text-gray-600 hover:text-orange-600 p-2 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <div id="nav-links"
+                class="hidden md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent shadow-lg md:shadow-none p-4 md:p-0 space-y-2 md:space-y-0 text-lg font-medium space-x-4 md:space-x-8 z-40">
+                
+                <a href="index.html" class="text-gray-600 hover:text-orange-600 block md:inline">Home</a>
+                <a href="marathi.html" class="text-gray-600 hover:text-orange-600 block md:inline">Marathi</a>
+                <a href="geography.html" class="text-orange-600 hover:text-orange-800 block md:inline">Geography</a>
+                <a href="nmms.html" class="text-gray-600 hover:text-orange-600 block md:inline">NMMS</a>
+                <a href="contact.html" class="text-gray-600 hover:text-orange-600 block md:inline">Contact</a>
+                <a href="login.html"
+                    class="text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition block text-center mt-2 md:mt-0 md:inline-block">Login</a>
             </div>
         </nav>
     </header>
 
-    <!-- first Section -->
     <section class="bg-blue-600 text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-5xl font-extrabold mb-3">Class 10th Geography Complete Course 📚</h2>
@@ -54,16 +65,13 @@
         </div>
     </section>
 
-    <!-- chapters section -->
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-extrabold text-green-400 mb-8 border-b-4 border-orange-500 pb-2">
                 Chapter Section:
             </h2>
-            <!-- cards Sections -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- chapter 1 -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -80,7 +88,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 1 (2) -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -97,7 +104,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 2 (1)-->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -115,7 +121,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 2 (2) -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -133,7 +138,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 3 (1) -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -151,7 +155,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 3 (2)-->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -169,7 +172,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 3 (3)-->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -187,7 +189,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 4 (1)-->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -206,7 +207,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 4 (2) -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -225,7 +225,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 4 (3) -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -244,7 +243,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 4 (4) -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -263,7 +261,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 5 (1) -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -282,7 +279,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 5 (2) -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -301,7 +297,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 6 (1)-->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -319,7 +314,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 6 (2)-->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -337,7 +331,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 7-->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -355,7 +348,6 @@
                             YouTube →</a>
                     </div>
                 </div>
-                <!-- chapter 9 -->
                 <div
                     class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-blue-500">
                     <div class="video-responsive">
@@ -384,304 +376,325 @@
     <div class="flex justify-center mt-8">
         <a href="geography_quiz_10.html"
             class="bg-linear-to-r from-blue-500 to-blue-600 text-white py-3 px-10 sm:px-12 md:px-16 rounded-xl text-lg sm:text-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300">
-            दहावी भूगोलाची प्रश्नमंजुषा सोडवा (Solve Quiz)
+            दहावी भूगोलाची प्रश्नमंजुषा सोडवा 
         </a>
     </div>
 
-    <!-- question paper section -->
     <section class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-green-400 mb-8 border-b-4 border-orange-500 pb-2">
-                Question Papers Section:
-            </h2>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-green-400 mb-8 border-b-4 border-orange-500 pb-2">
+            Question Papers Section:
+        </h2>
 
-            <!-- ques Paper cards Sections -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- paper 1 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/PXJ2Fwp5vlA" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 1</h4>
-                        <p class="text-sm text-gray-500">अभ्यासासाठी अध्यायानुसार प्रश्नपत्रके आणि व्हिडिओ स्पष्टीकरणे
-                            येथे उपलब्ध आहेत. प्रत्येक विभागामध्ये मार्गदर्शन, महत्वाचे मुद्दे आणि संबंधित YouTube
-                            व्हिडिओचे दुवे दिले आहेत.</p>
-                        <a href="https://youtu.be/PXJ2Fwp5vlA?si=8JPftkdSL9qXxo6c" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/PXJ2Fwp5vlA" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                <!-- paper 2 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/ONY9D280gM0" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 2</h4>
-                        <p class="text-sm text-gray-500">प्रत्येक अध्यायासाठी तपशीलवार प्रश्नपत्रके आणि चरण-दर-चरण
-                            स्पष्टीकरणे मिळवा. तुमची संकल्पना मजबूत करण्यासाठी संबंधित व्हिडिओ पहा आणि परीक्षेची तयारी
-                            करा.</p>
-                        <a href="https://youtu.be/ONY9D280gM0?si=9rhhZ_IYrKle7Px8" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 1</h4>
+                    <p class="text-sm text-gray-500">अभ्यासासाठी अध्यायानुसार प्रश्नपत्रके आणि व्हिडिओ स्पष्टीकरणे
+                        येथे उपलब्ध आहेत. प्रत्येक विभागामध्ये मार्गदर्शन, महत्वाचे मुद्दे आणि संबंधित YouTube
+                        व्हिडिओचे दुवे दिले आहेत।</p>
+                    <a href="https://youtu.be/PXJ2Fwp5vlA?si=8JPftkdSL9qXxo6c" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
                 </div>
-                <!-- paper 3 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/ca7XkykYLdY" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 3</h4>
-                        <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा.
-                            पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम.</p>
-                        <a href="https://youtu.be/ca7XkykYLdY?si=G9q7jFoY3ETBpRUz" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/ONY9D280gM0" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                <!-- paper 4 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/yGE5xLYyp_A" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 4</h4>
-                        <p class="text-sm text-gray-500">अभ्यासासाठी अध्यायानुसार प्रश्नपत्रके आणि व्हिडिओ स्पष्टीकरणे
-                            येथे उपलब्ध आहेत. प्रत्येक विभागामध्ये मार्गदर्शन, महत्वाचे मुद्दे आणि संबंधित YouTube
-                            व्हिडिओचे दुवे दिले आहेत.</p>
-                        <a href="https://youtu.be/yGE5xLYyp_A?si=uQ7bhWenvLuG_Kka" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 2</h4>
+                    <p class="text-sm text-gray-500">प्रत्येक अध्यायासाठी तपशीलवार प्रश्नपत्रके आणि चरण-दर-चरण
+                        स्पष्टीकरणे मिळवा। तुमची संकल्पना मजबूत करण्यासाठी संबंधित व्हिडिओ पहा आणि परीक्षेची तयारी
+                        करा।</p>
+                    <a href="https://youtu.be/ONY9D280gM0?si=9rhhZ_IYrKle7Px8" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
                 </div>
-                <!-- paper 5 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/EXywTVp1qNs" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 5</h4>
-                        <p class="text-sm text-gray-500">प्रत्येक अध्यायासाठी तपशीलवार प्रश्नपत्रके आणि चरण-दर-चरण
-                            स्पष्टीकरणे मिळवा. तुमची संकल्पना मजबूत करण्यासाठी संबंधित व्हिडिओ पहा आणि परीक्षेची तयारी
-                            करा.</p>
-                        <a href="https://youtu.be/EXywTVp1qNs?si=WHcopz7fEWK4ubu6" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/ca7XkykYLdY" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                <!-- paper 6 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/v6hSytiMTQg" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 6</h4>
-                        <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा.
-                            पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम.</p>
-                        <a href="https://youtu.be/v6hSytiMTQg?si=1MUnCZdXI44mo3yX" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 3</h4>
+                    <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा।
+                        पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम।</p>
+                    <a href="https://youtu.be/ca7XkykYLdY?si=G9q7jFoY3ETBpRUz" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
                 </div>
-                <!-- paper 7 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/zAJEgLJAe6w" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 7</h4>
-                        <p class="text-sm text-gray-500">अभ्यासासाठी अध्यायानुसार प्रश्नपत्रके आणि व्हिडिओ स्पष्टीकरणे
-                            येथे उपलब्ध आहेत. प्रत्येक विभागामध्ये मार्गदर्शन, महत्वाचे मुद्दे आणि संबंधित YouTube
-                            व्हिडिओचे दुवे दिले आहेत.</p>
-                        <a href="https://youtu.be/yGE5xLYyp_A?si=uQ7bhWenvLuG_Kka" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/yGE5xLYyp_A" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                <!-- paper 8 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/ghJ3DUvfHOM" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 8</h4>
-                        <p class="text-sm text-gray-500">प्रत्येक अध्यायासाठी तपशीलवार प्रश्नपत्रके आणि चरण-दर-चरण
-                            स्पष्टीकरणे मिळवा. तुमची संकल्पना मजबूत करण्यासाठी संबंधित व्हिडिओ पहा आणि परीक्षेची तयारी
-                            करा.</p>
-                        <a href="https://youtu.be/ghJ3DUvfHOM?si=LL1PPMPCtMZMQLVd" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 4</h4>
+                    <p class="text-sm text-gray-500">अभ्यासासाठी अध्यायानुसार प्रश्नपत्रके आणि व्हिडिओ स्पष्टीकरणे
+                        येथे उपलब्ध आहेत। प्रत्येक विभागामध्ये मार्गदर्शन, महत्वाचे मुद्दे आणि संबंधित YouTube
+                        व्हिडिओचे दुवे दिले आहेत।</p>
+                    <a href="https://youtu.be/yGE5xLYyp_A?si=uQ7bhWenvLuG_Kka" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
                 </div>
-                <!-- paper 9 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/PS91tW7X8CY" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 9</h4>
-                        <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा.
-                            पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम.</p>
-                        <a href="https://youtu.be/PS91tW7X8CY?si=nX-DUfVSMJxtg1Yn" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/EXywTVp1qNs" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                <!-- paper 10 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/3r46mElse1U" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 10</h4>
-                        <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा.
-                            पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम.</p>
-                        <a href="https://youtu.be/3r46mElse1U?si=ztkNVm6KfXHP4PRe" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 5</h4>
+                    <p class="text-sm text-gray-500">प्रत्येक अध्यायासाठी तपशीलवार प्रश्नपत्रके आणि चरण-दर-चरण
+                        स्पष्टीकरणे मिळवा। तुमची संकल्पना मजबूत करण्यासाठी संबंधित व्हिडिओ पहा आणि परीक्षेची तयारी
+                        करा।</p>
+                    <a href="https://youtu.be/EXywTVp1qNs?si=WHcopz7fEWK4ubu6" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
                 </div>
-                <!-- paper 11 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/DxL8dxzlWME" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 11</h4>
-                        <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा.
-                            पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम.</p>
-                        <a href="https://youtu.be/DxL8dxzlWME?si=VY9Ngxbw_8-PXoRH" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/v6hSytiMTQg" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                <!-- paper 12 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/A3K9E-6Re1k" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 12</h4>
-                        <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा.
-                            पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम.</p>
-                        <a href="https://youtu.be/A3K9E-6Re1k?si=7g6N01meVxNSwTJ4" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 6</h4>
+                    <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा।
+                        पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम।</p>
+                    <a href="https://youtu.be/v6hSytiMTQg?si=1MUnCZdXI44mo3yX" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
                 </div>
-                <!-- paper 13 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/RIxuge89US4" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 13</h4>
-                        <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा.
-                            पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम.</p>
-                        <a href="https://youtu.be/RIxuge89US4?si=h1cxWLHbmZHWG6_3" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/zAJEgLJAe6w" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-                <!-- paper14 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/0qtIzSyMekM" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 14</h4>
-                        <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा.
-                            पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम.</p>
-                        <a href="https://youtu.be/0qtIzSyMekM?si=iEJYA-xEZgLmjvwG" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 7</h4>
+                    <p class="text-sm text-gray-500">अभ्यासासाठी अध्यायानुसार प्रश्नपत्रके आणि व्हिडिओ स्पष्टीकरणे
+                        येथे उपलब्ध आहेत। प्रत्येक विभागामध्ये मार्गदर्शन, महत्वाचे मुद्दे आणि संबंधित YouTube
+                        व्हिडिओचे दुवे दिले आहेत।</p>
+                    <a href="https://youtu.be/yGE5xLYyp_A?si=uQ7bhWenvLuG_Kka" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
                 </div>
-                <!-- paper 15 -->
-                <div
-                    class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
-                    <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/embed/iXwnfVYnVhA" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 15</h4>
-                        <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा.
-                            पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम.</p>
-                        <a href="https://youtu.be/iXwnfVYnVhA?si=yi52Uqc5NyA6o4St" target="_blank"
-                            class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
-                            YouTube →</a>
-                    </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/ghJ3DUvfHOM" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
-
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 8</h4>
+                    <p class="text-sm text-gray-500">प्रत्येक अध्यायासाठी तपशीलवार प्रश्नपत्रके आणि चरण-दर-चरण
+                        स्पष्टीकरणे मिळवा। तुमची संकल्पना मजबूत करण्यासाठी संबंधित व्हिडिओ पहा आणि परीक्षेची तयारी
+                        करा।</p>
+                    <a href="https://youtu.be/ghJ3DUvfHOM?si=LL1PPMPCtMZMQLVd" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/PS91tW7X8CY" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 9</h4>
+                    <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा।
+                        पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम।</p>
+                    <a href="https://youtu.be/PS91tW7X8CY?si=nX-DUfVSMJxtg1Yn" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/3r46mElse1U" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 10</h4>
+                    <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा।
+                        पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम।</p>
+                    <a href="https://youtu.be/3r46mElse1U?si=ztkNVm6KfXHP4PRe" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/DxL8dxzlWME" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 11</h4>
+                    <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा।
+                        पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम।</p>
+                    <a href="https://youtu.be/DxL8dxzlWME?si=VY9Ngxbw_8-PXoRH" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/A3K9E-6Re1k" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 12</h4>
+                    <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा।
+                        पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम।</p>
+                    <a href="https://youtu.be/A3K9E-6Re1k?si=7g6N01meVxNSwTJ4" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/RIxuge89US4" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 13</h4>
+                    <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा।
+                        पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम।</p>
+                    <a href="https://youtu.be/RIxuge89US4?si=h1cxWLHbmZHWG6_3" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/0qtIzSyMekM" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 14</h4>
+                    <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा।
+                        पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम।</p>
+                    <a href="https://youtu.be/0qtIzSyMekM?si=iEJYA-xEZgLmjvwG" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
+                </div>
+            </div>
+            <div
+                class="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden border-t-4 border-orange-500">
+                <div class="relative pt-[56.25%]">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/iXwnfVYnVhA" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-1">Paper : 15</h4>
+                    <p class="text-sm text-gray-500">अध्यायानुसार प्रश्नपत्रकांसह व्हिडिओ मार्गदर्शक मिळवा।
+                        पुनरावलोकन, सराव आणि महत्त्वाच्या विषयांची जलद समजण्यासाठी उत्तम।</p>
+                    <a href="https://youtu.be/iXwnfVYnVhA?si=yi52Uqc5NyA6o4St" target="_blank"
+                        class="mt-2 text-sm text-blue-500 hover:text-blue-700 font-medium inline-block">Watch on
+                        YouTube →</a>
+                </div>
             </div>
 
-
-            <div class="text-center mt-12">
-                <a href="https://www.youtube.com/@tanajipatilpishavikar/videos" target="_blank"
-                    class="text-blue-600 hover:text-blue-800 font-semibold text-lg border-b-2 border-blue-600 pb-1">Can't
-                    find a video? View the full playlist on YouTube →</a>
-                <a href="geography.html" class="block mt-4 text-gray-600 hover:text-orange-600">← Back to Geography Main
-                    Page (All Classes)</a>
-            </div>
         </div>
-    </section>
 
-    <!-- footer section -->
-    <footer class="bg-gray-800 text-white py-6 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 T.T.Patil Pishavikar All rights reserved. | <a href="terms.html"
-                    class="hover:text-orange-400">Terms & Privacy</a></p>
+
+        <div class="text-center mt-12">
+            <a href="https://www.youtube.com/@tanajipatilpishavikar/videos" target="_blank"
+                class="text-blue-600 hover:text-blue-800 font-semibold text-lg border-b-2 border-blue-600 pb-1">Can't
+                find a video? View the full playlist on YouTube →</a>
+            <a href="geography.html" class="block mt-4 text-gray-600 hover:text-orange-600">← Back to Geography Main
+                Page (All Classes)</a>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="script.js"></script>
+<footer class="bg-gray-800 text-white py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p>&copy; 2025 T.T.Patil Pishavikar All rights reserved. | <a href="terms.html"
+                class="hover:text-orange-400">Terms & Privacy</a></p>
+    </div>
+</footer>
 
+<script src="script.js"></script>
+
+    <script>
+        const menuButton = document.getElementById('menu-button');
+        const navLinks = document.getElementById('nav-links');
+
+        // Toggle the mobile menu visibility on button click
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
+        });
+
+        // Optional: Close the menu when a link is clicked for better mobile experience
+        const links = navLinks.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if the menu is currently in mobile-dropdown mode (i.e., not a flex row)
+                if (navLinks.classList.contains('flex') && !window.matchMedia('(min-width: 768px)').matches) {
+                    navLinks.classList.add('hidden');
+                    navLinks.classList.remove('flex');
+                }
+            });
+        });
+
+        // Optional: Hide mobile menu if the screen resizes to desktop size
+        window.addEventListener('resize', () => {
+            if (window.matchMedia('(min-width: 768px)').matches) {
+                navLinks.classList.remove('hidden');
+                navLinks.classList.remove('flex');
+                navLinks.classList.add('md:flex');
+            } else {
+                // Ensure it respects the toggled state if resized back to mobile
+                if (navLinks.classList.contains('flex')) {
+                    navLinks.classList.remove('hidden');
+                } else {
+                    navLinks.classList.add('hidden');
+                }
+                navLinks.classList.remove('md:flex');
+            }
+        });
+    </script>
 </body>
 
 </html>

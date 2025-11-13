@@ -4,58 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>दहावी भूगोल चाचणी ५ - T.T.Patil Pishavikar</title>
-  
-    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         /* [Standard Quiz Styles Remain Here] */
-        .option-label { transition: background-color 0.15s, border-color- 0.15s; }
+        .option-label { transition: background-color 0.15s, border-color 0.15s; }
         .option-label:hover { background-color: #f0f4ff; }
         .option-input:checked + .option-label { background-color: #dbeafe; border-color: #3b82f6; font-weight: 600; }
-        .correct-answer { background-color: #d1fae5; border-color: #10b981; font-weight: 700; }
-        .incorrect-answer { background-color: #fee2e2; border-color: #ef4444; }
+        /* !important added to ensure JS styling overrides hover/default states after check */
+        .correct-answer { background-color: #d1fae5 !important; border-color: #10b981 !important; font-weight: 700; }
+        .incorrect-answer { background-color: #fee2e2 !important; border-color: #ef4444 !important; }
         .correct-indicator { color: #10b981; font-weight: 700; }
         .incorrect-indicator { color: #ef4444; font-weight: 700; }
+        /* Add a slightly larger box shadow to questions for better visibility on mobile */
+        .question-block { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06); }
     </style>
 </head>
 <body class="bg-gray-50">
 
     <header class="sticky top-0 z-50 bg-white shadow-md">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-orange-700">T.T.Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
-                <a href="index.html" class="text-gray-600 hover:text-orange-600">Home</a>
-                <a href="geography_quiz_10.html" class="text-blue-600 hover:text-blue-800">Quiz List</a> 
-                <a href="geography_class10.html" class="text-gray-600 hover:text-orange-600">10th Videos</a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-4 flex justify-between items-center">
+                <h1 class="text-2xl sm:text-3xl font-bold text-orange-700">T.T.Patil Pishavikar</h1>
+                
+                <nav class="hidden md:flex space-x-4 md:space-x-8 text-lg font-medium">
+                    <a href="index.html" class="text-gray-600 hover:text-orange-600 transition">Home</a>
+                    <a href="geography_quiz_10.html" class="text-blue-600 hover:text-blue-800 transition">Quiz List</a> 
+                    <a href="geography_class10.html" class="text-gray-600 hover:text-orange-600 transition">10th Videos</a>
+                </nav>
+
+                <button id="menu-button" class="md:hidden text-gray-600 hover:text-orange-600 focus:outline-none p-2 rounded-md">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
             </div>
-        </nav>
+
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 px-2 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">Home</a>
+                <a href="geography_quiz_10.html" class="block py-2 px-2 text-base font-medium text-blue-600 hover:bg-gray-100 rounded-md">Quiz List</a>
+                <a href="geography_class10.html" class="block py-2 px-2 text-base font-medium text-gray-700 hover:bg-gray-100 rounded-md">10th Videos</a>
+            </div>
+        </div>
     </header>
 
-    <section class="bg-purple-700 text-white py-12">
+    <section class="bg-purple-700 text-white py-8 sm:py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-extrabold mb-2">दहावी भूगोल: चाचणी ५ (10 प्रश्न)</h2>
-            <p class="text-xl font-light">विषय: अर्थव्यवस्था व व्यवसाय</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-2">दहावी भूगोल: चाचणी ५ (10 प्रश्न)</h2>
+            <p class="text-lg sm:text-xl font-light">विषय: अर्थव्यवस्था व व्यवसाय</p>
         </div>
     </section>
 
-    <section class="py-16">
+    <section class="py-10 sm:py-16">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div id="quiz-results" class="hidden bg-yellow-100 p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-yellow-500 text-center">
-                <h3 class="text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
-                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">10</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
-                <button onclick="window.location.href='geography_quiz_10.html';" class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition mr-4">
-                    इतर चाचण्या पहा
-                </button>
-                <button onclick="window.location.reload();" class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
-                    पुन्हा प्रयत्न करा (Try Again)
-                </button>
+            <div id="quiz-results" class="hidden bg-yellow-100 p-6 sm:p-8 rounded-xl shadow-2xl mb-10 sm:mb-12 border-l-8 border-yellow-500 text-center">
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
+                <p class="text-lg sm:text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">10</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4 mt-4">
+                    <button onclick="window.location.href='geography_quiz_10.html';" class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition">
+                        इतर चाचण्या पहा
+                    </button>
+                    <button onclick="window.location.reload();" class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
+                        पुन्हा प्रयत्न करा
+                    </button>
+                </div>
             </div>
 
             <form id="geography-quiz">
 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
-                    <p class="text-xl font-bold text-gray-800 mb-4">1. ब्राझीलमधील सर्वात महत्त्वाचा प्राथमिक व्यवसाय कोणता आहे?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="A">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">1. ब्राझीलमधील सर्वात महत्त्वाचा प्राथमिक व्यवसाय कोणता आहे?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label for="q1a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) शेती</label></div>
                         <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label for="q1b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) मासेमारी</label></div>
                         <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label for="q1c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) वनोत्पादन</label></div>
@@ -63,9 +82,9 @@
                     </div>
                 </div>
 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
-                    <p class="text-xl font-bold text-gray-800 mb-4">2. भारताच्या सकल राष्ट्रीय उत्पन्नात (GDP) सर्वाधिक योगदान कोणत्या क्षेत्रातून मिळते?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">2. भारताच्या सकल राष्ट्रीय उत्पन्नात (GDP) सर्वाधिक योगदान कोणत्या क्षेत्रातून मिळते?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label for="q2a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) प्राथमिक (शेती)</label></div>
                         <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label for="q2b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) तृतीयक (सेवा)</label></div>
                         <div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) द्वितीयक (उद्योग)</label></div>
@@ -73,9 +92,9 @@
                     </div>
                 </div>
                 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
-                    <p class="text-xl font-bold text-gray-800 mb-4">3. जगातील कॉफीचा सर्वात मोठा निर्यातदार देश कोणता?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="C">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">3. जगातील कॉफीचा सर्वात मोठा निर्यातदार देश कोणता?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q3a" name="q3" value="A" class="option-input hidden"><label for="q3a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) भारत</label></div>
                         <div><input type="radio" id="q3b" name="q3" value="B" class="option-input hidden"><label for="q3b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) व्हिएतनाम</label></div>
                         <div><input type="radio" id="q3c" name="q3" value="C" class="option-input hidden"><label for="q3c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) ब्राझील</label></div>
@@ -83,9 +102,9 @@
                     </div>
                 </div>
                 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="D">
-                    <p class="text-xl font-bold text-gray-800 mb-4">4. ब्राझीलमध्ये मासेमारीचा विकास मर्यादित असण्याचे मुख्य कारण काय?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="D">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">4. ब्राझीलमध्ये मासेमारीचा विकास मर्यादित असण्याचे मुख्य कारण काय?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q4a" name="q4" value="A" class="option-input hidden"><label for="q4a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) माशांची टंचाई</label></div>
                         <div><input type="radio" id="q4b" name="q4" value="B" class="option-input hidden"><label for="q4b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) किनारी प्रदेशाची कमी लांबी</label></div>
                         <div><input type="radio" id="q4c" name="q4" value="C" class="option-input hidden"><label for="q4c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) मच्छीमारांचा अभाव</label></div>
@@ -93,9 +112,9 @@
                     </div>
                 </div>
 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
-                    <p class="text-xl font-bold text-gray-800 mb-4">5. भारतातील द्वितीयक (Secondary) व्यवसायात कोणता उद्योग सर्वाधिक महत्त्वाचा आहे?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="C">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">5. भारतातील द्वितीयक (Secondary) व्यवसायात कोणता उद्योग सर्वाधिक महत्त्वाचा आहे?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q5a" name="q5" value="A" class="option-input hidden"><label for="q5a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) मासेमारी उद्योग</label></div>
                         <div><input type="radio" id="q5b" name="q5" value="B" class="option-input hidden"><label for="q5b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) खाणकाम</label></div>
                         <div><input type="radio" id="q5c" name="q5" value="C" class="option-input hidden"><label for="q5c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) वस्त्रोद्योग</label></div>
@@ -103,9 +122,9 @@
                     </div>
                 </div>
 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
-                    <p class="text-xl font-bold text-gray-800 mb-4">6. दरडोई उत्पन्नाच्या (Per Capita Income) बाबतीत भारत आणि ब्राझीलची तुलना केल्यास काय आढळते?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="A">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">6. दरडोई उत्पन्नाच्या (Per Capita Income) बाबतीत भारत आणि ब्राझीलची तुलना केल्यास काय आढळते?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q6a" name="q6" value="A" class="option-input hidden"><label for="q6a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) ब्राझीलचे दरडोई उत्पन्न भारतापेक्षा जास्त आहे.</label></div>
                         <div><input type="radio" id="q6b" name="q6" value="B" class="option-input hidden"><label for="q6b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) भारताचे दरडोई उत्पन्न ब्राझीलपेक्षा जास्त आहे.</label></div>
                         <div><input type="radio" id="q6c" name="q6" value="C" class="option-input hidden"><label for="q6c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) दोन्ही देशांचे दरडोई उत्पन्न समान आहे.</label></div>
@@ -113,9 +132,9 @@
                     </div>
                 </div>
 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="D">
-                    <p class="text-xl font-bold text-gray-800 mb-4">7. ब्राझीलमध्ये खाणकाम (Mining) प्रामुख्याने कोणत्या भागात केंद्रित आहे?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="D">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">7. ब्राझीलमध्ये खाणकाम (Mining) प्रामुख्याने कोणत्या भागात केंद्रित आहे?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q7a" name="q7" value="A" class="option-input hidden"><label for="q7a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) ॲमेझॉन खोरे</label></div>
                         <div><input type="radio" id="q7b" name="q7" value="B" class="option-input hidden"><label for="q7b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) पॅन्टानाल</label></div>
                         <div><input type="radio" id="q7c" name="q7" value="C" class="option-input hidden"><label for="q7c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) पश्चिम किनारी प्रदेश</label></div>
@@ -123,9 +142,9 @@
                     </div>
                 </div>
 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
-                    <p class="text-xl font-bold text-gray-800 mb-4">8. भारतातील मासेमारीत (Fishing) समुद्रातील माशांचा वाटा किती टक्के आहे?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">8. भारतातील मासेमारीत (Fishing) समुद्रातील माशांचा वाटा किती टक्के आहे?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q8a" name="q8" value="A" class="option-input hidden"><label for="q8a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) १०% पेक्षा कमी</label></div>
                         <div><input type="radio" id="q8b" name="q8" value="B" class="option-input hidden"><label for="q8b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) ६०% पेक्षा जास्त</label></div>
                         <div><input type="radio" id="q8c" name="q8" value="C" class="option-input hidden"><label for="q8c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) २५%</label></div>
@@ -133,19 +152,19 @@
                     </div>
                 </div>
                 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="D">
-                    <p class="text-xl font-bold text-gray-800 mb-4">9. सेवा क्षेत्रात (Tertiary Sector) लोकसंख्येचा सहभाग कोणत्या देशात जास्त आहे?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="D">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">9. सेवा क्षेत्रात (Tertiary Sector) लोकसंख्येचा सहभाग कोणत्या देशात जास्त आहे?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q9a" name="q9" value="A" class="option-input hidden"><label for="q9a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) भारत</label></div>
                         <div><input type="radio" id="q9b" name="q9" value="B" class="option-input hidden"><label for="q9b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) चीन</label></div>
-                        <div><div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label for="q9c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) रशिया</label></div>
+                        <div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label for="q9c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) रशिया</label></div>
                         <div><input type="radio" id="q9d" name="q9" value="D" class="option-input hidden"><label for="q9d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) ब्राझील</label></div>
                     </div>
                 </div>
 
-                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
-                    <p class="text-xl font-bold text-gray-800 mb-4">10. खालीलपैकी कोणते पीक भारताचे प्रमुख अन्नपीक आहे?</p>
-                    <div class="space-y-3">
+                <div class="question-block bg-white p-5 sm:p-6 rounded-xl shadow-lg mb-6 sm:mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">10. खालीलपैकी कोणते पीक भारताचे प्रमुख अन्नपीक आहे?</p>
+                    <div class="space-y-3 text-base">
                         <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label for="q10a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) गहू</label></div>
                         <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label for="q10b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) भात (तांदूळ)</label></div>
                         <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label for="q10c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) मका</label></div>
@@ -153,25 +172,26 @@
                     </div>
                 </div>
 
-                <div class="text-center mt-12">
-                    <button type="submit" id="submit-quiz" class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
-                        निकाल तपासा (Check Result)
+                <div class="text-center mt-10 sm:mt-12">
+                    <button type="submit" id="submit-quiz" class="bg-green-600 text-white text-xl font-semibold py-3 px-10 sm:px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
+                        निकाल तपासा 
                     </button>
                     <p class="mt-4 text-sm text-gray-500">
-                        **टीप (Note):** हा प्रश्न संच *दहावी भूगोल* पुस्तकावर आधारित आहे.
+                        टीप (Note): हा प्रश्न संच दहावी भूगोल पुस्तकावर आधारित आहे.
                     </p>
                 </div>
             </form>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-6 mt-12">
+    <footer class="bg-gray-800 text-white py-6 mt-10 sm:mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p>&copy; 2025 T.T.Patil Pishavikar. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Quiz Submission Logic (Original logic preserved)
         document.getElementById('geography-quiz').addEventListener('submit', function(event) {
             event.preventDefault(); 
             
@@ -185,6 +205,7 @@
                 const questionName = `q${index + 1}`;
                 const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
                 
+                // Clear previous results and feedback
                 qBlock.querySelectorAll('.option-label').forEach(label => {
                     label.classList.remove('correct-answer', 'incorrect-answer');
                 });
@@ -198,6 +219,11 @@
                     if (selectedValue === correctAnswer) {
                         score++;
                         selectedLabel.classList.add('correct-answer');
+                        // Add correct indicator for consistency
+                        const feedback = document.createElement('p');
+                        feedback.className = 'result-feedback mt-2 text-sm correct-indicator';
+                        feedback.textContent = `✅ बरोबर!`; 
+                        qBlock.appendChild(feedback);
                     } else {
                         selectedLabel.classList.add('incorrect-answer');
                         
@@ -226,6 +252,7 @@
                     }
                 }
 
+                // Disable radio buttons after submission
                 qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
                     radio.disabled = true;
                 });
@@ -245,6 +272,26 @@
             submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
             submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
         });
+
+
+        // Responsive Mobile Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconPath = document.getElementById('menu-icon-path');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                
+                // Change icon from Hamburger to Cross and vice-versa
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIconPath.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger
+                } else {
+                    menuIconPath.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // Cross
+                }
+            });
+        });
+
     </script>
     </body>
 </html>

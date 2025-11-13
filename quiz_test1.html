@@ -45,12 +45,17 @@
 <body class="bg-gray-50">
 
     <header class="sticky top-0 z-50 bg-white shadow-md">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap justify-between items-center">
             <h1 class="text-3xl font-bold text-orange-700">T.T.Patil Pishavikar</h1>
-            <div class="space-x-4 md:space-x-8 text-lg font-medium">
-                <a href="index.html" class="text-gray-600 hover:text-orange-600">Home</a>
-                <a href="geography_quiz_10.html" class="text-orange-600 hover:text-orange-800">Quiz List</a> 
-                <a href="geography_class10.html" class="text-gray-600 hover:text-orange-600">10th Videos</a>
+            
+            <button id="nav-toggle" class="md:hidden text-gray-600 hover:text-orange-600 focus:outline-none order-2 p-2">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+            
+            <div id="nav-links" class="hidden w-full md:flex md:w-auto md:space-x-8 text-lg font-medium md:items-center md:order-3 mt-4 md:mt-0">
+                <a href="index.html" class="block py-2 text-gray-600 hover:text-orange-600">Home</a>
+                <a href="geography_quiz_10.html" class="block py-2 text-orange-600 hover:text-orange-800">Quiz List</a> 
+                <a href="geography_class10.html" class="block py-2 text-gray-600 hover:text-orange-600">10th Videos</a>
             </div>
         </nav>
     </header>
@@ -72,7 +77,7 @@
                     इतर चाचण्या पहा
                 </button>
                 <button onclick="window.location.reload();" class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
-                    पुन्हा प्रयत्न करा (Try Again)
+                    पुन्हा प्रयत्न करा 
                 </button>
             </div>
 
@@ -180,10 +185,10 @@
 
                 <div class="text-center mt-12">
                     <button type="submit" id="submit-quiz" class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
-                        निकाल तपासा (Check Result)
+                        निकाल तपासा 
                     </button>
                     <p class="mt-4 text-sm text-gray-500">
-                        **टीप (Note):** हा प्रश्न संच *दहावी भूगोल* पुस्तकावर आधारित आहे.
+                        टीप (Note): हा प्रश्न संच दहावी भूगोल पुस्तकावर आधारित आहे.
                     </p>
                 </div>
             </form>
@@ -197,6 +202,17 @@
     </footer>
 
     <script>
+        // *** 1. JavaScript for Mobile Navigation Toggle ***
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('hidden');
+            });
+        }
+        
+        // *** 2. Existing Quiz Logic ***
         document.getElementById('geography-quiz').addEventListener('submit', function(event) {
             event.preventDefault(); // Stop the form from submitting normally
             
