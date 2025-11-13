@@ -27,7 +27,16 @@ export default defineConfig({
         geoqz7:"quiz_test7.html",
         geoqz8:"quiz_test8.html",
         geoqz9:"quiz_test9.html",
-        geoqz10:"quiz_test10.html"
+        geoqz10:"quiz_test10.html",
+        nmmsqzgroup:"nmms_quiz_list.html",
+        nmmsqz1:"mat_series_quiz.html",
+        nmmsqz2:"mat_nonverbal_quiz.html",
+        nmmsqz3:"mat_coding_quiz.html",
+        nmmsqz4:"mat_analogy_quiz.html",
+        nmmsqz5:"sat_biology_quiz.html",
+        nmmsqz6:"sat_geography_quiz.html",
+        nmmsqz7:"sat_history_quiz.html",
+        nmmsqz8:"sat_science_quiz.html"
       },
     },
   },
