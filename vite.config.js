@@ -10,6 +10,8 @@ export default defineConfig({
         nmms: "nmms.html",
         contact: "contact.html",
         login: "login.html",
+        marathiqz:"marathi_quiz_10.html"
+
       },
     },
   },
