@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दहावी भूगोल चाचणी १ - T.T.Patil Pishavikar</title>
+
+    <style>
+        /* Base styling for quiz options */
+        .option-label {
+            transition: background-color 0.15s, border-color 0.15s;
+        }
+        /* Styling on hover */
+        .option-label:hover {
+            background-color: #f0f4ff;
+        }
+        /* Styling when input is checked (selected by user) */
+        .option-input:checked + .option-label {
+            background-color: #dbeafe;
+            border-color: #3b82f6;
+            font-weight: 600;
+        }
+        /* Styling for CORRECT answers after submission */
+        .correct-answer {
+            background-color: #d1fae5;
+            border-color: #10b981;
+            font-weight: 700;
+        }
+        /* Styling for INCORRECT answers after submission */
+        .incorrect-answer {
+            background-color: #fee2e2;
+            border-color: #ef4444;
+        }
+        .correct-indicator {
+            color: #10b981;
+            font-weight: 700;
+        }
+        .incorrect-indicator {
+            color: #ef4444;
+            font-weight: 700;
+        }
+    </style>
+  <link rel="stylesheet" crossorigin href="/assets/style-CAbG0zq-.css">
+</head>
+<body class="bg-gray-50">
+
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-orange-700">T.T.Patil Pishavikar</h1>
+            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+                <a href="index.html" class="text-gray-600 hover:text-orange-600">Home</a>
+                <a href="geography_quiz_10.html" class="text-orange-600 hover:text-orange-800">Quiz List</a> 
+                <a href="geography_class10.html" class="text-gray-600 hover:text-orange-600">10th Videos</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bg-green-700 text-white py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold mb-2">दहावी भूगोल: चाचणी १ (10 प्रश्न)</h2>
+            <p class="text-xl font-light">विषय: भारत व ब्राझील - सामान्य भौगोलिक माहिती</p>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div id="quiz-results" class="hidden bg-yellow-100 p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-yellow-500 text-center">
+                <h3 class="text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
+                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">10</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
+                <button onclick="window.location.href='geography_quiz_10.html';" class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition mr-4">
+                    इतर चाचण्या पहा
+                </button>
+                <button onclick="window.location.reload();" class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
+                    पुन्हा प्रयत्न करा (Try Again)
+                </button>
+            </div>
+
+            <form id="geography-quiz">
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">1. भारताचे प्रमाणवेळ ग्रीनविच प्रमाणवेळेपेक्षा किती तासांनी पुढे आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label for="q1a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) ५ तास</label></div>
+                        <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label for="q1b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) ५ तास ३० मिनिटे</label></div>
+                        <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label for="q1c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) ५ तास ४५ मिनिटे</label></div>
+                        <div><input type="radio" id="q1d" name="q1" value="D" class="option-input hidden"><label for="q1d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) ६ तास</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">2. ब्राझीलमधील सर्वात मोठी नदी कोणती?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label for="q2a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) पाराना</label></div>
+                        <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label for="q2b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) ॲमेझॉन</label></div>
+                        <div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) साओ फ्रान्सिस्को</label></div>
+                        <div><input type="radio" id="q2d" name="q2" value="D" class="option-input hidden"><label for="q2d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) उरुग्वे</label></div>
+                    </div>
+                </div>
+                
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">3. भारताच्या कोणत्या दिशेला अरबी समुद्र आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q3a" name="q3" value="A" class="option-input hidden"><label for="q3a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) पूर्व</label></div>
+                        <div><input type="radio" id="q3b" name="q3" value="B" class="option-input hidden"><label for="q3b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) पश्चिम</label></div>
+                        <div><input type="radio" id="q3c" name="q3" value="C" class="option-input hidden"><label for="q3c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) उत्तर</label></div>
+                        <div><input type="radio" id="q3d" name="q3" value="D" class="option-input hidden"><label for="q3d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) दक्षिण</label></div>
+                    </div>
+                </div>
+                
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">4. ब्राझीलमध्ये कॉफीचे सर्वाधिक उत्पादन कोणत्या भागात होते?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q4a" name="q4" value="A" class="option-input hidden"><label for="q4a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) पॅराग्वे खोरे</label></div>
+                        <div><input type="radio" id="q4b" name="q4" value="B" class="option-input hidden"><label for="q4b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) अमेझॉन खोरे</label></div>
+                        <div><input type="radio" id="q4c" name="q4" value="C" class="option-input hidden"><label for="q4c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) आग्नेय भागात</label></div>
+                        <div><input type="radio" id="q4d" name="q4" value="D" class="option-input hidden"><label for="q4d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) उत्तरेकडील किनारी प्रदेशात</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">5. जगातील सर्वात जास्त लोकसंख्या असलेला दुसरा देश कोणता? (महाराष्ट्र बोर्ड अभ्यासक्रमानुसार)</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q5a" name="q5" value="A" class="option-input hidden"><label for="q5a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) चीन</label></div>
+                        <div><input type="radio" id="q5b" name="q5" value="B" class="option-input hidden"><label for="q5b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) अमेरिका</label></div>
+                        <div><input type="radio" id="q5c" name="q5" value="C" class="option-input hidden"><label for="q5c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) भारत</label></div>
+                        <div><input type="radio" id="q5d" name="q5" value="D" class="option-input hidden"><label for="q5d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) इंडोनेशिया</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">6. भारताच्या मुख्य भूमीचा दक्षिण-उत्तर विस्तार किती आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q6a" name="q6" value="A" class="option-input hidden"><label for="q6a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) ३,२१४ किमी</label></div>
+                        <div><input type="radio" id="q6b" name="q6" value="B" class="option-input hidden"><label for="q6b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) २,९३३ किमी</label></div>
+                        <div><input type="radio" id="q6c" name="q6" value="C" class="option-input hidden"><label for="q6c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) ३,०५० किमी</label></div>
+                        <div><input type="radio" id="q6d" name="q6" value="D" class="option-input hidden"><label for="q6d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) ४,०१० किमी</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="D">
+                    <p class="text-xl font-bold text-gray-800 mb-4">7. ब्राझीलची राजधानी कोणती?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q7a" name="q7" value="A" class="option-input hidden"><label for="q7a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) रिओ डी जनेरिओ</label></div>
+                        <div><input type="radio" id="q7b" name="q7" value="B" class="option-input hidden"><label for="q7b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) साओ पाउलो</label></div>
+                        <div><input type="radio" id="q7c" name="q7" value="C" class="option-input hidden"><label for="q7c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) बुएनोस आयर्स</label></div>
+                        <div><input type="radio" id="q7d" name="q7" value="D" class="option-input hidden"><label for="q7d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) ब्राझीलिया</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">8. भारताच्या कोणत्या किनारी प्रदेशात सर्वाधिक पाऊस पडतो?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q8a" name="q8" value="A" class="option-input hidden"><label for="q8a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) पूर्व किनारा</label></div>
+                        <div><input type="radio" id="q8b" name="q8" value="B" class="option-input hidden"><label for="q8b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) पश्चिम किनारा</label></div>
+                        <div><input type="radio" id="q8c" name="q8" value="C" class="option-input hidden"><label for="q8c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) बंगालचा उपसागर</label></div>
+                        <div><input type="radio" id="q8d" name="q8" value="D" class="option-input hidden"><label for="q8d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) कच्छचे रण</label></div>
+                    </div>
+                </div>
+                
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">9. ब्राझीलच्या पूर्वेकडील आणि उत्तरेकडील सीमा कोणत्या महासागराला लागून आहेत?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q9a" name="q9" value="A" class="option-input hidden"><label for="q9a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) अटलांटिक महासागर</label></div>
+                        <div><input type="radio" id="q9b" name="q9" value="B" class="option-input hidden"><label for="q9b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) पॅसिफिक महासागर</label></div>
+                        <div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label for="q9c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) हिंदी महासागर</label></div>
+                        <div><input type="radio" id="q9d" name="q9" value="D" class="option-input hidden"><label for="q9d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) भूमध्य समुद्र</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-blue-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">10. भारताचे सर्वात पूर्वेकडील रेखावृत्त कोणते आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label for="q10a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) ८२° ३०' पूर्व</label></div>
+                        <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label for="q10b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) ६८° ७' पूर्व</label></div>
+                        <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label for="q10c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) ९७° २५' पूर्व</label></div>
+                        <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label for="q10d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) ८° ४' उत्तर</label></div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <button type="submit" id="submit-quiz" class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
+                        निकाल तपासा (Check Result)
+                    </button>
+                    <p class="mt-4 text-sm text-gray-500">
+                        **टीप (Note):** हा प्रश्न संच *दहावी भूगोल* पुस्तकावर आधारित आहे.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 T.T.Patil Pishavikar All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('geography-quiz').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the form from submitting normally
+            
+            const questions = document.querySelectorAll('.question-block');
+            let score = 0;
+            const resultsDiv = document.getElementById('quiz-results');
+            const submitButton = document.getElementById('submit-quiz');
+
+            questions.forEach((qBlock, index) => {
+                // Determine the correct answer from the data attribute
+                const correctAnswer = qBlock.getAttribute('data-correct-answer');
+                const questionName = `q${index + 1}`;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                
+                // 1. Clean up previous results/styles
+                qBlock.querySelectorAll('.option-label').forEach(label => {
+                    label.classList.remove('correct-answer', 'incorrect-answer');
+                });
+                qBlock.querySelector('.result-feedback')?.remove();
+
+
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    const selectedLabel = document.querySelector(`label[for="${selectedOption.id}"]`);
+                    
+                    if (selectedValue === correctAnswer) {
+                        // Correct Answer
+                        score++;
+                        selectedLabel.classList.add('correct-answer');
+                    } else {
+                        // Incorrect Answer
+                        selectedLabel.classList.add('incorrect-answer');
+                        
+                        // Highlight the actual correct answer
+                        const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                        const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+                        if (correctLabel) {
+                            correctLabel.classList.add('correct-answer');
+                        }
+                        
+                        // Add feedback message
+                        const feedback = document.createElement('p');
+                        feedback.className = 'result-feedback mt-2 text-sm incorrect-indicator';
+                        // Use substring(3) to remove "A) ", "B) ", etc. from the label text
+                        feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`; 
+                        qBlock.appendChild(feedback);
+                    }
+                } else {
+                    // Not Answered - Highlight the correct one
+                    const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                    const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+                    
+                    if (correctLabel) {
+                        correctLabel.classList.add('correct-answer');
+                        
+                        // Add feedback message
+                        const feedback = document.createElement('p');
+                        feedback.className = 'result-feedback mt-2 text-sm correct-indicator';
+                        feedback.textContent = `उत्तर दिले नाही. बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
+                        qBlock.appendChild(feedback);
+                    }
+                }
+
+                // 2. Disable all radio buttons after submission
+                qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    radio.disabled = true;
+                });
+            });
+
+            // 3. Display Results
+            document.getElementById('score-display').textContent = score;
+            document.getElementById('total-questions-display').textContent = questions.length;
+            resultsDiv.classList.remove('hidden');
+            
+            // Scroll to the result
+            window.scrollTo({
+                top: resultsDiv.offsetTop - 80, // Scroll slightly above the result box
+                behavior: 'smooth'
+            });
+
+            // 4. Update submit button state
+            submitButton.textContent = "निकाल दर्शविला आहे";
+            submitButton.disabled = true;
+            submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+            submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+        });
+    </script>
+    </body>
+</html>
