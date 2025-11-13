@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>दहावी मराठी क्विझ ४ - T.T. Patil Pishavikar</title>
+    <style>
+        /* [Standard Quiz Styles Remain Here] */
+        .option-label { transition: background-color 0.15s, border-color- 0.15s; }
+        .option-label:hover { background-color: #fef2f2; }
+        .option-input:checked + .option-label { background-color: #fee2e2; border-color: #ef4444; font-weight: 600; }
+        .correct-answer { background-color: #d1fae5; border-color: #10b981; font-weight: 700; }
+        .incorrect-answer { background-color: #fee2e2; border-color: #ef4444; }
+        .correct-indicator { color: #10b981; font-weight: 700; }
+        .incorrect-indicator { color: #ef4444; font-weight: 700; }
+    </style>
+  <link rel="stylesheet" crossorigin href="/assets/style-CAbG0zq-.css">
+</head>
+<body class="bg-gray-50">
+
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
+            <div class="space-x-4 md:space-x-8 text-lg font-medium">
+                <a href="index.html" class="text-gray-600 hover:text-red-600">Home</a>
+                <a href="marathi_quiz_10.html" class="text-blue-600 hover:text-blue-800">Quiz List</a> 
+                <a href="marathi_class10.html" class="text-gray-600 hover:text-red-600">10th Videos</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="bg-red-700 text-white py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold mb-2">दहावी मराठी: चाचणी ४ (10 प्रश्न)</h2>
+            <p class="text-xl font-light">विषय: साहित्य आणि पाठ्यपुस्तक</p>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div id="quiz-results" class="hidden bg-yellow-100 p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-yellow-500 text-center">
+                <h3 class="text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
+                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">10</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
+                <button onclick="window.location.href='marathi_quiz_10.html';" class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition mr-4">
+                    इतर चाचण्या पहा
+                </button>
+                <button onclick="window.location.reload();" class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
+                    पुन्हा प्रयत्न करा (Try Again)
+                </button>
+            </div>
+
+            <form id="marathi-quiz">
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">1. 'वस्तू' या कवितेचे कवी/कवयित्री कोण आहेत?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label for="q1a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) वि. वा. शिरवाडकर</label></div>
+                        <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label for="q1b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) द. भा. धामणस्कर</label></div>
+                        <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label for="q1c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) इंदिरा संत</label></div>
+                        <div><input type="radio" id="q1d" name="q1" value="D" class="option-input hidden"><label for="q1d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) ना. धो. महानोर</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">2. 'हिरवंगार झाडासारखं' या कवितेचा मुख्य विषय काय आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label for="q2a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) माणसाच्या आनंदी वृत्तीचे आणि समाधानाचे महत्त्व.</label></div>
+                        <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label for="q2b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) फक्त झाडांची माहिती.</label></div>
+                        <div><div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) शहर सोडून जाणे.</label></div>
+                        <div><input type="radio" id="q2d" name="q2" value="D" class="option-input hidden"><label for="q2d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) पावसाचे वर्णन.</label></div>
+                    </div>
+                </div>
+                
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">3. 'रंग साहित्यकृतीचा' या पाठातील 'शारदा' हे पात्र कोणत्या नाट्यकृतीतील आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q3a" name="q3" value="A" class="option-input hidden"><label for="q3a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) एकच प्याला</label></div>
+                        <div><input type="radio" id="q3b" name="q3" value="B" class="option-input hidden"><label for="q3b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) कट्यार काळजात घुसली</label></div>
+                        <div><input type="radio" id="q3c" name="q3" value="C" class="option-input hidden"><label for="q3c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) संगीत शारदा</label></div>
+                        <div><input type="radio" id="q3d" name="q3" value="D" class="option-input hidden"><label for="q3d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) नटसम्राट</label></div>
+                    </div>
+                </div>
+                
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">4. 'अंगण' या शब्दाचा योग्य अर्थ काय?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q4a" name="q4" value="A" class="option-input hidden"><label for="q4a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) घरासमोरील मोकळी जागा</label></div>
+                        <div><input type="radio" id="q4b" name="q4" value="B" class="option-input hidden"><label for="q4b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) स्वयंपाकघर</label></div>
+                        <div><input type="radio" id="q4c" name="q4" value="C" class="option-input hidden"><label for="q4c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) बेडरूम</label></div>
+                        <div><input type="radio" id="q4d" name="q4" value="D" class="option-input hidden"><label for="q4d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) शाळा</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">5. 'गोष्ट छोटी डोंगराएवढी' या पाठातून कोणता संदेश मिळतो?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q5a" name="q5" value="A" class="option-input hidden"><label for="q5a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) नेहमी मोठे स्वप्न बघावे.</label></div>
+                        <div><input type="radio" id="q5b" name="q5" value="B" class="option-input hidden"><label for="q5b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) आपण दुसऱ्यांच्या शब्दांवर लगेच विश्वास ठेवू नये.</label></div>
+                        <div><input type="radio" id="q5c" name="q5" value="C" class="option-input hidden"><label for="q5c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) डोंगरावर नेहमी जावे.</label></div>
+                        <div><input type="radio" id="q5d" name="q5" value="D" class="option-input hidden"><label for="q5d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) फक्त प्रवास करावा.</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">6. 'उत्तम लक्षण' हा संत रामदासांचा लेखन प्रकार कोणता?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q6a" name="q6" value="A" class="option-input hidden"><label for="q6a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) आधुनिक कविता</label></div>
+                        <div><input type="radio" id="q6b" name="q6" value="B" class="option-input hidden"><label for="q6b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) कथा</label></div>
+                        <div><input type="radio" id="q6c" name="q6" value="C" class="option-input hidden"><label for="q6c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) संत काव्य / पद्य</label></div>
+                        <div><input type="radio" id="q6d" name="q6" value="D" class="option-input hidden"><label for="q6d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) आत्मचरित्र</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="D">
+                    <p class="text-xl font-bold text-gray-800 mb-4">7. 'आभाळमाया' या पाठात, लेखकांनी कोणाचे कार्य विशेषत्वाने सांगितले आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q7a" name="q7" value="A" class="option-input hidden"><label for="q7a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) स्वतःचे लेखन</label></div>
+                        <div><input type="radio" id="q7b" name="q7" value="B" class="option-input hidden"><label for="q7b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) डॉक्टरांचे कार्य</label></div>
+                        <div><input type="radio" id="q7c" name="q7" value="C" class="option-input hidden"><label for="q7c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) शिक्षकांचे महत्त्व</label></div>
+                        <div><input type="radio" id="q7d" name="q7" value="D" class="option-input hidden"><label for="q7d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) आईचे निःस्वार्थ प्रेम आणि कष्ट.</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">8. 'भारत' या देशाचे वर्णन करणारी कविता कोणाची आहे (उदा. ‘तूच आहेस तुझ्या जीवनाचा शिल्पकार’ या भावनेवर आधारित)?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q8a" name="q8" value="A" class="option-input hidden"><label for="q8a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) किशोर पाठक</label></div>
+                        <div><input type="radio" id="q8b" name="q8" value="B" class="option-input hidden"><label for="q8b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) ना. सी. फडके</label></div>
+                        <div><input type="radio" id="q8c" name="q8" value="C" class="option-input hidden"><label for="q8c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) पु. ल. देशपांडे</label></div>
+                        <div><input type="radio" id="q8d" name="q8" value="D" class="option-input hidden"><label for="q8d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) वि. स. खांडेकर</label></div>
+                    </div>
+                </div>
+                
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">9. नाट्यलेखनासाठी वापरला जाणारा शब्द कोणता?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q9a" name="q9" value="A" class="option-input hidden"><label for="q9a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) समीक्षा</label></div>
+                        <div><input type="radio" id="q9b" name="q9" value="B" class="option-input hidden"><label for="q9b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) ललित</label></div>
+                        <div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label for="q9c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) नाटक (Play)</label></div>
+                        <div><input type="radio" id="q9d" name="q9" value="D" class="option-input hidden"><label for="q9d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) सारांश</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">10. 'अण्णा हजारें'नी कोणत्या कामामुळे आपले जीवन बदलले?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label for="q10a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) शेती व्यवसाय</label></div>
+                        <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label for="q10b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) सैन्य दलातील अनुभव आणि समाजसेवा.</label></div>
+                        <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label for="q10c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) शिक्षक होणे</label></div>
+                        <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label for="q10d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) कविता लिहिणे</label></div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <button type="submit" id="submit-quiz" class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
+                        निकाल तपासा (Check Result)
+                    </button>
+                    <p class="mt-4 text-sm text-gray-500">
+                        टीप (Note): हा प्रश्न संच *दहावी मराठी साहित्य आणि पाठ्यपुस्तक* आधारित आहे.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 T.T. Patil Pishavikar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('marathi-quiz').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const questions = document.querySelectorAll('.question-block');
+            let score = 0;
+            const resultsDiv = document.getElementById('quiz-results');
+            const submitButton = document.getElementById('submit-quiz');
+
+            questions.forEach((qBlock, index) => {
+                const correctAnswer = qBlock.getAttribute('data-correct-answer');
+                const questionName = `q${index + 1}`;
+                const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                
+                qBlock.querySelectorAll('.option-label').forEach(label => {
+                    label.classList.remove('correct-answer', 'incorrect-answer');
+                });
+                qBlock.querySelector('.result-feedback')?.remove();
+
+
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    const selectedLabel = document.querySelector(`label[for="${selectedOption.id}"]`);
+                    
+                    if (selectedValue === correctAnswer) {
+                        score++;
+                        selectedLabel.classList.add('correct-answer');
+                    } else {
+                        selectedLabel.classList.add('incorrect-answer');
+                        
+                        const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                        const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+                        if (correctLabel) {
+                            correctLabel.classList.add('correct-answer');
+                        }
+                        
+                        const feedback = document.createElement('p');
+                        feedback.className = 'result-feedback mt-2 text-sm incorrect-indicator';
+                        feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`; 
+                        qBlock.appendChild(feedback);
+                    }
+                } else {
+                    const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                    const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+                    
+                    if (correctLabel) {
+                        correctLabel.classList.add('correct-answer');
+                        
+                        const feedback = document.createElement('p');
+                        feedback.className = 'result-feedback mt-2 text-sm correct-indicator';
+                        feedback.textContent = `उत्तर दिले नाही. बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
+                        qBlock.appendChild(feedback);
+                    }
+                }
+
+                qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
+                    radio.disabled = true;
+                });
+            });
+
+            document.getElementById('score-display').textContent = score;
+            document.getElementById('total-questions-display').textContent = questions.length;
+            resultsDiv.classList.remove('hidden');
+            
+            window.scrollTo({
+                top: resultsDiv.offsetTop - 80,
+                behavior: 'smooth'
+            });
+
+            submitButton.textContent = "निकाल दर्शविला आहे";
+            submitButton.disabled = true;
+            submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+            submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+        });
+    </script>
+    </body>
+</html>
