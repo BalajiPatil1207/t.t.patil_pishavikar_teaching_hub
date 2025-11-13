@@ -1,879 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>T.T. Patil Pishavikar Teaching Hub</title>
+    <link
+      rel="shortcut icon"
+      href="/assets/Teaching%20T.T.%20Patil%20Logo%20Design-B2uYfb3a.png"
+      type="image/x-icon"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T.T.Patil Pishavikar: Top Educational Videos & Student Success Stories</title>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- ✅ HEADER / NAVBAR -->
+    <header
+      class="sticky top-0 z-50 bg-white shadow-md"
+    >
+      <nav
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-2xl md:text-3xl font-bold text-orange-700">
+          T.T. Patil Pishavikar
+        </h1>
 
-    <!-- Description: Short snippet displayed in search results -->
-    <meta name="description"
-        content="Read success stories from students who achieved 90%+ scores and qualified for scholarships using T.T.Patil Pishavikar's educational resources and videos.">
+        <!-- Desktop Menu -->
+        <div
+          id="menu"
+          class="hidden md:flex space-x-4 md:space-x-8 text-lg font-medium"
+        >
+          <a href="/index.html" class="text-orange-600 hover:text-orange-800">Home</a>
+          <a href="/marathi.html" class="text-gray-600 hover:text-orange-600">Marathi</a>
+          <a href="/geography.html" class="text-gray-600 hover:text-orange-600">Geography</a>
+          <a href="/nmms.html" class="text-gray-600 hover:text-orange-600">NMMS</a>
+          <a href="/contact.html" class="text-gray-600 hover:text-orange-600">Contact</a>
+          <a
+            href="/login.html"
+            class="text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition"
+            >Login</a
+          >
+        </div>
 
-    <!-- Keywords: Used to suggest relevant terms to search engines (less critical now, but still useful) -->
-    <meta name="keywords"
-        content="T.T.Patil Pishavikar, educational videos, 10th board exam, NMMS prep, student success, online learning, geography, math, science">
+        <!-- Mobile Menu Button -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-orange-700 focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </nav>
 
-    <!-- Author/Copyright -->
-    <meta name="author" content="T.T.Patil Pishavikar">
-    <meta name="robots" content="index, follow">
-
-    <link rel="shortcut icon" href="/assets/Teaching%20T.T.%20Patil%20Logo%20Design-B2uYfb3a.png" type="image/x-icon">
-    <script src="script.js"></script>
-    <style>
-        /* Custom styles to ensure 16:9 aspect ratio for embeds */
-        .video-responsive {
-            position: relative;
-            padding-bottom: 56.25%;
-            /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-        }
-
-        .video-responsive iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        @keyframes slide-left {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .slider-container {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-        }
-
-        .slider-track {
-            display: flex;
-            width: 200%;
-            animation: slide-left 20s linear infinite;
-        }
-
-        .slide-in-card {
-            min-width: 400px;
-            margin-right: 2rem;
-        }
-
-
-        /* Position navigation buttons */
-        /*  */
-
-        #prev-btn,
-        #next-btn {
-            position: absolute;
-            top: 50%;
-            /* Center vertically */
-            transform: translateY(-50%);
-            /* Perfectly middle */
-            background-color: #fbbf24;
-            /* Amber 400 */
-            padding: 2rem;
-            cursor: pointer;
-            border-radius: 9999px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            z-index: 10;
-            /* keep buttons above content */
-        }
-
-        /* Positioning */
-        #prev-btn {
-            left: 10rem;
-            /* Left side of section */
-        }
-
-        #next-btn {
-            right: 10rem;
-            /* Right side of section */
-        }
-
-        /* Hover animation */
-        #prev-btn:hover,
-        #next-btn:hover {
-            background-color: #f59e0b;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        @media (max-width: 1023px) {
-            .section {
-                position: relative;
-                text-align: center;
-                padding: 2rem;
-            }
-
-            #prev-btn,
-            #next-btn {
-                position: absolute;
-                width: 50px;
-                height: 50px;
-                top: 66em;
-                margin: 2px;
-                background-color: #fbbf24;
-                border: none;
-                padding: 10px;
-                border-radius: 50%;
-                cursor: pointer;
-                transition: 0.3s;
-
-            }
-
-            #prev-btn {
-                left: 15rem;
-                /* Left side of section */
-            }
-
-            #next-btn {
-                right: 15rem;
-                /* Right side of section */
-            }
-        }
-
-        /* 📱 Mobile view — screens smaller than 640px */
-        @media (max-width: 640px) {
-            .section {
-                position: relative;
-                text-align: center;
-                padding: 1.5rem;
-            }
-
-            #prev-btn,
-            #next-btn {
-                position: absolute;
-                width: 50px;
-                height: 50px;
-                top: 76.5em;
-                /* move buttons below content */
-                background-color: #fbbf24;
-                border: none;
-                border-radius: 50%;
-                padding: 8px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-
-            #prev-btn:hover,
-            #next-btn:hover {
-                background-color: #f59e0b;
-            }
-
-            /* place buttons side-by-side, centered horizontally */
-            #prev-btn {
-                left: 30%;
-            }
-
-            #next-btn {
-                right: 30%;
-            }
-
-        }
-    </style>
-  <link rel="stylesheet" crossorigin href="/assets/style-CAbG0zq-.css">
-</head>
-
-<body class="bg-gray-50">
-
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-
-            <!-- Logo / Title -->
-            <h1 class="text-2xl sm:text-3xl font-bold text-orange-700">
-                T.T.Patil Pishavikar
-            </h1>
-
-            <!-- Hamburger (Mobile Only) -->
-            <button id="menu-btn" class="md:hidden text-orange-700 focus:outline-none">
-                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-
-            <!-- Desktop Menu -->
-            <div id="menu" class="hidden md:flex space-x-4 md:space-x-8 text-lg font-medium">
-                <a href="/index.html" class="text-orange-600 hover:text-orange-800">Home</a>
-                <a href="/marathi.html" class="text-gray-600 hover:text-orange-600">Marathi</a>
-                <a href="/geography.html" class="text-gray-600 hover:text-orange-600">Geography</a>
-                <a href="/nmms.html" class="text-gray-600 hover:text-orange-600">NMMS</a>
-                <a href="/contact.html" class="text-gray-600 hover:text-orange-600">Contact</a>
-                <a href="/login.html" class="text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition">
-                    Login
-                </a>
-            </div>
-
-            <!-- mobile -->
-            <div id="mobile-menu" class="hidden flex-col md:hidden space-y-4 text-center py-4 bg-white shadow-md">
-                <a href="index.html" class="block text-orange-600 hover:text-orange-800">Home</a>
-                <a href="marathi.html" class="block text-gray-600 hover:text-orange-600">Marathi</a>
-                <a href="geography.html" class="block text-gray-600 hover:text-orange-600">Geography</a>
-                <a href="nmms.html" class="block text-gray-600 hover:text-orange-600">NMMS</a>
-                <a href="contact.html" class="block text-gray-600 hover:text-orange-600">Contact</a>
-                <a href="login.html"
-                    class="inline-block text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition">
-                    Login
-                </a>
-            </div>
-        </nav>
-
+      <!-- Mobile Dropdown -->
+      <div
+        id="mobile-menu"
+        class="hidden flex-col bg-white shadow-md px-6 py-4 space-y-3 text-lg font-medium"
+      >
+        <a href="/index.html" class="text-orange-600 hover:text-orange-800">Home</a>
+        <a href="/marathi.html" class="text-gray-600 hover:text-orange-600">Marathi</a>
+        <a href="/geography.html" class="text-gray-600 hover:text-orange-600">Geography</a>
+        <a href="/nmms.html" class="text-gray-600 hover:text-orange-600">NMMS</a>
+        <a href="/contact.html" class="text-gray-600 hover:text-orange-600">Contact</a>
+        <a
+          href="/login.html"
+          class="text-white bg-green-500 py-1 px-3 rounded-md hover:bg-green-600 transition inline-block"
+          >Login</a
+        >
+      </div>
     </header>
 
-    <section class="bg-orange-50 py-16 sm:py-20 text-center border-b-4 border-orange-200">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl sm:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
-                Master Your Subjects with <span class="text-orange-600">Clear Video Lessons</span>
-            </h2>
-            <p class="text-base sm:text-xl text-gray-600 mb-8 px-2 sm:px-0">
-                Your dedicated online guide for Marathi, Geography, and NMMS exam preparation. Learn at your own pace!
-            </p>
-            <a href="https://youtu.be/FluNaedFvWU?si=1pZ-muulNerJlxyq"
-                class="inline-block bg-orange-600 text-white text-lg sm:text-xl font-semibold py-3 px-8 rounded-lg shadow-xl hover:bg-orange-700 transition duration-300 transform hover:scale-[1.02]">
-                Watch Demo Video
-            </a>
-        </div>
+    <!-- ✅ HERO / PROFILE SECTION -->
+    <section
+      class="py-16 bg-cover bg-center"
+      style="background-image: url('/assets/ttPatil-BjhTuifa.jpg')"
+    >
+      <div
+        class="bg-white/80 max-w-4xl mx-auto rounded-2xl p-8 shadow-lg text-center"
+      >
+        <h3
+          class="text-3xl md:text-4xl font-extrabold text-indigo-800 mb-3 border-b-2 border-orange-300 pb-1 inline-block"
+        >
+          सुरज शिवाजी पाटील
+        </h3>
+        <p class="text-lg text-orange-600 font-bold mb-4">
+          पदवी: [ M.A., B.Ed. ] | विषय: मराठी आणि इतिहास | अनुभव: २ वर्षे
+        </p>
+        <p class="text-gray-700 leading-relaxed text-base md:text-lg">
+          <b>सुरज शिवाजी पाटील</b> हे एक उत्साही आणि तल्लख शिक्षक आहेत.
+          त्यांनी <b>M.A.</b> आणि <b>B.Ed.</b> पदवी प्राप्त केली आहे, आणि
+          <b>मराठी आणि इतिहास</b> या विषयांमध्ये निपुणता मिळवली आहे. त्यांच्या
+          शिकवण्याच्या सखोल शैलीमुळे विद्यार्थ्यांना विषय अधिक सोप्या पद्धतीने
+          समजतो. <br /><br />
+          फक्त २ वर्षांच्या अनुभवात त्यांनी विद्यार्थ्यांच्या मनात
+          शिक्षणाबद्दल उत्साह निर्माण केला आहे.
+        </p>
+      </div>
     </section>
 
-    <section class="bg-blue-100 py-16 md:py-24 border-b-4 border-blue-300 w-full mb-16">
+    <!-- ✅ TESTIMONIAL SECTION -->
+    <section class="py-16 bg-gray-100 text-center">
+      <h2 class="text-3xl font-extrabold text-orange-700 mb-10">
+        विद्यार्थ्यांचे अभिप्राय
+      </h2>
 
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-12 text-center">
-                Start Learning Now: <span class="text-red-800">Demo Lessons</span>
-            </h2>
+      <div
+        class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4"
+      >
+        <div
+          class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition"
+        >
+          <p class="text-gray-700 italic">
+            "The teaching style is very clear and easy to follow. I improved my
+            Geography marks from 70% to 92%! Thank you, T.T. Patil Pishavikar
+            Sir."
+          </p>
+          <p class="mt-4 font-semibold text-orange-600">– Student A</p>
         </div>
 
-        <!-- The Grid: One column on small, two columns on large -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto px-4">
-
-            <!-- Video 1: Core Subject Lesson -->
-            <div class="p-4 bg-white rounded-xl shadow-2xl">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Geography: Overview</h3>
-
-                <!-- Responsive Video Wrapper (16:9 aspect ratio) -->
-                <div class="relative pt-[56.25%] mb-4">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg"
-                        src="https://www.youtube.com/embed/FluNaedFvWU" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <p class="text-gray-600 text-center">
-                    A sample lesson demonstrating clear explanation and visual aids for map work and subject mastery.
-                </p>
-            </div>
-
-            <!-- Video 2: NMMS Exam Prep Strategy -->
-            <div class="p-4 bg-white rounded-xl shadow-2xl">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">NMMS: Overview</h3>
-
-                <!-- Responsive Video Wrapper (16:9 aspect ratio) -->
-                <div class="relative pt-[56.25%] mb-4">
-                    <iframe class="absolute top-0 left-0 w-full h-full rounded-lg"
-                        src="https://www.youtube.com/embed/V2-Q2bCGBn4" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <p class="text-gray-600 text-center">
-                    Strategy video, crucial for NMMS scholarship exam preparation.
-                </p>
-            </div>
-
+        <div
+          class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition"
+        >
+          <p class="text-gray-700 italic">
+            "The NMMS exam videos were a huge help! I scored 92% in the 9th
+            class and qualified for NMMS. Thank you, T.T. Patil Pishavikar Sir!"
+          </p>
+          <p class="mt-4 font-semibold text-orange-600">– Student B</p>
         </div>
-    </section>
-    <section id="features" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <header class="mb-12 text-center">
-                <h2 class="text-4xl font-extrabold text-orange-700">Featured Courses</h2>
-                <p class="mt-2 text-lg text-gray-600">Find the perfect plan for your grade level.</p>
-            </header>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div
-                    class="bg-gray-50 rounded-xl shadow-xl p-6 border-t-4 border-orange-500 hover:shadow-2xl transition duration-300">
-                    <div class="text-4xl text-orange-500 mb-4">🏆</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">NMMS Scholarship Prep</h3>
-                    <p class="text-gray-600 mb-4">
-                        Complete video course covering Marathi and Geography with clear, easy explanations. Designed to
-                        help students master all NMMS concepts and score confidently in the exam.
-                    </p>
-                    <a href="nmms.html"
-                        class="text-orange-600 font-semibold hover:text-orange-800 transition flex items-center">
-                        View NMMS Videos →
-                    </a>
-                </div>
-
-                <div
-                    class="bg-gray-50 rounded-xl shadow-xl p-6 border-t-4 border-green-500 hover:shadow-2xl transition duration-300">
-                    <div class="text-4xl text-green-500 mb-4">🌍</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Geography Video Gallery</h3>
-                    <p class="text-gray-600 mb-4">
-                        Detailed chapters, map reading, and question-answer sessions to ace your board exams.
-                    </p>
-                    <a href="geography.html"
-                        class="text-green-600 font-semibold hover:text-green-800 transition flex items-center">
-                        Explore Geography →
-                    </a>
-                </div>
-
-                <div
-                    class="bg-gray-50 rounded-xl shadow-xl p-6 border-t-4 border-red-500 hover:shadow-2xl transition duration-300">
-                    <div class="text-4xl text-red-500 mb-4">📚</div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Marathi Video Gallery</h3>
-                    <p class="text-gray-600 mb-4">
-                        Clear and simple explanations of grammar rules and writing skills for all grades.
-                    </p>
-                    <a href="marathi.html"
-                        class="text-red-600 font-semibold hover:text-red-800 transition flex items-center">
-                        Explore Marathi →
-                    </a>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <section class="py-16 bg-blue-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <header class="mb-12 text-center">
-                <h2 class="text-4xl font-extrabold text-blue-700">Why Choose T.T.Patil Pishavikar?</h2>
-                <p class="mt-2 text-lg text-gray-600">The clear path to academic success in Maharashtra.</p>
-            </header>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="p-6 bg-white rounded-lg shadow-lg border-b-4 border-blue-400">
-                    <div class="text-5xl text-blue-500 mb-3">🎓</div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Syllabus Aligned</h3>
-                    <p class="text-gray-600">
-                        Content strictly follows the Maharashtra State Board curriculum , ensuring you study exactly
-                        what you need for exams.
-                    </p>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow-lg border-b-4 border-blue-400">
-                    <div class="text-5xl text-blue-500 mb-3">🗣️</div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Marathi Medium Focus</h3>
-                    <p class="text-gray-600">
-                        Lessons are taught in clear and simple Marathi, making complex topics accessible to all
-                        students.
-                    </p>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow-lg border-b-4 border-blue-400">
-                    <div class="text-5xl text-blue-500 mb-3">🆓</div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Completely Free</h3>
-                    <p class="text-gray-600">
-                        High-quality education should be free. Access all videos and resources without any subscription
-                        fees.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-linear-to-r from-blue-50 to-indigo-100 section relative md:mb-20 ">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-extrabold text-gray-900 mb-10">आमच्या मार्गदर्शकांबद्दल जाणून घ्या!</h2>
-
-            <button id="prev-btn" class="nav-button absolute left-2 lg:left-8 
-         bg-amber-400 p-3 lg:p-8 
-         rounded-full shadow-md hover:bg-amber-500 transition 
-         flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-
-            <!-- card 1 -->
-            <div
-                class="bg-white rounded-3xl shadow-3xl p-8 md:p-14 border-b-4 border-indigo-700 transition duration-500 transform hover:shadow-indigo-300/50 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 md:space-x-16">
-
-                <div class="shrink-0 relative">
-                    <img class="w-55 h-70  shadow-xl border-4 border-white ring-8 ring-indigo-100/50"
-                        src="/assets/ttPatil-BjhTuifa.jpg" alt="T.T.Patil Sir">
-                </div>
-
-                <div class="text-left grow">
-                    <h3
-                        class="text-4xl font-extrabold text-indigo-800 mb-3 border-b-2 border-orange-300 pb-1 inline-block">
-                        तानाजी पाटील पिशवीकर सर</h3>
-                    <p class="text-xl text-orange-600 font-bold mb-4">पदवी: [ M.A., B.Ed. ]</p>
-                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">
-                        <b>तानाजी पाटील पिशवीकर</b> हे शिक्षण क्षेत्रात <b>३१ वर्षांहून अधिक</b> अनुभव असलेले एक उत्साही
-                        आणि आदरणीय मार्गदर्शक आहेत. त्यांनी <b>M.A.</b> आणि <b>B.Ed.</b> अशी पदवी प्राप्त केली आहे आणि
-                        त्यांचे मुख्य विषय <b>मराठी आणि भूगोल</b> हे आहेत.
-                        <br><br>
-                        त्यांच्या सोप्या व प्रभावी शिकवण्याच्या शैलीमुळे विद्यार्थ्यांना अवघड संकल्पना सहज समजतात.
-                        शिक्षण क्षेत्रातील उत्कृष्ट कार्याबद्दल त्यांना <b>अनेक शैक्षणिक पुरस्कार</b> प्राप्त झाले आहेत,
-                        जे त्यांच्या अथक प्रयत्नांची साक्ष देतात. त्यांचे एज्युकेशन YouTube चॅनल हजारो
-                        विद्यार्थ्यांसाठी प्रेरणास्थान बनले आहे.
-                    </p>
-
-                    <a href="https://www.youtube.com/@tanajipatilpishavikar" target="_blank"
-                        class="mt-8 inline-flex items-center space-x-2 bg-red-700 text-white font-bold tracking-wide py-3 px-10 rounded-xl shadow-lg shadow-red-500/50 hover:bg-red-800 transition duration-300 transform hover:scale-[1.03] text-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.228 0-3.497.24-4.852.883-4.852 3.255v11.121c0 2.373 1.355 3.016 4.852 3.255 3.604.246 11.631.245 15.228 0 3.497-.24 4.852-.883 4.852-3.255v-11.121c0-2.372-1.355-3.015-4.852-3.255zM10 15.65v-7.309l5.472 3.654-5.472 3.655z" />
-                        </svg>
-                        <span>आमचे YouTube चॅनल पहा</span>
-                    </a>
-                </div>
-            </div>
-            <!-- card 2 -->
-            <div
-                class="bg-white rounded-3xl shadow-3xl p-8 md:p-14 border-b-4 border-indigo-700 transition duration-500 transform hover:shadow-indigo-300/50 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 md:space-x-16">
-
-                <div class="shrink-0 relative">
-                    <img class="w-55 h-70  shadow-xl border-4 border-white ring-8 ring-indigo-100/50"
-                        src="/assets/surajpatil-3rVcvSV0.jpg" alt="S.S.Patil Sir">
-                </div>
-
-                <div class="text-left grow">
-                    <h3
-                        class="text-4xl font-extrabold text-indigo-800 mb-3 border-b-2 border-orange-300 pb-1 inline-block">
-                        सुरज शिवाजी पाटील
-                    </h3>
-
-                    <p class="text-xl text-orange-600 font-bold mb-4">पदवी: [ M.A., B.Ed. ]</p>
-
-                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">
-                        <b>सुरज शिवाजी पाटील</b> हे शिक्षण क्षेत्रात <b>२ वर्षांचा</b> अनुभव असलेले एक उत्साही आणि
-                        समर्पित शिक्षक आहेत.
-                        त्यांनी <b>M.A.</b> आणि <b>B.Ed.</b> अशी पदवी प्राप्त केली आहे आणि त्यांचे मुख्य विषय <b>मराठी
-                            आणि इतिहास</b> हे आहेत.
-                        <br><br>
-                        त्यांच्या प्रभावी आणि सोप्या शिकवण्याच्या पद्धतीमुळे विद्यार्थ्यांना विषय समजणे सोपे होते.
-                        शिक्षण क्षेत्रात अल्पावधीतच त्यांनी विद्यार्थ्यांचा विश्वास आणि आदर मिळवला आहे.
-                        त्यांचे शैक्षणिक मार्गदर्शन विद्यार्थ्यांना प्रगतीकडे प्रेरित करते.
-                    </p>
-
-
-                    <a href="https://www.youtube.com/@tanajipatilpishavikar" target="_blank"
-                        class="mt-8 inline-flex items-center space-x-2 bg-red-700 text-white font-bold tracking-wide py-3 px-10 rounded-xl shadow-lg shadow-red-500/50 hover:bg-red-800 transition duration-300 transform hover:scale-[1.03] text-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.228 0-3.497.24-4.852.883-4.852 3.255v11.121c0 2.373 1.355 3.016 4.852 3.255 3.604.246 11.631.245 15.228 0 3.497-.24 4.852-.883 4.852-3.255v-11.121c0-2.372-1.355-3.015-4.852-3.255zM10 15.65v-7.309l5.472 3.654-5.472 3.655z" />
-                        </svg>
-                        <span>आमचे YouTube चॅनल पहा</span>
-                    </a>
-                </div>
-            </div>
-            <!-- card 3 -->
-            <div
-                class="bg-white rounded-3xl shadow-3xl p-8 md:p-14 border-b-4 border-indigo-700 transition duration-500 transform hover:shadow-indigo-300/50 flex flex-col md:flex-row items-center space-y-10 md:space-y-0 md:space-x-16">
-
-
-                <div class="shrink-0 relative">
-                    <img class="w-55 h-70  shadow-xl border-4 border-white ring-8 ring-indigo-100/50"
-                        src="/assets/ttPatil-BjhTuifa.jpg" alt="T.T.Patil Sir">
-                </div>
-
-                <div class="text-left grow">
-                    <h3
-                        class="text-4xl font-extrabold text-indigo-800 mb-3 border-b-2 border-orange-300 pb-1 inline-block">
-                        तानाजी पाटील पिशवीकर सर</h3>
-                    <p class="text-xl text-orange-600 font-bold mb-4">पदवी: [ M.A., B.Ed. ]</p>
-                    <p class="text-gray-700 leading-relaxed text-base md:text-lg">
-                        <b>तानाजी पाटील पिशवीकर</b> हे शिक्षण क्षेत्रात <b>३१ वर्षांहून अधिक</b> अनुभव असलेले एक उत्साही
-                        आणि आदरणीय मार्गदर्शक आहेत. त्यांनी <b>M.A.</b> आणि <b>B.Ed.</b> अशी पदवी प्राप्त केली आहे आणि
-                        त्यांचे मुख्य विषय <b>मराठी आणि भूगोल</b> हे आहेत.
-                        <br><br>
-                        त्यांच्या सोप्या व प्रभावी शिकवण्याच्या शैलीमुळे विद्यार्थ्यांना अवघड संकल्पना सहज समजतात.
-                        शिक्षण क्षेत्रातील उत्कृष्ट कार्याबद्दल त्यांना <b>अनेक शैक्षणिक पुरस्कार</b> प्राप्त झाले आहेत,
-                        जे त्यांच्या अथक प्रयत्नांची साक्ष देतात. त्यांचे एज्युकेशन YouTube चॅनल हजारो
-                        विद्यार्थ्यांसाठी प्रेरणास्थान बनले आहे.
-                    </p>
-
-                    <a href="https://www.youtube.com/@tanajipatilpishavikar" target="_blank"
-                        class="mt-8 inline-flex items-center space-x-2 bg-red-700 text-white font-bold tracking-wide py-3 px-10 rounded-xl shadow-lg shadow-red-500/50 hover:bg-red-800 transition duration-300 transform hover:scale-[1.03] text-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.228 0-3.497.24-4.852.883-4.852 3.255v11.121c0 2.373 1.355 3.016 4.852 3.255 3.604.246 11.631.245 15.228 0 3.497-.24 4.852-.883 4.852-3.255v-11.121c0-2.372-1.355-3.015-4.852-3.255zM10 15.65v-7.309l5.472 3.654-5.472 3.655z" />
-                        </svg>
-                        <span>आमचे YouTube चॅनल पहा</span>
-                    </a>
-                </div>
-            </div>
-
-            <button id="next-btn" class="nav-button absolute right-4  p-8 bg-amber-400 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
-
-        </div>
-    </section>
-
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header class="mb-12 text-center">
-            <h2 class="text-4xl font-extrabold text-orange-700">Success Stories 🌟</h2>
-            <p class="mt-2 text-lg text-gray-600">Hear from students who achieved their goals with T.T.Patil
-                Pishavikar
-            </p>
-        </header>
-
-        <div class="slider-container">
-            <div class="slider-track p-5">
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-1-CNXOh0bT.jpg"
-                            class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Raj.">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Raj Kokate, Shittur</p>
-                            <p class="text-sm text-gray-500 font-medium">95% in 9th class</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "The Geography videos helped me understand map work easily. I scored 95% in my 10th
-                        board
-                        exam,
-                        all thanks to the clear explanations. T.T.Patil Pishavikar is the best online resource!"
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-2-BB8-7ukk.jpg"
-                            class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Pruthviraj">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Pruthviraj Patil, Shittur</p>
-                            <p class="text-sm text-gray-500 font-medium">92% in 9th class</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "I used the NMMS prep videos religiously. The strategies for the MAT section were
-                        crucial. I
-                        qualified for the scholarship! I highly recommend this channel to everyone."
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-7-CgkPEkQ3.jpg"
-                            class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Pruthviraj">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Tejas Shevade, Mangle</p>
-                            <p class="text-sm text-gray-500 font-medium">NMMS Exam clear</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "I used the NMMS prep videos religiously. The strategies for the MAT section were
-                        crucial. I
-                        qualified for the scholarship! I highly recommend this channel to everyone."
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-3-p6dkRWxB.jpg"
-                            class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Akash">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Akash Shevade, Bahubali</p>
-                            <p class="text-sm text-gray-500 font-medium">92% in 10th Board Exam</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "The teaching style is very clear and easy to follow. I improved my Geography marks from 70% to
-                        92%! Thank you, T.T. Patil Pishavikar Sir."
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-6-Brwz4E5F.jpg"
-                            class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Akash">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Manoj Chougule, Mangle</p>
-                            <p class="text-sm text-gray-500 font-medium">80% in 10th Board Exam</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "T.T. Patil Pishavikar Sir’s lessons made learning Geography fun and simple. My confidence and
-                        marks both improved a lot!"
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-4-C_i4F5Vn.jpg"
-                            class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Akash S.">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Swarup Patil, Panhala</p>
-                            <p class="text-sm text-gray-500 font-medium">NNMMS Exam clear</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "Every NMMS topic — from aptitude to general knowledge — was covered perfectly. I’m so grateful
-                        for this channel!"
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-5-BqkJet8q.jpg"
-                            class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Amey Patil">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Amey Patil, Kodoli</p>
-                            <p class="text-sm text-gray-500 font-medium">NNMMS Exam clear</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "T.T. Patil Sir’s tips and tricks helped me score top marks in the NMMS exam. Highly recommended
-                        for all students!"
-                    </blockquote>
-                </div>
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-1-CNXOh0bT.jpg"
-                            class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Raj.">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Raj Kokate, Shittur</p>
-                            <p class="text-sm text-gray-500 font-medium">95% in 9th class</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "The Geography videos helped me understand map work easily. I scored 95% in my 10th
-                        board
-                        exam,
-                        all thanks to the clear explanations. T.T.Patil Pishavikar is the best online resource!"
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-2-BB8-7ukk.jpg"
-                            class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Pruthviraj">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Pruthviraj Patil, Shittur</p>
-                            <p class="text-sm text-gray-500 font-medium">92% in 9th class</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "I used the NMMS prep videos religiously. The strategies for the MAT section were
-                        crucial. I
-                        qualified for the scholarship! I highly recommend this channel to everyone."
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-7-CgkPEkQ3.jpg"
-                            class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Pruthviraj">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Tejas Shevade, Mangle</p>
-                            <p class="text-sm text-gray-500 font-medium">NMMS Exam clear</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "I used the NMMS prep videos religiously. The strategies for the MAT section were
-                        crucial. I
-                        qualified for the scholarship! I highly recommend this channel to everyone."
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-3-p6dkRWxB.jpg"
-                            class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Akash">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Akash Shevade, Bahubali</p>
-                            <p class="text-sm text-gray-500 font-medium">92% in 10th Board Exam</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "The teaching style is very clear and easy to follow. I improved my Geography marks from 70% to
-                        92%! Thank you, T.T. Patil Pishavikar Sir."
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-6-Brwz4E5F.jpg"
-                            class="rounded-full w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Akash">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Manoj Chougule, Mangle</p>
-                            <p class="text-sm text-gray-500 font-medium">80% in 10th Board Exam</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "T.T. Patil Pishavikar Sir’s lessons made learning Geography fun and simple. My confidence and
-                        marks both improved a lot!"
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-4-C_i4F5Vn.jpg"
-                            class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Akash S.">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Swarup Patil, Panhala</p>
-                            <p class="text-sm text-gray-500 font-medium">NNMMS Exam clear</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "Every NMMS topic — from aptitude to general knowledge — was covered perfectly. I’m so grateful
-                        for this channel!"
-                    </blockquote>
-                </div>
-
-                <div
-                    class="bg-white slide-in-card delay-1 p-8 rounded-xl shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-8 border-orange-500">
-
-                    <div class="flex items-center mb-6">
-                        <img src="/assets/student-5-BqkJet8q.jpg"
-                            class="rounded-full  w-40 h-40 mr-4 border-4 border-orange-200 object-cover"
-                            alt="Image of Amey Patil">
-                        <div>
-                            <p class="font-extrabold text-xl text-gray-900">Amey Patil, Kodoli</p>
-                            <p class="text-sm text-gray-500 font-medium">NNMMS Exam clear</p>
-                        </div>
-                    </div>
-
-                    <blockquote class="text-xl italic font-serif text-gray-700 leading-relaxed relative pl-5">
-                        <span class="absolute left-0 top-0 text-3xl text-orange-500 font-black">“</span>
-                        "T.T. Patil Sir’s tips and tricks helped me score top marks in the NMMS exam. Highly recommended
-                        for all students!"
-                    </blockquote>
-                </div>
-
-            </div>
-        </div>
-
+    <!-- ✅ NAVIGATION BUTTONS -->
+    <div class="relative flex justify-between items-center mx-10 my-6">
+      <button
+        id="prev-btn"
+        class="bg-amber-400 p-4 md:p-6 rounded-full shadow-md hover:bg-amber-500 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 md:h-8 md:w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        id="next-btn"
+        class="bg-amber-400 p-4 md:p-6 rounded-full shadow-md hover:bg-amber-500 transition"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 md:h-8 md:w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
     </div>
 
-    <div class="text-center mt-12">
-        <a href="contact.html" class="text-blue-600 font-semibold hover:text-blue-800 transition">
-            Do you have a success story to share? Let us know! →
-        </a>
-    </div>
-    </div>
-    </section>
-    <section class="py-16 bg-white">
+    <!-- ✅ FOOTER -->
+    <footer class="bg-orange-700 text-white text-center py-4">
+      © 2025 T.T. Patil Pishavikar Teaching Hub | All Rights Reserved.
+    </footer>
 
-        <footer class="bg-gray-800 text-white py-6 mt-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p>&copy; 2025 T.T.Patil Pishavikar. All rights reserved.</p>
-                <div class="mt-2 text-sm">
-                    <a href="contact.html" class="hover:text-orange-400">Contact Us</a> |
-                    <a href="login.html" class="hover:text-orange-400">Student Login</a>
-                </div>
-            </div>
-        </footer>
-        <script>
-            const prevBtn = document.getElementById("prev-btn");
-const nextBtn = document.getElementById("next-btn");
-const cards = document.querySelectorAll(".section > div > .bg-white"); // adjust selector if needed
-let currentIndex = 0;
-
-function showCard(index) {
-    cards.forEach((card, i) => {
-        card.style.display = i === index ? "flex" : "none";
-    });
-}
-
-prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    showCard(currentIndex);
-});
-
-nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    showCard(currentIndex);
-});
-
-// Initialize
-showCard(currentIndex);
-
-
-
-            // Toggle mobile menu visibility
-            const menuBtn = document.getElementById("menu-btn");
-            const mobileMenu = document.getElementById("mobile-menu");
-
-            menuBtn.addEventListener("click", () => {
-                mobileMenu.classList.toggle("hidden");
-            });
-
-        </script>
-        <script src="script.js"></script>
-</body>
-
+    <script>
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
 </html>
