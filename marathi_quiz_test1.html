@@ -2,15 +2,21 @@
 <html lang="en">
 
 <head>
+   
   <meta charset="UTF-8">
+   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>दहावी मराठी प्रश्नमंजुषा १ - T.T. Patil Pishavikar</title>
+    <title>दहावी मराठी प्रश्नमंजुषा १ - T.T. Patil Pishavikar</title>
 
+     
+  <script src="https://cdn.tailwindcss.com"></script>
+   
+   
   <link rel="stylesheet" href="style.css">
-  <style>
+    <style>
     /* [Standard Quiz Styles Remain Here] */
     .option-label {
-      transition: background-color 0.15s, border-color- 0.15s;
+      transition: background-color 0.15s, border-color 0.15s;
     }
 
     .option-label:hover {
@@ -48,334 +54,433 @@
 
 <body class="bg-gray-50">
 
-  <header class="sticky top-0 z-50 bg-white shadow-md">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-      <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
-      <div class="space-x-4 md:space-x-8 text-lg font-medium">
-        <a href="index.html" class="text-gray-600 hover:text-red-600">Home</a>
-        <a href="marathi_quiz_10.html" class="text-blue-600 hover:text-blue-800">Quiz List</a>
-        <a href="marathi_class10.html" class="text-gray-600 hover:text-red-600">10th Videos</a>
-      </div>
-    </nav>
-  </header>
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
+           
+                  <button id="menu-btn" class="md:hidden text-gray-600 hover:text-red-600 focus:outline-none">
+                <svg id="hamburger-icon" class="w-7 h-7 block" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+                   
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                 
+        </svg>
+                <svg id="close-icon" class="w-7 h-7 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor">
+                   
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                 
+        </svg>
+              </button>
+           
+                  <div id="desktop-menu" class="hidden md:flex space-x-4 md:space-x-8 text-lg font-medium">
+                <a href="index.html" class="text-gray-600 hover:text-red-600">Home</a>
+                <a href="marathi_quiz_10.html" class="text-blue-600 hover:text-blue-800">Quiz List</a>
+                <a href="marathi_class10.html" class="text-gray-600 hover:text-red-600">10th Videos</a>
+              </div>
+          </nav>
+       
+            <div id="mobile-menu" class="hidden md:hidden flex-col space-y-2 py-3 bg-gray-100 shadow-inner">
+            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">Home</a>
+            <a href="marathi_quiz_10.html" class="block px-4 py-2 text-blue-700 hover:bg-gray-200">Quiz List</a>
+            <a href="marathi_class10.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">10th Videos</a>
+          </div>
+      </header>
 
-  <section class="bg-red-700 text-white py-12">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-4xl font-extrabold mb-2">दहावी मराठी: चाचणी १ (10 प्रश्न)</h2>
-      <p class="text-xl font-light">विषय: व्याकरण मूलभूत घटक (नाम, सर्वनाम, क्रियापद)</p>
-    </div>
-  </section>
+    <section class="bg-red-700 text-white py-12">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-extrabold mb-2">दहावी मराठी: चाचणी १ (10 प्रश्न)</h2>
+            <p class="text-xl font-light">विषय: व्याकरण मूलभूत घटक (नाम, सर्वनाम, क्रियापद)</p>
+          </div>
+      </section>
 
-  <section class="py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div id="quiz-results"
+            <div id="quiz-results"        
         class="hidden bg-yellow-100 p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-yellow-500 text-center">
-        <h3 class="text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
-        <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display"
-            class="font-bold text-lg">10</span> पैकी <span id="score-display"
+                <h3 class="text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
+                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display"            
+            class="font-bold text-lg">10</span> पैकी <span id="score-display"            
             class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
-        <button onclick="window.location.href='marathi_quiz_10.html';"
+                <button onclick="window.location.href='marathi_quiz_10.html';"          
           class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition mr-4">
-          इतर चाचण्या पहा
-        </button>
-        <button onclick="window.location.reload();"
+                    इतर चाचण्या पहा
+                  </button>
+                <button onclick="window.location.reload();"          
           class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
-          पुन्हा प्रयत्न करा (Try Again)
-        </button>
-      </div>
+                    पुन्हा प्रयत्न करा (Try Again)
+                  </button>
+              </div>
 
-      <form id="marathi-quiz">
+            <form id="marathi-quiz">
 
-        <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"          
           data-correct-answer="C">
-          <p class="text-xl font-bold text-gray-800 mb-4">1. 'मुलगा' हे कोणत्या प्रकारचे नाम (Noun) आहे?</p>
-          <div class="space-y-3">
-            <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label for="q1a"
+                    <p class="text-xl font-bold text-gray-800 mb-4">1. 'मुलगा' हे कोणत्या प्रकारचे नाम (Noun) आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label
+                for="q1a"                
                 class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                विशेष नाम (Proper Noun)</label></div>
-            <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label for="q1b"
+                                विशेष नाम (Proper Noun)</label></div>
+                        <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label
+                for="q1b"                
                 class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                भाववाचक नाम (Abstract Noun)</label></div>
-            <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label for="q1c"
+                                भाववाचक नाम (Abstract Noun)</label></div>
+                        <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label
+                for="q1c"                
                 class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                सामान्य नाम (Common Noun)</label></div>
-            <div><input type="radio" id="q1d" name="q1" value="D" class="option-input hidden"><label for="q1d"
+                                सामान्य नाम (Common Noun)</label></div>
+                        <div><input type="radio" id="q1d" name="q1" value="D" class="option-input hidden"><label
+                for="q1d"                
                 class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                पदार्थवाचक नाम (Material Noun)</label></div>
-          </div>
-        </div>
+                                पदार्थवाचक नाम (Material Noun)</label></div>
+                      </div>
+                  </div>
 
-        <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"          
           data-correct-answer="A">
-          <p class="text-xl font-bold text-gray-800 mb-4">2. खालील वाक्यातील सर्वनाम (Pronoun) ओळखा: "मी काल चित्रपट
-            पाहिला."</p>
-          <div class="space-y-3">
-            <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label for="q2a"
+                    <p class="text-xl font-bold text-gray-800 mb-4">2. खालील वाक्यातील सर्वनाम (Pronoun) ओळखा: "मी काल
+            चित्रपट
+                        पाहिला."</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label
+                for="q2a"                
                 class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                मी</label></div>
-            <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label for="q2b"
+                                मी</label></div>
+                        <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label
+                for="q2b"                
                 class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                काल</label></div>
-            <div>
-              <div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c"
+                                काल</label></div>
+                        <div>
+                            <div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label
+                  for="q2c"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                  चित्रपट</label></div>
-              <div><input type="radio" id="q2d" name="q2" value="D" class="option-input hidden"><label for="q2d"
+                                    चित्रपट</label></div>
+                            <div><input type="radio" id="q2d" name="q2" value="D" class="option-input hidden"><label
+                  for="q2d"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                  पाहिला</label></div>
-            </div>
-          </div>
+                                    पाहिला</label></div>
+                          </div>
+                      </div>
 
-          <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
-            data-correct-answer="C">
-            <p class="text-xl font-bold text-gray-800 mb-4">3. 'झाडाला 'हिरवी' पाने आहेत.' या वाक्यातील विशेषण
-              (Adjective) कोणते?</p>
-            <div class="space-y-3">
-              <div><input type="radio" id="q3a" name="q3" value="A" class="option-input hidden"><label for="q3a"
+                    <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"        
+                data-correct-answer="C">
+                        <p class="text-xl font-bold text-gray-800 mb-4">3. 'झाडाला 'हिरवी' पाने आहेत.' या वाक्यातील
+              विशेषण
+                            (Adjective) कोणते?</p>
+                        <div class="space-y-3">
+                            <div><input type="radio" id="q3a" name="q3" value="A" class="option-input hidden"><label
+                  for="q3a"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                  झाडाला</label></div>
-              <div><input type="radio" id="q3b" name="q3" value="B" class="option-input hidden"><label for="q3b"
+                                    झाडाला</label></div>
+                            <div><input type="radio" id="q3b" name="q3" value="B" class="option-input hidden"><label
+                  for="q3b"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                  पाने</label></div>
-              <div><input type="radio" id="q3c" name="q3" value="C" class="option-input hidden"><label for="q3c"
+                                    पाने</label></div>
+                            <div><input type="radio" id="q3c" name="q3" value="C" class="option-input hidden"><label
+                  for="q3c"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                  हिरवी</label></div>
-              <div><input type="radio" id="q3d" name="q3" value="D" class="option-input hidden"><label for="q3d"
+                                    हिरवी</label></div>
+                            <div><input type="radio" id="q3d" name="q3" value="D" class="option-input hidden"><label
+                  for="q3d"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                  आहेत</label></div>
-            </div>
-          </div>
+                                    आहेत</label></div>
+                          </div>
+                      </div>
 
-          <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
-            data-correct-answer="A">
-            <p class="text-xl font-bold text-gray-800 mb-4">4. 'सकर्मक क्रियापद' (Transitive Verb) असलेले वाक्य ओळखा.
+                    <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"        
+                data-correct-answer="A">
+                        <p class="text-xl font-bold text-gray-800 mb-4">4. 'सकर्मक क्रियापद' (Transitive Verb) असलेले
+              वाक्य ओळखा.
+                          </p>
+                        <div class="space-y-3">
+                            <div><input type="radio" id="q4a" name="q4" value="A" class="option-input hidden"><label
+                  for="q4a"                  
+                  class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
+                                    त्याने आंबा खाल्ला.</label></div>
+                            <div><input type="radio" id="q4b" name="q4" value="B" class="option-input hidden"><label
+                  for="q4b"                  
+                  class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
+                                    पक्षी उडाला.</label></div>
+                            <div><input type="radio" id="q4c" name="q4" value="C" class="option-input hidden"><label
+                  for="q4c"                  
+                  class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
+                                    तो पडला.</label></div>
+                            <div><input type="radio" id="q4d" name="q4" value="D" class="option-input hidden"><label
+                  for="q4d"                  
+                  class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
+                                    आजोबा बसले.</label></div>
+                          </div>
+                      </div>
+
+                    <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"        
+                data-correct-answer="D">
+                        <p class="text-xl font-bold text-gray-800 mb-4">5. खालीलपैकी भाववाचक नाम (Abstract Noun) कोणते?
             </p>
-            <div class="space-y-3">
-              <div><input type="radio" id="q4a" name="q4" value="A" class="option-input hidden"><label for="q4a"
+                        <div class="space-y-3">
+                            <div><input type="radio" id="q5a" name="q5" value="A" class="option-input hidden"><label
+                  for="q5a"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                  त्याने आंबा खाल्ला.</label></div>
-              <div><input type="radio" id="q4b" name="q4" value="B" class="option-input hidden"><label for="q4b"
+                                    नदी</label></div>
+                            <div><input type="radio" id="q5b" name="q5" value="B" class="option-input hidden"><label
+                  for="q5b"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                  पक्षी उडाला.</label></div>
-              <div><input type="radio" id="q4c" name="q4" value="C" class="option-input hidden"><label for="q4c"
+                                    मुंबई</label></div>
+                            <div><input type="radio" id="q5c" name="q5" value="C" class="option-input hidden"><label
+                  for="q5c"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                  तो पडला.</label></div>
-              <div><input type="radio" id="q4d" name="q4" value="D" class="option-input hidden"><label for="q4d"
+                                    सोने</label></div>
+                            <div><input type="radio" id="q5d" name="q5" value="D" class="option-input hidden"><label
+                  for="q5d"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                  आजोबा बसले.</label></div>
-            </div>
-          </div>
+                                    शौर्य</label></div>
+                          </div>
+                      </div>
 
-          <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
-            data-correct-answer="D">
-            <p class="text-xl font-bold text-gray-800 mb-4">5. खालीलपैकी भाववाचक नाम (Abstract Noun) कोणते?</p>
-            <div class="space-y-3">
-              <div><input type="radio" id="q5a" name="q5" value="A" class="option-input hidden"><label for="q5a"
+                    <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"        
+                data-correct-answer="B">
+                        <p class="text-xl font-bold text-gray-800 mb-4">6. 'तू' हे कोणत्या प्रकारचे सर्वनाम आहे?</p>
+                        <div class="space-y-3">
+                            <div><input type="radio" id="q6a" name="q6" value="A" class="option-input hidden"><label
+                  for="q6a"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                  नदी</label></div>
-              <div><input type="radio" id="q5b" name="q5" value="B" class="option-input hidden"><label for="q5b"
+                                    प्रथम पुरुषवाचक</label></div>
+                            <div><input type="radio" id="q6b" name="q6" value="B" class="option-input hidden"><label
+                  for="q6b"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                  मुंबई</label></div>
-              <div><input type="radio" id="q5c" name="q5" value="C" class="option-input hidden"><label for="q5c"
+                                    द्वितीय पुरुषवाचक</label></div>
+                            <div><input type="radio" id="q6c" name="q6" value="C" class="option-input hidden"><label
+                  for="q6c"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                  सोने</label></div>
-              <div><input type="radio" id="q5d" name="q5" value="D" class="option-input hidden"><label for="q5d"
+                                    तृतीय पुरुषवाचक</label></div>
+                            <div><input type="radio" id="q6d" name="q6" value="D" class="option-input hidden"><label
+                  for="q6d"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                  शौर्य</label></div>
-            </div>
-          </div>
+                                    दर्शक सर्वनाम</label></div>
+                          </div>
+                      </div>
 
-          <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
-            data-correct-answer="B">
-            <p class="text-xl font-bold text-gray-800 mb-4">6. 'तू' हे कोणत्या प्रकारचे सर्वनाम आहे?</p>
-            <div class="space-y-3">
-              <div><input type="radio" id="q6a" name="q6" value="A" class="option-input hidden"><label for="q6a"
+                    <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"        
+                data-correct-answer="D">
+                        <p class="text-xl font-bold text-gray-800 mb-4">7. 'शांत' मुलगी, 'उंच' इमारत - हे विशेषणाचे
+              कोणते प्रकार
+                            आहेत?</p>
+                        <div class="space-y-3">
+                            <div><input type="radio" id="q7a" name="q7" value="A" class="option-input hidden"><label
+                  for="q7a"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                  प्रथम पुरुषवाचक</label></div>
-              <div><input type="radio" id="q6b" name="q6" value="B" class="option-input hidden"><label for="q6b"
+                                    संख्याविशेषण</label></div>
+                            <div><input type="radio" id="q7b" name="q7" value="B" class="option-input hidden"><label
+                  for="q7b"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                  द्वितीय पुरुषवाचक</label></div>
-              <div><input type="radio" id="q6c" name="q6" value="C" class="option-input hidden"><label for="q6c"
+                                    सार्वनामिक विशेषण</label></div>
+                            <div><input type="radio" id="q7c" name="q7" value="C" class="option-input hidden"><label
+                  for="q7c"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                  तृतीय पुरुषवाचक</label></div>
-              <div><input type="radio" id="q6d" name="q6" value="D" class="option-input hidden"><label for="q6d"
+                                    दर्शक विशेषण</label></div>
+                            <div><input type="radio" id="q7d" name="q7" value="D" class="option-input hidden"><label
+                  for="q7d"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                  दर्शक सर्वनाम</label></div>
-            </div>
-          </div>
+                                    गुणविशेषण</label></div>
+                          </div>
+                      </div>
 
-          <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
-            data-correct-answer="D">
-            <p class="text-xl font-bold text-gray-800 mb-4">7. 'शांत' मुलगी, 'उंच' इमारत - हे विशेषणाचे कोणते प्रकार
-              आहेत?</p>
-            <div class="space-y-3">
-              <div><input type="radio" id="q7a" name="q7" value="A" class="option-input hidden"><label for="q7a"
+                    <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"        
+                data-correct-answer="C">
+                        <p class="text-xl font-bold text-gray-800 mb-4">8. 'त्याने पुस्तक वाचून झाले.' या वाक्यातील
+              सहाय्यक क्रियापद
+                            (Auxiliary Verb) कोणते?</p>
+                        <div class="space-y-3">
+                            <div><input type="radio" id="q8a" name="q8" value="A" class="option-input hidden"><label
+                  for="q8a"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                  संख्याविशेषण</label></div>
-              <div><input type="radio" id="q7b" name="q7" value="B" class="option-input hidden"><label for="q7b"
+                                    त्याने</label></div>
+                            <div><input type="radio" id="q8b" name="q8" value="B" class="option-input hidden"><label
+                  for="q8b"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                  सार्वनामिक विशेषण</label></div>
-              <div><input type="radio" id="q7c" name="q7" value="C" class="option-input hidden"><label for="q7c"
+                                    वाचून</label></div>
+                            <div><input type="radio" id="q8c" name="q8" value="C" class="option-input hidden"><label
+                  for="q8c"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                  दर्शक विशेषण</label></div>
-              <div><input type="radio" id="q7d" name="q7" value="D" class="option-input hidden"><label for="q7d"
+                                    झाले</label></div>
+                            <div><input type="radio" id="q8d" name="q8" value="D" class="option-input hidden"><label
+                  for="q8d"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                  गुणविशेषण</label></div>
-            </div>
-          </div>
+                                    पुस्तक</label></div>
+                          </div>
+                      </div>
 
-          <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
-            data-correct-answer="C">
-            <p class="text-xl font-bold text-gray-800 mb-4">8. 'त्याने पुस्तक वाचून झाले.' या वाक्यातील सहाय्यक क्रियापद
-              (Auxiliary Verb) कोणते?</p>
-            <div class="space-y-3">
-              <div><input type="radio" id="q8a" name="q8" value="A" class="option-input hidden"><label for="q8a"
+                    <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"        
+                data-correct-answer="B">
+                        <p class="text-xl font-bold text-gray-800 mb-4">9. पदार्थाचे किंवा वस्तूंचे मोजमाप दर्शवणारे नाम
+              कोणते?</p>
+                        <div class="space-y-3">
+                            <div><input type="radio" id="q9a" name="q9" value="A" class="option-input hidden"><label
+                  for="q9a"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                  त्याने</label></div>
-              <div><input type="radio" id="q8b" name="q8" value="B" class="option-input hidden"><label for="q8b"
+                                    विशेष नाम</label></div>
+                            <div><input type="radio" id="q9b" name="q9" value="B" class="option-input hidden"><label
+                  for="q9b"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                  वाचून</label></div>
-              <div><input type="radio" id="q8c" name="q8" value="C" class="option-input hidden"><label for="q8c"
+                                    पदार्थवाचक नाम (Material Noun)</label></div>
+                            <div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label
+                  for="q9c"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                  झाले</label></div>
-              <div><input type="radio" id="q8d" name="q8" value="D" class="option-input hidden"><label for="q8d"
+                                    समूहवाचक नाम (Collective Noun)</label></div>
+                            <div><input type="radio" id="q9d" name="q9" value="D" class="option-input hidden"><label
+                  for="q9d"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                  पुस्तक</label></div>
-            </div>
-          </div>
+                                    भाववाचक नाम</label></div>
+                          </div>
+                      </div>
 
-          <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
-            data-correct-answer="B">
-            <p class="text-xl font-bold text-gray-800 mb-4">9. पदार्थाचे किंवा वस्तूंचे मोजमाप दर्शवणारे नाम कोणते?</p>
-            <div class="space-y-3">
-              <div><input type="radio" id="q9a" name="q9" value="A" class="option-input hidden"><label for="q9a"
+                    <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"        
+                data-correct-answer="A">
+                        <p class="text-xl font-bold text-gray-800 mb-4">10. 'वर्ष' या नामापासून बनलेले विशेषण
+              (Adjective) कोणते आहे?
+                          </p>
+                        <div class="space-y-3">
+                            <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label
+                  for="q10a"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                  विशेष नाम</label></div>
-              <div><input type="radio" id="q9b" name="q9" value="B" class="option-input hidden"><label for="q9b"
+                                    वार्षिक</label></div>
+                            <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label
+                  for="q10b"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                  पदार्थवाचक नाम (Material Noun)</label></div>
-              <div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label for="q9c"
+                                    वरचे</label></div>
+                            <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label
+                  for="q10c"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                  समूहवाचक नाम (Collective Noun)</label></div>
-              <div><input type="radio" id="q9d" name="q9" value="D" class="option-input hidden"><label for="q9d"
+                                    वारंवार</label></div>
+                            <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label
+                  for="q10d"                  
                   class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                  भाववाचक नाम</label></div>
-            </div>
-          </div>
+                                    वारी</label></div>
+                          </div>
+                      </div>
 
-          <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500"
-            data-correct-answer="A">
-            <p class="text-xl font-bold text-gray-800 mb-4">10. 'वर्ष' या नामापासून बनलेले विशेषण (Adjective) कोणते आहे?
-            </p>
-            <div class="space-y-3">
-              <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label for="q10a"
-                  class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A)
-                  वार्षिक</label></div>
-              <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label for="q10b"
-                  class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B)
-                  वरचे</label></div>
-              <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label for="q10c"
-                  class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C)
-                  वारंवार</label></div>
-              <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label for="q10d"
-                  class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D)
-                  वारी</label></div>
-            </div>
-          </div>
-
-          <div class="text-center mt-12">
-            <button type="submit" id="submit-quiz"
+                    <div class="text-center mt-12">
+                        <button type="submit" id="submit-quiz"              
               class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
-              निकाल तपासा (Check Result)
-            </button>
-            <p class="mt-4 text-sm text-gray-500">
-              टीप (Note): हा प्रश्न संच *दहावी मराठी व्याकरण* आधारित आहे.
-            </p>
-          </div>
-      </form>
-    </div>
-  </section>
+                            निकाल तपासा
+                          </button>
+                        <p class="mt-4 text-sm text-gray-500">
+                            टीप (Note): हा प्रश्न संच दहावी मराठी व्याकरण आधारित आहे.
+                          </p>
+                      </div>
+                </form>
+          </div>
+      </section>
 
-  <footer class="bg-gray-800 text-white py-6 mt-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p>&copy; 2025 T.T. Patil Pishavikar. All rights reserved.</p>
-    </div>
-  </footer>
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 T.T. Patil Pishavikar. All rights reserved.</p>
+          </div>
+      </footer>
 
+   
   <script>
-    document.getElementById('marathi-quiz').addEventListener('submit', function (event) {
-      event.preventDefault();
+    document.addEventListener('DOMContentLoaded', function () {
+      // --- Quiz Logic (Existing code) ---
+      document.getElementById('marathi-quiz').addEventListener('submit', function (event) {
+        event.preventDefault();
 
-      const questions = document.querySelectorAll('.question-block');
-      let score = 0;
-      const resultsDiv = document.getElementById('quiz-results');
-      const submitButton = document.getElementById('submit-quiz');
+        const questions = document.querySelectorAll('.question-block');
+        let score = 0;
+        const resultsDiv = document.getElementById('quiz-results');
+        const submitButton = document.getElementById('submit-quiz');
 
-      questions.forEach((qBlock, index) => {
-        const correctAnswer = qBlock.getAttribute('data-correct-answer');
-        const questionName = `q${index + 1}`;
-        const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+        questions.forEach((qBlock, index) => {
+          const correctAnswer = qBlock.getAttribute('data-correct-answer');
+          const questionName = `q${index + 1}`;
+          const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
 
-        qBlock.querySelectorAll('.option-label').forEach(label => {
-          label.classList.remove('correct-answer', 'incorrect-answer');
-        });
-        qBlock.querySelector('.result-feedback')?.remove();
+          qBlock.querySelectorAll('.option-label').forEach(label => {
+            label.classList.remove('correct-answer', 'incorrect-answer');
+          });
+          qBlock.querySelector('.result-feedback')?.remove();
 
 
-        if (selectedOption) {
-          const selectedValue = selectedOption.value;
-          const selectedLabel = document.querySelector(`label[for="${selectedOption.id}"]`);
+          if (selectedOption) {
+            const selectedValue = selectedOption.value;
+            const selectedLabel = document.querySelector(`label[for="${selectedOption.id}"]`);
 
-          if (selectedValue === correctAnswer) {
-            score++;
-            selectedLabel.classList.add('correct-answer');
+            if (selectedValue === correctAnswer) {
+              score++;
+              selectedLabel.classList.add('correct-answer');
+            } else {
+              selectedLabel.classList.add('incorrect-answer');
+
+              const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+              const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+              if (correctLabel) {
+                correctLabel.classList.add('correct-answer');
+              }
+
+              const feedback = document.createElement('p');
+              feedback.className = 'result-feedback mt-2 text-sm incorrect-indicator';
+              feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
+              qBlock.appendChild(feedback);
+            }
           } else {
-            selectedLabel.classList.add('incorrect-answer');
-
             const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
             const correctLabel = document.querySelector(`label[for="${correctId}"]`);
+
             if (correctLabel) {
               correctLabel.classList.add('correct-answer');
+
+              const feedback = document.createElement('p');
+              feedback.className = 'result-feedback mt-2 text-sm correct-indicator';
+              feedback.textContent = `उत्तर दिले नाही. बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
+              qBlock.appendChild(feedback);
             }
-
-            const feedback = document.createElement('p');
-            feedback.className = 'result-feedback mt-2 text-sm incorrect-indicator';
-            feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
-            qBlock.appendChild(feedback);
           }
-        } else {
-          const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
-          const correctLabel = document.querySelector(`label[for="${correctId}"]`);
 
-          if (correctLabel) {
-            correctLabel.classList.add('correct-answer');
+          qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.disabled = true;
+          });
+        });
 
-            const feedback = document.createElement('p');
-            feedback.className = 'result-feedback mt-2 text-sm correct-indicator';
-            feedback.textContent = `उत्तर दिले नाही. बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`;
-            qBlock.appendChild(feedback);
-          }
-        }
+        document.getElementById('score-display').textContent = score;
+        document.getElementById('total-questions-display').textContent = questions.length;
+        resultsDiv.classList.remove('hidden');
 
-        qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
-          radio.disabled = true;
+        window.scrollTo({
+          top: resultsDiv.offsetTop - 80,
+          behavior: 'smooth'
+        });
+
+        submitButton.textContent = "निकाल दर्शविला आहे";
+        submitButton.disabled = true;
+        submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+        submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+      });
+
+      // --- Navigation Logic (New code) ---
+      const menuButton = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const hamburgerIcon = document.getElementById('hamburger-icon');
+      const closeIcon = document.getElementById('close-icon');
+
+      menuButton.addEventListener('click', function () {
+        // 'hidden' क्लास टॉगल करून मेनू उघडणे आणि बंद करणे.
+        mobileMenu.classList.toggle('hidden');
+
+        // आयकॉन टॉगल करणे (हॅमबर्गर <-> X)
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+
+      // पर्यायी: लिंकवर क्लिक केल्यावर मेनू बंद करणे.
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.add('hidden');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
         });
       });
-
-      document.getElementById('score-display').textContent = score;
-      document.getElementById('total-questions-display').textContent = questions.length;
-      resultsDiv.classList.remove('hidden');
-
-      window.scrollTo({
-        top: resultsDiv.offsetTop - 80,
-        behavior: 'smooth'
-      });
-
-      submitButton.textContent = "निकाल दर्शविला आहे";
-      submitButton.disabled = true;
-      submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
-      submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
     });
   </script>
 </body>

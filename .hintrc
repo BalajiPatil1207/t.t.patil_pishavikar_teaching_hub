@@ -27,6 +27,8 @@
           "scrollbar-width: none"
         ]
       }
-    ]
+    ],
+    "meta-viewport": "off",
+    "meta-charset-utf-8": "off"
   }
 }

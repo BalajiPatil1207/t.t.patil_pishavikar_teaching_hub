@@ -3,18 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>दहावी मराठी क्विझ २ - T.T. Patil Pishavikar</title>
+    <title>दहावी मराठी प्रश्नमंजुषा २ - T.T. Patil Pishavikar</title>
 
     <link rel="stylesheet" href="style.css">
     <style>
-        /* [Standard Quiz Styles Remain Here] */
-        .option-label { transition: background-color 0.15s, border-color- 0.15s; }
-        .option-label:hover { background-color: #fef2f2; }
-        .option-input:checked + .option-label { background-color: #fee2e2; border-color: #ef4444; font-weight: 600; }
-        .correct-answer { background-color: #d1fae5; border-color: #10b981; font-weight: 700; }
-        .incorrect-answer { background-color: #fee2e2; border-color: #ef4444; }
-        .correct-indicator { color: #10b981; font-weight: 700; }
-        .incorrect-indicator { color: #ef4444; font-weight: 700; }
+        /* Tailwind CSS Utility Classes (Simplified for representation) */
+        .bg-gray-50 { background-color: #f9fafb; }
+        .sticky { position: sticky; }
+        .top-0 { top: 0; }
+        .z-50 { z-index: 50; }
+        .bg-white { background-color: #ffffff; }
+        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
+        .max-w-7xl { max-width: 80rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        /* ... (Include all necessary Tailwind classes or use a full CSS stylesheet) */
+
+        /* Custom Quiz Styles */
+        .option-label { 
+            transition: background-color 0.15s, border-color 0.15s; 
+            border: 1px solid #e5e7eb; /* gray-200 */
+        }
+        .option-label:hover { 
+            background-color: #fef2f2; /* red-50 */
+            border-color: #fca5a5; /* red-300 */
+        }
+        .option-input:checked + .option-label { 
+            background-color: #fee2e2; /* red-100 */ 
+            border-color: #ef4444; /* red-500 */ 
+            font-weight: 600; 
+        }
+        .correct-answer { 
+            background-color: #d1fae5 !important; /* green-100 */ 
+            border-color: #10b981 !important; /* green-500 */ 
+            font-weight: 700; 
+        }
+        .incorrect-answer { 
+            background-color: #fee2e2 !important; /* red-100 */ 
+            border-color: #ef4444 !important; /* red-500 */ 
+        }
+        .correct-indicator { 
+            color: #10b981; 
+            font-weight: 700; 
+        }
+        .incorrect-indicator { 
+            color: #ef4444; 
+            font-weight: 700; 
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -24,7 +59,7 @@
             <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
             <div class="space-x-4 md:space-x-8 text-lg font-medium">
                 <a href="index.html" class="text-gray-600 hover:text-red-600">Home</a>
-                <a href="marathi_quiz_10.html" class="text-blue-600 hover:text-blue-800">Quiz List</a> 
+                <a href="marathi_quiz_10.html" class="text-blue-600 hover:text-blue-800">प्रश्नमंजुषा यादी</a> 
                 <a href="marathi_class10.html" class="text-gray-600 hover:text-red-600">10th Videos</a>
             </div>
         </nav>
@@ -32,7 +67,7 @@
 
     <section class="bg-red-700 text-white py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-extrabold mb-2">दहावी मराठी: चाचणी २ (10 प्रश्न)</h2>
+            <h2 class="text-4xl font-extrabold mb-2">दहावी मराठी: चाचणी २ (20 प्रश्न)</h2>
             <p class="text-xl font-light">विषय: समास, प्रयोग आणि अलंकार</p>
         </div>
     </section>
@@ -42,120 +77,223 @@
             
             <div id="quiz-results" class="hidden bg-yellow-100 p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-yellow-500 text-center">
                 <h3 class="text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
-                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">10</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
+                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">20</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
                 <button onclick="window.location.href='marathi_quiz_10.html';" class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition mr-4">
-                    इतर चाचण्या पहा
+                    इतर प्रश्नमंजुषा पहा
                 </button>
                 <button onclick="window.location.reload();" class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
-                    पुन्हा प्रयत्न करा (Try Again)
+                    पुन्हा प्रयत्न करा 
                 </button>
             </div>
 
             <form id="marathi-quiz">
-
+                
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
                     <p class="text-xl font-bold text-gray-800 mb-4">1. 'आजन्म' हा कोणत्या समासाचा प्रकार आहे?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label for="q1a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) तत्पुरुष समास</label></div>
-                        <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label for="q1b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) अव्ययीभाव समास</label></div>
-                        <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label for="q1c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) द्वंद्व समास</label></div>
-                        <div><input type="radio" id="q1d" name="q1" value="D" class="option-input hidden"><label for="q1d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) बहुव्रीही समास</label></div>
+                        <div><input type="radio" id="q1a" name="q1" value="A" class="option-input hidden"><label for="q1a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) तत्पुरुष समास</label></div>
+                        <div><input type="radio" id="q1b" name="q1" value="B" class="option-input hidden"><label for="q1b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) अव्ययीभाव समास</label></div>
+                        <div><input type="radio" id="q1c" name="q1" value="C" class="option-input hidden"><label for="q1c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) द्वंद्व समास</label></div>
+                        <div><input type="radio" id="q1d" name="q1" value="D" class="option-input hidden"><label for="q1d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) बहुव्रीही समास</label></div>
                     </div>
                 </div>
 
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="C">
                     <p class="text-xl font-bold text-gray-800 mb-4">2. खालीलपैकी कोणते वाक्य 'कर्तरी प्रयोगाचे' (Active Voice) उदाहरण आहे?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label for="q2a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) मुलाने आंबा खाल्ला.</label></div>
-                        <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label for="q2b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) रामने रावणास मारले.</label></div>
-                        <div><div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) मी गाणे गातो.</label></div>
-                        <div><input type="radio" id="q2d" name="q2" value="D" class="option-input hidden"><label for="q2d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) मला आता करवते.</label></div>
+                        <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label for="q2a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) मुलाने आंबा खाल्ला.</label></div>
+                        <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label for="q2b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) रामने रावणास मारले.</label></div>
+                        <div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) मी गाणे गातो.</label></div>
+                        <div><input type="radio" id="q2d" name="q2" value="D" class="option-input hidden"><label for="q2d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) मला आता करवते.</label></div>
                     </div>
                 </div>
                 
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
                     <p class="text-xl font-bold text-gray-800 mb-4">3. 'आई म्हणजे ममतेचा सागर.' हे कोणत्या अलंकाराचे उदाहरण आहे?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q3a" name="q3" value="A" class="option-input hidden"><label for="q3a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) रूपक (Rupak)</label></div>
-                        <div><input type="radio" id="q3b" name="q3" value="B" class="option-input hidden"><label for="q3b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) उपमा (Upama)</label></div>
-                        <div><input type="radio" id="q3c" name="q3" value="C" class="option-input hidden"><label for="q3c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) उत्प्रेक्षा (Utpreksha)</label></div>
-                        <div><input type="radio" id="q3d" name="q3" value="D" class="option-input hidden"><label for="q3d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) चेतनगुणोक्ती</label></div>
+                        <div><input type="radio" id="q3a" name="q3" value="A" class="option-input hidden"><label for="q3a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) रूपक (Rupak)</label></div>
+                        <div><input type="radio" id="q3b" name="q3" value="B" class="option-input hidden"><label for="q3b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) उपमा (Upama)</label></div>
+                        <div><input type="radio" id="q3c" name="q3" value="C" class="option-input hidden"><label for="q3c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) उत्प्रेक्षा (Utpreksha)</label></div>
+                        <div><input type="radio" id="q3d" name="q3" value="D" class="option-input hidden"><label for="q3d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) चेतनगुणोक्ती</label></div>
                     </div>
                 </div>
                 
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="D">
                     <p class="text-xl font-bold text-gray-800 mb-4">4. ज्या समासात पहिले पद संख्याविशेषण असते, तो कोणता समास?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q4a" name="q4" value="A" class="option-input hidden"><label for="q4a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) कर्मधारय समास</label></div>
-                        <div><input type="radio" id="q4b" name="q4" value="B" class="option-input hidden"><label for="q4b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) तत्पुरुष समास</label></div>
-                        <div><input type="radio" id="q4c" name="q4" value="C" class="option-input hidden"><label for="q4c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) द्वंद्व समास</label></div>
-                        <div><input type="radio" id="q4d" name="q4" value="D" class="option-input hidden"><label for="q4d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) द्विगु समास (Dwigu Samas)</label></div>
+                        <div><input type="radio" id="q4a" name="q4" value="A" class="option-input hidden"><label for="q4a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) कर्मधारय समास</label></div>
+                        <div><input type="radio" id="q4b" name="q4" value="B" class="option-input hidden"><label for="q4b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) तत्पुरुष समास</label></div>
+                        <div><input type="radio" id="q4c" name="q4" value="C" class="option-input hidden"><label for="q4c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) द्वंद्व समास</label></div>
+                        <div><input type="radio" id="q4d" name="q4" value="D" class="option-input hidden"><label for="q4d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) द्विगु समास (Dwigu Samas)</label></div>
                     </div>
                 </div>
 
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
                     <p class="text-xl font-bold text-gray-800 mb-4">5. 'पोलिसांकडून चोर पकडला गेला.' हे कोणत्या प्रयोगाचे उदाहरण आहे?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q5a" name="q5" value="A" class="option-input hidden"><label for="q5a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) कर्मणी प्रयोग (Passive Voice)</label></div>
-                        <div><input type="radio" id="q5b" name="q5" value="B" class="option-input hidden"><label for="q5b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) कर्तरी प्रयोग</label></div>
-                        <div><input type="radio" id="q5c" name="q5" value="C" class="option-input hidden"><label for="q5c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) भावे प्रयोग</label></div>
-                        <div><input type="radio" id="q5d" name="q5" value="D" class="option-input hidden"><label for="q5d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) शक्य कर्मणी</label></div>
+                        <div><input type="radio" id="q5a" name="q5" value="A" class="option-input hidden"><label for="q5a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) कर्मणी प्रयोग (Passive Voice)</label></div>
+                        <div><input type="radio" id="q5b" name="q5" value="B" class="option-input hidden"><label for="q5b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) कर्तरी प्रयोग</label></div>
+                        <div><input type="radio" id="q5c" name="q5" value="C" class="option-input hidden"><label for="q5c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) भावे प्रयोग</label></div>
+                        <div><input type="radio" id="q5d" name="q5" value="D" class="option-input hidden"><label for="q5d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) शक्य कर्मणी</label></div>
                     </div>
                 </div>
 
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
                     <p class="text-xl font-bold text-gray-800 mb-4">6. 'हा अंबरीचा चंद्रमा जणू' - या वाक्यात कोणता अलंकार आहे?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q6a" name="q6" value="A" class="option-input hidden"><label for="q6a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) उपमा</label></div>
-                        <div><input type="radio" id="q6b" name="q6" value="B" class="option-input hidden"><label for="q6b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) उत्प्रेक्षा (Utpreksha)</label></div>
-                        <div><input type="radio" id="q6c" name="q6" value="C" class="option-input hidden"><label for="q6c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) रूपक</label></div>
-                        <div><input type="radio" id="q6d" name="q6" value="D" class="option-input hidden"><label for="q6d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) दृष्टांत</label></div>
+                        <div><input type="radio" id="q6a" name="q6" value="A" class="option-input hidden"><label for="q6a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) उपमा</label></div>
+                        <div><input type="radio" id="q6b" name="q6" value="B" class="option-input hidden"><label for="q6b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) उत्प्रेक्षा (Utpreksha)</label></div>
+                        <div><input type="radio" id="q6c" name="q6" value="C" class="option-input hidden"><label for="q6c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) रूपक</label></div>
+                        <div><input type="radio" id="q6d" name="q6" value="D" class="option-input hidden"><label for="q6d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) दृष्टांत</label></div>
                     </div>
                 </div>
 
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
                     <p class="text-xl font-bold text-gray-800 mb-4">7. 'आईवडील' हा कोणत्या द्वंद्व समासाचा प्रकार आहे?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q7a" name="q7" value="A" class="option-input hidden"><label for="q7a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) इतरेतर द्वंद्व समास</label></div>
-                        <div><input type="radio" id="q7b" name="q7" value="B" class="option-input hidden"><label for="q7b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) वैकल्पिक द्वंद्व समास</label></div>
-                        <div><input type="radio" id="q7c" name="q7" value="C" class="option-input hidden"><label for="q7c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) समाहार द्वंद्व समास</label></div>
-                        <div><input type="radio" id="q7d" name="q7" value="D" class="option-input hidden"><label for="q7d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) द्विगु समास</label></div>
+                        <div><input type="radio" id="q7a" name="q7" value="A" class="option-input hidden"><label for="q7a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) इतरेतर द्वंद्व समास</label></div>
+                        <div><input type="radio" id="q7b" name="q7" value="B" class="option-input hidden"><label for="q7b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) वैकल्पिक द्वंद्व समास</label></div>
+                        <div><input type="radio" id="q7c" name="q7" value="C" class="option-input hidden"><label for="q7c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) समाहार द्वंद्व समास</label></div>
+                        <div><input type="radio" id="q7d" name="q7" value="D" class="option-input hidden"><label for="q7d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) द्विगु समास</label></div>
                     </div>
                 </div>
 
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
                     <p class="text-xl font-bold text-gray-800 mb-4">8. 'त्याने आता घरी जावे.' या वाक्यातील प्रयोग ओळखा.</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q8a" name="q8" value="A" class="option-input hidden"><label for="q8a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) कर्तरी प्रयोग</label></div>
-                        <div><input type="radio" id="q8b" name="q8" value="B" class="option-input hidden"><label for="q8b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) भावे प्रयोग (Bhave Prayog)</label></div>
-                        <div><input type="radio" id="q8c" name="q8" value="C" class="option-input hidden"><label for="q8c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) कर्मणी प्रयोग</label></div>
-                        <div><input type="radio" id="q8d" name="q8" value="D" class="option-input hidden"><label for="q8d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) नवीन कर्मणी</label></div>
+                        <div><input type="radio" id="q8a" name="q8" value="A" class="option-input hidden"><label for="q8a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) कर्तरी प्रयोग</label></div>
+                        <div><input type="radio" id="q8b" name="q8" value="B" class="option-input hidden"><label for="q8b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) भावे प्रयोग (Bhave Prayog)</label></div>
+                        <div><input type="radio" id="q8c" name="q8" value="C" class="option-input hidden"><label for="q8c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) कर्मणी प्रयोग</label></div>
+                        <div><input type="radio" id="q8d" name="q8" value="D" class="option-input hidden"><label for="q8d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) नवीन कर्मणी</label></div>
                     </div>
                 </div>
                 
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
                     <p class="text-xl font-bold text-gray-800 mb-4">9. 'दशमुख' (दहा आहेत मुखे ज्याला) हा कोणत्या समासाचा प्रकार आहे?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q9a" name="q9" value="A" class="option-input hidden"><label for="q9a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) बहुव्रीही समास (Bahuvrihi Samas)</label></div>
-                        <div><input type="radio" id="q9b" name="q9" value="B" class="option-input hidden"><label for="q9b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) द्विगु समास</label></div>
-                        <div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label for="q9c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) अव्ययीभाव समास</label></div>
-                        <div><input type="radio" id="q9d" name="q9" value="D" class="option-input hidden"><label for="q9d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) तत्पुरुष समास</label></div>
+                        <div><input type="radio" id="q9a" name="q9" value="A" class="option-input hidden"><label for="q9a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) बहुव्रीही समास (Bahuvrihi Samas)</label></div>
+                        <div><input type="radio" id="q9b" name="q9" value="B" class="option-input hidden"><label for="q9b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) द्विगु समास</label></div>
+                        <div><input type="radio" id="q9c" name="q9" value="C" class="option-input hidden"><label for="q9c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) अव्ययीभाव समास</label></div>
+                        <div><input type="radio" id="q9d" name="q9" value="D" class="option-input hidden"><label for="q9d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) तत्पुरुष समास</label></div>
                     </div>
                 </div>
 
                 <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="D">
                     <p class="text-xl font-bold text-gray-800 mb-4">10. 'कमलासारखे सुंदर डोळे' या वाक्यात कोणता अलंकार आहे?</p>
                     <div class="space-y-3">
-                        <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label for="q10a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) रूपक</label></div>
-                        <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label for="q10b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) दृष्टांत</label></div>
-                        <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label for="q10c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) चेतनगुणोक्ती</label></div>
-                        <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label for="q10d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) उपमा (Upama)</label></div>
+                        <div><input type="radio" id="q10a" name="q10" value="A" class="option-input hidden"><label for="q10a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) रूपक</label></div>
+                        <div><input type="radio" id="q10b" name="q10" value="B" class="option-input hidden"><label for="q10b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) दृष्टांत</label></div>
+                        <div><input type="radio" id="q10c" name="q10" value="C" class="option-input hidden"><label for="q10c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) चेतनगुणोक्ती</label></div>
+                        <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label for="q10d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) उपमा (Upama)</label></div>
+                    </div>
+                </div>
+                
+                <h3 class="text-3xl font-extrabold text-gray-800 mb-6 mt-12 text-center border-b-2 pb-2 border-red-500">अतिरिक्त प्रश्न (Additional Questions)</h3>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">11. 'यथाशक्ती' या सामासिक शब्दाचा विग्रह कसा होईल?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q11a" name="q11" value="A" class="option-input hidden"><label for="q11a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) शक्तीप्रमाणे</label></div>
+                        <div><input type="radio" id="q11b" name="q11" value="B" class="option-input hidden"><label for="q11b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) शक्ती आणि यथा</label></div>
+                        <div><input type="radio" id="q11c" name="q11" value="C" class="option-input hidden"><label for="q11c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) शक्तीचे</label></div>
+                        <div><input type="radio" id="q11d" name="q11" value="D" class="option-input hidden"><label for="q11d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) शक्तीसाठी</label></div>
                     </div>
                 </div>
 
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="D">
+                    <p class="text-xl font-bold text-gray-800 mb-4">12. 'तो अभ्यास करतो.' या वाक्यातील प्रयोग ओळखा.</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q12a" name="q12" value="A" class="option-input hidden"><label for="q12a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) कर्मणी प्रयोग</label></div>
+                        <div><input type="radio" id="q12b" name="q12" value="B" class="option-input hidden"><label for="q12b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) भावे प्रयोग</label></div>
+                        <div><input type="radio" id="q12c" name="q12" value="C" class="option-input hidden"><label for="q12c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) पुराण कर्मणी</label></div>
+                        <div><input type="radio" id="q12d" name="q12" value="D" class="option-input hidden"><label for="q12d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) कर्तरी प्रयोग</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">13. 'सावन बाळा, थेंबाथेंबा' - या वाक्यात **एकाच अक्षराची** पुनरावृत्ती झाल्यामुळे कोणता अलंकार होतो?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q13a" name="q13" value="A" class="option-input hidden"><label for="q13a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) उपमा</label></div>
+                        <div><input type="radio" id="q13b" name="q13" value="B" class="option-input hidden"><label for="q13b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) अनुप्रास (Alliteration)</label></div>
+                        <div><input type="radio" id="q13c" name="q13" value="C" class="option-input hidden"><label for="q13c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) यमक</label></div>
+                        <div><input type="radio" id="q13d" name="q13" value="D" class="option-input hidden"><label for="q13d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) रूपक</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">14. 'कृष्णधवल' (कृष्ण किंवा धवल) हा कोणत्या द्वंद्व समासाचा प्रकार आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q14a" name="q14" value="A" class="option-input hidden"><label for="q14a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) इतरेतर द्वंद्व समास</label></div>
+                        <div><input type="radio" id="q14b" name="q14" value="B" class="option-input hidden"><label for="q14b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) समाहार द्वंद्व समास</label></div>
+                        <div><input type="radio" id="q14c" name="q14" value="C" class="option-input hidden"><label for="q14c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) वैकल्पिक द्वंद्व समास</label></div>
+                        <div><input type="radio" id="q14d" name="q14" value="D" class="option-input hidden"><label for="q14d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) कर्मधारय</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">15. 'मी त्याला विचारतो.' या वाक्यातील कर्मणी प्रयोग करा.</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q15a" name="q15" value="A" class="option-input hidden"><label for="q15a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) त्याने मला विचारले.</label></div>
+                        <div><input type="radio" id="q15b" name="q15" value="B" class="option-input hidden"><label for="q15b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) माझ्याकडून त्याला विचारले जाते.</label></div>
+                        <div><input type="radio" id="q15c" name="q15" value="C" class="option-input hidden"><label for="q15c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) त्याला विचारवे.</label></div>
+                        <div><input type="radio" id="q15d" name="q15" value="D" class="option-input hidden"><label for="q15d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) मी विचारतो त्याला.</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="D">
+                    <p class="text-xl font-bold text-gray-800 mb-4">16. 'सुख म्हणजे दुसरं काय, आभाळच जणू' - या वाक्यात कोणता अलंकार आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q16a" name="q16" value="A" class="option-input hidden"><label for="q16a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) व्यतिरेक</label></div>
+                        <div><input type="radio" id="q16b" name="q16" value="B" class="option-input hidden"><label for="q16b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) रूपक</label></div>
+                        <div><input type="radio" id="q16c" name="q16" value="C" class="option-input hidden"><label for="q16c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) अनन्वय</label></div>
+                        <div><input type="radio" id="q16d" name="q16" value="D" class="option-input hidden"><label for="q16d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) उत्प्रेक्षा</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">17. 'वनभोजन' या सामासिक शब्दाचा विग्रह करताना कोणते विभक्तीचे रूप वापरावे लागेल?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q17a" name="q17" value="A" class="option-input hidden"><label for="q17a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) प्रथमा</label></div>
+                        <div><input type="radio" id="q17b" name="q17" value="B" class="option-input hidden"><label for="q17b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) द्वितीया</label></div>
+                        <div><input type="radio" id="q17c" name="q17" value="C" class="option-input hidden"><label for="q17c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) सप्तमी (वनात भोजन)</label></div>
+                        <div><input type="radio" id="q17d" name="q17" value="D" class="option-input hidden"><label for="q17d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) चतुर्थी</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">18. 'आकाशातील तारे हसले.' या वाक्यात कोणता अलंकार आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q18a" name="q18" value="A" class="option-input hidden"><label for="q18a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) चेतनगुणोक्ती (Personification)</label></div>
+                        <div><input type="radio" id="q18b" name="q18" value="B" class="option-input hidden"><label for="q18b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) दृष्टांत</label></div>
+                        <div><input type="radio" id="q18c" name="q18" value="C" class="option-input hidden"><label for="q18c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) श्लेष</label></div>
+                        <div><input type="radio" id="q18d" name="q18" value="D" class="option-input hidden"><label for="q18d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) रूपक</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="D">
+                    <p class="text-xl font-bold text-gray-800 mb-4">19. 'आम्हाला दररोज मैदानावर खेळवते.' या वाक्यातील प्रयोग ओळखा.</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q19a" name="q19" value="A" class="option-input hidden"><label for="q19a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) कर्तरी</label></div>
+                        <div><input type="radio" id="q19b" name="q19" value="B" class="option-input hidden"><label for="q19b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) कर्मणी</label></div>
+                        <div><input type="radio" id="q19c" name="q19" value="C" class="option-input hidden"><label for="q19c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) प्रधान कर्तृक कर्मणी</label></div>
+                        <div><input type="radio" id="q19d" name="q19" value="D" class="option-input hidden"><label for="q19d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) शक्य कर्मणी</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">20. 'त्रिभुवन' (तीन भुवनांचा समूह) हा कोणत्या समासाचा प्रकार आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q20a" name="q20" value="A" class="option-input hidden"><label for="q20a" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">A) द्विगु समास</label></div>
+                        <div><input type="radio" id="q20b" name="q20" value="B" class="option-input hidden"><label for="q20b" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">B) तत्पुरुष समास</label></div>
+                        <div><input type="radio" id="q20c" name="q20" value="C" class="option-input hidden"><label for="q20c" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">C) बहुव्रीही समास</label></div>
+                        <div><input type="radio" id="q20d" name="q20" value="D" class="option-input hidden"><label for="q20d" class="option-label block p-3 rounded-lg cursor-pointer transition duration-150">D) अव्ययीभाव समास</label></div>
+                    </div>
+                </div>
+
+
                 <div class="text-center mt-12">
                     <button type="submit" id="submit-quiz" class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
-                        निकाल तपासा (Check Result)
+                        निकाल तपासा 
                     </button>
                     <p class="mt-4 text-sm text-gray-500">
                         टीप (Note): हा प्रश्न संच दहावी मराठी व्याकरण आधारित आहे.
@@ -179,12 +317,18 @@
             let score = 0;
             const resultsDiv = document.getElementById('quiz-results');
             const submitButton = document.getElementById('submit-quiz');
+            
+            // Set total questions display
+            document.getElementById('total-questions-display').textContent = questions.length;
+
 
             questions.forEach((qBlock, index) => {
+                const qNumber = index + 1;
                 const correctAnswer = qBlock.getAttribute('data-correct-answer');
-                const questionName = `q${index + 1}`;
+                const questionName = `q${qNumber}`;
                 const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
                 
+                // Clear previous highlights and feedback
                 qBlock.querySelectorAll('.option-label').forEach(label => {
                     label.classList.remove('correct-answer', 'incorrect-answer');
                 });
@@ -201,19 +345,22 @@
                     } else {
                         selectedLabel.classList.add('incorrect-answer');
                         
-                        const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                        // Highlight correct answer if incorrect option was selected
+                        const correctId = `q${qNumber}${correctAnswer.toLowerCase()}`;
                         const correctLabel = document.querySelector(`label[for="${correctId}"]`);
                         if (correctLabel) {
                             correctLabel.classList.add('correct-answer');
                         }
                         
+                        // Display feedback for incorrect answer
                         const feedback = document.createElement('p');
                         feedback.className = 'result-feedback mt-2 text-sm incorrect-indicator';
-                        feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`; 
+                        feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel ? correctLabel.textContent.substring(3) : 'माहित नाही'}`; 
                         qBlock.appendChild(feedback);
                     }
                 } else {
-                    const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                    // Display correct answer if no option was selected
+                    const correctId = `q${qNumber}${correctAnswer.toLowerCase()}`;
                     const correctLabel = document.querySelector(`label[for="${correctId}"]`);
                     
                     if (correctLabel) {
@@ -226,25 +373,66 @@
                     }
                 }
 
+                // Disable all radio buttons after submission
                 qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
                     radio.disabled = true;
                 });
             });
 
+            // Display results
             document.getElementById('score-display').textContent = score;
-            document.getElementById('total-questions-display').textContent = questions.length;
             resultsDiv.classList.remove('hidden');
             
+            // Scroll to results
             window.scrollTo({
                 top: resultsDiv.offsetTop - 80,
                 behavior: 'smooth'
             });
 
+            // Disable submit button
             submitButton.textContent = "निकाल दर्शविला आहे";
             submitButton.disabled = true;
             submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
             submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
         });
+        
+        // --- JS for Navigation (as requested) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('a[href="index.html"]').addEventListener('click', (e) => {
+                e.preventDefault();
+                // In a real scenario, this would navigate to the page
+                alert('Navigating to Home (index.html)'); 
+                // window.location.href = 'index.html'; 
+            });
+
+            // The 'Quiz List' link is now 'प्रश्नमंजुषा यादी'
+            document.querySelector('a[href="marathi_quiz_10.html"]').addEventListener('click', (e) => {
+                e.preventDefault();
+                // In a real scenario, this would navigate to the page
+                alert('Navigating to Quiz List (प्रश्नमंजुषा यादी: marathi_quiz_10.html)');
+                // window.location.href = 'marathi_quiz_10.html';
+            });
+            
+            document.querySelector('a[href="marathi_class10.html"]').addEventListener('click', (e) => {
+                e.preventDefault();
+                // In a real scenario, this would navigate to the page
+                alert('Navigating to 10th Videos (marathi_class10.html)');
+                // window.location.href = 'marathi_class10.html';
+            });
+            
+            // Re-adding functionality to the buttons in the results div
+             document.querySelector('#quiz-results button:nth-child(2)').addEventListener('click', () => {
+                // This reloads the page to try again
+                window.location.reload();
+            });
+            
+             document.querySelector('#quiz-results button:nth-child(1)').addEventListener('click', () => {
+                 // This navigates to the quiz list
+                alert('Navigating to Quiz List (प्रश्नमंजुषा यादी: marathi_quiz_10.html)');
+                // window.location.href = 'marathi_quiz_10.html';
+            });
+        });
+        // --- End of JS for Navigation ---
     </script>
-    </body>
+</body>
 </html>

@@ -3,18 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>दहावी मराठी क्विझ ३ - T.T. Patil Pishavikar</title>
-  
+    <title>दहावी मराठी प्रश्नमंजुषा ३ - T.T. Patil Pishavikar</title>
+ 
     <link rel="stylesheet" href="style.css">
     <style>
-        /* [Standard Quiz Styles Remain Here] */
-        .option-label { transition: background-color 0.15s, border-color- 0.15s; }
-        .option-label:hover { background-color: #fef2f2; }
-        .option-input:checked + .option-label { background-color: #fee2e2; border-color: #ef4444; font-weight: 600; }
-        .correct-answer { background-color: #d1fae5; border-color: #10b981; font-weight: 700; }
-        .incorrect-answer { background-color: #fee2e2; border-color: #ef4444; }
-        .correct-indicator { color: #10b981; font-weight: 700; }
-        .incorrect-indicator { color: #ef4444; font-weight: 700; }
+        /* Tailwind CSS Utility Classes (Simplified for representation) */
+        .bg-gray-50 { background-color: #f9fafb; }
+        .sticky { position: sticky; }
+        .top-0 { top: 0; }
+        .z-50 { z-index: 50; }
+        .bg-white { background-color: #ffffff; }
+        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); }
+        .max-w-7xl { max-width: 80rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        /* ... (Include all necessary Tailwind classes or use a full CSS stylesheet) */
+
+        /* Custom Quiz Styles */
+        .option-label { 
+            transition: background-color 0.15s, border-color 0.15s; 
+            border: 1px solid #e5e7eb; /* gray-200 */
+        }
+        .option-label:hover { 
+            background-color: #fef2f2; /* red-50 */
+            border-color: #fca5a5; /* red-300 */
+        }
+        .option-input:checked + .option-label { 
+            background-color: #fee2e2; /* red-100 */ 
+            border-color: #ef4444; /* red-500 */ 
+            font-weight: 600; 
+        }
+        .correct-answer { 
+            background-color: #d1fae5 !important; /* green-100 */ 
+            border-color: #10b981 !important; /* green-500 */ 
+            font-weight: 700; 
+        }
+        .incorrect-answer { 
+            background-color: #fee2e2 !important; /* red-100 */ 
+            border-color: #ef4444 !important; /* red-500 */ 
+        }
+        .correct-indicator { 
+            color: #10b981; 
+            font-weight: 700; 
+        }
+        .incorrect-indicator { 
+            color: #ef4444; 
+            font-weight: 700; 
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -24,7 +59,7 @@
             <h1 class="text-2xl md:text-3xl font-bold text-red-700">T.T. Patil Pishavikar</h1>
             <div class="space-x-4 md:space-x-8 text-lg font-medium">
                 <a href="index.html" class="text-gray-600 hover:text-red-600">Home</a>
-                <a href="marathi_quiz_10.html" class="text-blue-600 hover:text-blue-800">Quiz List</a> 
+                <a href="marathi_quiz_10.html" class="text-blue-600 hover:text-blue-800">प्रश्नमंजुषा यादी</a> 
                 <a href="marathi_class10.html" class="text-gray-600 hover:text-red-600">10th Videos</a>
             </div>
         </nav>
@@ -32,7 +67,7 @@
 
     <section class="bg-red-700 text-white py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-extrabold mb-2">दहावी मराठी: चाचणी ३ (10 प्रश्न)</h2>
+            <h2 class="text-4xl font-extrabold mb-2">दहावी मराठी: चाचणी ३ (20 प्रश्न)</h2>
             <p class="text-xl font-light">विषय: उपयोजित लेखन (पत्रलेखन, जाहिरात, सारांश)</p>
         </div>
     </section>
@@ -42,12 +77,12 @@
             
             <div id="quiz-results" class="hidden bg-yellow-100 p-8 rounded-xl shadow-2xl mb-12 border-l-8 border-yellow-500 text-center">
                 <h3 class="text-3xl font-extrabold text-gray-800 mb-2">तुमचा निकाल! 🎉</h3>
-                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">10</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
+                <p class="text-xl text-gray-600 mb-4">तुम्ही <span id="total-questions-display" class="font-bold text-lg">20</span> पैकी <span id="score-display" class="text-green-600 font-bold text-3xl mx-2">0</span> प्रश्न बरोबर सोडवले.</p>
                 <button onclick="window.location.href='marathi_quiz_10.html';" class="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition mr-4">
-                    इतर चाचण्या पहा
+                    इतर प्रश्नमंजुषा पहा
                 </button>
                 <button onclick="window.location.reload();" class="bg-orange-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-orange-600 transition">
-                    पुन्हा प्रयत्न करा (Try Again)
+                    पुन्हा प्रयत्न करा
                 </button>
             </div>
 
@@ -68,7 +103,7 @@
                     <div class="space-y-3">
                         <div><input type="radio" id="q2a" name="q2" value="A" class="option-input hidden"><label for="q2a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) मूळ लेखनाचा विस्तार करणे.</label></div>
                         <div><input type="radio" id="q2b" name="q2" value="B" class="option-input hidden"><label for="q2b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) अवतरणे (Quotes) जशीच्या तशी वापरणे.</label></div>
-                        <div><div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) मूळ लेखनाचा आशय कमी शब्दांत मांडणे.</label></div>
+                        <div><input type="radio" id="q2c" name="q2" value="C" class="option-input hidden"><label for="q2c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) मूळ लेखनाचा आशय कमी शब्दांत मांडणे.</label></div>
                         <div><input type="radio" id="q2d" name="q2" value="D" class="option-input hidden"><label for="q2d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) नवीन माहितीचा समावेश करणे.</label></div>
                     </div>
                 </div>
@@ -152,13 +187,115 @@
                         <div><input type="radio" id="q10d" name="q10" value="D" class="option-input hidden"><label for="q10d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) आपला विश्वासू / आपली नम्र</label></div>
                     </div>
                 </div>
+                
+                <h3 class="text-3xl font-extrabold text-gray-800 mb-6 mt-12 text-center border-b-2 pb-2 border-red-500">अतिरिक्त प्रश्न (Additional Questions)</h3>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">11. जाहिरात तयार करताना 'A.I.D.A.' तत्त्वामधील 'A' चा अर्थ काय?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q11a" name="q11" value="A" class="option-input hidden"><label for="q11a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) ॲक्शन (Action)</label></div>
+                        <div><input type="radio" id="q11b" name="q11" value="B" class="option-input hidden"><label for="q11b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) ॲटीट्यूड (Attitude)</label></div>
+                        <div><input type="radio" id="q11c" name="q11" value="C" class="option-input hidden"><label for="q11c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) लक्ष वेधणे (Attention)</label></div>
+                        <div><input type="radio" id="q11d" name="q11" value="D" class="option-input hidden"><label for="q11d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) ॲव्हेन्यू (Avenue)</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">12. अनौपचारिक पत्रात पत्ता (Address) आणि दिनांक (Date) कोठे लिहिले जाते?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q12a" name="q12" value="A" class="option-input hidden"><label for="q12a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) पत्राच्या खालील बाजूस (डावीकडे)</label></div>
+                        <div><input type="radio" id="q12b" name="q12" value="B" class="option-input hidden"><label for="q12b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) पत्राच्या सुरुवातीला (उजवीकडे/डावीकडे, नवीन पॅटर्ननुसार)</label></div>
+                        <div><input type="radio" id="q12c" name="q12" value="C" class="option-input hidden"><label for="q12c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) मध्यभागी</label></div>
+                        <div><input type="radio" id="q12d" name="q12" value="D" class="option-input hidden"><label for="q12d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) समारोपाच्या नंतर</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="D">
+                    <p class="text-xl font-bold text-gray-800 mb-4">13. सारांश लेखन करताना खालीलपैकी कोणता भाग टाळावा?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q13a" name="q13" value="A" class="option-input hidden"><label for="q13a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) मुख्य कल्पना</label></div>
+                        <div><input type="radio" id="q13b" name="q13" value="B" class="option-input hidden"><label for="q13b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) मूळ आशय</label></div>
+                        <div><input type="radio" id="q13c" name="q13" value="C" class="option-input hidden"><label for="q13c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) योग्य शीर्षक</label></div>
+                        <div><input type="radio" id="q13d" name="q13" value="D" class="option-input hidden"><label for="q13d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) अलंकारिक आणि अनावश्यक उदाहरणे</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">14. औपचारिक पत्रात 'प्रेषक' (Sender) याचा पत्ता कोठे लिहिला जातो?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q14a" name="q14" value="A" class="option-input hidden"><label for="q14a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) पत्राच्या शेवटी</label></div>
+                        <div><input type="radio" id="q14b" name="q14" value="B" class="option-input hidden"><label for="q14b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) 'विषय' नंतर</label></div>
+                        <div><input type="radio" id="q14c" name="q14" value="C" class="option-input hidden"><label for="q14c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) सुरुवातीला 'दिनांक' नंतर</label></div>
+                        <div><input type="radio" id="q14d" name="q14" value="D" class="option-input hidden"><label for="q14d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) 'प्रति' च्या खाली</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">15. जाहिरात लेखनात 'संपर्क' (Contact) तपशील देणे का आवश्यक आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q15a" name="q15" value="A" class="option-input hidden"><label for="q15a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) ग्राहकाला उत्पादन खरेदीसाठी किंवा अधिक माहितीसाठी संपर्क साधता यावा म्हणून.</label></div>
+                        <div><input type="radio" id="q15b" name="q15" value="B" class="option-input hidden"><label for="q15b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) जाहिरात मोठी करण्यासाठी.</label></div>
+                        <div><input type="radio" id="q15c" name="q15" value="C" class="option-input hidden"><label for="q15c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) फक्त औपचारिक पत्रात संपर्क असतो.</label></div>
+                        <div><input type="radio" id="q15d" name="q15" value="D" class="option-input hidden"><label for="q15d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) सारांश तयार करण्यासाठी.</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">16. 'वक्तृत्व स्पर्धेत प्रथम क्रमांक मिळाल्याबद्दल मित्राला पत्र' हे कोणत्या प्रकारचे पत्र आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q16a" name="q16" value="A" class="option-input hidden"><label for="q16a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) औपचारिक पत्र</label></div>
+                        <div><input type="radio" id="q16b" name="q16" value="B" class="option-input hidden"><label for="q16b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) अनौपचारिक पत्र</label></div>
+                        <div><input type="radio" id="q16c" name="q16" value="C" class="option-input hidden"><label for="q16c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) अर्ज पत्र</label></div>
+                        <div><input type="radio" id="q16d" name="q16" value="D" class="option-input hidden"><label for="q16d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) मागणी पत्र</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">17. सारांश लेखनाचे कौशल्य कोणत्या लेखनप्रकारासाठी आवश्यक आहे?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q17a" name="q17" value="A" class="option-input hidden"><label for="q17a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) निबंधाची रूपरेषा तयार करणे</label></div>
+                        <div><input type="radio" id="q17b" name="q17" value="B" class="option-input hidden"><label for="q17b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) जाहिरात लेखन</label></div>
+                        <div><input type="radio" id="q17c" name="q17" value="C" class="option-input hidden"><label for="q17c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) औपचारिक पत्रलेखन</label></div>
+                        <div><input type="radio" id="q17d" name="q17" value="D" class="option-input hidden"><label for="q17d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) कविता करणे</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="B">
+                    <p class="text-xl font-bold text-gray-800 mb-4">18. जाहिरात वाचकाला कशाची जाणीव करून देते?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q18a" name="q18" value="A" class="option-input hidden"><label for="q18a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) व्याकरण नियमांची</label></div>
+                        <div><input type="radio" id="q18b" name="q18" value="B" class="option-input hidden"><label for="q18b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) गरज, उपयुक्तता आणि उपलब्धतेची</label></div>
+                        <div><input type="radio" id="q18c" name="q18" value="C" class="option-input hidden"><label for="q18c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) इतिहास आणि भूगोलाची</label></div>
+                        <div><input type="radio" id="q18d" name="q18" value="D" class="option-input hidden"><label for="q18d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) भविष्यातील योजनांची</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="A">
+                    <p class="text-xl font-bold text-gray-800 mb-4">19. औपचारिक पत्रलेखनात पत्राचा शेवट कशाने केला जातो?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q19a" name="q19" value="A" class="option-input hidden"><label for="q19a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) स्वाक्षरी आणि आपले नाव</label></div>
+                        <div><input type="radio" id="q19b" name="q19" value="B" class="option-input hidden"><label for="q19b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) फक्त 'धन्यवाद'</label></div>
+                        <div><input type="radio" id="q19c" name="q19" value="C" class="option-input hidden"><label for="q19c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) विषय पुन्हा लिहून</label></div>
+                        <div><input type="radio" id="q19d" name="q19" value="D" class="option-input hidden"><label for="q19d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) पिन कोड</label></div>
+                    </div>
+                </div>
+
+                <div class="question-block bg-white p-6 rounded-xl shadow-lg mb-8 border-t-4 border-red-500" data-correct-answer="C">
+                    <p class="text-xl font-bold text-gray-800 mb-4">20. सारांश लेखन करताना मूळ उताऱ्यातील वाक्यांचे काय करू नये?</p>
+                    <div class="space-y-3">
+                        <div><input type="radio" id="q20a" name="q20" value="A" class="option-input hidden"><label for="q20a" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">A) वाक्यांचा क्रम पाळावा</label></div>
+                        <div><input type="radio" id="q20b" name="q20" value="B" class="option-input hidden"><label for="q20b" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">B) स्वतःच्या शब्दांत लिहावे</label></div>
+                        <div><input type="radio" id="q20c" name="q20" value="C" class="option-input hidden"><label for="q20c" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">C) जशीच्या तशी नक्कल (Copy) करू नये</label></div>
+                        <div><input type="radio" id="q20d" name="q20" value="D" class="option-input hidden"><label for="q20d" class="option-label block p-3 rounded-lg border border-gray-200 cursor-pointer transition duration-150">D) मुख्य मुद्दा वगळू नये</label></div>
+                    </div>
+                </div>
 
                 <div class="text-center mt-12">
                     <button type="submit" id="submit-quiz" class="bg-green-600 text-white text-xl font-semibold py-3 px-12 rounded-lg shadow-xl hover:bg-green-700 transition duration-300">
-                        निकाल तपासा (Check Result)
+                        निकाल तपासा 
                     </button>
                     <p class="mt-4 text-sm text-gray-500">
-                        टीप (Note): हा प्रश्न संच *दहावी मराठी उपयोजित लेखन* आधारित आहे.
+                        टीप (Note): हा प्रश्न संच दहावी मराठी उपयोजित लेखन आधारित आहे.
                     </p>
                 </div>
             </form>
@@ -179,12 +316,18 @@
             let score = 0;
             const resultsDiv = document.getElementById('quiz-results');
             const submitButton = document.getElementById('submit-quiz');
+            
+            // Set total questions display
+            document.getElementById('total-questions-display').textContent = questions.length;
+
 
             questions.forEach((qBlock, index) => {
+                const qNumber = index + 1;
                 const correctAnswer = qBlock.getAttribute('data-correct-answer');
-                const questionName = `q${index + 1}`;
+                const questionName = `q${qNumber}`;
                 const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
                 
+                // Clear previous highlights and feedback
                 qBlock.querySelectorAll('.option-label').forEach(label => {
                     label.classList.remove('correct-answer', 'incorrect-answer');
                 });
@@ -201,19 +344,22 @@
                     } else {
                         selectedLabel.classList.add('incorrect-answer');
                         
-                        const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                        // Highlight correct answer if incorrect option was selected
+                        const correctId = `q${qNumber}${correctAnswer.toLowerCase()}`;
                         const correctLabel = document.querySelector(`label[for="${correctId}"]`);
                         if (correctLabel) {
                             correctLabel.classList.add('correct-answer');
                         }
                         
+                        // Display feedback for incorrect answer
                         const feedback = document.createElement('p');
                         feedback.className = 'result-feedback mt-2 text-sm incorrect-indicator';
-                        feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel.textContent.substring(3)}`; 
+                        feedback.textContent = `❌ चूक! बरोबर उत्तर आहे: ${correctLabel ? correctLabel.textContent.substring(3) : 'माहित नाही'}`; 
                         qBlock.appendChild(feedback);
                     }
                 } else {
-                    const correctId = `q${index + 1}${correctAnswer.toLowerCase()}`;
+                    // Display correct answer if no option was selected
+                    const correctId = `q${qNumber}${correctAnswer.toLowerCase()}`;
                     const correctLabel = document.querySelector(`label[for="${correctId}"]`);
                     
                     if (correctLabel) {
@@ -226,25 +372,63 @@
                     }
                 }
 
+                // Disable all radio buttons after submission
                 qBlock.querySelectorAll('input[type="radio"]').forEach(radio => {
                     radio.disabled = true;
                 });
             });
 
+            // Display results
             document.getElementById('score-display').textContent = score;
-            document.getElementById('total-questions-display').textContent = questions.length;
             resultsDiv.classList.remove('hidden');
             
+            // Scroll to results
             window.scrollTo({
                 top: resultsDiv.offsetTop - 80,
                 behavior: 'smooth'
             });
 
+            // Disable submit button
             submitButton.textContent = "निकाल दर्शविला आहे";
             submitButton.disabled = true;
             submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
             submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
         });
+        
+        // --- JS for Navigation (as requested) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to handle navigation
+            const handleNavigation = (e) => {
+                e.preventDefault();
+                const href = e.currentTarget.getAttribute('href');
+                const text = e.currentTarget.textContent;
+                
+                // In a real scenario, this would navigate to the page
+                console.log(`Navigating to ${text} (${href})`); 
+                // window.location.href = href; 
+                alert(`Navigating to ${text} (${href})`);
+            };
+
+            // Setup navigation for header links
+            document.querySelector('a[href="index.html"]').addEventListener('click', handleNavigation);
+            document.querySelector('a[href="marathi_quiz_10.html"]').addEventListener('click', handleNavigation);
+            document.querySelector('a[href="marathi_class10.html"]').addEventListener('click', handleNavigation);
+            
+            // Setup navigation for results button (इतर प्रश्नमंजुषा पहा)
+             document.querySelector('#quiz-results button:nth-child(2)').addEventListener('click', () => {
+                // This navigates to the quiz list
+                console.log('Navigating to Quiz List (marathi_quiz_10.html)');
+                // window.location.href = 'marathi_quiz_10.html';
+                alert('Navigating to Quiz List (marathi_quiz_10.html)');
+            });
+            
+             // Setup navigation for results button (पुन्हा प्रयत्न करा)
+             document.querySelector('#quiz-results button:nth-child(3)').addEventListener('click', () => {
+                // This reloads the page to try again
+                window.location.reload();
+            });
+        });
+        // --- End of JS for Navigation ---
     </script>
-    </body>
+</body>
 </html>
