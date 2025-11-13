@@ -36,7 +36,8 @@ export default defineConfig({
         nmmsqz5:"sat_biology_quiz.html",
         nmmsqz6:"sat_geography_quiz.html",
         nmmsqz7:"sat_history_quiz.html",
-        nmmsqz8:"sat_science_quiz.html"
+        nmmsqz8:"sat_science_quiz.html",
+        js:"script.js"
       },
     },
   },
