@@ -96,7 +96,20 @@ document
     submitButton.classList.remove("bg-green-600", "hover:bg-green-700");
   });
 
+// navigation
 
+document.getElementById('menu-btn').addEventListener('click', function() {
+        var mobileMenu = document.getElementById('mobile-menu');
+        var hamburgerIcon = document.getElementById('hamburger-icon');
+        var closeIcon = document.getElementById('close-icon');
+
+        // 1. Toggle the visibility of the mobile menu
+        mobileMenu.classList.toggle('hidden');
+
+        // 2. Toggle the visibility of the icons (Hamburger <-> X)
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+    });
 
 
     
